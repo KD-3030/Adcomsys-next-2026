@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand Colors */
+  --color-brand-black: #000000;
+  --color-brand-navy: #14213d;
+  --color-brand-orange: #fca311;
+  --color-brand-gray: #e5e5e5;
+  --color-brand-white: #ffffff;
+
+  /* Base Colors */
+  --color-background: #fafafa;        /* Off-white background */
+  --color-foreground: #ffffff;        /* White text */
+
+  --color-card: #ffffff;
+  --color-card-foreground: #ffffff;   /* White text on cards */
+
+  --color-popover: #ffffff;
+  --color-popover-foreground: #ffffff;
+
+  --color-primary: #14213d;        /* Navy */
+  --color-primary-foreground: #ffffff;
+
+  --color-secondary: #fafafa;      /* Off-white for secondary */
+  --color-secondary-foreground: #ffffff;
+
+  --color-muted: #f5f5f5;          /* Lighter off-white */
+  --color-muted-foreground: #ffffff;
+
+  --color-accent: #fca311;         /* Orange */
+  --color-accent-foreground: #ffffff;
+
+  --color-destructive: #ef4444;
+  --color-destructive-foreground: #ffffff;
+
+  --color-border: #e5e5e5;
+  --color-input: #e5e5e5;
+  --color-ring: #fca311;           /* Orange ring */
+
+  --radius-lg: 0.5rem;
+  --radius-md: calc(0.5rem - 2px);
+  --radius-sm: calc(0.5rem - 4px);
+
+  /* Sidebar */
+  --color-sidebar-background: #14213d;
+  --color-sidebar-foreground: #ffffff;
+  --color-sidebar-primary: #fca311;
+  --color-sidebar-primary-foreground: #ffffff;
+  --color-sidebar-accent: #fca311;
+  --color-sidebar-accent-foreground: #ffffff;
+  --color-sidebar-border: #e5e5e5;
+  --color-sidebar-ring: #fca311;
+}
+
+@media (prefers-color-scheme: dark) {
+  @theme {
+    --color-background: #000000;
+    --color-foreground: #ffffff;
+
+    --color-card: #14213d;
+    --color-card-foreground: #ffffff;
+
+    --color-popover: #14213d;
+    --color-popover-foreground: #ffffff;
+
+    --color-primary: #fca311;
+    --color-primary-foreground: #000000;
+
+    --color-secondary: #14213d;
+    --color-secondary-foreground: #ffffff;
+
+    --color-muted: #14213d;
+    --color-muted-foreground: #e5e5e5;
+
+    --color-accent: #fca311;
+    --color-accent-foreground: #000000;
+
+    --color-border: #14213d;
+    --color-input: #14213d;
+  }
+}
+
+* {
+  border-color: var(--color-border);
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-feature-settings: "rlig" 1, "calt" 1;
+}
+

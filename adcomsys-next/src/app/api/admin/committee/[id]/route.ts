@@ -4,9 +4,10 @@ import { supabaseAdmin } from '@/lib/db'
 
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params
     const user = await getUserFromRequest(request)
     if (!user || user.role !== 'admin') {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 403 })
@@ -37,7 +38,7 @@ export async function PUT(
         display_order: display_order || 0,
         is_active: is_active !== undefined ? is_active : true
       })
-      .eq('id', params.id)
+      .eq('id', id)
       .select()
       .single()
 
@@ -53,7 +54,7 @@ export async function PUT(
         admin_id: user.userId,
         action: 'update',
         entity_type: 'committee_members',
-        entity_id: params.id,
+        entity_id: id,
         details: { name, committee_type }
       })
       .then(() => {})
@@ -68,9 +69,10 @@ export async function PUT(
 
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params
     const user = await getUserFromRequest(request)
     if (!user || user.role !== 'admin') {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 403 })
@@ -79,7 +81,7 @@ export async function DELETE(
     const { error } = await supabaseAdmin
       .from('committee_members')
       .delete()
-      .eq('id', params.id)
+      .eq('id', id)
 
     if (error) {
       console.error('Failed to delete committee member:', error)
@@ -93,7 +95,7 @@ export async function DELETE(
         admin_id: user.userId,
         action: 'delete',
         entity_type: 'committee_members',
-        entity_id: params.id
+        entity_id: id
       })
       .then(() => {})
       .catch(() => {})

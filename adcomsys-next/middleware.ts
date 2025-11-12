@@ -28,6 +28,11 @@ export async function middleware(request: NextRequest) {
 
   // Redirect authenticated users away from auth pages
   if (user && (request.nextUrl.pathname === '/login' || request.nextUrl.pathname === '/signup')) {
+    // Check if user is admin and redirect to admin dashboard
+    const { data: profile } = await db.getUserById(user.userId)
+    if (profile?.role === 'admin') {
+      return NextResponse.redirect(new URL('/admin', request.url))
+    }
     return NextResponse.redirect(new URL('/dashboard', request.url))
   }
 

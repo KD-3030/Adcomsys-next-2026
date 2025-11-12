@@ -124,9 +124,9 @@ export default function PaymentsPage() {
 
   const getStatusBadge = (status: string) => {
     const config = {
-      pending: { color: 'bg-orange-600', text: 'Pending' },
-      approved: { color: 'bg-green-600', text: 'Approved' },
-      rejected: { color: 'bg-red-600', text: 'Rejected' }
+      pending: { color: 'bg-brand-orange text-brand-navy', text: 'Pending' },
+      approved: { color: 'bg-brand-navy text-white', text: 'Approved' },
+      rejected: { color: 'bg-red-600 text-white', text: 'Rejected' }
     }
     const { color, text } = config[status as keyof typeof config] || config.pending
     return <Badge className={color}>{text}</Badge>
@@ -160,7 +160,7 @@ export default function PaymentsPage() {
   if (isLoading) {
     return (
       <div className="flex items-center justify-center h-64">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand-orange"></div>
       </div>
     )
   }
@@ -168,14 +168,14 @@ export default function PaymentsPage() {
   return (
     <div className="space-y-6">
       {/* Page Header */}
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-center border-l-4 border-brand-orange bg-gradient-to-r from-brand-navy to-brand-navy/90 text-white p-6 rounded-lg">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900">Payment Verification</h1>
-          <p className="text-gray-600 mt-1">
+          <h1 className="text-3xl font-bold">Payment Verification</h1>
+          <p className="text-white/80 mt-1">
             {payments.filter(p => p.status === 'pending').length} pending verifications
           </p>
         </div>
-        <Button onClick={exportToCSV}>
+        <Button onClick={exportToCSV} className="bg-white text-brand-navy hover:bg-brand-orange hover:text-brand-navy">
           <Download className="h-4 w-4 mr-2" />
           Export CSV
         </Button>
@@ -183,29 +183,29 @@ export default function PaymentsPage() {
 
       {/* Stats */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <Card>
+        <Card className="border-l-4 border-brand-orange">
           <CardContent className="pt-6">
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm text-gray-600">Pending</p>
-                <p className="text-2xl font-bold text-orange-600">
+                <p className="text-2xl font-bold text-brand-orange">
                   {payments.filter(p => p.status === 'pending').length}
                 </p>
               </div>
-              <Clock className="h-10 w-10 text-orange-600" />
+              <Clock className="h-10 w-10 text-brand-orange" />
             </div>
           </CardContent>
         </Card>
-        <Card>
+        <Card className="border-l-4 border-brand-navy">
           <CardContent className="pt-6">
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm text-gray-600">Approved</p>
-                <p className="text-2xl font-bold text-green-600">
+                <p className="text-2xl font-bold text-brand-navy">
                   {payments.filter(p => p.status === 'approved').length}
                 </p>
               </div>
-              <CheckCircle className="h-10 w-10 text-green-600" />
+              <CheckCircle className="h-10 w-10 text-brand-navy" />
             </div>
           </CardContent>
         </Card>
@@ -312,8 +312,8 @@ export default function PaymentsPage() {
           {selectedPayment && (
             <div className="space-y-4">
               {/* User Info */}
-              <div className="bg-gray-50 p-4 rounded-lg">
-                <h3 className="font-semibold mb-2">User Information</h3>
+              <div className="bg-brand-navy/5 border-l-4 border-brand-navy p-4 rounded-lg">
+                <h3 className="font-semibold mb-2 text-brand-navy">User Information</h3>
                 <div className="grid grid-cols-2 gap-2 text-sm">
                   <div>
                     <span className="text-gray-600">Name:</span>
@@ -331,8 +331,8 @@ export default function PaymentsPage() {
               </div>
 
               {/* Payment Details */}
-              <div className="bg-gray-50 p-4 rounded-lg">
-                <h3 className="font-semibold mb-2">Payment Details</h3>
+              <div className="bg-brand-orange/5 border-l-4 border-brand-orange p-4 rounded-lg">
+                <h3 className="font-semibold mb-2 text-brand-orange">Payment Details</h3>
                 <div className="grid grid-cols-2 gap-2 text-sm">
                   <div>
                     <span className="text-gray-600">Amount:</span>
@@ -384,7 +384,7 @@ export default function PaymentsPage() {
               {selectedPayment.status === 'pending' && (
                 <div className="flex gap-2">
                   <Button
-                    className="flex-1 bg-green-600 hover:bg-green-700"
+                    className="flex-1 bg-brand-navy text-white hover:bg-brand-navy/90"
                     onClick={() => handleUpdateStatus('approved')}
                   >
                     <CheckCircle className="h-4 w-4 mr-2" />
@@ -401,9 +401,9 @@ export default function PaymentsPage() {
               )}
 
               {selectedPayment.admin_notes && selectedPayment.status !== 'pending' && (
-                <div className="bg-blue-50 border border-blue-200 p-3 rounded">
-                  <p className="text-sm font-semibold text-blue-900 mb-1">Previous Notes:</p>
-                  <p className="text-sm text-blue-800">{selectedPayment.admin_notes}</p>
+                <div className="bg-brand-orange/10 border border-brand-orange p-3 rounded">
+                  <p className="text-sm font-semibold text-brand-navy mb-1">Previous Notes:</p>
+                  <p className="text-sm text-brand-navy/80">{selectedPayment.admin_notes}</p>
                 </div>
               )}
             </div>

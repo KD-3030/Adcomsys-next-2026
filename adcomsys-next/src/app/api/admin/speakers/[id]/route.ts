@@ -5,9 +5,10 @@ import { supabaseAdmin } from '@/lib/db'
 // GET single speaker
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params
     // Verify admin access
     const user = await getUserFromRequest(request)
     if (!user || user.role !== 'admin') {
@@ -20,7 +21,7 @@ export async function GET(
     const { data: speaker, error } = await supabaseAdmin
       .from('speakers')
       .select('*')
-      .eq('id', params.id)
+      .eq('id', id)
       .single()
 
     if (error) {
@@ -44,9 +45,10 @@ export async function GET(
 // PUT - Update speaker
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params
     // Verify admin access
     const user = await getUserFromRequest(request)
     if (!user || user.role !== 'admin') {
@@ -74,7 +76,7 @@ export async function PUT(
         is_active,
         updated_at: new Date().toISOString()
       })
-      .eq('id', params.id)
+      .eq('id', id)
       .select()
       .single()
 
@@ -93,7 +95,7 @@ export async function PUT(
         admin_id: (user as any).id,
         action: 'updated_speaker',
         entity_type: 'speaker',
-        entity_id: params.id,
+        entity_id: id,
         details: {
           message: `Updated speaker ${name}`,
           changes: body
@@ -116,9 +118,10 @@ export async function PUT(
 // DELETE speaker
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params
     // Verify admin access
     const user = await getUserFromRequest(request)
     if (!user || user.role !== 'admin') {
@@ -132,14 +135,14 @@ export async function DELETE(
     const { data: speakerData } = await supabaseAdmin
       .from('speakers')
       .select('name, affiliation')
-      .eq('id', params.id)
+      .eq('id', id)
       .single()
 
     // Delete speaker
     const { error } = await supabaseAdmin
       .from('speakers')
       .delete()
-      .eq('id', params.id)
+      .eq('id', id)
 
     if (error) {
       console.error('Database error:', error)
@@ -157,7 +160,7 @@ export async function DELETE(
           admin_id: (user as any).id,
           action: 'deleted_speaker',
           entity_type: 'speaker',
-          entity_id: params.id,
+          entity_id: id,
           details: {
             message: `Deleted speaker ${(speakerData as any).name}`,
             affiliation: (speakerData as any).affiliation

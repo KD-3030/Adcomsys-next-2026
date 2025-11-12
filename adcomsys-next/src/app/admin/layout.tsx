@@ -99,32 +99,37 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-[#fafafa]">
       {/* Top Navigation Bar */}
-      <nav className="bg-white border-b fixed top-0 left-0 right-0 z-40">
+      <nav className="bg-brand-navy border-b-4 border-brand-orange fixed top-0 left-0 right-0 z-40 shadow-xl">
         <div className="px-4 py-3">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-4">
               <Button
                 variant="ghost"
                 size="sm"
-                className="lg:hidden"
+                className="lg:hidden text-brand-white hover:text-brand-orange hover:bg-brand-navy"
                 onClick={() => setIsSidebarOpen(!isSidebarOpen)}
               >
                 {isSidebarOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
               </Button>
               <div>
-                <h1 className="text-xl font-bold text-blue-600">AdComSys 2026</h1>
-                <p className="text-xs text-gray-500">Admin Panel</p>
+                <h1 className="text-xl font-bold text-brand-orange">AdComSys 2026</h1>
+                <p className="text-xs text-brand-white/80">Admin Panel</p>
               </div>
             </div>
             
             <div className="flex items-center space-x-4">
               <div className="text-right hidden sm:block">
-                <p className="text-sm font-medium text-gray-900">{user.name}</p>
-                <p className="text-xs text-gray-500">{user.email}</p>
+                <p className="text-sm font-medium text-brand-white">{user.name}</p>
+                <p className="text-xs text-brand-white/80">{user.email}</p>
               </div>
-              <Button variant="outline" size="sm" onClick={handleLogout}>
+              <Button 
+                variant="outline" 
+                size="sm" 
+                onClick={handleLogout}
+                className="border-2 border-brand-orange text-brand-white hover:bg-brand-orange hover:text-brand-navy transition-all duration-200"
+              >
                 <LogOut className="h-4 w-4 mr-2" />
                 Logout
               </Button>
@@ -135,7 +140,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
       {/* Sidebar */}
       <aside className={`
-        fixed top-[57px] left-0 bottom-0 w-64 bg-white border-r z-30 transition-transform duration-300
+        fixed top-[61px] left-0 bottom-0 w-64 bg-white border-r-2 border-brand-orange/20 z-30 transition-transform duration-300 shadow-lg
         ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
       `}>
         <div className="p-4 h-full overflow-y-auto">
@@ -149,10 +154,10 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                   href={item.href}
                   onClick={() => setIsSidebarOpen(false)}
                   className={`
-                    flex items-center space-x-3 px-4 py-3 rounded-lg transition-colors
+                    flex items-center space-x-3 px-4 py-3 rounded-lg transition-all duration-200
                     ${isActive 
-                      ? 'bg-blue-600 text-white' 
-                      : 'text-gray-700 hover:bg-gray-100'
+                      ? 'bg-brand-orange text-brand-navy font-semibold shadow-md' 
+                      : 'text-gray-700 hover:bg-brand-orange/10 hover:text-brand-navy'
                     }
                   `}
                 >
@@ -164,14 +169,16 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           </nav>
 
           {/* Quick Links */}
-          <div className="mt-8 pt-8 border-t">
+          <div className="mt-8 pt-8 border-t border-brand-orange/20">
             <p className="text-xs font-semibold text-gray-500 uppercase mb-3">Quick Links</p>
             <div className="space-y-2">
-              <Link href="/" className="block text-sm text-gray-600 hover:text-blue-600">
-                View Website
+              <Link href="/" className="flex items-center text-sm text-gray-600 hover:text-brand-orange transition-colors duration-200">
+                <span>🌐</span>
+                <span className="ml-2">View Website</span>
               </Link>
-              <Link href="/dashboard" className="block text-sm text-gray-600 hover:text-blue-600">
-                User Dashboard
+              <Link href="/dashboard" className="flex items-center text-sm text-gray-600 hover:text-brand-orange transition-colors duration-200">
+                <span>👤</span>
+                <span className="ml-2">User Dashboard</span>
               </Link>
             </div>
           </div>
@@ -187,7 +194,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       )}
 
       {/* Main Content */}
-      <main className="lg:ml-64 pt-[57px]">
+      <main className="lg:ml-64 pt-[61px]">
         <div className="p-6">
           {children}
         </div>

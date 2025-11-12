@@ -29,8 +29,10 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 import { Badge } from '@/components/ui/badge'
-import { Edit, Plus, Trash2, User } from 'lucide-react'
+import { Edit, Plus, Trash2, User, Upload, X } from 'lucide-react'
 import { toast } from 'sonner'
+import { uploadImage, deleteImage } from '@/lib/storage/upload'
+import Image from 'next/image'
 
 interface CommitteeMember {
   id: string
@@ -52,6 +54,9 @@ export default function CommitteePage() {
   const [categoryFilter, setCategoryFilter] = useState<string>('all')
   const [isEditDialogOpen, setIsEditDialogOpen] = useState(false)
   const [editingMember, setEditingMember] = useState<CommitteeMember | null>(null)
+  const [imageFile, setImageFile] = useState<File | null>(null)
+  const [imagePreview, setImagePreview] = useState<string>('')
+  const [isUploading, setIsUploading] = useState(false)
 
   const [formData, setFormData] = useState({
     name: '',
@@ -105,6 +110,8 @@ export default function CommitteePage() {
       display_order: 0,
       is_active: true
     })
+    setImageFile(null)
+    setImagePreview('')
     setIsEditDialogOpen(true)
   }
 
@@ -120,7 +127,28 @@ export default function CommitteePage() {
       display_order: member.display_order || 0,
       is_active: member.is_active !== undefined ? member.is_active : true
     })
+    setImageFile(null)
+    setImagePreview(member.image_url || '')
     setIsEditDialogOpen(true)
+  }
+
+  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0]
+    if (file) {
+      setImageFile(file)
+      // Create preview
+      const reader = new FileReader()
+      reader.onloadend = () => {
+        setImagePreview(reader.result as string)
+      }
+      reader.readAsDataURL(file)
+    }
+  }
+
+  const handleRemoveImage = () => {
+    setImageFile(null)
+    setImagePreview('')
+    setFormData({ ...formData, image_url: '' })
   }
 
   const handleSave = async () => {
@@ -130,7 +158,28 @@ export default function CommitteePage() {
       return
     }
 
+    setIsUploading(true)
+
     try {
+      let imageUrl = formData.image_url
+
+      // Upload new image if selected
+      if (imageFile) {
+        // Delete old image if exists and we're editing
+        if (editingMember?.image_url) {
+          await deleteImage(editingMember.image_url, 'committee-images')
+        }
+
+        const result = await uploadImage(imageFile, 'committee-images', 'photos')
+        if (result.success && result.url) {
+          imageUrl = result.url
+        } else {
+          toast.error(result.error || 'Failed to upload image')
+          setIsUploading(false)
+          return
+        }
+      }
+
       const url = editingMember
         ? `/api/admin/committee/${editingMember.id}`
         : '/api/admin/committee'
@@ -139,7 +188,7 @@ export default function CommitteePage() {
       const response = await fetch(url, {
         method,
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
+        body: JSON.stringify({ ...formData, image_url: imageUrl })
       })
 
       if (response.ok) {
@@ -152,6 +201,8 @@ export default function CommitteePage() {
     } catch (error) {
       console.error('Failed to save member:', error)
       toast.error('An error occurred')
+    } finally {
+      setIsUploading(false)
     }
   }
 
@@ -177,9 +228,9 @@ export default function CommitteePage() {
 
   const getCategoryBadge = (category: string) => {
     const config = {
-      organizing: { color: 'bg-blue-600', text: 'Organizing Committee' },
-      technical: { color: 'bg-green-600', text: 'Technical Committee' },
-      advisory: { color: 'bg-purple-600', text: 'Advisory Board' }
+      organizing: { color: 'bg-brand-navy text-white', text: 'Organizing Committee' },
+      technical: { color: 'bg-brand-orange text-brand-navy', text: 'Technical Committee' },
+      advisory: { color: 'bg-brand-navy/80 text-white', text: 'Advisory Board' }
     }
     const categoryConfig = config[category as keyof typeof config]
     
@@ -195,7 +246,7 @@ export default function CommitteePage() {
   if (isLoading) {
     return (
       <div className="flex items-center justify-center h-64">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand-orange"></div>
       </div>
     )
   }
@@ -203,12 +254,12 @@ export default function CommitteePage() {
   return (
     <div className="space-y-6">
       {/* Page Header */}
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-center border-l-4 border-brand-orange bg-gradient-to-r from-brand-navy to-brand-navy/90 text-white p-6 rounded-lg">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900">Committee</h1>
-          <p className="text-gray-600 mt-1">Manage conference committee members</p>
+          <h1 className="text-3xl font-bold">Committee</h1>
+          <p className="text-white/80 mt-1">Manage conference committee members</p>
         </div>
-        <Button onClick={handleAddNew}>
+        <Button onClick={handleAddNew} className="bg-white text-brand-navy hover:bg-brand-orange hover:text-brand-navy">
           <Plus className="h-4 w-4 mr-2" />
           Add Member
         </Button>
@@ -216,30 +267,30 @@ export default function CommitteePage() {
 
       {/* Stats */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <Card>
+        <Card className="border-l-4 border-brand-navy">
           <CardContent className="pt-6">
             <div className="text-center">
-              <p className="text-2xl font-bold text-blue-600">
+              <p className="text-2xl font-bold text-brand-navy">
                 {members.filter(m => m.committee_type === 'organizing').length}
               </p>
               <p className="text-sm text-gray-600 mt-1">Organizing Committee</p>
             </div>
           </CardContent>
         </Card>
-        <Card>
+        <Card className="border-l-4 border-brand-orange">
           <CardContent className="pt-6">
             <div className="text-center">
-              <p className="text-2xl font-bold text-green-600">
+              <p className="text-2xl font-bold text-brand-orange">
                 {members.filter(m => m.committee_type === 'technical').length}
               </p>
               <p className="text-sm text-gray-600 mt-1">Technical Committee</p>
             </div>
           </CardContent>
         </Card>
-        <Card>
+        <Card className="border-l-4 border-brand-navy/80">
           <CardContent className="pt-6">
             <div className="text-center">
-              <p className="text-2xl font-bold text-purple-600">
+              <p className="text-2xl font-bold text-brand-navy/80">
                 {members.filter(m => m.committee_type === 'advisory').length}
               </p>
               <p className="text-sm text-gray-600 mt-1">Advisory Board</p>
@@ -285,13 +336,16 @@ export default function CommitteePage() {
                       <TableCell>
                         <div className="flex items-center gap-3">
                           {member.image_url ? (
-                            <img
-                              src={member.image_url}
-                              alt={member.name}
-                              className="w-12 h-12 rounded-full object-cover"
-                            />
+                            <div className="relative w-12 h-12 flex-shrink-0">
+                              <Image
+                                src={member.image_url}
+                                alt={member.name}
+                                fill
+                                className="rounded-full object-cover"
+                              />
+                            </div>
                           ) : (
-                            <div className="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center">
+                            <div className="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center flex-shrink-0">
                               <User className="h-6 w-6 text-gray-400" />
                             </div>
                           )}
@@ -398,21 +452,59 @@ export default function CommitteePage() {
                 />
               </div>
               <div className="col-span-2">
-                <Label>Photo URL</Label>
-                <Input
-                  value={formData.image_url}
-                  onChange={(e) => setFormData({ ...formData, image_url: e.target.value })}
-                  placeholder="https://example.com/photo.jpg"
-                />
+                <Label>Profile Photo</Label>
+                <div className="space-y-3">
+                  {imagePreview ? (
+                    <div className="relative w-32 h-32 mx-auto">
+                      <Image
+                        src={imagePreview}
+                        alt="Preview"
+                        fill
+                        className="rounded-full object-cover border-2 border-brand-orange"
+                      />
+                      <Button
+                        type="button"
+                        size="sm"
+                        variant="destructive"
+                        className="absolute -top-2 -right-2 h-6 w-6 rounded-full p-0"
+                        onClick={handleRemoveImage}
+                      >
+                        <X className="h-4 w-4" />
+                      </Button>
+                    </div>
+                  ) : (
+                    <div className="w-32 h-32 mx-auto bg-gray-100 rounded-full flex items-center justify-center">
+                      <User className="h-16 w-16 text-gray-400" />
+                    </div>
+                  )}
+                  <div className="flex justify-center">
+                    <label htmlFor="image-upload" className="cursor-pointer">
+                      <div className="flex items-center gap-2 px-4 py-2 bg-brand-navy text-white rounded-md hover:bg-brand-navy/90 transition-colors">
+                        <Upload className="h-4 w-4" />
+                        <span className="text-sm">Upload Photo</span>
+                      </div>
+                      <input
+                        id="image-upload"
+                        type="file"
+                        accept="image/*"
+                        onChange={handleImageChange}
+                        className="hidden"
+                      />
+                    </label>
+                  </div>
+                  <p className="text-xs text-gray-500 text-center">
+                    Recommended: Square image, max 5MB
+                  </p>
+                </div>
               </div>
             </div>
           </div>
           <DialogFooter>
-            <Button variant="outline" onClick={() => setIsEditDialogOpen(false)}>
+            <Button variant="outline" onClick={() => setIsEditDialogOpen(false)} className="border-brand-navy text-brand-navy hover:bg-brand-navy hover:text-white" disabled={isUploading}>
               Cancel
             </Button>
-            <Button onClick={handleSave}>
-              {editingMember ? 'Update' : 'Create'}
+            <Button onClick={handleSave} className="bg-brand-orange text-brand-navy hover:bg-brand-orange/90" disabled={isUploading}>
+              {isUploading ? 'Uploading...' : (editingMember ? 'Update' : 'Create')}
             </Button>
           </DialogFooter>
         </DialogContent>

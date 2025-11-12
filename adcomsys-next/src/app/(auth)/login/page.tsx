@@ -35,7 +35,13 @@ export default function LoginPage() {
       }
 
       toast.success('Logged in successfully!')
-      router.push('/dashboard')
+      
+      // Redirect based on user role
+      if (data.user?.role === 'admin') {
+        router.push('/admin')
+      } else {
+        router.push('/dashboard')
+      }
       router.refresh()
     } catch (error: any) {
       toast.error(error.message || 'Failed to login')
@@ -45,11 +51,11 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
-      <Card className="w-full max-w-md">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-brand-navy to-brand-black px-4">
+      <Card className="w-full max-w-md border-brand-orange">
         <CardHeader className="text-center">
-          <CardTitle className="text-2xl font-bold">AdComSys 2026</CardTitle>
-          <CardDescription>Sign in to your account</CardDescription>
+          <CardTitle className="text-2xl font-bold text-brand-navy">AdComSys 2026</CardTitle>
+          <CardDescription className="text-gray-700">Sign in to your account</CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleLogin} className="space-y-4">
@@ -78,19 +84,19 @@ export default function LoginPage() {
               />
             </div>
             
-            <Button type="submit" className="w-full" disabled={loading}>
+            <Button type="submit" className="w-full bg-brand-orange text-brand-navy hover:bg-brand-orange/90 font-semibold" disabled={loading}>
               {loading ? 'Signing in...' : 'Sign in'}
             </Button>
 
             <div className="text-center space-y-2 text-sm">
               <div>
-                <Link href="/forgot-password" className="text-blue-600 hover:underline">
+                <Link href="/forgot-password" className="text-brand-orange hover:underline font-medium">
                   Forgot password?
                 </Link>
               </div>
-              <div>
+              <div className="text-gray-700">
                 Don't have an account?{' '}
-                <Link href="/signup" className="text-blue-600 hover:underline font-medium">
+                <Link href="/signup" className="text-brand-orange hover:underline font-medium">
                   Sign up
                 </Link>
               </div>

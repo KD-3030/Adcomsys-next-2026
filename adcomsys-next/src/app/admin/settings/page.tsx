@@ -140,7 +140,7 @@ export default function SettingsPage() {
   if (isLoading) {
     return (
       <div className="flex items-center justify-center h-64">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand-orange"></div>
       </div>
     )
   }
@@ -148,12 +148,12 @@ export default function SettingsPage() {
   return (
     <div className="space-y-6">
       {/* Page Header */}
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-center border-l-4 border-brand-orange bg-gradient-to-r from-brand-navy to-brand-navy/90 text-white p-6 rounded-lg">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900">Settings</h1>
-          <p className="text-gray-600 mt-1">Configure conference details and system settings</p>
+          <h1 className="text-3xl font-bold">Settings</h1>
+          <p className="text-white/80 mt-1">Configure conference details and system settings</p>
         </div>
-        <Button onClick={handleSave} disabled={isSaving}>
+        <Button onClick={handleSave} disabled={isSaving} className="bg-white text-brand-navy hover:bg-brand-orange hover:text-brand-navy disabled:opacity-50">
           <Save className="h-4 w-4 mr-2" />
           {isSaving ? 'Saving...' : 'Save All Changes'}
         </Button>

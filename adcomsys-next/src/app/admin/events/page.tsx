@@ -148,7 +148,7 @@ export default function EventsPage() {
   if (isLoading) {
     return (
       <div className="flex items-center justify-center h-64">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand-orange"></div>
       </div>
     )
   }
@@ -156,12 +156,12 @@ export default function EventsPage() {
   return (
     <div className="space-y-6">
       {/* Page Header */}
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-center border-l-4 border-brand-orange bg-gradient-to-r from-brand-navy to-brand-navy/90 text-white p-6 rounded-lg">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900">Events</h1>
-          <p className="text-gray-600 mt-1">Manage conference events and schedule</p>
+          <h1 className="text-3xl font-bold">Events</h1>
+          <p className="text-white/80 mt-1">Manage conference events and schedule</p>
         </div>
-        <Button onClick={handleAddNew}>
+        <Button onClick={handleAddNew} className="bg-white text-brand-navy hover:bg-brand-orange hover:text-brand-navy">
           <Plus className="h-4 w-4 mr-2" />
           Add Event
         </Button>
@@ -290,10 +290,10 @@ export default function EventsPage() {
             </div>
           </div>
           <DialogFooter>
-            <Button variant="outline" onClick={() => setIsEditDialogOpen(false)}>
+            <Button variant="outline" onClick={() => setIsEditDialogOpen(false)} className="border-brand-navy text-brand-navy hover:bg-brand-navy hover:text-white">
               Cancel
             </Button>
-            <Button onClick={handleSave}>
+            <Button onClick={handleSave} className="bg-brand-orange text-brand-navy hover:bg-brand-orange/90">
               {editingEvent ? 'Update' : 'Create'}
             </Button>
           </DialogFooter>

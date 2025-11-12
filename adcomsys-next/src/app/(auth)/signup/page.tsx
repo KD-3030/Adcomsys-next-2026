@@ -49,7 +49,13 @@ export default function SignupPage() {
       }
 
       toast.success('Account created successfully!')
-      router.push('/dashboard')
+      
+      // Redirect based on user role (though signups typically won't be admin)
+      if (data.user?.role === 'admin') {
+        router.push('/admin')
+      } else {
+        router.push('/dashboard')
+      }
       router.refresh()
     } catch (error: unknown) {
       // Handle rate limiting specifically
@@ -72,11 +78,11 @@ export default function SignupPage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4 py-8">
-      <Card className="w-full max-w-md">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-brand-navy to-brand-black px-4 py-8">
+      <Card className="w-full max-w-md border-brand-orange">
         <CardHeader className="text-center">
-          <CardTitle className="text-2xl font-bold">Create Account</CardTitle>
-          <CardDescription>Join AdComSys 2026</CardDescription>
+          <CardTitle className="text-2xl font-bold text-brand-navy">Create Account</CardTitle>
+          <CardDescription className="text-gray-700">Join AdComSys 2026</CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSignup} className="space-y-4">
@@ -133,13 +139,13 @@ export default function SignupPage() {
               </Select>
             </div>
             
-            <Button type="submit" className="w-full" disabled={loading}>
+            <Button type="submit" className="w-full bg-brand-orange text-brand-navy hover:bg-brand-orange/90 font-semibold" disabled={loading}>
               {loading ? 'Creating account...' : 'Create account'}
             </Button>
 
-            <div className="text-center text-sm">
+            <div className="text-center text-sm text-gray-700">
               Already have an account?{' '}
-              <Link href="/login" className="text-blue-600 hover:underline font-medium">
+              <Link href="/login" className="text-brand-orange hover:underline font-medium">
                 Sign in
               </Link>
             </div>

@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { CalendarDays, MapPin, Users, FileText, Award, Mail, Menu } from 'lucide-react'
+import HeroVideo from '@/components/layout/HeroVideo'
 
 export default function Home() {
   return (
@@ -56,19 +57,9 @@ export default function Home() {
         </div>
 
         {/* Background Media - Video on Desktop, Image on Mobile */}
-        <div className="absolute inset-0 opacity-20">
+        <div className="absolute inset-0 opacity-100">
           {/* Video for Desktop/Tablet - Hidden on Mobile */}
-          <video 
-            autoPlay 
-            loop 
-            muted 
-            playsInline
-            poster="/assets/images/video-poster.jpg"
-            className="hidden md:block w-full h-full object-cover"
-          >
-            <source src="/assets/images/hero-video.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
+          <HeroVideo />
           
           {/* Image for Mobile - Better Performance with Next.js Image */}
           <Image 
@@ -109,7 +100,7 @@ export default function Home() {
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 justify-center lg:justify-start">
                 <Link href="https://cmt3.research.microsoft.com/AdComSys2025" target="_blank">
-                  <Button size="lg" className="w-full sm:w-auto bg-brand-orange text-brand-navy hover:bg-brand-orange/90 shadow-2xl hover:shadow-brand-orange/50 transition-all duration-300 transform hover:scale-105 font-bold">
+                  <Button size="lg" className="w-full sm:w-auto border-2 border-brand-orange text-brand-navy hover:bg-brand-black hover:text-brand-white shadow-2xl transition-all duration-300 transform hover:scale-105 font-bold">
                     <FileText className="mr-2 h-4 w-4" />
                     Submit Paper
                   </Button>

@@ -129,9 +129,9 @@ export default function ContactsPage() {
 
   const getStatusBadge = (status: string) => {
     const config = {
-      new: { color: 'bg-blue-600', text: 'New' },
-      read: { color: 'bg-gray-600', text: 'Read' },
-      replied: { color: 'bg-green-600', text: 'Replied' }
+      new: { color: 'bg-brand-orange text-brand-navy', text: 'New' },
+      read: { color: 'bg-brand-navy/60 text-white', text: 'Read' },
+      replied: { color: 'bg-brand-navy text-white', text: 'Replied' }
     }
     const { color, text } = config[status as keyof typeof config] || config.new
     return <Badge className={color}>{text}</Badge>
@@ -166,7 +166,7 @@ export default function ContactsPage() {
   if (isLoading) {
     return (
       <div className="flex items-center justify-center h-64">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand-orange"></div>
       </div>
     )
   }
@@ -174,14 +174,14 @@ export default function ContactsPage() {
   return (
     <div className="space-y-6">
       {/* Page Header */}
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-center border-l-4 border-brand-orange bg-gradient-to-r from-brand-navy to-brand-navy/90 text-white p-6 rounded-lg">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900">Contact Messages</h1>
-          <p className="text-gray-600 mt-1">
+          <h1 className="text-3xl font-bold">Contact Messages</h1>
+          <p className="text-white/80 mt-1">
             {contacts.filter(c => c.status === 'new').length} new messages
           </p>
         </div>
-        <Button onClick={exportToCSV}>
+        <Button onClick={exportToCSV} className="bg-white text-brand-navy hover:bg-brand-orange hover:text-brand-navy">
           <Download className="h-4 w-4 mr-2" />
           Export CSV
         </Button>
@@ -189,30 +189,30 @@ export default function ContactsPage() {
 
       {/* Stats */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <Card>
+        <Card className="border-l-4 border-brand-orange">
           <CardContent className="pt-6">
             <div className="text-center">
-              <p className="text-2xl font-bold text-blue-600">
+              <p className="text-2xl font-bold text-brand-orange">
                 {contacts.filter(c => c.status === 'new').length}
               </p>
               <p className="text-sm text-gray-600 mt-1">New Messages</p>
             </div>
           </CardContent>
         </Card>
-        <Card>
+        <Card className="border-l-4 border-brand-navy/60">
           <CardContent className="pt-6">
             <div className="text-center">
-              <p className="text-2xl font-bold text-gray-600">
+              <p className="text-2xl font-bold text-brand-navy/60">
                 {contacts.filter(c => c.status === 'read').length}
               </p>
               <p className="text-sm text-gray-600 mt-1">Read</p>
             </div>
           </CardContent>
         </Card>
-        <Card>
+        <Card className="border-l-4 border-brand-navy">
           <CardContent className="pt-6">
             <div className="text-center">
-              <p className="text-2xl font-bold text-green-600">
+              <p className="text-2xl font-bold text-brand-navy">
                 {contacts.filter(c => c.status === 'replied').length}
               </p>
               <p className="text-sm text-gray-600 mt-1">Replied</p>
@@ -258,7 +258,7 @@ export default function ContactsPage() {
               <TableBody>
                 {filteredContacts.length > 0 ? (
                   filteredContacts.map((contact) => (
-                    <TableRow key={contact.id} className={contact.status === 'new' ? 'bg-blue-50' : ''}>
+                    <TableRow key={contact.id} className={contact.status === 'new' ? 'bg-brand-orange/5' : ''}>
                       <TableCell>
                         <div>
                           <div className="font-medium">{contact.name}</div>
@@ -345,15 +345,15 @@ export default function ContactsPage() {
               {/* Message */}
               <div>
                 <p className="text-sm text-gray-600 mb-2">Message</p>
-                <div className="bg-gray-50 p-4 rounded-lg">
-                  <p className="text-gray-900 whitespace-pre-wrap">{selectedContact.message}</p>
+                <div className="bg-brand-navy/5 border-l-4 border-brand-orange p-4 rounded-lg">
+                  <p className="text-brand-navy whitespace-pre-wrap">{selectedContact.message}</p>
                 </div>
               </div>
 
               {/* Actions */}
               <div className="flex gap-2">
                 <Button
-                  className="flex-1"
+                  className="flex-1 bg-brand-orange text-brand-navy hover:bg-brand-orange/90"
                   onClick={() => {
                     window.location.href = `mailto:${selectedContact.email}?subject=Re: ${selectedContact.subject}`
                     updateContactStatus(selectedContact.id, 'replied')
@@ -365,6 +365,7 @@ export default function ContactsPage() {
                 </Button>
                 <Button
                   variant="outline"
+                  className="border-brand-navy text-brand-navy hover:bg-brand-navy hover:text-white"
                   onClick={() => setIsViewDialogOpen(false)}
                 >
                   Close

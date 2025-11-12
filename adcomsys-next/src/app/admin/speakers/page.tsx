@@ -21,8 +21,10 @@ import {
   DialogHeader,
   DialogTitle,
 } from '@/components/ui/dialog'
-import { Edit, Plus, Trash2, User } from 'lucide-react'
+import { Edit, Plus, Trash2, User, Upload, X } from 'lucide-react'
 import { toast } from 'sonner'
+import { uploadImage, deleteImage } from '@/lib/storage/upload'
+import Image from 'next/image'
 
 interface Speaker {
   id: string
@@ -41,6 +43,9 @@ export default function SpeakersPage() {
   const [isLoading, setIsLoading] = useState(true)
   const [isEditDialogOpen, setIsEditDialogOpen] = useState(false)
   const [editingSpeaker, setEditingSpeaker] = useState<Speaker | null>(null)
+  const [imageFile, setImageFile] = useState<File | null>(null)
+  const [imagePreview, setImagePreview] = useState<string>('')
+  const [isUploading, setIsUploading] = useState(false)
 
   const [formData, setFormData] = useState({
     name: '',
@@ -84,6 +89,8 @@ export default function SpeakersPage() {
       talk_title: '',
       talk_abstract: ''
     })
+    setImageFile(null)
+    setImagePreview('')
     setIsEditDialogOpen(true)
   }
 
@@ -98,7 +105,28 @@ export default function SpeakersPage() {
       talk_title: speaker.talk_title || '',
       talk_abstract: speaker.talk_abstract || ''
     })
+    setImageFile(null)
+    setImagePreview(speaker.photo_url || '')
     setIsEditDialogOpen(true)
+  }
+
+  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0]
+    if (file) {
+      setImageFile(file)
+      // Create preview
+      const reader = new FileReader()
+      reader.onloadend = () => {
+        setImagePreview(reader.result as string)
+      }
+      reader.readAsDataURL(file)
+    }
+  }
+
+  const handleRemoveImage = () => {
+    setImageFile(null)
+    setImagePreview('')
+    setFormData({ ...formData, photo_url: '' })
   }
 
   const handleSave = async () => {
@@ -108,7 +136,28 @@ export default function SpeakersPage() {
       return
     }
 
+    setIsUploading(true)
+
     try {
+      let photoUrl = formData.photo_url
+
+      // Upload new image if selected
+      if (imageFile) {
+        // Delete old image if exists and we're editing
+        if (editingSpeaker?.photo_url) {
+          await deleteImage(editingSpeaker.photo_url, 'speaker-images')
+        }
+
+        const result = await uploadImage(imageFile, 'speaker-images', 'photos')
+        if (result.success && result.url) {
+          photoUrl = result.url
+        } else {
+          toast.error(result.error || 'Failed to upload image')
+          setIsUploading(false)
+          return
+        }
+      }
+
       const url = editingSpeaker
         ? `/api/admin/speakers/${editingSpeaker.id}`
         : '/api/admin/speakers'
@@ -117,7 +166,7 @@ export default function SpeakersPage() {
       const response = await fetch(url, {
         method,
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
+        body: JSON.stringify({ ...formData, photo_url: photoUrl })
       })
 
       if (response.ok) {
@@ -130,6 +179,8 @@ export default function SpeakersPage() {
     } catch (error) {
       console.error('Failed to save speaker:', error)
       toast.error('An error occurred')
+    } finally {
+      setIsUploading(false)
     }
   }
 
@@ -156,7 +207,7 @@ export default function SpeakersPage() {
   if (isLoading) {
     return (
       <div className="flex items-center justify-center h-64">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand-orange"></div>
       </div>
     )
   }
@@ -164,12 +215,12 @@ export default function SpeakersPage() {
   return (
     <div className="space-y-6">
       {/* Page Header */}
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-center border-l-4 border-brand-orange bg-gradient-to-r from-brand-navy to-brand-navy/90 text-white p-6 rounded-lg">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900">Speakers</h1>
-          <p className="text-gray-600 mt-1">Manage keynote and invited speakers</p>
+          <h1 className="text-3xl font-bold">Speakers</h1>
+          <p className="text-white/80 mt-1">Manage keynote and invited speakers</p>
         </div>
-        <Button onClick={handleAddNew}>
+        <Button onClick={handleAddNew} className="bg-white text-brand-navy hover:bg-brand-orange hover:text-brand-navy">
           <Plus className="h-4 w-4 mr-2" />
           Add Speaker
         </Button>
@@ -195,13 +246,16 @@ export default function SpeakersPage() {
                       <TableCell>
                         <div className="flex items-center gap-3">
                           {speaker.photo_url ? (
-                            <img
-                              src={speaker.photo_url}
-                              alt={speaker.name}
-                              className="w-12 h-12 rounded-full object-cover"
-                            />
+                            <div className="relative w-12 h-12 flex-shrink-0">
+                              <Image
+                                src={speaker.photo_url}
+                                alt={speaker.name}
+                                fill
+                                className="rounded-full object-cover"
+                              />
+                            </div>
                           ) : (
-                            <div className="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center">
+                            <div className="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center flex-shrink-0">
                               <User className="h-6 w-6 text-gray-400" />
                             </div>
                           )}
@@ -297,15 +351,50 @@ export default function SpeakersPage() {
                 />
               </div>
               <div className="col-span-2">
-                <label className="text-sm font-medium">Photo URL</label>
-                <Input
-                  value={formData.photo_url}
-                  onChange={(e) => setFormData({ ...formData, photo_url: e.target.value })}
-                  placeholder="https://example.com/photo.jpg"
-                />
-                <p className="text-xs text-gray-500 mt-1">
-                  Enter a direct URL to the speaker&apos;s photo
-                </p>
+                <label className="text-sm font-medium">Profile Photo</label>
+                <div className="space-y-3">
+                  {imagePreview ? (
+                    <div className="relative w-32 h-32 mx-auto">
+                      <Image
+                        src={imagePreview}
+                        alt="Preview"
+                        fill
+                        className="rounded-full object-cover border-2 border-brand-orange"
+                      />
+                      <Button
+                        type="button"
+                        size="sm"
+                        variant="destructive"
+                        className="absolute -top-2 -right-2 h-6 w-6 rounded-full p-0"
+                        onClick={handleRemoveImage}
+                      >
+                        <X className="h-4 w-4" />
+                      </Button>
+                    </div>
+                  ) : (
+                    <div className="w-32 h-32 mx-auto bg-gray-100 rounded-full flex items-center justify-center">
+                      <User className="h-16 w-16 text-gray-400" />
+                    </div>
+                  )}
+                  <div className="flex justify-center">
+                    <label htmlFor="speaker-image-upload" className="cursor-pointer">
+                      <div className="flex items-center gap-2 px-4 py-2 bg-brand-navy text-white rounded-md hover:bg-brand-navy/90 transition-colors">
+                        <Upload className="h-4 w-4" />
+                        <span className="text-sm">Upload Photo</span>
+                      </div>
+                      <input
+                        id="speaker-image-upload"
+                        type="file"
+                        accept="image/*"
+                        onChange={handleImageChange}
+                        className="hidden"
+                      />
+                    </label>
+                  </div>
+                  <p className="text-xs text-gray-500 text-center">
+                    Recommended: Square image, max 5MB
+                  </p>
+                </div>
               </div>
             </div>
 
@@ -333,11 +422,11 @@ export default function SpeakersPage() {
             </div>
           </div>
           <DialogFooter>
-            <Button variant="outline" onClick={() => setIsEditDialogOpen(false)}>
+            <Button variant="outline" onClick={() => setIsEditDialogOpen(false)} className="border-brand-navy text-brand-navy hover:bg-brand-navy hover:text-white" disabled={isUploading}>
               Cancel
             </Button>
-            <Button onClick={handleSave}>
-              {editingSpeaker ? 'Update' : 'Create'}
+            <Button onClick={handleSave} className="bg-brand-orange text-brand-navy hover:bg-brand-orange/90" disabled={isUploading}>
+              {isUploading ? 'Uploading...' : (editingSpeaker ? 'Update' : 'Create')}
             </Button>
           </DialogFooter>
         </DialogContent>

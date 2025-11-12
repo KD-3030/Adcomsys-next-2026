@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { verifyJWT } from '@/lib/auth'
+import { getUserFromRequest } from '@/lib/auth/jwt'
 import { supabaseAdmin } from '@/lib/db'
 
 export async function PUT(
@@ -7,33 +7,35 @@ export async function PUT(
   { params }: { params: { id: string } }
 ) {
   try {
-    const user = await verifyJWT(request)
+    const user = await getUserFromRequest(request)
     if (!user || user.role !== 'admin') {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 403 })
     }
 
     const body = await request.json()
-    const { name, title, affiliation, email, category, photo_url } = body
+    const { name, designation, affiliation, email, committee_type, image_url, display_order, is_active } = body
 
     // Validate required fields
-    if (!name || !affiliation || !email || !category) {
+    if (!name || !affiliation || !email || !committee_type) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 })
     }
 
-    // Validate category
-    if (!['organizing', 'technical', 'advisory'].includes(category)) {
-      return NextResponse.json({ error: 'Invalid category' }, { status: 400 })
+    // Validate committee_type
+    if (!['organizing', 'technical', 'advisory'].includes(committee_type)) {
+      return NextResponse.json({ error: 'Invalid committee_type' }, { status: 400 })
     }
 
     const { data, error } = await supabaseAdmin
       .from('committee_members')
       .update({
         name,
-        title: title || '',
+        designation: designation || '',
         affiliation,
         email,
-        category,
-        photo_url: photo_url || null
+        committee_type,
+        image_url: image_url || null,
+        display_order: display_order || 0,
+        is_active: is_active !== undefined ? is_active : true
       })
       .eq('id', params.id)
       .select()
@@ -45,14 +47,14 @@ export async function PUT(
     }
 
     // Log admin action
-    await supabaseAdmin
+    supabaseAdmin
       .from('admin_logs')
       .insert({
-        admin_id: (user as any).id,
+        admin_id: user.userId,
         action: 'update',
-        table_name: 'committee_members',
-        record_id: params.id,
-        details: { name, category }
+        entity_type: 'committee_members',
+        entity_id: params.id,
+        details: { name, committee_type }
       })
       .then(() => {})
       .catch(() => {})
@@ -69,7 +71,7 @@ export async function DELETE(
   { params }: { params: { id: string } }
 ) {
   try {
-    const user = await verifyJWT(request)
+    const user = await getUserFromRequest(request)
     if (!user || user.role !== 'admin') {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 403 })
     }
@@ -85,13 +87,13 @@ export async function DELETE(
     }
 
     // Log admin action
-    await supabaseAdmin
+    supabaseAdmin
       .from('admin_logs')
       .insert({
-        admin_id: (user as any).id,
+        admin_id: user.userId,
         action: 'delete',
-        table_name: 'committee_members',
-        record_id: params.id
+        entity_type: 'committee_members',
+        entity_id: params.id
       })
       .then(() => {})
       .catch(() => {})

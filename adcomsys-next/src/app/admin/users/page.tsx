@@ -33,7 +33,7 @@ import { toast } from 'sonner'
 
 interface User {
   id: string
-  name: string
+  full_name: string
   email: string
   role: string
   cmt_profile_url?: string
@@ -82,7 +82,7 @@ export default function UsersPage() {
     // Filter by search term
     if (searchTerm) {
       filtered = filtered.filter(user =>
-        user.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        user.full_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
         user.email.toLowerCase().includes(searchTerm.toLowerCase())
       )
     }
@@ -108,7 +108,7 @@ export default function UsersPage() {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          name: editingUser.name,
+          full_name: editingUser.full_name,
           email: editingUser.email,
           role: editingUser.role,
           cmt_profile_url: editingUser.cmt_profile_url
@@ -158,7 +158,7 @@ export default function UsersPage() {
   const exportToCSV = () => {
     const headers = ['Name', 'Email', 'Role', 'CMT Profile', 'Created At']
     const rows = filteredUsers.map(user => [
-      user.name,
+      user.full_name,
       user.email,
       user.role,
       user.cmt_profile_url || '',
@@ -263,7 +263,7 @@ export default function UsersPage() {
                 {filteredUsers.length > 0 ? (
                   filteredUsers.map((user) => (
                     <TableRow key={user.id}>
-                      <TableCell className="font-medium">{user.name}</TableCell>
+                      <TableCell className="font-medium">{user.full_name}</TableCell>
                       <TableCell>{user.email}</TableCell>
                       <TableCell>
                         <Badge className={getRoleBadgeColor(user.role)}>
@@ -321,8 +321,8 @@ export default function UsersPage() {
                 <Label htmlFor="edit-name">Name</Label>
                 <Input
                   id="edit-name"
-                  value={editingUser.name}
-                  onChange={(e) => setEditingUser({ ...editingUser, name: e.target.value })}
+                  value={editingUser.full_name}
+                  onChange={(e) => setEditingUser({ ...editingUser, full_name: e.target.value })}
                 />
               </div>
               <div>
@@ -387,7 +387,7 @@ export default function UsersPage() {
             <div className="space-y-4">
               <div className="bg-red-50 border border-red-200 rounded-lg p-4">
                 <p className="text-sm text-red-900">
-                  <strong>User:</strong> {userToDelete.name} ({userToDelete.email})
+                  <strong>User:</strong> {userToDelete.full_name} ({userToDelete.email})
                 </p>
               </div>
               <div className="flex justify-end gap-2">

@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react'
 import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import { Textarea } from '@/components/ui/textarea'
 import { Label } from '@/components/ui/label'
 import {
   Table,
@@ -36,11 +35,13 @@ import { toast } from 'sonner'
 interface CommitteeMember {
   id: string
   name: string
-  title: string
+  designation: string
   affiliation: string
   email: string
-  category: 'organizing' | 'technical' | 'advisory'
-  photo_url?: string
+  committee_type: 'organizing' | 'technical' | 'advisory'
+  image_url?: string
+  display_order?: number
+  is_active?: boolean
   created_at: string
 }
 
@@ -54,11 +55,13 @@ export default function CommitteePage() {
 
   const [formData, setFormData] = useState({
     name: '',
-    title: '',
+    designation: '',
     affiliation: '',
     email: '',
-    category: 'organizing' as 'organizing' | 'technical' | 'advisory',
-    photo_url: ''
+    committee_type: 'organizing' as 'organizing' | 'technical' | 'advisory',
+    image_url: '',
+    display_order: 0,
+    is_active: true
   })
 
   useEffect(() => {
@@ -66,7 +69,11 @@ export default function CommitteePage() {
   }, [])
 
   useEffect(() => {
-    filterMembers()
+    if (categoryFilter === 'all') {
+      setFilteredMembers(members)
+    } else {
+      setFilteredMembers(members.filter(m => m.committee_type === categoryFilter))
+    }
   }, [members, categoryFilter])
 
   const fetchMembers = async () => {
@@ -86,23 +93,17 @@ export default function CommitteePage() {
     }
   }
 
-  const filterMembers = () => {
-    if (categoryFilter === 'all') {
-      setFilteredMembers(members)
-    } else {
-      setFilteredMembers(members.filter(m => m.category === categoryFilter))
-    }
-  }
-
   const handleAddNew = () => {
     setEditingMember(null)
     setFormData({
       name: '',
-      title: '',
+      designation: '',
       affiliation: '',
       email: '',
-      category: 'organizing',
-      photo_url: ''
+      committee_type: 'organizing',
+      image_url: '',
+      display_order: 0,
+      is_active: true
     })
     setIsEditDialogOpen(true)
   }
@@ -111,11 +112,13 @@ export default function CommitteePage() {
     setEditingMember(member)
     setFormData({
       name: member.name,
-      title: member.title,
+      designation: member.designation,
       affiliation: member.affiliation,
       email: member.email,
-      category: member.category,
-      photo_url: member.photo_url || ''
+      committee_type: member.committee_type,
+      image_url: member.image_url || '',
+      display_order: member.display_order || 0,
+      is_active: member.is_active !== undefined ? member.is_active : true
     })
     setIsEditDialogOpen(true)
   }
@@ -178,7 +181,14 @@ export default function CommitteePage() {
       technical: { color: 'bg-green-600', text: 'Technical Committee' },
       advisory: { color: 'bg-purple-600', text: 'Advisory Board' }
     }
-    const { color, text } = config[category as keyof typeof config]
+    const categoryConfig = config[category as keyof typeof config]
+    
+    // Handle undefined category
+    if (!categoryConfig) {
+      return <Badge className="bg-gray-600">{category || 'Unknown'}</Badge>
+    }
+    
+    const { color, text } = categoryConfig
     return <Badge className={color}>{text}</Badge>
   }
 
@@ -210,7 +220,7 @@ export default function CommitteePage() {
           <CardContent className="pt-6">
             <div className="text-center">
               <p className="text-2xl font-bold text-blue-600">
-                {members.filter(m => m.category === 'organizing').length}
+                {members.filter(m => m.committee_type === 'organizing').length}
               </p>
               <p className="text-sm text-gray-600 mt-1">Organizing Committee</p>
             </div>
@@ -220,7 +230,7 @@ export default function CommitteePage() {
           <CardContent className="pt-6">
             <div className="text-center">
               <p className="text-2xl font-bold text-green-600">
-                {members.filter(m => m.category === 'technical').length}
+                {members.filter(m => m.committee_type === 'technical').length}
               </p>
               <p className="text-sm text-gray-600 mt-1">Technical Committee</p>
             </div>
@@ -230,7 +240,7 @@ export default function CommitteePage() {
           <CardContent className="pt-6">
             <div className="text-center">
               <p className="text-2xl font-bold text-purple-600">
-                {members.filter(m => m.category === 'advisory').length}
+                {members.filter(m => m.committee_type === 'advisory').length}
               </p>
               <p className="text-sm text-gray-600 mt-1">Advisory Board</p>
             </div>
@@ -274,9 +284,9 @@ export default function CommitteePage() {
                     <TableRow key={member.id}>
                       <TableCell>
                         <div className="flex items-center gap-3">
-                          {member.photo_url ? (
+                          {member.image_url ? (
                             <img
-                              src={member.photo_url}
+                              src={member.image_url}
                               alt={member.name}
                               className="w-12 h-12 rounded-full object-cover"
                             />
@@ -287,13 +297,13 @@ export default function CommitteePage() {
                           )}
                           <div>
                             <div className="font-medium">{member.name}</div>
-                            <div className="text-sm text-gray-500">{member.title}</div>
+                            <div className="text-sm text-gray-500">{member.designation}</div>
                             <div className="text-xs text-gray-400">{member.email}</div>
                           </div>
                         </div>
                       </TableCell>
                       <TableCell>{member.affiliation}</TableCell>
-                      <TableCell>{getCategoryBadge(member.category)}</TableCell>
+                      <TableCell>{getCategoryBadge(member.committee_type)}</TableCell>
                       <TableCell className="text-right">
                         <div className="flex justify-end gap-2">
                           <Button
@@ -347,18 +357,18 @@ export default function CommitteePage() {
                 />
               </div>
               <div>
-                <Label>Title/Position</Label>
+                <Label>Designation/Position</Label>
                 <Input
-                  value={formData.title}
-                  onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+                  value={formData.designation}
+                  onChange={(e) => setFormData({ ...formData, designation: e.target.value })}
                   placeholder="e.g., Professor, Chair"
                 />
               </div>
               <div>
                 <Label>Category *</Label>
                 <Select
-                  value={formData.category}
-                  onValueChange={(value) => setFormData({ ...formData, category: value as any })}
+                  value={formData.committee_type}
+                  onValueChange={(value) => setFormData({ ...formData, committee_type: value as 'organizing' | 'technical' | 'advisory' })}
                 >
                   <SelectTrigger>
                     <SelectValue />
@@ -390,8 +400,8 @@ export default function CommitteePage() {
               <div className="col-span-2">
                 <Label>Photo URL</Label>
                 <Input
-                  value={formData.photo_url}
-                  onChange={(e) => setFormData({ ...formData, photo_url: e.target.value })}
+                  value={formData.image_url}
+                  onChange={(e) => setFormData({ ...formData, image_url: e.target.value })}
                   placeholder="https://example.com/photo.jpg"
                 />
               </div>

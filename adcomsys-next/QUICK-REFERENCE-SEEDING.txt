@@ -1,0 +1,123 @@
+╔══════════════════════════════════════════════════════════════╗
+║           🌱 AdComSys 2026 - Test Data Quick Reference       ║
+╚══════════════════════════════════════════════════════════════╝
+
+📁 FILES TO USE:
+  1. sql/seed-comprehensive-test-data.sql  → Run this in Supabase
+  2. sql/verify-seeding.sql                → Check if it worked
+  3. sql/README-SEEDING.md                 → Full instructions
+
+═══════════════════════════════════════════════════════════════
+
+🔐 TEST CREDENTIALS (Password: Test123! for all)
+
+┌──────────┬──────────────────────────┬────────────────────────┐
+│ Role     │ Email                    │ Access Level           │
+├──────────┼──────────────────────────┼────────────────────────┤
+│ Admin    │ admin@adcomsys.com       │ Full admin panel       │
+│ Author   │ author@adcomsys.com      │ Submit papers          │
+│ Reviewer │ reviewer@adcomsys.com    │ Review papers          │
+│ Guest    │ guest@adcomsys.com       │ View only              │
+│ Student  │ student@adcomsys.com     │ Student rates          │
+│ Industry │ industry@adcomsys.com    │ Industry rates         │
+└──────────┴──────────────────────────┴────────────────────────┘
+
+═══════════════════════════════════════════════════════════════
+
+📊 WHAT GETS CREATED:
+
+  ✓ 6 Users (1 per role)
+  ✓ 3 Paper Submissions
+  ✓ 4 Payment Verifications (1 verified, 3 pending)
+  ✓ 3 Contact Form Submissions
+  ✓ 3 Keynote Speakers
+  ✓ 5 Conference Events
+  ✓ 6 Committee Members
+  ✓ 5 Important Dates
+
+═══════════════════════════════════════════════════════════════
+
+🚀 HOW TO RUN:
+
+  1. Open Supabase Dashboard
+     → https://supabase.com/dashboard
+  
+  2. Go to SQL Editor (left sidebar)
+  
+  3. Click "New Query"
+  
+  4. Copy/paste sql/seed-comprehensive-test-data.sql
+  
+  5. Click "Run" (or Ctrl+Enter)
+  
+  6. Wait for ✅ Success message
+  
+  7. Verify with sql/verify-seeding.sql
+
+═══════════════════════════════════════════════════════════════
+
+🧪 TEST ADMIN PANEL:
+
+  1. Login: http://localhost:3000/login
+     Email: admin@adcomsys.com
+     Password: Test123!
+  
+  2. Admin: http://localhost:3000/admin
+  
+  3. Check:
+     • Dashboard shows 6 users, 4 payments
+     • Users page lists all 6 test users
+     • Can search/filter users
+     • Payment verifications visible
+
+═══════════════════════════════════════════════════════════════
+
+💡 QUICK TESTS:
+
+  □ Login as admin → Access admin panel
+  □ Login as author → See dashboard
+  □ View all users in admin/users
+  □ Check payments: 1 verified, 3 pending
+  □ View 3 contact submissions
+  □ Verify 3 papers exist
+  □ Check role-based access control
+
+═══════════════════════════════════════════════════════════════
+
+⚠️  TROUBLESHOOTING:
+
+  Error: "relation does not exist"
+  → Run sql/supabase-schema.sql first
+  → Then run sql/migrate-to-custom-auth.sql
+  
+  Error: "password_hash column missing"
+  → Run sql/migrate-to-custom-auth.sql
+  
+  Can't login
+  → Check password is exactly: Test123!
+  → Verify user exists: SELECT * FROM profiles;
+
+═══════════════════════════════════════════════════════════════
+
+📝 NEXT STEPS AFTER SEEDING:
+
+  1. ✅ Verify all test data created
+  2. ✅ Test login with all 6 accounts
+  3. ✅ Check admin panel shows statistics
+  4. ⬜ Build missing admin API routes
+  5. ⬜ Build remaining admin pages
+  6. ⬜ Test payment verification workflow
+
+═══════════════════════════════════════════════════════════════
+
+🔒 SECURITY REMINDER:
+
+  ⚠️  These are TEST credentials!
+  
+  Before production:
+  • Delete all test users
+  • Create real admin account
+  • Use strong passwords
+  • Enable rate limiting
+
+╚══════════════════════════════════════════════════════════════╝

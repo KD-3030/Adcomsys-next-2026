@@ -17,10 +17,10 @@ export async function PUT(
     }
 
     const body = await request.json()
-    const { name, email, role, cmt_profile_url } = body
+    const { full_name, email, role, cmt_profile_url, institution, designation, country, phone } = body
 
     // Validate required fields
-    if (!name || !email || !role) {
+    if (!full_name || !email || !role) {
       return NextResponse.json(
         { error: 'Name, email, and role are required' },
         { status: 400 }
@@ -31,10 +31,14 @@ export async function PUT(
     const { data, error } = await supabaseAdmin
       .from('profiles')
       .update({
-        name,
+        full_name,
         email,
         role,
         cmt_profile_url: cmt_profile_url || null,
+        institution,
+        designation,
+        country,
+        phone,
         updated_at: new Date().toISOString()
       })
       .eq('id', params.id)
@@ -50,14 +54,20 @@ export async function PUT(
 
     // Log admin action
     await supabaseAdmin.from('admin_logs').insert({
-      admin_id: user.id,
-      action: 'update_user',
-      table_name: 'profiles',
-      record_id: params.id,
-      details: { name, email, role }
+      admin_id: user.id as string,
+      action: 'updated_user',
+      entity_type: 'profile',
+      entity_id: params.id,
+      details: {
+        message: `Updated user ${full_name}`,
+        changes: body
+      }
     })
 
-    return NextResponse.json({ user: data?.[0] })
+    return NextResponse.json({ 
+      message: 'User updated successfully',
+      user: data?.[0] 
+    })
   } catch (error) {
     console.error('Failed to update user:', error)
     return NextResponse.json(
@@ -89,6 +99,13 @@ export async function DELETE(
       )
     }
 
+    // Get user info before deletion
+    const { data: userData } = await supabaseAdmin
+      .from('profiles')
+      .select('full_name, email')
+      .eq('id', params.id)
+      .single()
+
     // Delete user
     const { error } = await supabaseAdmin
       .from('profiles')
@@ -104,13 +121,18 @@ export async function DELETE(
     }
 
     // Log admin action
-    await supabaseAdmin.from('admin_logs').insert({
-      admin_id: user.id,
-      action: 'delete_user',
-      table_name: 'profiles',
-      record_id: params.id,
-      details: { deleted_at: new Date().toISOString() }
-    })
+    if (userData) {
+      await supabaseAdmin.from('admin_logs').insert({
+        admin_id: user.id as string,
+        action: 'deleted_user',
+        entity_type: 'profile',
+        entity_id: params.id,
+        details: {
+          message: `Deleted user ${userData.full_name}`,
+          email: userData.email
+        }
+      })
+    }
 
     return NextResponse.json({ message: 'User deleted successfully' })
   } catch (error) {

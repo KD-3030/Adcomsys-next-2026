@@ -13,14 +13,40 @@ export async function GET(request: NextRequest) {
       )
     }
 
-    // Fetch all payments with user information
-    const { data: payments, error } = await supabaseAdmin
+    // Get query parameters
+    const { searchParams } = new URL(request.url)
+    const status = searchParams.get('status')
+    const category = searchParams.get('category')
+
+    // Build query
+    let query = supabaseAdmin
       .from('payment_verifications')
       .select(`
         *,
-        user:profiles!payment_verifications_user_id_fkey(name, email, role)
+        user:profiles!payment_verifications_user_id_fkey (
+          id,
+          full_name,
+          email,
+          institution
+        ),
+        paper:paper_submissions!payment_verifications_paper_id_fkey (
+          id,
+          cmt_paper_id,
+          title
+        )
       `)
       .order('created_at', { ascending: false })
+
+    // Apply filters
+    if (status && status !== 'all') {
+      query = query.eq('status', status)
+    }
+
+    if (category && category !== 'all') {
+      query = query.eq('category', category)
+    }
+
+    const { data: payments, error } = await query
 
     if (error) {
       console.error('Database error:', error)

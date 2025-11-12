@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
@@ -46,71 +47,128 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section className="relative py-16 sm:py-20 lg:py-24 px-4 bg-gradient-to-br from-brand-navy via-brand-navy to-brand-black overflow-hidden">
+      {/* Hero Section - Optimized to fit in viewport */}
+      <section className="relative min-h-[calc(100vh-72px)] flex items-center py-8 sm:py-12 px-4 bg-gradient-to-br from-brand-navy via-brand-navy to-brand-black overflow-hidden">
         {/* Decorative Elements */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 left-0 w-72 h-72 bg-brand-orange rounded-full filter blur-3xl"></div>
           <div className="absolute bottom-0 right-0 w-96 h-96 bg-brand-orange rounded-full filter blur-3xl"></div>
         </div>
-        
-        <div className="container mx-auto text-center relative z-10">
-          <Badge className="mb-6 bg-brand-orange text-brand-navy hover:bg-brand-orange/90 text-sm sm:text-base md:text-lg px-4 sm:px-6 py-1.5 sm:py-2 font-bold animate-pulse">
-            📅 June 25-26, 2026
-          </Badge>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-brand-white mb-4 sm:mb-6 drop-shadow-2xl leading-tight">
-            AdComSys 2026
-          </h1>
-          <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-brand-white mb-3 sm:mb-4 font-medium">
-            Third International Conference on
-          </p>
-          <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-brand-orange mb-6 sm:mb-8 drop-shadow-xl">
-            Advanced Computing and Systems
-          </p>
-          <p className="text-base sm:text-lg md:text-xl text-brand-white/90 mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed px-4">
-            Organized by Department of CST & CSIT<br />
-            <span className="font-semibold text-brand-orange">University of Engineering and Management, Kolkata</span>
-          </p>
-          
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 mb-12 sm:mb-16 px-4">
-            <Link href="https://cmt3.research.microsoft.com/AdComSys2025" target="_blank">
-              <Button size="lg" className="w-full sm:w-auto text-base sm:text-lg bg-brand-orange text-brand-navy hover:bg-brand-orange/90 shadow-2xl hover:shadow-brand-orange/50 transition-all duration-300 transform hover:scale-105 font-bold py-6 px-8">
-                <FileText className="mr-2 h-5 w-5" />
-                Submit Paper
-              </Button>
-            </Link>
-            <Link href="/signup">
-              <Button size="lg" variant="outline" className="w-full sm:w-auto text-base sm:text-lg border-3 border-brand-orange text-brand-white hover:bg-brand-orange hover:text-brand-navy shadow-2xl transition-all duration-300 transform hover:scale-105 font-bold py-6 px-8">
-                <Users className="mr-2 h-5 w-5" />
-                Register Now
-              </Button>
-            </Link>
-          </div>
 
-          {/* Quick Info Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 max-w-5xl mx-auto px-4">
-            <Card className="bg-white/10 backdrop-blur-md border-2 border-brand-orange/40 hover:border-brand-orange hover:bg-white/20 transition-all duration-300 hover:shadow-2xl hover:shadow-brand-orange/30 transform hover:-translate-y-1">
-              <CardContent className="pt-6 pb-6">
-                <CalendarDays className="h-10 w-10 sm:h-12 sm:w-12 text-brand-orange mx-auto mb-4" />
-                <h3 className="font-bold text-lg sm:text-xl mb-2 text-brand-white">Conference Dates</h3>
-                <p className="text-brand-white/90 text-base sm:text-lg font-semibold">June 25-26, 2026</p>
-              </CardContent>
-            </Card>
-            <Card className="bg-white/10 backdrop-blur-md border-2 border-brand-orange/40 hover:border-brand-orange hover:bg-white/20 transition-all duration-300 hover:shadow-2xl hover:shadow-brand-orange/30 transform hover:-translate-y-1">
-              <CardContent className="pt-6 pb-6">
-                <MapPin className="h-10 w-10 sm:h-12 sm:w-12 text-brand-orange mx-auto mb-4" />
-                <h3 className="font-bold text-lg sm:text-xl mb-2 text-brand-white">Location</h3>
-                <p className="text-brand-white/90 text-base sm:text-lg font-semibold">UEM Kolkata, India</p>
-              </CardContent>
-            </Card>
-            <Card className="bg-white/10 backdrop-blur-md border-2 border-brand-orange/40 hover:border-brand-orange hover:bg-white/20 transition-all duration-300 hover:shadow-2xl hover:shadow-brand-orange/30 transform hover:-translate-y-1 sm:col-span-2 lg:col-span-1">
-              <CardContent className="pt-6 pb-6">
-                <Award className="h-10 w-10 sm:h-12 sm:w-12 text-brand-orange mx-auto mb-4" />
-                <h3 className="font-bold text-lg sm:text-xl mb-2 text-brand-white">Publication</h3>
-                <p className="text-brand-white/90 text-base sm:text-lg font-semibold">Springer LNNS (SCOPUS)</p>
-              </CardContent>
-            </Card>
+        {/* Background Media - Video on Desktop, Image on Mobile */}
+        <div className="absolute inset-0 opacity-20">
+          {/* Video for Desktop/Tablet - Hidden on Mobile */}
+          <video 
+            autoPlay 
+            loop 
+            muted 
+            playsInline
+            poster="/assets/images/video-poster.jpg"
+            className="hidden md:block w-full h-full object-cover"
+          >
+            <source src="/assets/images/hero-video.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          
+          {/* Image for Mobile - Better Performance with Next.js Image */}
+          <Image 
+            src="/assets/images/conference-bg.jpg" 
+            alt="Conference Background"
+            fill
+            priority
+            className="md:hidden object-cover"
+          />
+        </div>
+        
+        <div className="container mx-auto relative z-10">
+          <div className="grid lg:grid-cols-2 gap-8 items-center">
+            {/* Left Column - Main Content */}
+            <div className="text-center lg:text-left space-y-4 sm:space-y-6">
+              <Badge className="bg-brand-orange text-brand-navy hover:bg-brand-orange/90 text-xs sm:text-sm px-3 sm:px-4 py-1 font-bold animate-pulse inline-block">
+                📅 June 25-26, 2026
+              </Badge>
+              
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-brand-white drop-shadow-2xl leading-tight">
+                AdComSys 2026
+              </h1>
+              
+              <div className="space-y-2">
+                <p className="text-base sm:text-lg md:text-xl text-brand-white font-medium">
+                  Third International Conference on
+                </p>
+                <p className="text-xl sm:text-2xl md:text-3xl font-bold text-brand-orange drop-shadow-xl">
+                  Advanced Computing and Systems
+                </p>
+              </div>
+              
+              <p className="text-sm sm:text-base text-brand-white/90 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                Organized by Department of CST & CSIT<br />
+                <span className="font-semibold text-brand-orange">University of Engineering and Management, Kolkata</span>
+              </p>
+              
+              {/* CTA Buttons */}
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 justify-center lg:justify-start">
+                <Link href="https://cmt3.research.microsoft.com/AdComSys2025" target="_blank">
+                  <Button size="lg" className="w-full sm:w-auto bg-brand-orange text-brand-navy hover:bg-brand-orange/90 shadow-2xl hover:shadow-brand-orange/50 transition-all duration-300 transform hover:scale-105 font-bold">
+                    <FileText className="mr-2 h-4 w-4" />
+                    Submit Paper
+                  </Button>
+                </Link>
+                <Link href="/signup">
+                  <Button size="lg" variant="outline" className="w-full sm:w-auto border-2 border-brand-orange text-brand-white hover:bg-brand-orange hover:text-brand-navy shadow-2xl transition-all duration-300 transform hover:scale-105 font-bold">
+                    <Users className="mr-2 h-4 w-4" />
+                    Register Now
+                  </Button>
+                </Link>
+              </div>
+            </div>
+
+            {/* Right Column - Image/Visual or Info Cards */}
+            <div className="space-y-4">
+              {/* Option 1: Add Conference Image */}
+              {/* Uncomment this section to add an image */}
+              {/* <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-brand-orange/30">
+                <img 
+                  src="/assets/images/adcm2024/conference-hall.jpg" 
+                  alt="Conference Hall"
+                  className="w-full h-64 sm:h-80 lg:h-96 object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/80 to-transparent"></div>
+              </div> */}
+
+              {/* Option 2: Info Cards (Current) */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 gap-3 sm:gap-4">
+                <Card className="bg-white/10 backdrop-blur-md border-2 border-brand-orange/40 hover:border-brand-orange hover:bg-white/20 transition-all duration-300 hover:shadow-xl hover:shadow-brand-orange/30">
+                  <CardContent className="p-4 sm:p-5 flex items-center gap-4">
+                    <CalendarDays className="h-8 w-8 sm:h-10 sm:w-10 text-brand-orange flex-shrink-0" />
+                    <div className="text-left">
+                      <h3 className="font-bold text-sm sm:text-base text-brand-white">Conference Dates</h3>
+                      <p className="text-brand-white/90 text-xs sm:text-sm font-semibold">June 25-26, 2026</p>
+                    </div>
+                  </CardContent>
+                </Card>
+                
+                <Card className="bg-white/10 backdrop-blur-md border-2 border-brand-orange/40 hover:border-brand-orange hover:bg-white/20 transition-all duration-300 hover:shadow-xl hover:shadow-brand-orange/30">
+                  <CardContent className="p-4 sm:p-5 flex items-center gap-4">
+                    <MapPin className="h-8 w-8 sm:h-10 sm:w-10 text-brand-orange flex-shrink-0" />
+                    <div className="text-left">
+                      <h3 className="font-bold text-sm sm:text-base text-brand-white">Location</h3>
+                      <p className="text-brand-white/90 text-xs sm:text-sm font-semibold">UEM Kolkata, India</p>
+                    </div>
+                  </CardContent>
+                </Card>
+                
+                <Card className="bg-white/10 backdrop-blur-md border-2 border-brand-orange/40 hover:border-brand-orange hover:bg-white/20 transition-all duration-300 hover:shadow-xl hover:shadow-brand-orange/30">
+                  <CardContent className="p-4 sm:p-5 flex items-center gap-4">
+                    <Award className="h-8 w-8 sm:h-10 sm:w-10 text-brand-orange flex-shrink-0" />
+                    <div className="text-left">
+                      <h3 className="font-bold text-sm sm:text-base text-brand-white">Publication</h3>
+                      <p className="text-brand-white/90 text-xs sm:text-sm font-semibold">Springer LNNS (SCOPUS)</p>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
           </div>
         </div>
       </section>

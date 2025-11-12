@@ -1,68 +1,107 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { verifyJWT } from '@/lib/auth'
+import { getUserFromRequest } from '@/lib/auth/jwt'
 import { supabaseAdmin } from '@/lib/db'
 
+// GET all committee members
 export async function GET(request: NextRequest) {
   try {
-    const user = await verifyJWT(request)
+    // Verify admin access
+    const user = await getUserFromRequest(request)
     if (!user || user.role !== 'admin') {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 403 })
+      return NextResponse.json(
+        { error: 'Unauthorized. Admin access required.' },
+        { status: 403 }
+      )
     }
 
-    const { data: members, error } = await supabaseAdmin
+    // Get query parameters
+    const { searchParams } = new URL(request.url)
+    const committee_type = searchParams.get('type')
+
+    // Build query
+    let query = supabaseAdmin
       .from('committee_members')
       .select('*')
-      .order('category', { ascending: true })
-      .order('name', { ascending: true })
+      .order('display_order', { ascending: true })
 
-    if (error) {
-      console.error('Failed to fetch committee members:', error)
-      return NextResponse.json({ error: 'Failed to fetch members' }, { status: 500 })
+    // Apply filter
+    if (committee_type && committee_type !== 'all') {
+      query = query.eq('committee_type', committee_type)
     }
 
-    return NextResponse.json({ members })
+    const { data: members, error } = await query
+
+    if (error) {
+      console.error('Database error:', error)
+      return NextResponse.json(
+        { error: 'Failed to fetch committee members' },
+        { status: 500 }
+      )
+    }
+
+    return NextResponse.json({ members: members || [] })
   } catch (error) {
-    console.error('Committee fetch error:', error)
-    return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
+    console.error('Failed to fetch committee members:', error)
+    return NextResponse.json(
+      { error: 'An unexpected error occurred' },
+      { status: 500 }
+    )
   }
 }
 
+// POST - Create new committee member
 export async function POST(request: NextRequest) {
   try {
-    const user = await verifyJWT(request)
+    // Verify admin access
+    const user = await getUserFromRequest(request)
     if (!user || user.role !== 'admin') {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 403 })
+      return NextResponse.json(
+        { error: 'Unauthorized. Admin access required.' },
+        { status: 403 }
+      )
     }
 
     const body = await request.json()
-    const { name, title, affiliation, email, category, photo_url } = body
+    const { name, designation, affiliation, email, image_url, committee_type, display_order, is_active } = body
 
     // Validate required fields
-    if (!name || !affiliation || !email || !category) {
-      return NextResponse.json({ error: 'Missing required fields' }, { status: 400 })
+    if (!name || !designation || !affiliation || !committee_type) {
+      return NextResponse.json(
+        { error: 'Name, designation, affiliation, and committee_type are required' },
+        { status: 400 }
+      )
     }
 
-    // Validate category
-    if (!['organizing', 'technical', 'advisory'].includes(category)) {
-      return NextResponse.json({ error: 'Invalid category' }, { status: 400 })
+    // Validate committee_type
+    if (!['organizing', 'technical', 'advisory'].includes(committee_type)) {
+      return NextResponse.json(
+        { error: 'Invalid committee_type. Must be organizing, technical, or advisory' },
+        { status: 400 }
+      )
     }
 
-    const { data, error } = await supabaseAdmin
+    // Create committee member
+    const { data: newMember, error } = await supabaseAdmin
       .from('committee_members')
       .insert({
         name,
-        title: title || '',
+        designation,
         affiliation,
         email,
-        category,
-        photo_url: photo_url || null
+        image_url,
+        committee_type,
+        display_order: display_order || 0,
+        is_active: is_active !== undefined ? is_active : true
       })
       .select()
       .single()
 
     if (error) {
-      console.error('Failed to create committee member:', error)
-      return NextResponse.json({ error: 'Failed to create member' }, { status: 500 })
+      console.error('Database error:', error)
+      return NextResponse.json(
+        { error: 'Failed to create committee member' },
+        { status: 500 }
+      )
     }
 
     // Log admin action
@@ -70,17 +109,25 @@ export async function POST(request: NextRequest) {
       .from('admin_logs')
       .insert({
         admin_id: (user as any).id,
-        action: 'create',
-        table_name: 'committee_members',
-        record_id: data.id,
-        details: { name, category }
+        action: 'created_committee_member',
+        entity_type: 'committee_member',
+        entity_id: (newMember as any).id,
+        details: {
+          message: `Created committee member ${name}`,
+          committee_type,
+          affiliation
+        }
       })
-      .then(() => {})
-      .catch(() => {})
 
-    return NextResponse.json({ member: data })
+    return NextResponse.json({ 
+      message: 'Committee member created successfully',
+      member: newMember 
+    }, { status: 201 })
   } catch (error) {
-    console.error('Committee create error:', error)
-    return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
+    console.error('Failed to create committee member:', error)
+    return NextResponse.json(
+      { error: 'An unexpected error occurred' },
+      { status: 500 }
+    )
   }
 }

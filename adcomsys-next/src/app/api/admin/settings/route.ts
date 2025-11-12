@@ -1,10 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { verifyJWT } from '@/lib/auth'
+import { getUserFromRequest } from '@/lib/auth/jwt'
 import { supabaseAdmin } from '@/lib/db'
 
 export async function GET(request: NextRequest) {
   try {
-    const user = await verifyJWT(request)
+    const user = await getUserFromRequest(request)
     if (!user || user.role !== 'admin') {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 403 })
     }
@@ -36,7 +36,7 @@ export async function GET(request: NextRequest) {
 
 export async function PUT(request: NextRequest) {
   try {
-    const user = await verifyJWT(request)
+    const user = await getUserFromRequest(request)
     if (!user || user.role !== 'admin') {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 403 })
     }
@@ -59,13 +59,13 @@ export async function PUT(request: NextRequest) {
     await Promise.all(updates)
 
     // Log admin action
-    await supabaseAdmin
+    supabaseAdmin
       .from('admin_logs')
       .insert({
-        admin_id: (user as any).id,
+        admin_id: user.userId,
         action: 'update',
-        table_name: 'settings',
-        record_id: 'global',
+        entity_type: 'settings',
+        entity_id: 'global',
         details: { updated_keys: Object.keys(body) }
       })
       .then(() => {})

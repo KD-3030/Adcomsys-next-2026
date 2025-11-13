@@ -122,37 +122,37 @@ export default function AboutPage() {
               <div className="space-y-3">
                 <div className="flex items-start group">
                   <div className="w-2 h-2 bg-[#fca311] rounded-full mt-2 mr-3 group-hover:scale-150 transition-transform"></div>
-                  <p className="text-white-700 group-hover:text-[#14213d] transition-colors">Keynote speeches by renowned researchers and industry leaders</p>
+                  <p className="text-white-700 group-hover:text-[#fca311] transition-colors">Keynote speeches by renowned researchers and industry leaders</p>
                 </div>
                 <div className="flex items-start group">
                   <div className="w-2 h-2 bg-[#fca311] rounded-full mt-2 mr-3 group-hover:scale-150 transition-transform"></div>
-                  <p className="text-white-700 group-hover:text-[#14213d] transition-colors">Technical paper presentations across multiple tracks</p>
+                  <p className="text-white-700 group-hover:text-[#fca311] transition-colors">Technical paper presentations across multiple tracks</p>
                 </div>
                 <div className="flex items-start group">
                   <div className="w-2 h-2 bg-[#fca311] rounded-full mt-2 mr-3 group-hover:scale-150 transition-transform"></div>
-                  <p className="text-white-700 group-hover:text-[#14213d] transition-colors">Panel discussions on emerging technologies</p>
+                  <p className="text-white-700 group-hover:text-[#fca311] transition-colors">Panel discussions on emerging technologies</p>
                 </div>
                 <div className="flex items-start group">
                   <div className="w-2 h-2 bg-[#fca311] rounded-full mt-2 mr-3 group-hover:scale-150 transition-transform"></div>
-                  <p className="text-white-700 group-hover:text-[#14213d] transition-colors">Networking opportunities with peers and experts</p>
+                  <p className="text-white-700 group-hover:text-[#fca311] transition-colors">Networking opportunities with peers and experts</p>
                 </div>
               </div>
               <div className="space-y-3">
                 <div className="flex items-start group">
                   <div className="w-2 h-2 bg-[#fca311] rounded-full mt-2 mr-3 group-hover:scale-150 transition-transform"></div>
-                  <p className="text-white-700 group-hover:text-[#14213d] transition-colors">Publication in Springer LNNS (SCOPUS indexed)</p>
+                  <p className="text-white-700 group-hover:text-[#fca311] transition-colors">Publication in Springer LNNS (SCOPUS indexed)</p>
                 </div>
                 <div className="flex items-start group">
                   <div className="w-2 h-2 bg-[#fca311] rounded-full mt-2 mr-3 group-hover:scale-150 transition-transform"></div>
-                  <p className="text-white-700 group-hover:text-[#14213d] transition-colors">Workshops and tutorials on latest technologies</p>
+                  <p className="text-white-700 group-hover:text-[#fca311] transition-colors">Workshops and tutorials on latest technologies</p>
                 </div>
                 <div className="flex items-start group">
                   <div className="w-2 h-2 bg-[#fca311] rounded-full mt-2 mr-3 group-hover:scale-150 transition-transform"></div>
-                  <p className="text-white-700 group-hover:text-[#14213d] transition-colors">Industry-academia collaboration opportunities</p>
+                  <p className="text-white-700 group-hover:text-[#fca311] transition-colors">Industry-academia collaboration opportunities</p>
                 </div>
                 <div className="flex items-start group">
                   <div className="w-2 h-2 bg-[#fca311] rounded-full mt-2 mr-3 group-hover:scale-150 transition-transform"></div>
-                  <p className="text-white-700 group-hover:text-[#14213d] transition-colors">Best paper awards and recognition</p>
+                  <p className="text-white-700 group-hover:text-[#fca311] transition-colors">Best paper awards and recognition</p>
                 </div>
               </div>
             </div>

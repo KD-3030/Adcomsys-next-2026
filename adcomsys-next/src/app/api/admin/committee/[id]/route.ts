@@ -1,6 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getUserFromRequest } from '@/lib/auth/jwt'
 import { supabaseAdmin } from '@/lib/db'
+import type { Database } from '@/types/database.types'
+
+type CommitteeMemberUpdate = Database['public']['Tables']['committee_members']['Update']
 
 export async function PUT(
   request: NextRequest,
@@ -26,18 +29,20 @@ export async function PUT(
       return NextResponse.json({ error: 'Invalid committee_type' }, { status: 400 })
     }
 
+    const updateData: CommitteeMemberUpdate = {
+      name,
+      designation: designation || '',
+      affiliation,
+      email,
+      committee_type: committee_type as 'organizing' | 'technical' | 'advisory',
+      image_url: image_url || null,
+      display_order: display_order || 0,
+      is_active: is_active !== undefined ? is_active : true
+    }
+
     const { data, error } = await supabaseAdmin
       .from('committee_members')
-      .update({
-        name,
-        designation: designation || '',
-        affiliation,
-        email,
-        committee_type,
-        image_url: image_url || null,
-        display_order: display_order || 0,
-        is_active: is_active !== undefined ? is_active : true
-      })
+      .update(updateData)
       .eq('id', id)
       .select()
       .single()
@@ -48,7 +53,7 @@ export async function PUT(
     }
 
     // Log admin action
-    supabaseAdmin
+    await supabaseAdmin
       .from('admin_logs')
       .insert({
         admin_id: user.userId,
@@ -57,8 +62,6 @@ export async function PUT(
         entity_id: id,
         details: { name, committee_type }
       })
-      .then(() => {})
-      .catch(() => {})
 
     return NextResponse.json({ member: data })
   } catch (error) {
@@ -89,7 +92,7 @@ export async function DELETE(
     }
 
     // Log admin action
-    supabaseAdmin
+    await supabaseAdmin
       .from('admin_logs')
       .insert({
         admin_id: user.userId,
@@ -97,8 +100,6 @@ export async function DELETE(
         entity_type: 'committee_members',
         entity_id: id
       })
-      .then(() => {})
-      .catch(() => {})
 
     return NextResponse.json({ success: true })
   } catch (error) {

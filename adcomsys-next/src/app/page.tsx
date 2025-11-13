@@ -8,7 +8,7 @@ import HeroVideo from '@/components/layout/HeroVideo'
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#fafafa]">
+    <div className="min-h-screen bg-gradient-to-b from-slate-50 via-white to-slate-50/50">
       {/* Navigation */}
       <nav className="bg-brand-navy border-b-4 border-brand-orange sticky top-0 z-50 shadow-xl">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4">
@@ -60,7 +60,6 @@ export default function Home() {
         <div className="absolute inset-0 opacity-100">
           {/* Video for Desktop/Tablet - Hidden on Mobile */}
           <HeroVideo />
-          
           {/* Image for Mobile - Better Performance with Next.js Image */}
           <Image 
             src="/assets/images/conference-bg.jpg" 
@@ -165,8 +164,17 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-12 sm:py-16 lg:py-20 px-4 bg-gradient-to-b from-[#fafafa] to-brand-gray/20">
-        <div className="container mx-auto max-w-6xl">
+      <section id="about" className="py-12 sm:py-16 lg:py-20 px-4 relative overflow-hidden bg-transparent-to-br from-slate-50 via-white to-blue-50/30">
+        {/* Subtle Background Pattern */}
+        <div 
+          className="absolute inset-0 opacity-[0.03] pointer-events-none"
+          style={{
+            backgroundImage: 'radial-gradient(circle at 2px 2px, #14213d 1px, transparent 0)',
+            backgroundSize: '40px 40px'
+          }}
+        />
+        
+        <div className="container mx-auto max-w-6xl relative z-10">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center mb-8 sm:mb-12 text-brand-navy">
             About the Conference
           </h2>
@@ -202,8 +210,15 @@ export default function Home() {
       </section>
 
       {/* Important Dates Section */}
-      <section id="dates" className="py-12 sm:py-16 lg:py-20 px-4 bg-gradient-to-b from-brand-gray/20 to-[#fafafa]">
-        <div className="container mx-auto max-w-6xl">
+      <section id="dates" className="py-12 sm:py-16 lg:py-20 px-4 relative overflow-hidden">
+        {/* Elegant Background */}
+        <div className="absolute inset-0 bg-transparent-to-br from-blue-50 via-slate-50 to-white"></div>
+        <div className="absolute inset-0 opacity-[0]" style={{
+          backgroundImage: `linear-gradient(30deg, rgb(20, 33, 61) 12%, transparent 12.5%, transparent 87%, rgb(20, 33, 61) 87.5%, rgb(20, 33, 61)), linear-gradient(150deg, rgb(20, 33, 61) 12%, transparent 12.5%, transparent 87%, rgb(20, 33, 61) 87.5%, rgb(20, 33, 61))`,
+          backgroundSize: '80px 140px'
+        }}></div>
+        
+        <div className="container mx-auto max-w-6xl relative z-10">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center mb-4 text-brand-navy">
             Important Dates
           </h2>
@@ -247,8 +262,13 @@ export default function Home() {
       </section>
 
       {/* Submission Section */}
-      <section id="submission" className="py-12 sm:py-16 lg:py-20 px-4 bg-gradient-to-b from-[#fafafa] to-brand-gray/20">
-        <div className="container mx-auto max-w-6xl">
+      <section id="submission" className="py-12 sm:py-16 lg:py-20 px-4 relative overflow-hidden">
+        {/* Elegant Background */}
+        <div className="absolute inset-0 bg-transparent-to-tr from-slate-50 via-white to-orange-50/20"></div>
+        <div className="absolute top-0 right-0 w-96 h-96 bg-brand-orange/5 rounded-full filter blur-3xl"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-brand-navy/5 rounded-full filter blur-3xl"></div>
+        
+        <div className="container mx-auto max-w-6xl relative z-10">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center mb-4 text-brand-navy">
             Paper Submission
           </h2>
@@ -300,8 +320,12 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-12 sm:py-16 lg:py-20 px-4 bg-gradient-to-b from-brand-gray/20 to-[#fafafa]">
-        <div className="container mx-auto max-w-6xl">
+      <section id="contact" className="py-12 sm:py-16 lg:py-20 px-4 relative overflow-hidden">
+        {/* Modern Background */}
+        <div className="absolute inset-0 bg-transparent-to-bl from-slate-50 via-blue-50/30 to-white"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-orange/3 rounded-full filter blur-3xl"></div>
+        
+        <div className="container mx-auto max-w-6xl relative z-10">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center mb-8 sm:mb-12 text-brand-navy">
             Contact Us
           </h2>

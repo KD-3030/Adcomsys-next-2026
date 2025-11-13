@@ -143,6 +143,120 @@ export interface Database {
           updated_at?: string
         }
       }
+      committee_members: {
+        Row: {
+          id: string
+          name: string
+          designation: string
+          affiliation: string
+          email: string
+          committee_type: 'organizing' | 'technical' | 'advisory'
+          image_url: string | null
+          display_order: number
+          is_active: boolean
+          created_at: string
+          updated_at: string
+        }
+        Insert: {
+          id?: string
+          name: string
+          designation?: string
+          affiliation: string
+          email: string
+          committee_type: 'organizing' | 'technical' | 'advisory'
+          image_url?: string | null
+          display_order?: number
+          is_active?: boolean
+          created_at?: string
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          name?: string
+          designation?: string
+          affiliation?: string
+          email?: string
+          committee_type?: 'organizing' | 'technical' | 'advisory'
+          image_url?: string | null
+          display_order?: number
+          is_active?: boolean
+          created_at?: string
+          updated_at?: string
+        }
+      }
+      speakers: {
+        Row: {
+          id: string
+          name: string
+          designation: string
+          affiliation: string
+          bio: string | null
+          image_url: string | null
+          topic: string | null
+          session_date: string | null
+          display_order: number
+          is_active: boolean
+          created_at: string
+          updated_at: string
+        }
+        Insert: {
+          id?: string
+          name: string
+          designation: string
+          affiliation: string
+          bio?: string | null
+          image_url?: string | null
+          topic?: string | null
+          session_date?: string | null
+          display_order?: number
+          is_active?: boolean
+          created_at?: string
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          name?: string
+          designation?: string
+          affiliation?: string
+          bio?: string | null
+          image_url?: string | null
+          topic?: string | null
+          session_date?: string | null
+          display_order?: number
+          is_active?: boolean
+          created_at?: string
+          updated_at?: string
+        }
+      }
+      admin_logs: {
+        Row: {
+          id: string
+          admin_id: string
+          action: string
+          entity_type: string
+          entity_id: string
+          details: Json | null
+          created_at: string
+        }
+        Insert: {
+          id?: string
+          admin_id: string
+          action: string
+          entity_type: string
+          entity_id: string
+          details?: Json | null
+          created_at?: string
+        }
+        Update: {
+          id?: string
+          admin_id?: string
+          action?: string
+          entity_type?: string
+          entity_id?: string
+          details?: Json | null
+          created_at?: string
+        }
+      }
       // Add more table types as needed
     }
     Views: {

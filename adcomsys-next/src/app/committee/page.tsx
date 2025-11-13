@@ -36,7 +36,7 @@ function CommitteeMember({ name, designation, affiliation, email, role = '', lev
   const levelColors = {
     chief: 'bg-gradient-to-r from-yellow-500 to-orange-500',
     patron: 'bg-gradient-to-r from-blue-600 to-indigo-600',
-    chair: 'bg-gradient-to-r from-green-600 to-teal-600',
+    chair: 'bg-gradient-to-r from-blue-600 to-navy-600',
     member: 'bg-gradient-to-r from-gray-600 to-gray-700'
   }
 
@@ -50,10 +50,10 @@ function CommitteeMember({ name, designation, affiliation, email, role = '', lev
   const Icon = levelIcons[level]
 
   return (
-    <Card className="overflow-hidden hover:shadow-xl transition-all duration-300 border-l-4 border-[#fca311] shadow-md">
+    <Card className="overflow-hidden hover:shadow-xl transition-all duration-300 border-l-4 border-[#fca311] shadow-md bg-white relative z-10">
       <div className={`${levelColors[level]} h-2`}></div>
-      <CardContent className="p-6 bg-gradient-to-br from-white to-gray-50">
-        <div className="flex items-start gap-4">
+      <CardContent className="p-6 bg-white">
+        <div className="flex items-start gap-4 bg-white relative">
           {image_url ? (
             <div className="relative w-20 h-20 rounded-full overflow-hidden flex-shrink-0 ring-2 ring-blue-200">
               <Image

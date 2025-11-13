@@ -8,24 +8,24 @@ import Footer from '@/components/layout/Footer'
 
 export default function CallForPapersPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-gray-50">
+    <div className="min-h-screen relative z-10">
       <Navbar />
 
       {/* Hero Section */}
-      <div className="bg-gradient-to-r from-[#14213d] to-[#1a2844] text-white py-16 relative overflow-hidden">
+      <div className="bg-gradient-to-r from-[#14213d] to-[#1a2844] text-white py-20 relative overflow-hidden shadow-2xl">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0 bg-gradient-to-br from-[#fca311] to-transparent"></div>
         </div>
         <div className="container mx-auto px-4 text-center relative z-10">
-          <div className="flex items-center justify-center mb-6">
-            <div className="bg-[#fca311]/20 backdrop-blur-sm p-4 rounded-full ring-2 ring-[#fca311]/50">
-              <FileText className="h-12 w-12 text-[#fca311]" />
+          <div className="flex items-center justify-center mb-8">
+            <div className="bg-[#fca311] backdrop-blur-sm p-5 rounded-full ring-4 ring-[#fca311]/30 shadow-xl">
+              <FileText className="h-14 w-14 text-white" />
             </div>
           </div>
-          <h1 className="text-5xl font-bold mb-4">
+          <h1 className="text-6xl font-bold mb-6">
             Call for <span className="text-[#fca311]">Papers</span>
           </h1>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-200 max-w-3xl mx-auto font-medium">
             Share your innovations and contribute to advancing computing and systems
           </p>
         </div>
@@ -35,33 +35,33 @@ export default function CallForPapersPage() {
       <div className="container mx-auto px-4 py-12 max-w-5xl">
 
         {/* Submission Guidelines */}
-        <Card className="mb-8 shadow-lg border-l-4 border-[#fca311]">
-          <CardHeader className="bg-gradient-to-r from-[#14213d] to-[#1a2844] text-white">
-            <CardTitle className="flex items-center">
-              <FileText className="mr-2 h-6 w-6 text-[#fca311]" />
+        <Card className="mb-8 shadow-2xl border-l-4 border-[#fca311] bg-white relative z-10">
+          <CardHeader className="bg-gradient-to-r from-[#14213d] to-[#1a2844] text-white py-6">
+            <CardTitle className="flex items-center text-xl">
+              <FileText className="mr-3 h-7 w-7 text-[#fca311]" />
               Submission Guidelines
             </CardTitle>
           </CardHeader>
-          <CardContent className="space-y-4 text-gray-700 pt-6">
-            <div className="grid md:grid-cols-2 gap-4">
-              <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-4 rounded-lg border-l-4 border-blue-600">
-                <h3 className="font-semibold mb-2 flex items-center text-[#14213d]">
-                  <CheckCircle className="mr-2 h-5 w-5 text-blue-600" />
+          <CardContent className="space-y-4 text-gray-800 pt-6 bg-white">
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="bg-blue-50 p-5 rounded-lg border-l-4 border-blue-600 shadow-md">
+                <h3 className="font-bold mb-3 flex items-center text-[#14213d] text-lg">
+                  <CheckCircle className="mr-2 h-6 w-6 text-blue-600" />
                   Paper Format
                 </h3>
-                <ul className="list-disc list-inside space-y-1 text-sm">
+                <ul className="list-disc list-inside space-y-2 text-base text-gray-800">
                   <li>Springer LNNS format</li>
                   <li>Maximum 10 pages (including references)</li>
                   <li>PDF format only</li>
                   <li>English language</li>
                 </ul>
               </div>
-              <div className="bg-gradient-to-br from-orange-50 to-orange-100 p-4 rounded-lg border-l-4 border-[#fca311]">
-                <h3 className="font-semibold mb-2 flex items-center text-[#14213d]">
-                  <Award className="mr-2 h-5 w-5 text-[#fca311]" />
+              <div className="bg-orange-50 p-5 rounded-lg border-l-4 border-[#fca311] shadow-md">
+                <h3 className="font-bold mb-3 flex items-center text-[#14213d] text-lg">
+                  <Award className="mr-2 h-6 w-6 text-[#fca311]" />
                   Publication
                 </h3>
-                <ul className="list-disc list-inside space-y-1 text-sm">
+                <ul className="list-disc list-inside space-y-2 text-base text-gray-800">
                   <li>Springer LNNS series</li>
                   <li>SCOPUS indexed</li>
                   <li>International visibility</li>
@@ -70,9 +70,9 @@ export default function CallForPapersPage() {
               </div>
             </div>
 
-            <div className="border-l-4 border-[#fca311] bg-gradient-to-r from-orange-50 to-orange-100 p-4 rounded">
-              <h3 className="font-semibold mb-2 text-[#14213d]">Important Notes:</h3>
-              <ul className="list-disc list-inside space-y-1 text-sm">
+            <div className="border-l-4 border-[#fca311] bg-orange-50 p-5 rounded-lg shadow-md">
+              <h3 className="font-bold mb-3 text-[#14213d] text-lg">Important Notes:</h3>
+              <ul className="list-disc list-inside space-y-2 text-base text-gray-800">
                 <li>Papers must be original and not published elsewhere</li>
                 <li>Submit through Microsoft CMT portal only</li>
                 <li>All papers will undergo double-blind peer review</li>
@@ -84,15 +84,15 @@ export default function CallForPapersPage() {
         </Card>
 
         {/* Research Tracks */}
-        <Card className="mb-8 shadow-lg border-l-4 border-[#fca311]">
-          <CardHeader className="bg-gradient-to-r from-[#14213d] to-[#1a2844] text-white">
-            <CardTitle>Research Tracks</CardTitle>
+        <Card className="mb-8 shadow-2xl border-l-4 border-[#fca311] bg-white relative z-10">
+          <CardHeader className="bg-gradient-to-r from-[#14213d] to-[#1a2844] text-white py-6">
+            <CardTitle className="text-xl">Research Tracks</CardTitle>
           </CardHeader>
-          <CardContent className="pt-6">
+          <CardContent className="pt-6 bg-white">
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-gradient-to-br from-white to-blue-50 p-4 rounded-lg border-l-4 border-blue-600 shadow-sm hover:shadow-md transition-shadow">
-                <h3 className="font-semibold text-lg mb-3 text-[#14213d]">Track 1: Artificial Intelligence & Machine Learning</h3>
-                <ul className="list-disc list-inside space-y-1 text-sm text-gray-700">
+              <div className="bg-blue-50 p-5 rounded-lg border-l-4 border-blue-600 shadow-lg hover:shadow-xl transition-all hover:scale-[1.02]">
+                <h3 className="font-bold text-lg mb-3 text-[#14213d]">Track 1: Artificial Intelligence & Machine Learning</h3>
+                <ul className="list-disc list-inside space-y-2 text-base text-gray-800">
                   <li>Deep Learning & Neural Networks</li>
                   <li>Computer Vision & Image Processing</li>
                   <li>Natural Language Processing</li>
@@ -102,9 +102,9 @@ export default function CallForPapersPage() {
                 </ul>
               </div>
 
-              <div className="bg-gradient-to-br from-white to-green-50 p-4 rounded-lg border-l-4 border-green-600 shadow-sm hover:shadow-md transition-shadow">
-                <h3 className="font-semibold text-lg mb-3 text-[#14213d]">Track 2: Internet of Things & Edge Computing</h3>
-                <ul className="list-disc list-inside space-y-1 text-sm text-gray-700">
+              <div className="bg-green-50 p-5 rounded-lg border-l-4 border-green-600 shadow-lg hover:shadow-xl transition-all hover:scale-[1.02]">
+                <h3 className="font-bold text-lg mb-3 text-[#14213d]">Track 2: Internet of Things & Edge Computing</h3>
+                <ul className="list-disc list-inside space-y-2 text-base text-gray-800">
                   <li>IoT Architecture & Protocols</li>
                   <li>Smart Cities & Infrastructure</li>
                   <li>Industrial IoT (IIoT)</li>
@@ -114,9 +114,9 @@ export default function CallForPapersPage() {
                 </ul>
               </div>
 
-              <div className="bg-gradient-to-br from-white to-purple-50 p-4 rounded-lg border-l-4 border-purple-600 shadow-sm hover:shadow-md transition-shadow">
-                <h3 className="font-semibold text-lg mb-3 text-[#14213d]">Track 3: Cloud Computing & Distributed Systems</h3>
-                <ul className="list-disc list-inside space-y-1 text-sm text-gray-700">
+              <div className="bg-purple-50 p-5 rounded-lg border-l-4 border-purple-600 shadow-lg hover:shadow-xl transition-all hover:scale-[1.02]">
+                <h3 className="font-bold text-lg mb-3 text-[#14213d]">Track 3: Cloud Computing & Distributed Systems</h3>
+                <ul className="list-disc list-inside space-y-2 text-base text-gray-800">
                   <li>Cloud Architecture & Services</li>
                   <li>Serverless Computing</li>
                   <li>Container Orchestration</li>
@@ -126,9 +126,9 @@ export default function CallForPapersPage() {
                 </ul>
               </div>
 
-              <div className="bg-gradient-to-br from-white to-red-50 p-4 rounded-lg border-l-4 border-red-600 shadow-sm hover:shadow-md transition-shadow">
-                <h3 className="font-semibold text-lg mb-3 text-[#14213d]">Track 4: Cybersecurity & Blockchain</h3>
-                <ul className="list-disc list-inside space-y-1 text-sm text-gray-700">
+              <div className="bg-red-50 p-5 rounded-lg border-l-4 border-red-600 shadow-lg hover:shadow-xl transition-all hover:scale-[1.02]">
+                <h3 className="font-bold text-lg mb-3 text-[#14213d]">Track 4: Cybersecurity & Blockchain</h3>
+                <ul className="list-disc list-inside space-y-2 text-base text-gray-800">
                   <li>Network Security</li>
                   <li>Cryptography & Encryption</li>
                   <li>Blockchain Technology</li>
@@ -138,9 +138,9 @@ export default function CallForPapersPage() {
                 </ul>
               </div>
 
-              <div className="bg-gradient-to-br from-white to-orange-50 p-4 rounded-lg border-l-4 border-[#fca311] shadow-sm hover:shadow-md transition-shadow">
-                <h3 className="font-semibold text-lg mb-3 text-[#14213d]">Track 5: Big Data & Analytics</h3>
-                <ul className="list-disc list-inside space-y-1 text-sm text-gray-700">
+              <div className="bg-orange-50 p-5 rounded-lg border-l-4 border-[#fca311] shadow-lg hover:shadow-xl transition-all hover:scale-[1.02]">
+                <h3 className="font-bold text-lg mb-3 text-[#14213d]">Track 5: Big Data & Analytics</h3>
+                <ul className="list-disc list-inside space-y-2 text-base text-gray-800">
                   <li>Data Mining & Warehousing</li>
                   <li>Real-time Analytics</li>
                   <li>Business Intelligence</li>
@@ -150,9 +150,9 @@ export default function CallForPapersPage() {
                 </ul>
               </div>
 
-              <div className="bg-gradient-to-br from-white to-indigo-50 p-4 rounded-lg border-l-4 border-indigo-600 shadow-sm hover:shadow-md transition-shadow">
-                <h3 className="font-semibold text-lg mb-3 text-[#14213d]">Track 6: Emerging Technologies</h3>
-                <ul className="list-disc list-inside space-y-1 text-sm text-gray-700">
+              <div className="bg-indigo-50 p-5 rounded-lg border-l-4 border-indigo-600 shadow-lg hover:shadow-xl transition-all hover:scale-[1.02]">
+                <h3 className="font-bold text-lg mb-3 text-[#14213d]">Track 6: Emerging Technologies</h3>
+                <ul className="list-disc list-inside space-y-2 text-base text-gray-800">
                   <li>Quantum Computing</li>
                   <li>5G/6G Networks</li>
                   <li>Augmented & Virtual Reality</li>
@@ -166,48 +166,48 @@ export default function CallForPapersPage() {
         </Card>
 
         {/* Review Process */}
-        <Card className="mb-8 shadow-lg border-l-4 border-[#14213d]">
-          <CardHeader className="bg-gradient-to-r from-[#14213d] to-[#14213d] text-white">
-            <CardTitle className="flex items-center">
-              <Clock className="mr-2 h-6 w-6 text-[#fca311]" />
+        <Card className="mb-8 shadow-2xl border-l-4 border-[#14213d] bg-white relative z-10">
+          <CardHeader className="bg-gradient-to-r from-[#14213d] to-[#1a2844] text-white py-6">
+            <CardTitle className="flex items-center text-xl">
+              <Clock className="mr-3 h-7 w-7 text-[#fca311]" />
               Review Process
             </CardTitle>
           </CardHeader>
-          <CardContent className="pt-6">
+          <CardContent className="pt-6 bg-white">
             <div className="space-y-4">
-              <div className="flex items-start hover:bg-blue-50 p-3 rounded-lg transition-colors">
-                <div className="bg-[#fca311] text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 mr-4 font-bold">1</div>
+              <div className="flex items-start hover:bg-blue-50 p-4 rounded-lg transition-all hover:shadow-md">
+                <div className="bg-[#fca311] text-white rounded-full w-10 h-10 flex items-center justify-center flex-shrink-0 mr-4 font-bold text-lg shadow-lg">1</div>
                 <div>
-                  <h4 className="font-semibold text-[#14213d]">Submission</h4>
-                  <p className="text-sm text-gray-600">Submit your paper through Microsoft CMT portal by the deadline</p>
+                  <h4 className="font-bold text-[#14213d] text-lg mb-1">Submission</h4>
+                  <p className="text-base text-gray-700">Submit your paper through Microsoft CMT portal by the deadline</p>
                 </div>
               </div>
-              <div className="flex items-start hover:bg-blue-50 p-3 rounded-lg transition-colors">
-                <div className="bg-[#fca311] text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 mr-4 font-bold">2</div>
+              <div className="flex items-start hover:bg-blue-50 p-4 rounded-lg transition-all hover:shadow-md">
+                <div className="bg-[#fca311] text-white rounded-full w-10 h-10 flex items-center justify-center flex-shrink-0 mr-4 font-bold text-lg shadow-lg">2</div>
                 <div>
-                  <h4 className="font-semibold text-[#14213d]">Initial Screening</h4>
-                  <p className="text-sm text-gray-600">Papers are checked for format compliance and plagiarism</p>
+                  <h4 className="font-bold text-[#14213d] text-lg mb-1">Initial Screening</h4>
+                  <p className="text-base text-gray-700">Papers are checked for format compliance and plagiarism</p>
                 </div>
               </div>
-              <div className="flex items-start hover:bg-blue-50 p-3 rounded-lg transition-colors">
-                <div className="bg-[#fca311] text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 mr-4 font-bold">3</div>
+              <div className="flex items-start hover:bg-blue-50 p-4 rounded-lg transition-all hover:shadow-md">
+                <div className="bg-[#fca311] text-white rounded-full w-10 h-10 flex items-center justify-center flex-shrink-0 mr-4 font-bold text-lg shadow-lg">3</div>
                 <div>
-                  <h4 className="font-semibold text-[#14213d]">Double-Blind Review</h4>
-                  <p className="text-sm text-gray-600">At least 2-3 reviewers evaluate each paper</p>
+                  <h4 className="font-bold text-[#14213d] text-lg mb-1">Double-Blind Review</h4>
+                  <p className="text-base text-gray-700">At least 2-3 reviewers evaluate each paper</p>
                 </div>
               </div>
-              <div className="flex items-start hover:bg-blue-50 p-3 rounded-lg transition-colors">
-                <div className="bg-[#fca311] text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 mr-4 font-bold">4</div>
+              <div className="flex items-start hover:bg-blue-50 p-4 rounded-lg transition-all hover:shadow-md">
+                <div className="bg-[#fca311] text-white rounded-full w-10 h-10 flex items-center justify-center flex-shrink-0 mr-4 font-bold text-lg shadow-lg">4</div>
                 <div>
-                  <h4 className="font-semibold text-[#14213d]">Decision Notification</h4>
-                  <p className="text-sm text-gray-600">Authors receive accept/reject decision with reviewer comments</p>
+                  <h4 className="font-bold text-[#14213d] text-lg mb-1">Decision Notification</h4>
+                  <p className="text-base text-gray-700">Authors receive accept/reject decision with reviewer comments</p>
                 </div>
               </div>
-              <div className="flex items-start hover:bg-blue-50 p-3 rounded-lg transition-colors">
-                <div className="bg-[#fca311] text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 mr-4 font-bold">5</div>
+              <div className="flex items-start hover:bg-blue-50 p-4 rounded-lg transition-all hover:shadow-md">
+                <div className="bg-[#fca311] text-white rounded-full w-10 h-10 flex items-center justify-center flex-shrink-0 mr-4 font-bold text-lg shadow-lg">5</div>
                 <div>
-                  <h4 className="font-semibold text-[#14213d]">Camera-Ready Submission</h4>
-                  <p className="text-sm text-gray-600">Authors submit final version incorporating reviewer feedback</p>
+                  <h4 className="font-bold text-[#14213d] text-lg mb-1">Camera-Ready Submission</h4>
+                  <p className="text-base text-gray-700">Authors submit final version incorporating reviewer feedback</p>
                 </div>
               </div>
             </div>
@@ -215,20 +215,20 @@ export default function CallForPapersPage() {
         </Card>
 
         {/* Submission Button */}
-        <Card className="text-center py-8 bg-gradient-to-r from-[#14213d] to-[#1a2844] text-white border-0 shadow-2xl">
+        <Card className="text-center py-12 bg-gradient-to-r from-[#14213d] to-[#1a2844] text-white border-0 shadow-2xl relative z-10">
           <CardContent>
-            <Award className="h-16 w-16 mx-auto mb-6 text-[#fca311]" />
-            <h2 className="text-3xl font-bold mb-4">Ready to Submit?</h2>
-            <p className="text-gray-300 mb-6">
+            <Award className="h-20 w-20 mx-auto mb-8 text-[#fca311]" />
+            <h2 className="text-4xl font-bold mb-6">Ready to Submit?</h2>
+            <p className="text-gray-200 mb-8 text-lg font-medium">
               Submit your paper through Microsoft CMT portal
             </p>
             <Link href="https://cmt3.research.microsoft.com/AdComSys2025" target="_blank">
-              <Button size="lg" className="text-lg bg-[#fca311] hover:bg-[#ff9800] text-white border-0 shadow-lg hover:shadow-xl transition-all">
-                <FileText className="mr-2 h-5 w-5" />
+              <Button size="lg" className="text-xl px-8 py-6 bg-[#fca311] hover:bg-[#ff9800] text-white border-0 shadow-xl hover:shadow-2xl transition-all hover:scale-105">
+                <FileText className="mr-3 h-6 w-6" />
                 Submit Paper via CMT
               </Button>
             </Link>
-            <p className="text-sm text-gray-400 mt-4">
+            <p className="text-base text-gray-300 mt-6 font-semibold">
               Deadline: March 10, 2026
             </p>
           </CardContent>

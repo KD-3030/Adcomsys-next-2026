@@ -17,6 +17,7 @@ export interface Database {
           id: string
           email: string
           full_name: string | null
+          password_hash: string | null
           institution: string | null
           designation: string | null
           country: string | null
@@ -33,6 +34,7 @@ export interface Database {
           id: string
           email: string
           full_name?: string | null
+          password_hash?: string | null
           institution?: string | null
           designation?: string | null
           country?: string | null

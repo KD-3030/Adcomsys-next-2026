@@ -46,7 +46,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Check if user already exists
-    const { data: existingUser } = await db.getUserByEmail(email)
+    const existingUser = await db.getUserByEmail(email)
     if (existingUser) {
       return NextResponse.json(
         { error: 'User with this email already exists' },
@@ -59,7 +59,7 @@ export async function POST(request: NextRequest) {
 
     // Create user
     const userId = randomUUID()
-    const { data: user, error } = await db.createUser({
+    const user = await db.createUser({
       id: userId,
       email,
       password_hash,
@@ -67,8 +67,8 @@ export async function POST(request: NextRequest) {
       role: userRole,
     })
 
-    if (error || !user) {
-      console.error('Error creating user:', error)
+    if (!user) {
+      console.error('Error creating user')
       return NextResponse.json(
         { error: 'Failed to create user' },
         { status: 500 }

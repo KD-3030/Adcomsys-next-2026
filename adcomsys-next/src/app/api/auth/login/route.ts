@@ -17,9 +17,9 @@ export async function POST(request: NextRequest) {
     }
 
     // Get user by email
-    const { data: user, error } = await db.getUserByEmail(email)
+    const user = await db.getUserByEmail(email)
 
-    if (error || !user) {
+    if (!user) {
       return NextResponse.json(
         { error: 'Invalid email or password' },
         { status: 401 }

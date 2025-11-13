@@ -176,7 +176,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                 <span>🌐</span>
                 <span className="ml-2">View Website</span>
               </Link>
-              <Link href="/dashboard" className="flex items-center text-sm text-gray-600 hover:text-brand-orange transition-colors duration-200">
+              <Link href="/authors/dashboard" className="flex items-center text-sm text-gray-600 hover:text-brand-orange transition-colors duration-200">
                 <span>👤</span>
                 <span className="ml-2">User Dashboard</span>
               </Link>

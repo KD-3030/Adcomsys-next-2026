@@ -9,6 +9,9 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import Link from 'next/link'
 import { toast } from 'sonner'
+import Navbar from '@/components/layout/Navbar'
+import Footer from '@/components/layout/Footer'
+import { UserPlus } from 'lucide-react'
 
 export default function SignupPage() {
   const [email, setEmail] = useState('')
@@ -78,16 +81,38 @@ export default function SignupPage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-brand-navy to-brand-black px-4 py-8">
-      <Card className="w-full max-w-md border-brand-orange">
-        <CardHeader className="text-center">
-          <CardTitle className="text-2xl font-bold text-brand-navy">Create Account</CardTitle>
-          <CardDescription className="text-gray-700">Join AdComSys 2026</CardDescription>
-        </CardHeader>
-        <CardContent>
+    <div className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-gray-50 flex flex-col">
+      <Navbar />
+      
+      {/* Hero Section */}
+      <div className="bg-gradient-to-r from-[#14213d] to-[#1a2844] text-white py-12 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0 bg-gradient-to-br from-[#fca311] to-transparent"></div>
+        </div>
+        <div className="container mx-auto px-4 text-center relative z-10">
+          <div className="flex items-center justify-center mb-4">
+            <div className="bg-[#fca311]/20 backdrop-blur-sm p-3 rounded-full ring-2 ring-[#fca311]/50">
+              <UserPlus className="h-10 w-10 text-[#fca311]" />
+            </div>
+          </div>
+          <h1 className="text-4xl font-bold mb-2">
+            Join <span className="text-[#fca311]">AdComSys 2026</span>
+          </h1>
+          <p className="text-lg text-gray-300">Create your account to get started</p>
+        </div>
+      </div>
+
+      {/* Signup Form Section */}
+      <div className="flex-1 flex items-center justify-center px-4 py-12">
+        <Card className="w-full max-w-md shadow-2xl border-l-4 border-[#fca311]">
+          <CardHeader className="text-center bg-gradient-to-br from-white to-gray-50">
+            <CardTitle className="text-2xl font-bold text-[#14213d]">Create Account</CardTitle>
+            <CardDescription className="text-gray-600">Join our academic conference</CardDescription>
+          </CardHeader>
+        <CardContent className="bg-gradient-to-br from-white to-blue-50">
           <form onSubmit={handleSignup} className="space-y-4">
             <div className="space-y-2">
-              <Label htmlFor="fullName">Full Name</Label>
+              <Label htmlFor="fullName" className="text-[#14213d] font-semibold">Full Name</Label>
               <Input
                 id="fullName"
                 type="text"
@@ -100,7 +125,7 @@ export default function SignupPage() {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="email">Email</Label>
+              <Label htmlFor="email" className="text-[#14213d] font-semibold">Email</Label>
               <Input
                 id="email"
                 type="email"
@@ -113,7 +138,7 @@ export default function SignupPage() {
             </div>
             
             <div className="space-y-2">
-              <Label htmlFor="password">Password</Label>
+              <Label htmlFor="password" className="text-[#14213d] font-semibold">Password</Label>
               <Input
                 id="password"
                 type="password"
@@ -127,7 +152,7 @@ export default function SignupPage() {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="role">I am a...</Label>
+              <Label htmlFor="role" className="text-[#14213d] font-semibold">I am a...</Label>
               <Select value={role} onValueChange={(value) => setRole(value as 'author' | 'reviewer')} disabled={loading}>
                 <SelectTrigger>
                   <SelectValue placeholder="Select your role" />
@@ -139,19 +164,22 @@ export default function SignupPage() {
               </Select>
             </div>
             
-            <Button type="submit" className="w-full bg-brand-orange text-brand-navy hover:bg-brand-orange/90 font-semibold" disabled={loading}>
+            <Button type="submit" className="w-full bg-[#fca311] text-white hover:bg-[#ff9800] font-semibold shadow-lg hover:shadow-xl transition-all" disabled={loading}>
               {loading ? 'Creating account...' : 'Create account'}
             </Button>
 
             <div className="text-center text-sm text-gray-700">
               Already have an account?{' '}
-              <Link href="/login" className="text-brand-orange hover:underline font-medium">
+              <Link href="/login" className="text-[#fca311] hover:text-[#ff9800] hover:underline font-medium">
                 Sign in
               </Link>
             </div>
           </form>
         </CardContent>
       </Card>
+      </div>
+      
+      <Footer />
     </div>
   )
 }

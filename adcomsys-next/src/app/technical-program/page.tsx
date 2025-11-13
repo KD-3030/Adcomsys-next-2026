@@ -2,73 +2,62 @@ import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import { ArrowLeft, Calendar, Clock, MapPin, Users, Coffee, Award, Presentation } from 'lucide-react'
+import { Calendar, Clock, MapPin, Users, Coffee, Award, Presentation } from 'lucide-react'
+import Navbar from '@/components/layout/Navbar'
+import Footer from '@/components/layout/Footer'
 
 export default function TechnicalProgramPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
-      {/* Navigation */}
-      <nav className="bg-white border-b sticky top-0 z-50">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex justify-between items-center">
-            <Link href="/">
-              <Button variant="ghost" size="sm">
-                <ArrowLeft className="mr-2 h-4 w-4" />
-                Back to Home
-              </Button>
-            </Link>
-            <h1 className="text-xl font-bold text-blue-600">AdComSys 2026</h1>
-          </div>
-        </div>
-      </nav>
+    <div className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-gray-50">
+      <Navbar />
 
       {/* Page Content */}
-      <div className="container mx-auto px-4 py-12 max-w-6xl">
-        <div className="text-center mb-12">
-          <Badge className="mb-4" variant="secondary">Schedule</Badge>
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Technical Program</h1>
-          <p className="text-lg text-gray-600">
+      <div className="container mx-auto px-4 py-8 sm:py-12 max-w-6xl">
+        <div className="text-center mb-8 sm:mb-12">
+          <Badge className="mb-4 bg-brand-orange text-brand-navy hover:bg-brand-orange/90">Schedule</Badge>
+          <h1 className="text-3xl sm:text-4xl font-bold text-brand-navy mb-4">Technical Program</h1>
+          <p className="text-base sm:text-lg text-gray-600">
             Three days of keynotes, paper presentations, workshops, and networking
           </p>
         </div>
 
         {/* Program Overview */}
-        <Card className="mb-12 bg-gradient-to-r from-blue-600 to-blue-700 text-white">
-          <CardContent className="py-8">
-            <div className="grid md:grid-cols-3 gap-6 text-center">
+        <Card className="mb-8 sm:mb-12 bg-gradient-to-r from-brand-navy to-brand-navy/90 text-white shadow-2xl border-4 border-brand-orange">
+          <CardContent className="py-6 sm:py-8">
+            <div className="grid md:grid-cols-3 gap-4 sm:gap-6 text-center">
               <div>
-                <Calendar className="h-10 w-10 mx-auto mb-2" />
-                <h3 className="font-semibold text-lg mb-1">May 5-7, 2026</h3>
-                <p className="text-blue-100 text-sm">Three full days</p>
+                <Calendar className="h-8 w-8 sm:h-10 sm:w-10 mx-auto mb-2 text-brand-orange" />
+                <h3 className="font-semibold text-base sm:text-lg mb-1">May 5-7, 2026</h3>
+                <p className="text-gray-300 text-xs sm:text-sm">Three full days</p>
               </div>
               <div>
-                <Users className="h-10 w-10 mx-auto mb-2" />
-                <h3 className="font-semibold text-lg mb-1">6 Keynote Speakers</h3>
-                <p className="text-blue-100 text-sm">World-renowned experts</p>
+                <Users className="h-8 w-8 sm:h-10 sm:w-10 mx-auto mb-2 text-brand-orange" />
+                <h3 className="font-semibold text-base sm:text-lg mb-1">6 Keynote Speakers</h3>
+                <p className="text-gray-300 text-xs sm:text-sm">World-renowned experts</p>
               </div>
               <div>
-                <Presentation className="h-10 w-10 mx-auto mb-2" />
-                <h3 className="font-semibold text-lg mb-1">50+ Paper Sessions</h3>
-                <p className="text-blue-100 text-sm">Across 6 tracks</p>
+                <Presentation className="h-8 w-8 sm:h-10 sm:w-10 mx-auto mb-2 text-brand-orange" />
+                <h3 className="font-semibold text-base sm:text-lg mb-1">50+ Paper Sessions</h3>
+                <p className="text-gray-300 text-xs sm:text-sm">Across 6 tracks</p>
               </div>
             </div>
           </CardContent>
         </Card>
 
         {/* Day 1 */}
-        <div className="mb-12">
-          <div className="flex items-center mb-6">
-            <div className="bg-blue-600 text-white px-4 py-2 rounded-lg font-bold text-lg">
+        <div className="mb-8 sm:mb-12">
+          <div className="flex flex-col sm:flex-row sm:items-center mb-4 sm:mb-6 gap-2 sm:gap-0">
+            <div className="bg-brand-orange text-brand-navy px-4 py-2 rounded-lg font-bold text-base sm:text-lg">
               Day 1 - May 5, 2026
             </div>
-            <div className="ml-4 text-gray-600">Monday - Inauguration & Keynotes</div>
+            <div className="sm:ml-4 text-gray-600 text-sm sm:text-base">Monday - Inauguration & Keynotes</div>
           </div>
 
-          <div className="space-y-4">
-            <Card>
-              <CardContent className="py-4">
-                <div className="flex items-start gap-4">
-                  <div className="flex items-center text-blue-600 font-semibold min-w-32">
+          <div className="space-y-3 sm:space-y-4">
+            <Card className="shadow-lg border-2 border-brand-navy/20">
+              <CardContent className="py-3 sm:py-4">
+                <div className="flex flex-col sm:flex-row items-start gap-3 sm:gap-4">
+                  <div className="flex items-center text-brand-orange font-semibold min-w-full sm:min-w-32 text-sm sm:text-base">
                     <Clock className="h-4 w-4 mr-2" />
                     09:00 - 10:00
                   </div>
@@ -87,24 +76,24 @@ export default function TechnicalProgramPage() {
               </CardContent>
             </Card>
 
-            <Card className="border-l-4 border-l-blue-600">
-              <CardContent className="py-4">
-                <div className="flex items-start gap-4">
-                  <div className="flex items-center text-blue-600 font-semibold min-w-32">
+            <Card className="border-l-4 border-l-brand-orange shadow-lg border-2 border-brand-navy/20">
+              <CardContent className="py-3 sm:py-4">
+                <div className="flex flex-col sm:flex-row items-start gap-3 sm:gap-4">
+                  <div className="flex items-center text-brand-orange font-semibold min-w-full sm:min-w-32 text-sm sm:text-base">
                     <Clock className="h-4 w-4 mr-2" />
                     10:00 - 10:30
                   </div>
                   <div className="flex-1">
-                    <h3 className="font-semibold text-lg mb-1">Inauguration Ceremony</h3>
-                    <p className="text-sm text-gray-600 mb-2">
+                    <h3 className="font-semibold text-base sm:text-lg mb-1">Inauguration Ceremony</h3>
+                    <p className="text-xs sm:text-sm text-gray-600 mb-2">
                       Welcome address by Chief Patron, Lighting of the lamp, Inaugural keynote
                     </p>
-                    <div className="flex items-center text-sm text-gray-600">
+                    <div className="flex items-center text-xs sm:text-sm text-gray-600">
                       <MapPin className="h-4 w-4 mr-1" />
                       Main Auditorium
                     </div>
                   </div>
-                  <Badge className="bg-purple-600 text-white">
+                  <Badge className="bg-brand-navy text-white text-xs">
                     <Award className="h-3 w-3 mr-1" />
                     Ceremony
                   </Badge>
@@ -253,12 +242,12 @@ export default function TechnicalProgramPage() {
         </div>
 
         {/* Day 2 */}
-        <div className="mb-12">
-          <div className="flex items-center mb-6">
-            <div className="bg-green-600 text-white px-4 py-2 rounded-lg font-bold text-lg">
+        <div className="mb-8 sm:mb-12">
+          <div className="flex flex-col sm:flex-row sm:items-center mb-4 sm:mb-6 gap-2 sm:gap-0">
+            <div className="bg-brand-orange text-brand-navy px-4 py-2 rounded-lg font-bold text-base sm:text-lg">
               Day 2 - May 6, 2026
             </div>
-            <div className="ml-4 text-gray-600">Tuesday - Technical Sessions & Workshop</div>
+            <div className="sm:ml-4 text-gray-600 text-sm sm:text-base">Tuesday - Technical Sessions</div>
           </div>
 
           <div className="space-y-4">
@@ -374,12 +363,12 @@ export default function TechnicalProgramPage() {
         </div>
 
         {/* Day 3 */}
-        <div className="mb-12">
-          <div className="flex items-center mb-6">
-            <div className="bg-purple-600 text-white px-4 py-2 rounded-lg font-bold text-lg">
+        <div className="mb-8 sm:mb-12">
+          <div className="flex flex-col sm:flex-row sm:items-center mb-4 sm:mb-6 gap-2 sm:gap-0">
+            <div className="bg-brand-orange text-brand-navy px-4 py-2 rounded-lg font-bold text-base sm:text-lg">
               Day 3 - May 7, 2026
             </div>
-            <div className="ml-4 text-gray-600">Wednesday - Final Sessions & Closing</div>
+            <div className="sm:ml-4 text-gray-600 text-sm sm:text-base">Wednesday - Workshops & Closing</div>
           </div>
 
           <div className="space-y-4">
@@ -487,27 +476,19 @@ export default function TechnicalProgramPage() {
         </div>
 
         {/* Download Schedule */}
-        <div className="text-center py-8 bg-gradient-to-r from-blue-50 to-blue-100 rounded-lg">
-          <h2 className="text-2xl font-bold mb-4">Download Full Schedule</h2>
-          <p className="text-gray-600 mb-6">
+        <div className="text-center py-6 sm:py-8 bg-gradient-to-r from-brand-navy/10 to-brand-orange/10 rounded-lg border-2 border-brand-orange/30">
+          <h2 className="text-xl sm:text-2xl font-bold mb-4 text-brand-navy">Download Full Schedule</h2>
+          <p className="text-gray-600 mb-4 sm:mb-6 px-4 text-sm sm:text-base">
             Get the detailed program with all paper presentations and timings
           </p>
-          <Button size="lg">
+          <Button size="lg" className="bg-brand-orange hover:bg-brand-orange/90 text-brand-navy font-semibold shadow-lg">
             <Calendar className="mr-2 h-5 w-5" />
             Download PDF Schedule
           </Button>
         </div>
       </div>
 
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-8 px-4 mt-16">
-        <div className="container mx-auto text-center">
-          <p className="mb-2">© 2025 AdComSys 2026. All rights reserved.</p>
-          <p className="text-gray-400 text-sm">
-            Organized by Department of CST & CSIT, University of Engineering and Management, Kolkata
-          </p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   )
 }

@@ -71,16 +71,22 @@ CREATE TABLE public.paper_submissions (
   cmt_paper_id text NOT NULL UNIQUE,
   title text NOT NULL,
   abstract text,
-  status text DEFAULT 'submitted'::text CHECK (status = ANY (ARRAY['submitted'::text, 'under_review'::text, 'accepted'::text, 'rejected'::text])),
+  status text DEFAULT 'submitted'::text CHECK (status = ANY (ARRAY['pending_approval'::text, 'submitted'::text, 'under_review'::text, 'accepted'::text, 'rejected'::text])),
   reviewer_id uuid,
   review_comments text,
   review_status text CHECK (review_status = ANY (ARRAY['pending'::text, 'completed'::text])),
   submission_date timestamp with time zone DEFAULT now(),
   created_at timestamp with time zone DEFAULT now(),
   updated_at timestamp with time zone DEFAULT now(),
+  subject_area text,
+  authors text,
+  approved_by uuid,
+  approved_at timestamp with time zone,
+  approval_notes text,
   CONSTRAINT paper_submissions_pkey PRIMARY KEY (id),
   CONSTRAINT paper_submissions_user_id_fkey FOREIGN KEY (user_id) REFERENCES public.profiles(id),
-  CONSTRAINT paper_submissions_reviewer_id_fkey FOREIGN KEY (reviewer_id) REFERENCES public.profiles(id)
+  CONSTRAINT paper_submissions_reviewer_id_fkey FOREIGN KEY (reviewer_id) REFERENCES public.profiles(id),
+  CONSTRAINT paper_submissions_approved_by_fkey FOREIGN KEY (approved_by) REFERENCES public.profiles(id)
 );
 CREATE TABLE public.payment_verifications (
   id uuid NOT NULL DEFAULT uuid_generate_v4(),

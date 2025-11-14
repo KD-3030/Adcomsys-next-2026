@@ -16,7 +16,7 @@ export const metadata: Metadata = createMetadata({
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 via-white to-gray-50">
+    <div className="min-h-screen">
       <Navbar />
 
       {/* Hero Section */}

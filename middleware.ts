@@ -19,21 +19,52 @@ export async function middleware(request: NextRequest) {
     }
 
     // Check if user is admin
-    const { data: profile } = await db.getUserById(user.userId)
+    const profile = await db.getUserById(user.userId)
 
     if (profile?.role !== 'admin') {
-      return NextResponse.redirect(new URL('/dashboard', request.url))
+      return NextResponse.redirect(new URL('/authors/dashboard', request.url))
+    }
+  }
+
+  // Reviewer routes - require reviewer role
+  if (request.nextUrl.pathname.startsWith('/reviewers')) {
+    if (!user) {
+      return NextResponse.redirect(new URL('/login', request.url))
+    }
+
+    // Check if user is reviewer
+    const profile = await db.getUserById(user.userId)
+
+    if (profile?.role !== 'reviewer') {
+      return NextResponse.redirect(new URL('/authors/dashboard', request.url))
+    }
+  }
+
+  // Author routes - require author or reviewer role
+  if (request.nextUrl.pathname.startsWith('/authors')) {
+    if (!user) {
+      return NextResponse.redirect(new URL('/login', request.url))
+    }
+
+    // Check if user is author
+    const profile = await db.getUserById(user.userId)
+
+    if (profile?.role !== 'author' && profile?.role !== 'reviewer') {
+      return NextResponse.redirect(new URL('/admin', request.url))
     }
   }
 
   // Redirect authenticated users away from auth pages
   if (user && (request.nextUrl.pathname === '/login' || request.nextUrl.pathname === '/signup')) {
-    // Check if user is admin and redirect to admin dashboard
-    const { data: profile } = await db.getUserById(user.userId)
+    // Check user role and redirect accordingly
+    const profile = await db.getUserById(user.userId)
     if (profile?.role === 'admin') {
       return NextResponse.redirect(new URL('/admin', request.url))
+    } else if (profile?.role === 'reviewer') {
+      return NextResponse.redirect(new URL('/reviewers/dashboard', request.url))
+    } else {
+      return NextResponse.redirect(new URL('/authors/dashboard', request.url))
     }
-    return NextResponse.redirect(new URL('/dashboard', request.url))
   }
 
   return NextResponse.next()

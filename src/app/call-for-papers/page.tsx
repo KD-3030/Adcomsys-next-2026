@@ -5,6 +5,15 @@ import { Badge } from '@/components/ui/badge'
 import { FileText, CheckCircle, Clock, Award } from 'lucide-react'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
+import { generateMetadata as createMetadata } from '@/lib/metadata'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = createMetadata({
+  title: 'Call for Papers',
+  description: 'Submit your research papers to AdComSys 2026. Learn about submission guidelines, important dates, paper format, and conference tracks in AI, IoT, Cloud Computing, Cybersecurity, and more.',
+  path: '/call-for-papers',
+  keywords: ['call for papers', 'paper submission', 'research submission', 'AdComSys 2026', 'Springer LNNS', 'conference papers', 'academic publishing']
+})
 
 export default function CallForPapersPage() {
   return (

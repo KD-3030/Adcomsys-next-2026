@@ -8,6 +8,15 @@ import { Award, Briefcase, User } from 'lucide-react'
 import { supabaseAdmin } from '@/lib/db'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
+import { generateMetadata as createMetadata } from '@/lib/metadata'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = createMetadata({
+  title: 'Keynote Speakers',
+  description: 'Learn about the distinguished keynote speakers at AdComSys 2026. Renowned experts sharing insights on advanced computing and systems.',
+  path: '/speakers',
+  keywords: ['keynote speakers', 'invited speakers', 'AdComSys 2026', 'conference speakers', 'computing experts']
+})
 
 interface Speaker {
   id: string

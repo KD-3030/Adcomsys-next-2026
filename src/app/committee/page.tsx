@@ -8,6 +8,15 @@ import { Users, Crown, Award, Briefcase, Mail, Building } from 'lucide-react'
 import { supabaseAdmin } from '@/lib/db'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
+import { generateMetadata as createMetadata } from '@/lib/metadata'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = createMetadata({
+  title: 'Conference Committee',
+  description: 'Meet the organizing, technical, and advisory committee members of AdComSys 2026. Distinguished academics and industry experts from leading institutions worldwide.',
+  path: '/committee',
+  keywords: ['conference committee', 'organizing committee', 'technical committee', 'advisory board', 'AdComSys 2026']
+})
 
 // Committee Member Component
 interface CommitteeMemberProps {

@@ -5,6 +5,15 @@ import { Badge } from '@/components/ui/badge'
 import { DollarSign, IndianRupee, Upload, AlertCircle, Mail, CheckCircle } from 'lucide-react'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
+import { generateMetadata as createMetadata } from '@/lib/metadata'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = createMetadata({
+  title: 'Registration & Fees',
+  description: 'Register for AdComSys 2026 conference. View registration fees for students, academicians, and industry professionals. Early bird discounts available.',
+  path: '/registration',
+  keywords: ['conference registration', 'registration fees', 'AdComSys 2026', 'early bird registration', 'conference fees']
+})
 
 export default function RegistrationPage() {
   const fees = [

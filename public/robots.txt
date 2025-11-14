@@ -1,0 +1,13 @@
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Disallow admin and API routes
+Disallow: /admin/
+Disallow: /api/
+Disallow: /authors/
+Disallow: /login
+Disallow: /signup
+
+# Sitemap location
+Sitemap: https://adcomsys2026.uem.edu.in/sitemap.xml

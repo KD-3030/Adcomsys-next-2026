@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Menu, X } from 'lucide-react'
@@ -13,11 +14,17 @@ export default function Navbar() {
     <nav className="bg-brand-navy border-b-4 border-brand-orange sticky top-0 z-50 shadow-xl">
       <div className="container mx-auto px-3 sm:px-4 lg:px-6 xl:px-8 py-3 sm:py-4">
         <div className="flex justify-between items-center gap-4">
-          {/* Logo */}
-          <Link href="/" className="flex items-center space-x-1.5 sm:space-x-2 flex-shrink-0">
-            <h1 className="text-base sm:text-xl md:text-2xl lg:text-3xl font-bold text-brand-orange whitespace-nowrap">AdComSys 2026</h1>
-            <Badge className="bg-brand-orange text-brand-navy hover:bg-brand-orange/90 text-[10px] sm:text-xs px-1.5 sm:px-2 py-0.5">3rd Edition</Badge>
-          </Link>
+          {/* Left University Logo */}
+          <div className="flex-shrink-0 hidden sm:block">
+            <Image
+              src="/assets/logos/uem_w.png"
+              alt="University Logo"
+              width={50}
+              height={50}
+              className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14"
+            />
+          </div>
+          
           
           {/* Desktop Navigation - now shows at md breakpoint */}
           <div className="hidden md:flex flex-wrap items-center justify-center gap-3 lg:gap-4 xl:gap-6 flex-1 mx-4">
@@ -38,6 +45,17 @@ export default function Navbar() {
             <Link href="/signup">
               <Button size="sm" className="bg-brand-orange text-brand-navy hover:bg-brand-orange/90 font-semibold shadow-lg hover:shadow-xl transition-all duration-200 text-xs lg:text-sm px-2 lg:px-3">Register</Button>
             </Link>
+          </div>
+          
+          {/* Right University Logo */}
+          <div className="flex-shrink-0 hidden sm:block">
+            <Image
+              src="/assets/logos/iem_w.png"
+              alt="University Logo"
+              width={50}
+              height={50}
+              className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14"
+            />
           </div>
           
           {/* Mobile Menu Button */}

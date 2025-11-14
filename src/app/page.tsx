@@ -5,18 +5,26 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge'
 import { CalendarDays, MapPin, Users, FileText, Award, Mail, Menu } from 'lucide-react'
 import HeroVideo from '@/components/layout/HeroVideo'
+import { StructuredData } from '@/components/layout/StructuredData'
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 via-white to-slate-50/50">
+    <>
+      <StructuredData />
+      <div className="min-h-screen bg-gradient-to-b from-slate-50 via-white to-slate-50/50">
       {/* Navigation */}
       <nav className="bg-brand-navy border-b-4 border-brand-orange sticky top-0 z-50 shadow-xl">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex justify-between items-center">
-            {/* Logo */}
-            <div className="flex items-center space-x-2 sm:space-x-3">
-              <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold text-brand-orange">AdComSys 2026</h1>
-              <Badge className="bg-brand-orange text-brand-navy hover:bg-brand-orange/90 text-xs sm:text-sm px-2 py-0.5">3rd Edition</Badge>
+            {/* Left University Logo */}
+            <div className="flex-shrink-0 hidden sm:block">
+              <Image
+                src="/assets/logos/uem_w.png"
+                alt="University Logo"
+                width={50}
+                height={50}
+                className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14"
+              />
             </div>
             
             {/* Desktop Navigation */}
@@ -40,6 +48,17 @@ export default function Home() {
               </Link>
             </div>
             
+            {/* Right University Logo */}
+            <div className="flex-shrink-0 hidden sm:block">
+              <Image
+                src="/assets/logos/iem_w.png"
+                alt="University Logo"
+                width={50}
+                height={50}
+                className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14"
+              />
+            </div>
+            
             {/* Mobile Menu Button */}
             <button className="md:hidden text-brand-white hover:text-brand-orange transition-colors duration-200">
               <Menu className="h-6 w-6" />
@@ -49,7 +68,7 @@ export default function Home() {
       </nav>
 
       {/* Hero Section - Optimized to fit in viewport */}
-      <section className="relative min-h-[calc(100vh-72px)] flex items-center py-8 sm:py-12 px-4 bg-gradient-to-br from-brand-navy via-brand-navy to-brand-black overflow-hidden">
+      <section className="relative h-[calc(100vh-88px)] max-h-screen flex items-center py-4 sm:py-6 px-4 bg-gradient-to-br from-brand-navy via-brand-navy to-brand-black overflow-hidden">
         {/* Decorative Elements */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 left-0 w-72 h-72 bg-brand-orange rounded-full filter blur-3xl"></div>
@@ -71,33 +90,43 @@ export default function Home() {
         </div>
         
         <div className="container mx-auto relative z-10">
-          <div className="grid lg:grid-cols-2 gap-8 items-center">
+          <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 items-center">
             {/* Left Column - Main Content */}
-            <div className="text-center lg:text-left space-y-4 sm:space-y-6">
+            <div className="text-center lg:text-left space-y-2 sm:space-y-3 md:space-y-4">
               <Badge className="bg-brand-orange text-brand-navy hover:bg-brand-orange/90 text-xs sm:text-sm px-3 sm:px-4 py-1 font-bold animate-pulse inline-block">
                 📅 June 25-26, 2026
               </Badge>
               
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-brand-white drop-shadow-2xl leading-tight">
+              <div>
+              <Image
+                src="/assets/logos/logo-3.png"
+                alt="AdComSys Conference Logo"
+                width={100}
+                height={100}
+                className=" w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-50 lg:h-60 mx-auto lg:mx-0"
+              />
+        
+
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-brand-white drop-shadow-2xl leading-tight">
                 AdComSys 2026
               </h1>
               
-              <div className="space-y-2">
-                <p className="text-base sm:text-lg md:text-xl text-brand-white font-medium">
+              <div className="space-y-1 sm:space-y-2">
+                <p className="text-sm sm:text-base md:text-lg text-brand-white font-medium">
                   Third International Conference on
                 </p>
-                <p className="text-xl sm:text-2xl md:text-3xl font-bold text-brand-orange drop-shadow-xl">
+                <p className="text-lg sm:text-xl md:text-2xl font-bold text-brand-orange drop-shadow-xl">
                   Advanced Computing and Systems
                 </p>
               </div>
               
-              <p className="text-sm sm:text-base text-brand-white/90 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+              <p className="text-xs sm:text-sm text-brand-white/90 leading-relaxed max-w-2xl mx-auto lg:mx-0">
                 Organized by Department of CST & CSIT<br />
                 <span className="font-semibold text-brand-orange">University of Engineering and Management, Kolkata</span>
               </p>
               
               {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 justify-center lg:justify-start">
+              <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 pt-1 sm:pt-2 justify-center lg:justify-start">
                 <Link href="https://cmt3.research.microsoft.com/AdComSys2025" target="_blank">
                   <Button size="lg" className="w-full sm:w-auto border-2 border-brand-orange text-brand-navy hover:bg-brand-black hover:text-brand-white shadow-2xl transition-all duration-300 transform hover:scale-105 font-bold">
                     <FileText className="mr-2 h-4 w-4" />
@@ -112,22 +141,12 @@ export default function Home() {
                 </Link>
               </div>
             </div>
+            </div>
 
             {/* Right Column - Image/Visual or Info Cards */}
-            <div className="space-y-4">
-              {/* Option 1: Add Conference Image */}
-              {/* Uncomment this section to add an image */}
-              {/* <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-brand-orange/30">
-                <img 
-                  src="/assets/images/adcm2024/conference-hall.jpg" 
-                  alt="Conference Hall"
-                  className="w-full h-64 sm:h-80 lg:h-96 object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/80 to-transparent"></div>
-              </div> */}
-
+            <div className="hidden lg:block space-y-3">
               {/* Option 2: Info Cards (Current) */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 gap-3 sm:gap-4">
+              <div className="grid grid-cols-1 gap-3">
                 <Card className="bg-white/10 backdrop-blur-md border-2 border-brand-orange/40 hover:border-brand-orange hover:bg-white/20 transition-all duration-300 hover:shadow-xl hover:shadow-brand-orange/30">
                   <CardContent className="p-4 sm:p-5 flex items-center gap-4">
                     <CalendarDays className="h-8 w-8 sm:h-10 sm:w-10 text-brand-orange flex-shrink-0" />
@@ -387,5 +406,6 @@ export default function Home() {
         </div>
       </footer>
     </div>
+    </>
   )
 }

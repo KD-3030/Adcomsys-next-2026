@@ -4,6 +4,15 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Building2, Users, Award, Globe, FileText } from 'lucide-react'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
+import { generateMetadata as createMetadata } from '@/lib/metadata'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = createMetadata({
+  title: 'About AdComSys 2026',
+  description: 'Learn about the Third International Conference on Advanced Computing and Systems organized by UEM Kolkata. Discover our mission, objectives, and conference themes.',
+  path: '/about',
+  keywords: ['AdComSys 2026', 'conference about', 'UEM Kolkata', 'computing conference', 'academic conference', 'research conference']
+})
 
 export default function AboutPage() {
   return (

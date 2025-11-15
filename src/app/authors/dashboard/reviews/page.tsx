@@ -101,7 +101,7 @@ export default function ReviewsPage() {
         <header className="bg-gradient-to-r from-[#14213d] to-[#1a2844] text-white border-b-4 border-[#fca311] shadow-lg">
           <div className="container mx-auto px-4 py-6">
             <div className="flex items-center gap-4">
-              <Link href="/authors/dashboard">hboard">
+              <Link href="/authors/dashboard">
                 <Button variant="outline" size="sm" className="bg-transparent text-white border-white hover:bg-white hover:text-[#14213d]">
                   <ArrowLeft className="mr-2 h-4 w-4" />
                   Back to Dashboard

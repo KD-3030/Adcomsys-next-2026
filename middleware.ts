@@ -26,12 +26,60 @@ export async function middleware(request: NextRequest) {
     }
   }
 
+  // Reviewer routes - require reviewer role
+  if (request.nextUrl.pathname.startsWith('/reviewers')) {
+    if (!user) {
+      return NextResponse.redirect(new URL('/login', request.url))
+    }
+
+    // Check if user is reviewer
+    const { data: profile } = await db.getUserById(user.userId)
+
+    if (profile?.role !== 'reviewer') {
+      // Redirect to appropriate dashboard based on role
+      if (profile?.role === 'admin') {
+        return NextResponse.redirect(new URL('/admin', request.url))
+      }
+      if (profile?.role === 'author') {
+        return NextResponse.redirect(new URL('/authors/dashboard', request.url))
+      }
+      return NextResponse.redirect(new URL('/login', request.url))
+    }
+  }
+
+  // Author routes - require author role
+  if (request.nextUrl.pathname.startsWith('/authors')) {
+    if (!user) {
+      return NextResponse.redirect(new URL('/login', request.url))
+    }
+
+    // Check if user is author
+    const { data: profile } = await db.getUserById(user.userId)
+
+    if (profile?.role !== 'author') {
+      // Redirect to appropriate dashboard based on role
+      if (profile?.role === 'admin') {
+        return NextResponse.redirect(new URL('/admin', request.url))
+      }
+      if (profile?.role === 'reviewer') {
+        return NextResponse.redirect(new URL('/reviewers/dashboard', request.url))
+      }
+      return NextResponse.redirect(new URL('/login', request.url))
+    }
+  }
+
   // Redirect authenticated users away from auth pages
   if (user && (request.nextUrl.pathname === '/login' || request.nextUrl.pathname === '/signup')) {
     // Check if user is admin and redirect to admin dashboard
     const { data: profile } = await db.getUserById(user.userId)
     if (profile?.role === 'admin') {
       return NextResponse.redirect(new URL('/admin', request.url))
+    }
+    if (profile?.role === 'reviewer') {
+      return NextResponse.redirect(new URL('/reviewers/dashboard', request.url))
+    }
+    if (profile?.role === 'author') {
+      return NextResponse.redirect(new URL('/authors/dashboard', request.url))
     }
     return NextResponse.redirect(new URL('/dashboard', request.url))
   }

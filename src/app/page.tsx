@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <>
       <StructuredData />
-      <div className="min-h-screen bg-gradient-to-b from-slate-50 via-white to-slate-50/50">
+      <div className="min-h-screen">
       {/* Navigation */}
       <nav className="bg-brand-navy border-b-4 border-brand-orange sticky top-0 z-50 shadow-xl">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4">
@@ -26,6 +26,17 @@ export default function Home() {
                 className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14"
               />
             </div>
+
+            <div className="flex-1 md:flex-none text-center">
+            <Link href="/" className="block">
+              <h1 className="text-brand-orange font-bold text-base sm:text-lg lg:text-xl xl:text-2xl whitespace-nowrap">
+                AdComSys 2026
+              </h1>
+              <p className="text-brand-white text-[10px] sm:text-xs lg:text-sm -mt-0.5">
+                3rd Edition
+              </p>
+            </Link>
+          </div>
             
             {/* Desktop Navigation */}
             <div className="hidden lg:flex space-x-6 xl:space-x-8">
@@ -69,6 +80,7 @@ export default function Home() {
 
       {/* Hero Section - Optimized to fit in viewport */}
       <section className="relative h-[calc(100vh-88px)] max-h-screen flex items-center py-4 sm:py-6 px-4 bg-gradient-to-br from-brand-navy via-brand-navy to-brand-black overflow-hidden">
+        
         {/* Decorative Elements */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 left-0 w-72 h-72 bg-brand-orange rounded-full filter blur-3xl"></div>

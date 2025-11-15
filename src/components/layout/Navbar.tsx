@@ -3,7 +3,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { Button } from '@/components/ui/button'
-import { Badge } from '@/components/ui/badge'
 import { Menu, X } from 'lucide-react'
 import { useState } from 'react'
 
@@ -25,6 +24,17 @@ export default function Navbar() {
             />
           </div>
           
+          {/* Conference Title - Center */}
+          <div className="flex-1 md:flex-none text-center">
+            <Link href="/" className="block">
+              <h1 className="text-brand-orange font-bold text-base sm:text-lg lg:text-xl xl:text-2xl whitespace-nowrap">
+                AdComSys 2026
+              </h1>
+              <p className="text-brand-white text-[10px] sm:text-xs lg:text-sm -mt-0.5">
+                3rd Edition
+              </p>
+            </Link>
+          </div>
           
           {/* Desktop Navigation - now shows at md breakpoint */}
           <div className="hidden md:flex flex-wrap items-center justify-center gap-3 lg:gap-4 xl:gap-6 flex-1 mx-4">

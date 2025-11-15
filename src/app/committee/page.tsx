@@ -363,7 +363,7 @@ export default async function CommitteePage() {
   const sortedAdvisory = sortByHierarchy(advisoryMembers)
   const sortedTechnical = sortByHierarchy(technicalMembers)
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-gray-50">
+    <div className="min-h-screen">
       <Navbar />
 
       {/* Hero Section */}

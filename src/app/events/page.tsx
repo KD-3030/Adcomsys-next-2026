@@ -3,6 +3,15 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { ArrowLeft, Calendar, MapPin, Users, Music, Award, Utensils, Camera, Clock } from 'lucide-react'
+import { generateMetadata as createMetadata } from '@/lib/metadata'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = createMetadata({
+  title: 'Conference Events & Activities',
+  description: 'Explore the exciting events at AdComSys 2026 including inauguration ceremony, welcome reception, cultural evening, gala dinner, and networking sessions.',
+  path: '/events',
+  keywords: ['conference events', 'AdComSys 2026', 'cultural evening', 'networking', 'gala dinner', 'conference activities']
+})
 
 export default function EventsPage() {
   const events = [

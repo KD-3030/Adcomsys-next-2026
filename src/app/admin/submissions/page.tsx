@@ -41,6 +41,9 @@ interface Paper {
   status: string
   submission_date: string
   created_at: string
+  approved_by?: string
+  approved_at?: string
+  approval_notes?: string
   user?: {
     full_name: string
     email: string

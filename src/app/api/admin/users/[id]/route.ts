@@ -4,7 +4,7 @@ import { supabaseAdmin } from '@/lib/db'
 
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     // Verify admin access
@@ -16,6 +16,7 @@ export async function PUT(
       )
     }
 
+    const { id } = await params
     const body = await request.json()
     const { full_name, email, role, cmt_profile_url, institution, designation, country, phone } = body
 
@@ -28,21 +29,18 @@ export async function PUT(
     }
 
     // Update user
-    const { data, error } = await supabaseAdmin
-      .from('profiles')
-      .update({
-        full_name,
-        email,
-        role,
-        cmt_profile_url: cmt_profile_url || null,
-        institution,
-        designation,
-        country,
-        phone,
-        updated_at: new Date().toISOString()
-      })
-      .eq('id', params.id)
-      .select()
+    // @ts-expect-error Supabase type inference issue
+    const { data, error } = await supabaseAdmin.from('profiles').update({
+      full_name,
+      email,
+      role,
+      cmt_profile_url: cmt_profile_url || null,
+      institution,
+      designation,
+      country,
+      phone,
+      updated_at: new Date().toISOString()
+    }).eq('id', id).select()
 
     if (error) {
       console.error('Database error:', error)
@@ -53,11 +51,12 @@ export async function PUT(
     }
 
     // Log admin action
+    // @ts-expect-error Supabase type inference issue
     await supabaseAdmin.from('admin_logs').insert({
-      admin_id: user.id as string,
+      admin_id: (user as any).id as string,
       action: 'updated_user',
       entity_type: 'profile',
-      entity_id: params.id,
+      entity_id: id,
       details: {
         message: `Updated user ${full_name}`,
         changes: body
@@ -79,7 +78,7 @@ export async function PUT(
 
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     // Verify admin access
@@ -91,8 +90,10 @@ export async function DELETE(
       )
     }
 
+    const { id } = await params
+
     // Prevent self-deletion
-    if (user.id === params.id) {
+    if ((user as any).id === id) {
       return NextResponse.json(
         { error: 'Cannot delete your own account' },
         { status: 400 }
@@ -103,14 +104,14 @@ export async function DELETE(
     const { data: userData } = await supabaseAdmin
       .from('profiles')
       .select('full_name, email')
-      .eq('id', params.id)
+      .eq('id', id)
       .single()
 
     // Delete user
     const { error } = await supabaseAdmin
       .from('profiles')
       .delete()
-      .eq('id', params.id)
+      .eq('id', id)
 
     if (error) {
       console.error('Database error:', error)
@@ -122,14 +123,15 @@ export async function DELETE(
 
     // Log admin action
     if (userData) {
+      // @ts-expect-error Supabase type inference issue
       await supabaseAdmin.from('admin_logs').insert({
-        admin_id: user.id as string,
+        admin_id: (user as any).id as string,
         action: 'deleted_user',
         entity_type: 'profile',
-        entity_id: params.id,
+        entity_id: id,
         details: {
-          message: `Deleted user ${userData.full_name}`,
-          email: userData.email
+          message: `Deleted user ${(userData as any).full_name}`,
+          email: (userData as any).email
         }
       })
     }

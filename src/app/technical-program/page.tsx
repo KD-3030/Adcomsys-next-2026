@@ -5,6 +5,15 @@ import { Badge } from '@/components/ui/badge'
 import { Calendar, Clock, MapPin, Users, Coffee, Award, Presentation } from 'lucide-react'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
+import { generateMetadata as createMetadata } from '@/lib/metadata'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = createMetadata({
+  title: 'Technical Program & Schedule',
+  description: 'View the complete technical program schedule for AdComSys 2026. Three days of keynote sessions, paper presentations, workshops, and panel discussions.',
+  path: '/technical-program',
+  keywords: ['technical program', 'conference schedule', 'AdComSys 2026', 'paper presentations', 'workshops', 'keynote sessions']
+})
 
 export default function TechnicalProgramPage() {
   return (

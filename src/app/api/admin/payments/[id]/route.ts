@@ -92,25 +92,21 @@ export async function PUT(
     }
 
     // Update payment verification
-    const { data: updatedPayment, error } = await supabaseAdmin
-      .from('payment_verifications')
-      .update({
-        status,
-        verification_notes,
-        verified_by: user.userId,
-        verified_at: new Date().toISOString(),
-        updated_at: new Date().toISOString()
-      } as any)
-      .eq('id', id)
-      .select(`
-        *,
-        user:profiles!payment_verifications_user_id_fkey (
-          id,
-          full_name,
-          email
-        )
-      `)
-      .single()
+    // @ts-expect-error Supabase type inference issue
+    const { data: updatedPayment, error } = await supabaseAdmin.from('payment_verifications').update({
+      status,
+      verification_notes,
+      verified_by: user.userId,
+      verified_at: new Date().toISOString(),
+      updated_at: new Date().toISOString()
+    }).eq('id', id).select(`
+      *,
+      user:profiles!payment_verifications_user_id_fkey (
+        id,
+        full_name,
+        email
+      )
+    `).single()
 
     if (error) {
       console.error('Database error:', error)
@@ -121,20 +117,19 @@ export async function PUT(
     }
 
     // Log admin action
-    await supabaseAdmin
-      .from('admin_logs')
-      .insert({
-        admin_id: user.userId,
-        action: status === 'verified' ? 'verified_payment' : 'rejected_payment',
-        entity_type: 'payment_verification',
-        entity_id: id,
-        details: {
-          message: `${status === 'verified' ? 'Verified' : 'Rejected'} payment for ${updatedPayment.user?.full_name}`,
-          amount: updatedPayment.amount,
-          category: updatedPayment.category,
-          notes: verification_notes
-        }
-      })
+    // @ts-expect-error Supabase type inference issue
+    await supabaseAdmin.from('admin_logs').insert({
+      admin_id: user.userId,
+      action: status === 'verified' ? 'verified_payment' : 'rejected_payment',
+      entity_type: 'payment_verification',
+      entity_id: id,
+      details: {
+        message: `${status === 'verified' ? 'Verified' : 'Rejected'} payment for ${(updatedPayment as any).user?.full_name}`,
+        amount: (updatedPayment as any).amount,
+        category: (updatedPayment as any).category,
+        notes: verification_notes
+      }
+    })
 
     return NextResponse.json({ 
       message: `Payment ${status} successfully`,
@@ -190,19 +185,18 @@ export async function DELETE(
 
     // Log admin action
     if (paymentData) {
-      await supabaseAdmin
-        .from('admin_logs')
-        .insert({
-          admin_id: user.userId,
-          action: 'deleted_payment',
-          entity_type: 'payment_verification',
-          entity_id: id,
-          details: {
-            message: `Deleted payment verification`,
-            transaction_id: paymentData.transaction_id,
-            amount: paymentData.amount
-          }
-        })
+      // @ts-expect-error Supabase type inference issue
+      await supabaseAdmin.from('admin_logs').insert({
+        admin_id: user.userId,
+        action: 'deleted_payment',
+        entity_type: 'payment_verification',
+        entity_id: id,
+        details: {
+          message: `Deleted payment verification`,
+          transaction_id: (paymentData as any).transaction_id,
+          amount: (paymentData as any).amount
+        }
+      })
     }
 
     return NextResponse.json({ 

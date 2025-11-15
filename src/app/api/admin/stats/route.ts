@@ -57,7 +57,7 @@ export async function GET(request: NextRequest) {
       .order('created_at', { ascending: false })
       .limit(5)
 
-    const recentActivity = recentUsers?.map(user => ({
+    const recentActivity = recentUsers?.map((user: any) => ({
       id: user.id,
       type: 'registration',
       message: `New registration: ${user.name}`,

@@ -81,20 +81,17 @@ export async function POST(request: NextRequest) {
     }
 
     // Create committee member
-    const { data: newMember, error } = await supabaseAdmin
-      .from('committee_members')
-      .insert({
-        name,
-        designation,
-        affiliation,
-        email,
-        image_url,
-        committee_type,
-        display_order: display_order || 0,
-        is_active: is_active !== undefined ? is_active : true
-      })
-      .select()
-      .single()
+    // @ts-expect-error Supabase type inference issue
+    const { data: newMember, error } = await supabaseAdmin.from('committee_members').insert({
+      name,
+      designation,
+      affiliation,
+      email,
+      image_url,
+      committee_type,
+      display_order: display_order || 0,
+      is_active: is_active !== undefined ? is_active : true
+    }).select().single()
 
     if (error) {
       console.error('Database error:', error)
@@ -105,19 +102,18 @@ export async function POST(request: NextRequest) {
     }
 
     // Log admin action
-    await supabaseAdmin
-      .from('admin_logs')
-      .insert({
-        admin_id: (user as any).id,
-        action: 'created_committee_member',
-        entity_type: 'committee_member',
-        entity_id: (newMember as any).id,
-        details: {
-          message: `Created committee member ${name}`,
-          committee_type,
-          affiliation
-        }
-      })
+    // @ts-expect-error Supabase type inference issue
+    await supabaseAdmin.from('admin_logs').insert({
+      admin_id: (user as any).id,
+      action: 'created_committee_member',
+      entity_type: 'committee_member',
+      entity_id: (newMember as any).id,
+      details: {
+        message: `Created committee member ${name}`,
+        committee_type,
+        affiliation
+      }
+    })
 
     return NextResponse.json({ 
       message: 'Committee member created successfully',

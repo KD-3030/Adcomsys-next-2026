@@ -9,12 +9,7 @@ async function testDatabaseConnection() {
   try {
     // Test 1: Check if we can connect to database
     console.log('Test 1: Checking database connection...')
-    const { data: user, error } = await db.getUserByEmail('admin@adcomsys.com')
-    
-    if (error) {
-      console.error('❌ Database Error:', error.message)
-      return
-    }
+    const user = await db.getUserByEmail('admin@adcomsys.com')
     
     if (!user) {
       console.log('❌ Admin user does NOT exist in database')

@@ -38,20 +38,17 @@ export async function POST(request: NextRequest) {
     }
 
     // Create paper submission with pending_approval status
-    const { data: paper, error } = await supabase
-      .from('paper_submissions')
-      .insert({
-        user_id: user.userId,
-        cmt_paper_id: cmtPaperId,
-        title,
-        authors,
-        subject_area: subjectArea,
-        abstract: abstract || null,
-        status: 'pending_approval',
-        submission_date: new Date().toISOString()
-      })
-      .select()
-      .single()
+    // @ts-expect-error Supabase type inference issue
+    const { data: paper, error } = await supabase.from('paper_submissions').insert({
+      user_id: user.userId,
+      cmt_paper_id: cmtPaperId,
+      title,
+      authors,
+      subject_area: subjectArea,
+      abstract: abstract || null,
+      status: 'pending_approval',
+      submission_date: new Date().toISOString()
+    }).select().single()
 
     if (error) {
       console.error('Database error:', error)
@@ -62,19 +59,18 @@ export async function POST(request: NextRequest) {
     }
 
     // Log the submission
-    await supabase
-      .from('admin_logs')
-      .insert({
-        admin_id: user.userId,
-        action: 'paper_submitted',
-        entity_type: 'paper_submission',
-        entity_id: paper.id,
-        details: {
-          message: `New paper submission: ${title}`,
-          cmt_paper_id: cmtPaperId,
-          subject_area: subjectArea
-        }
-      })
+    // @ts-expect-error Supabase type inference issue
+    await supabase.from('admin_logs').insert({
+      admin_id: user.userId,
+      action: 'paper_submitted',
+      entity_type: 'paper_submission',
+      entity_id: (paper as any).id,
+      details: {
+        message: `New paper submission: ${title}`,
+        cmt_paper_id: cmtPaperId,
+        subject_area: subjectArea
+      }
+    })
 
     return NextResponse.json({
       success: true,

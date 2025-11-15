@@ -93,26 +93,23 @@ export async function POST(request: NextRequest) {
         .single()
 
       if (paper) {
-        validatedPaperId = paper.id
+        validatedPaperId = (paper as any).id
       }
     }
 
     // Create payment verification record
-    const { data: payment, error } = await supabase
-      .from('payment_verifications')
-      .insert({
-        user_id: user.userId,
-        amount: parseFloat(amount),
-        currency: currency || 'INR',
-        category,
-        paper_id: validatedPaperId,
-        transaction_id: transactionId || null,
-        screenshot_url,
-        status: 'pending',
-        verification_notes: notes || null
-      })
-      .select()
-      .single()
+    // @ts-expect-error Supabase type inference issue
+    const { data: payment, error } = await supabase.from('payment_verifications').insert({
+      user_id: user.userId,
+      amount: parseFloat(amount),
+      currency: currency || 'INR',
+      category,
+      paper_id: validatedPaperId,
+      transaction_id: transactionId || null,
+      screenshot_url,
+      status: 'pending',
+      verification_notes: notes || null
+    }).select().single()
 
     if (error) {
       console.error('Database error:', error)

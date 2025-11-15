@@ -100,74 +100,120 @@ export default function CallForPapersPage() {
           <CardContent className="pt-6 bg-white">
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-blue-50 p-5 rounded-lg border-l-4 border-blue-600 shadow-lg hover:shadow-xl transition-all hover:scale-[1.02]">
-                <h3 className="font-bold text-lg mb-3 text-[#14213d]">Track 1: Artificial Intelligence & Machine Learning</h3>
-                <ul className="list-disc list-inside space-y-2 text-base text-gray-800">
-                  <li>Deep Learning & Neural Networks</li>
-                  <li>Computer Vision & Image Processing</li>
-                  <li>Natural Language Processing</li>
-                  <li>Reinforcement Learning</li>
-                  <li>AI Ethics & Explainable AI</li>
-                  <li>Generative AI & Large Language Models</li>
+                <h3 className="font-bold text-lg mb-3 text-[#14213d]">Track 1: Computing Paradigms & Technologies</h3>
+                <ul className="list-disc list-inside space-y-1 text-sm text-gray-800">
+                  <li>Cloud Computing</li>
+                  <li>Fog Computing</li>
+                  <li>Dew Computing</li>
+                  <li>Parallel Computing</li>
+                  <li>Mobile Computing</li>
+                  <li>Pervasive Computing</li>
+                  <li>Green Computing</li>
+                  <li>Cognitive Computing</li>
+                  <li>Evolutionary Computation</li>
+                  <li>Grid Computing</li>
+                  <li>Quantum Computing</li>
+                  <li>Bio-inspired Computing</li>
+                  <li>Neuromorphic Computing</li>
+                  <li>High Performance Computing</li>
+                  <li>Distributed Computing</li>
+                  <li>Edge Computing</li>
+                  <li>DNA Computing & Reversible Computing</li>
+                  <li>Optical Computing</li>
+                  <li>Analog Computing</li>
+                  <li>Quantum Cryptography</li>
+                  <li>Digital Forensics</li>
+                  <li>Geoscience and Remote Sensing</li>
+                  <li>Industrial Informatics</li>
+                  <li>Human Centric Computing</li>
                 </ul>
               </div>
 
               <div className="bg-green-50 p-5 rounded-lg border-l-4 border-green-600 shadow-lg hover:shadow-xl transition-all hover:scale-[1.02]">
-                <h3 className="font-bold text-lg mb-3 text-[#14213d]">Track 2: Internet of Things & Edge Computing</h3>
-                <ul className="list-disc list-inside space-y-2 text-base text-gray-800">
-                  <li>IoT Architecture & Protocols</li>
-                  <li>Smart Cities & Infrastructure</li>
-                  <li>Industrial IoT (IIoT)</li>
-                  <li>Edge & Fog Computing</li>
-                  <li>IoT Security & Privacy</li>
-                  <li>Sensor Networks</li>
+                <h3 className="font-bold text-lg mb-3 text-[#14213d]">Track 2: Intelligent Systems & AI</h3>
+                <ul className="list-disc list-inside space-y-1 text-sm text-gray-800">
+                  <li>Intelligent Systems</li>
+                  <li>AI with Robotics</li>
+                  <li>AI-based Image Processing</li>
+                  <li>Explainable AI</li>
+                  <li>Deep Learning</li>
+                  <li>Reinforcement Learning</li>
+                  <li>Active Learning</li>
+                  <li>Featured Learning</li>
+                  <li>Meta Learning</li>
+                  <li>Generative Models</li>
+                  <li>Generative Adversarial Network</li>
+                  <li>Soft Computing</li>
+                  <li>NLP-based Smart Systems</li>
+                  <li>Robotics Systems</li>
+                  <li>Data Analytics Systems</li>
+                  <li>Big Data</li>
+                  <li>Data Mining</li>
+                  <li>Automation</li>
+                  <li>AI-Systems in Autonomous Vehicles</li>
+                  <li>Fuzzy Systems</li>
+                  <li>Hybrid AI</li>
+                  <li>Cognitive Intelligence</li>
+                  <li>Affective Computing</li>
+                  <li>Audio, Speech and Video Processing</li>
+                  <li>Biomedical and Health Informatics</li>
+                  <li>Bioinformatics</li>
                 </ul>
               </div>
 
               <div className="bg-purple-50 p-5 rounded-lg border-l-4 border-purple-600 shadow-lg hover:shadow-xl transition-all hover:scale-[1.02]">
-                <h3 className="font-bold text-lg mb-3 text-[#14213d]">Track 3: Cloud Computing & Distributed Systems</h3>
-                <ul className="list-disc list-inside space-y-2 text-base text-gray-800">
-                  <li>Cloud Architecture & Services</li>
-                  <li>Serverless Computing</li>
-                  <li>Container Orchestration</li>
-                  <li>Distributed Databases</li>
-                  <li>Cloud Security</li>
-                  <li>Multi-cloud & Hybrid Cloud</li>
+                <h3 className="font-bold text-lg mb-3 text-[#14213d]">Track 3: Internet of Things & Applications</h3>
+                <ul className="list-disc list-inside space-y-1 text-sm text-gray-800">
+                  <li>IoT in Healthcare</li>
+                  <li>IoT in Vehicular Network</li>
+                  <li>Industrial IoT</li>
+                  <li>IoT in Industry</li>
+                  <li>IoT in Agriculture</li>
+                  <li>IoT in Underwater Surveillance</li>
+                  <li>IoT in Smart City</li>
+                  <li>Human Activity Recognition</li>
+                  <li>Wireless Sensor Networks</li>
+                  <li>5G & beyond 5G</li>
+                  <li>IoT in Everything</li>
+                  <li>AI IoT</li>
+                  <li>Industry 4.0</li>
+                  <li>Consumer IoT</li>
+                  <li>Infrastructure IoT</li>
+                  <li>Commercial IoT</li>
+                  <li>Fog IoT</li>
+                  <li>Short and Long Range IoT</li>
+                  <li>Environmental IoT</li>
+                  <li>Security in IoT</li>
                 </ul>
               </div>
 
               <div className="bg-red-50 p-5 rounded-lg border-l-4 border-red-600 shadow-lg hover:shadow-xl transition-all hover:scale-[1.02]">
                 <h3 className="font-bold text-lg mb-3 text-[#14213d]">Track 4: Cybersecurity & Blockchain</h3>
-                <ul className="list-disc list-inside space-y-2 text-base text-gray-800">
-                  <li>Network Security</li>
-                  <li>Cryptography & Encryption</li>
-                  <li>Blockchain Technology</li>
-                  <li>Smart Contracts & DeFi</li>
-                  <li>Privacy-Preserving Technologies</li>
-                  <li>Threat Detection & Response</li>
-                </ul>
-              </div>
-
-              <div className="bg-orange-50 p-5 rounded-lg border-l-4 border-[#fca311] shadow-lg hover:shadow-xl transition-all hover:scale-[1.02]">
-                <h3 className="font-bold text-lg mb-3 text-[#14213d]">Track 5: Big Data & Analytics</h3>
-                <ul className="list-disc list-inside space-y-2 text-base text-gray-800">
-                  <li>Data Mining & Warehousing</li>
-                  <li>Real-time Analytics</li>
-                  <li>Business Intelligence</li>
-                  <li>Predictive Analytics</li>
-                  <li>Data Visualization</li>
-                  <li>Stream Processing</li>
-                </ul>
-              </div>
-
-              <div className="bg-indigo-50 p-5 rounded-lg border-l-4 border-indigo-600 shadow-lg hover:shadow-xl transition-all hover:scale-[1.02]">
-                <h3 className="font-bold text-lg mb-3 text-[#14213d]">Track 6: Emerging Technologies</h3>
-                <ul className="list-disc list-inside space-y-2 text-base text-gray-800">
-                  <li>Quantum Computing</li>
-                  <li>5G/6G Networks</li>
-                  <li>Augmented & Virtual Reality</li>
-                  <li>Robotics & Automation</li>
-                  <li>Autonomous Systems</li>
-                  <li>Green Computing</li>
+                <ul className="list-disc list-inside space-y-1 text-sm text-gray-800">
+                  <li>Various types of Security Systems</li>
+                  <li>Malware Protection Systems</li>
+                  <li>Phishing Protection Systems</li>
+                  <li>DoS/DDoS Protection Systems</li>
+                  <li>Preventive and Detective Security Systems</li>
+                  <li>Corrective Security Systems</li>
+                  <li>Blockchain Authentication</li>
+                  <li>Consensus Mechanisms</li>
+                  <li>Blockchain Types and Networks</li>
+                  <li>Smart Contracts</li>
+                  <li>Decentralized Applications</li>
+                  <li>Blockchain Scalability Solutions</li>
+                  <li>Blockchain Governance</li>
+                  <li>Blockchain Interoperability</li>
+                  <li>Blockchain Security</li>
+                  <li>Cryptocurrencies and Tokens</li>
+                  <li>Non-Fungible Tokens</li>
+                  <li>Security, Privacy, Attacks, and Forensics</li>
+                  <li>Encryption Techniques</li>
+                  <li>Security in IoT</li>
+                  <li>Crypt Analysis</li>
+                  <li>Blockchain-based Machine Learning</li>
+                  <li>Dependable and Secure Computing</li>
+                  <li>Cybernetics</li>
                 </ul>
               </div>
             </div>

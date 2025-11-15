@@ -61,21 +61,18 @@ export async function POST(request: NextRequest) {
     }
 
     // Create event
-    const { data: newEvent, error } = await supabaseAdmin
-      .from('events')
-      .insert({
-        title,
-        description,
-        event_date,
-        event_time,
-        venue,
-        image_url,
-        registration_url,
-        display_order: display_order || 0,
-        is_active: is_active !== undefined ? is_active : true
-      })
-      .select()
-      .single()
+    // @ts-expect-error Supabase type inference issue
+    const { data: newEvent, error } = await supabaseAdmin.from('events').insert({
+      title,
+      description,
+      event_date,
+      event_time,
+      venue,
+      image_url,
+      registration_url,
+      display_order: display_order || 0,
+      is_active: is_active !== undefined ? is_active : true
+    }).select().single()
 
     if (error) {
       console.error('Database error:', error)
@@ -86,19 +83,18 @@ export async function POST(request: NextRequest) {
     }
 
     // Log admin action
-    await supabaseAdmin
-      .from('admin_logs')
-      .insert({
-        admin_id: (user as any).id,
-        action: 'created_event',
-        entity_type: 'event',
-        entity_id: (newEvent as any).id,
-        details: {
-          message: `Created event ${title}`,
-          venue,
-          date: event_date
-        }
-      })
+    // @ts-expect-error Supabase type inference issue
+    await supabaseAdmin.from('admin_logs').insert({
+      admin_id: (user as any).id,
+      action: 'created_event',
+      entity_type: 'event',
+      entity_id: (newEvent as any).id,
+      details: {
+        message: `Created event ${title}`,
+        venue,
+        date: event_date
+      }
+    })
 
     return NextResponse.json({ 
       message: 'Event created successfully',

@@ -5,7 +5,7 @@ import { supabaseAdmin } from '@/lib/db'
 // GET single event
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     // Verify admin access
@@ -17,10 +17,12 @@ export async function GET(
       )
     }
 
+    const { id } = await params
+
     const { data: event, error } = await supabaseAdmin
       .from('events')
       .select('*')
-      .eq('id', params.id)
+      .eq('id', id)
       .single()
 
     if (error) {
@@ -44,7 +46,7 @@ export async function GET(
 // PUT - Update event
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     // Verify admin access
@@ -56,27 +58,24 @@ export async function PUT(
       )
     }
 
+    const { id } = await params
     const body = await request.json()
     const { title, description, event_date, event_time, venue, image_url, registration_url, display_order, is_active } = body
 
     // Update event
-    const { data: updatedEvent, error } = await supabaseAdmin
-      .from('events')
-      .update({
-        title,
-        description,
-        event_date,
-        event_time,
-        venue,
-        image_url,
-        registration_url,
-        display_order,
-        is_active,
-        updated_at: new Date().toISOString()
-      })
-      .eq('id', params.id)
-      .select()
-      .single()
+    // @ts-expect-error Supabase type inference issue
+    const { data: updatedEvent, error } = await supabaseAdmin.from('events').update({
+      title,
+      description,
+      event_date,
+      event_time,
+      venue,
+      image_url,
+      registration_url,
+      display_order,
+      is_active,
+      updated_at: new Date().toISOString()
+    }).eq('id', id).select().single()
 
     if (error) {
       console.error('Database error:', error)
@@ -87,18 +86,17 @@ export async function PUT(
     }
 
     // Log admin action
-    await supabaseAdmin
-      .from('admin_logs')
-      .insert({
-        admin_id: (user as any).id,
-        action: 'updated_event',
-        entity_type: 'event',
-        entity_id: params.id,
-        details: {
-          message: `Updated event ${title}`,
-          changes: body
-        }
-      })
+    // @ts-expect-error Supabase type inference issue
+    await supabaseAdmin.from('admin_logs').insert({
+      admin_id: (user as any).id,
+      action: 'updated_event',
+      entity_type: 'event',
+      entity_id: id,
+      details: {
+        message: `Updated event ${title}`,
+        changes: body
+      }
+    })
 
     return NextResponse.json({ 
       message: 'Event updated successfully',
@@ -116,7 +114,7 @@ export async function PUT(
 // DELETE event
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     // Verify admin access
@@ -128,18 +126,20 @@ export async function DELETE(
       )
     }
 
+    const { id } = await params
+
     // Get event info before deletion
     const { data: eventData } = await supabaseAdmin
       .from('events')
       .select('title, venue')
-      .eq('id', params.id)
+      .eq('id', id)
       .single()
 
     // Delete event
     const { error } = await supabaseAdmin
       .from('events')
       .delete()
-      .eq('id', params.id)
+      .eq('id', id)
 
     if (error) {
       console.error('Database error:', error)
@@ -151,18 +151,17 @@ export async function DELETE(
 
     // Log admin action
     if (eventData) {
-      await supabaseAdmin
-        .from('admin_logs')
-        .insert({
-          admin_id: (user as any).id,
-          action: 'deleted_event',
-          entity_type: 'event',
-          entity_id: params.id,
-          details: {
-            message: `Deleted event ${(eventData as any).title}`,
-            venue: (eventData as any).venue
-          }
-        })
+      // @ts-expect-error Supabase type inference issue
+      await supabaseAdmin.from('admin_logs').insert({
+        admin_id: (user as any).id,
+        action: 'deleted_event',
+        entity_type: 'event',
+        entity_id: id,
+        details: {
+          message: `Deleted event ${(eventData as any).title}`,
+          venue: (eventData as any).venue
+        }
+      })
     }
 
     return NextResponse.json({ 

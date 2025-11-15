@@ -25,12 +25,12 @@ export async function POST(request: NextRequest) {
     // Get current user with password
     const dbUser = await db.getUserById(user.userId)
     
-    if (!dbUser || !dbUser.password) {
+    if (!dbUser || !(dbUser as any).password) {
       return NextResponse.json({ error: 'User not found' }, { status: 404 })
     }
 
     // Verify current password
-    const isValid = await verifyPassword(currentPassword, dbUser.password)
+    const isValid = await verifyPassword(currentPassword, (dbUser as any).password)
     
     if (!isValid) {
       return NextResponse.json({ error: 'Current password is incorrect' }, { status: 400 })

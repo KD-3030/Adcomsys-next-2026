@@ -61,21 +61,18 @@ export async function POST(request: NextRequest) {
     }
 
     // Create speaker
-    const { data: newSpeaker, error } = await supabaseAdmin
-      .from('speakers')
-      .insert({
-        name,
-        designation,
-        affiliation,
-        bio,
-        image_url,
-        topic,
-        session_date,
-        display_order: display_order || 0,
-        is_active: is_active !== undefined ? is_active : true
-      })
-      .select()
-      .single()
+    // @ts-expect-error Supabase type inference issue
+    const { data: newSpeaker, error } = await supabaseAdmin.from('speakers').insert({
+      name,
+      designation,
+      affiliation,
+      bio,
+      image_url,
+      topic,
+      session_date,
+      display_order: display_order || 0,
+      is_active: is_active !== undefined ? is_active : true
+    }).select().single()
 
     if (error) {
       console.error('Database error:', error)
@@ -86,18 +83,17 @@ export async function POST(request: NextRequest) {
     }
 
     // Log admin action
-    await supabaseAdmin
-      .from('admin_logs')
-      .insert({
-        admin_id: (user as any).id,
-        action: 'created_speaker',
-        entity_type: 'speaker',
-        entity_id: (newSpeaker as any).id,
-        details: {
-          message: `Created speaker ${name}`,
-          affiliation
-        }
-      })
+    // @ts-expect-error Supabase type inference issue
+    await supabaseAdmin.from('admin_logs').insert({
+      admin_id: (user as any).id,
+      action: 'created_speaker',
+      entity_type: 'speaker',
+      entity_id: (newSpeaker as any).id,
+      details: {
+        message: `Created speaker ${name}`,
+        affiliation
+      }
+    })
 
     return NextResponse.json({ 
       message: 'Speaker created successfully',

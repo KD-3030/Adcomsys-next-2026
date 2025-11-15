@@ -10,7 +10,7 @@ export async function GET(request: NextRequest) {
 
   // Mock data for submissions
   // In production, fetch from database
-  const submissions = [
+  const submissions: any[] = [
     // Example structure - replace with actual database query
     // {
     //   id: '1',

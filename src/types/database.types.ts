@@ -152,7 +152,8 @@ export interface Database {
           name: string
           designation: string
           affiliation: string
-          email: string
+          email: string | null
+          role?: string | null
           committee_type: 'organizing' | 'technical' | 'advisory'
           image_url: string | null
           display_order: number
@@ -165,7 +166,8 @@ export interface Database {
           name: string
           designation?: string
           affiliation: string
-          email: string
+          email?: string | null
+          role?: string | null
           committee_type: 'organizing' | 'technical' | 'advisory'
           image_url?: string | null
           display_order?: number
@@ -178,7 +180,8 @@ export interface Database {
           name?: string
           designation?: string
           affiliation?: string
-          email?: string
+          email?: string | null
+          role?: string | null
           committee_type?: 'organizing' | 'technical' | 'advisory'
           image_url?: string | null
           display_order?: number

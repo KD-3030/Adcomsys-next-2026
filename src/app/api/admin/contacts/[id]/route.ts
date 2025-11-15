@@ -5,7 +5,7 @@ import { supabaseAdmin } from '@/lib/db'
 // GET single contact by ID
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     // Verify admin access
@@ -17,6 +17,8 @@ export async function GET(
       )
     }
 
+    const { id } = await params
+
     const { data: contact, error } = await supabaseAdmin
       .from('contact_submissions')
       .select(`
@@ -27,7 +29,7 @@ export async function GET(
           email
         )
       `)
-      .eq('id', params.id)
+      .eq('id', id)
       .single()
 
     if (error) {
@@ -51,7 +53,7 @@ export async function GET(
 // PUT - Update contact status
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     // Verify admin access
@@ -63,6 +65,7 @@ export async function PUT(
       )
     }
 
+    const { id } = await params
     const body = await request.json()
     const { status } = body
 
@@ -84,12 +87,8 @@ export async function PUT(
       updateData.replied_at = new Date().toISOString()
     }
 
-    const { data: updatedContact, error } = await supabaseAdmin
-      .from('contact_submissions')
-      .update(updateData)
-      .eq('id', params.id)
-      .select()
-      .single()
+    // @ts-expect-error Supabase type inference issue
+    const { data: updatedContact, error } = await supabaseAdmin.from('contact_submissions').update(updateData).eq('id', id).select().single()
 
     if (error) {
       console.error('Database error:', error)
@@ -100,19 +99,18 @@ export async function PUT(
     }
 
     // Log admin action
-    await supabaseAdmin
-      .from('admin_logs')
-      .insert({
-        admin_id: (user as any).id,
-        action: 'updated_contact',
-        entity_type: 'contact_submission',
-        entity_id: params.id,
-        details: {
-          message: `Updated contact status to ${status}`,
-          subject: (updatedContact as any).subject,
-          from: (updatedContact as any).email
-        }
-      })
+    // @ts-expect-error Supabase type inference issue
+    await supabaseAdmin.from('admin_logs').insert({
+      admin_id: (user as any).id,
+      action: 'updated_contact',
+      entity_type: 'contact_submission',
+      entity_id: id,
+      details: {
+        message: `Updated contact status to ${status}`,
+        subject: (updatedContact as any).subject,
+        from: (updatedContact as any).email
+      }
+    })
 
     return NextResponse.json({ 
       message: 'Contact updated successfully',
@@ -130,7 +128,7 @@ export async function PUT(
 // DELETE contact
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     // Verify admin access
@@ -142,18 +140,20 @@ export async function DELETE(
       )
     }
 
+    const { id } = await params
+
     // Get contact info before deletion
     const { data: contactData } = await supabaseAdmin
       .from('contact_submissions')
       .select('name, email, subject')
-      .eq('id', params.id)
+      .eq('id', id)
       .single()
 
     // Delete contact
     const { error } = await supabaseAdmin
       .from('contact_submissions')
       .delete()
-      .eq('id', params.id)
+      .eq('id', id)
 
     if (error) {
       console.error('Database error:', error)
@@ -165,19 +165,18 @@ export async function DELETE(
 
     // Log admin action
     if (contactData) {
-      await supabaseAdmin
-        .from('admin_logs')
-        .insert({
-          admin_id: (user as any).id,
-          action: 'deleted_contact',
-          entity_type: 'contact_submission',
-          entity_id: params.id,
-          details: {
-            message: `Deleted contact from ${(contactData as any).name}`,
-            email: (contactData as any).email,
-            subject: (contactData as any).subject
-          }
-        })
+      // @ts-expect-error Supabase type inference issue
+      await supabaseAdmin.from('admin_logs').insert({
+        admin_id: (user as any).id,
+        action: 'deleted_contact',
+        entity_type: 'contact_submission',
+        entity_id: id,
+        details: {
+          message: `Deleted contact from ${(contactData as any).name}`,
+          email: (contactData as any).email,
+          subject: (contactData as any).subject
+        }
+      })
     }
 
     return NextResponse.json({ 

@@ -49,6 +49,7 @@ export async function PUT(request: NextRequest) {
       updates.push(
         supabaseAdmin
           .from('settings')
+          // @ts-expect-error Supabase type inference issue
           .upsert(
             { key, value: value as string },
             { onConflict: 'key' }
@@ -59,17 +60,14 @@ export async function PUT(request: NextRequest) {
     await Promise.all(updates)
 
     // Log admin action
-    supabaseAdmin
-      .from('admin_logs')
-      .insert({
-        admin_id: user.userId,
-        action: 'update',
-        entity_type: 'settings',
-        entity_id: 'global',
-        details: { updated_keys: Object.keys(body) }
-      })
-      .then(() => {})
-      .catch(() => {})
+    // @ts-expect-error Supabase type inference issue
+    await supabaseAdmin.from('admin_logs').insert({
+      admin_id: user.userId,
+      action: 'update',
+      entity_type: 'settings',
+      entity_id: 'global',
+      details: { updated_keys: Object.keys(body) }
+    })
 
     return NextResponse.json({ success: true })
   } catch (error) {

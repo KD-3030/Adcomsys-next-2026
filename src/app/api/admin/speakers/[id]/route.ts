@@ -62,23 +62,19 @@ export async function PUT(
     const { name, designation, affiliation, bio, image_url, topic, session_date, display_order, is_active } = body
 
     // Update speaker
-    const { data: updatedSpeaker, error } = await supabaseAdmin
-      .from('speakers')
-      .update({
-        name,
-        designation,
-        affiliation,
-        bio,
-        image_url,
-        topic,
-        session_date,
-        display_order,
-        is_active,
-        updated_at: new Date().toISOString()
-      })
-      .eq('id', id)
-      .select()
-      .single()
+    // @ts-expect-error Supabase type inference issue
+    const { data: updatedSpeaker, error } = await supabaseAdmin.from('speakers').update({
+      name,
+      designation,
+      affiliation,
+      bio,
+      image_url,
+      topic,
+      session_date,
+      display_order,
+      is_active,
+      updated_at: new Date().toISOString()
+    }).eq('id', id).select().single()
 
     if (error) {
       console.error('Database error:', error)
@@ -89,18 +85,17 @@ export async function PUT(
     }
 
     // Log admin action
-    await supabaseAdmin
-      .from('admin_logs')
-      .insert({
-        admin_id: (user as any).id,
-        action: 'updated_speaker',
-        entity_type: 'speaker',
-        entity_id: id,
-        details: {
-          message: `Updated speaker ${name}`,
-          changes: body
-        }
-      })
+    // @ts-expect-error Supabase type inference issue
+    await supabaseAdmin.from('admin_logs').insert({
+      admin_id: (user as any).id,
+      action: 'updated_speaker',
+      entity_type: 'speaker',
+      entity_id: id,
+      details: {
+        message: `Updated speaker ${name}`,
+        changes: body
+      }
+    })
 
     return NextResponse.json({ 
       message: 'Speaker updated successfully',
@@ -154,18 +149,17 @@ export async function DELETE(
 
     // Log admin action
     if (speakerData) {
-      await supabaseAdmin
-        .from('admin_logs')
-        .insert({
-          admin_id: (user as any).id,
-          action: 'deleted_speaker',
-          entity_type: 'speaker',
-          entity_id: id,
-          details: {
-            message: `Deleted speaker ${(speakerData as any).name}`,
-            affiliation: (speakerData as any).affiliation
-          }
-        })
+      // @ts-expect-error Supabase type inference issue
+      await supabaseAdmin.from('admin_logs').insert({
+        admin_id: (user as any).id,
+        action: 'deleted_speaker',
+        entity_type: 'speaker',
+        entity_id: id,
+        details: {
+          message: `Deleted speaker ${(speakerData as any).name}`,
+          affiliation: (speakerData as any).affiliation
+        }
+      })
     }
 
     return NextResponse.json({ 

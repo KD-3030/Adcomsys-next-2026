@@ -48,20 +48,17 @@ export async function POST(request: NextRequest) {
     }
 
     // Insert into database with cleaned data
-    const { data, error } = await supabaseAdmin
-      .from('contact_submissions')
-      .insert([
-        {
-          name: name.trim(),
-          email: email.trim().toLowerCase(),
-          phone: phone?.trim() || null,
-          subject: subject.trim(),
-          message: message.trim(),
-          status: 'new'
-        }
-      ])
-      .select()
-      .single()
+    // @ts-expect-error Supabase type inference issue
+    const { data, error } = await supabaseAdmin.from('contact_submissions').insert([
+      {
+        name: name.trim(),
+        email: email.trim().toLowerCase(),
+        phone: phone?.trim() || null,
+        subject: subject.trim(),
+        message: message.trim(),
+        status: 'new'
+      }
+    ]).select().single()
 
     if (error) {
       console.error('Database error:', error)

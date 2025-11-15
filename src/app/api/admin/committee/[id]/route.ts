@@ -31,21 +31,18 @@ export async function PUT(
 
     const updateData: CommitteeMemberUpdate = {
       name,
-      designation: designation || '',
+      designation,
       affiliation,
       email,
-      committee_type: committee_type as 'organizing' | 'technical' | 'advisory',
-      image_url: image_url || null,
-      display_order: display_order || 0,
-      is_active: is_active !== undefined ? is_active : true
+      committee_type,
+      image_url,
+      display_order,
+      is_active,
+      updated_at: new Date().toISOString()
     }
 
-    const { data, error } = await supabaseAdmin
-      .from('committee_members')
-      .update(updateData)
-      .eq('id', id)
-      .select()
-      .single()
+    // @ts-expect-error Supabase type inference issue with generated types
+    const { data, error } = await supabaseAdmin.from('committee_members').update(updateData).eq('id', id).select().single()
 
     if (error) {
       console.error('Failed to update committee member:', error)
@@ -53,15 +50,14 @@ export async function PUT(
     }
 
     // Log admin action
-    await supabaseAdmin
-      .from('admin_logs')
-      .insert({
-        admin_id: user.userId,
-        action: 'update',
-        entity_type: 'committee_members',
-        entity_id: id,
-        details: { name, committee_type }
-      })
+    // @ts-expect-error Supabase type inference issue
+    await supabaseAdmin.from('admin_logs').insert({
+      admin_id: user.userId,
+      action: 'update',
+      entity_type: 'committee_members',
+      entity_id: id,
+      details: { name, committee_type }
+    })
 
     return NextResponse.json({ member: data })
   } catch (error) {
@@ -92,14 +88,13 @@ export async function DELETE(
     }
 
     // Log admin action
-    await supabaseAdmin
-      .from('admin_logs')
-      .insert({
-        admin_id: user.userId,
-        action: 'delete',
-        entity_type: 'committee_members',
-        entity_id: id
-      })
+    // @ts-expect-error Supabase type inference issue
+    await supabaseAdmin.from('admin_logs').insert({
+      admin_id: user.userId,
+      action: 'delete',
+      entity_type: 'committee_members',
+      entity_id: id
+    })
 
     return NextResponse.json({ success: true })
   } catch (error) {

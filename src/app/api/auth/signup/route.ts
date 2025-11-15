@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { db } from '@/lib/db'
 import { hashPassword, validateEmail, validatePassword } from '@/lib/auth/password'
 import { signToken, setAuthCookie } from '@/lib/auth/jwt'
+import { sendWelcomeEmail } from '@/lib/email'
 import { randomUUID } from 'crypto'
 
 export async function POST(request: NextRequest) {
@@ -74,6 +75,12 @@ export async function POST(request: NextRequest) {
         { status: 500 }
       )
     }
+
+    // Send welcome email (async, don't wait for it)
+    sendWelcomeEmail(user.email, user.full_name || 'User').catch((error) => {
+      console.error('Failed to send welcome email:', error)
+      // Don't fail signup if email fails
+    })
 
     // Generate JWT token
     const token = signToken({

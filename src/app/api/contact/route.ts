@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { supabaseAdmin } from '@/lib/db'
+import { sendEmail } from '@/lib/email'
+import { ContactNotificationEmail } from '@/lib/email/templates/ContactNotificationEmail'
 
 export async function POST(request: NextRequest) {
   try {
@@ -68,8 +70,18 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // TODO: Send email notification to admin
-    // You can implement email sending here using Resend API
+    // Send notification email to admin
+    const adminEmail = process.env.ADMIN_EMAIL || 'adcomsys@uem.edu.in'
+    
+    sendEmail({
+      to: adminEmail,
+      subject: `New Contact Form Submission: ${subject}`,
+      react: ContactNotificationEmail({ name, email, phone, subject, message }),
+      replyTo: email,
+    }).catch((error) => {
+      console.error('Failed to send admin notification:', error)
+      // Don't fail the request if email fails
+    })
 
     return NextResponse.json(
       { 

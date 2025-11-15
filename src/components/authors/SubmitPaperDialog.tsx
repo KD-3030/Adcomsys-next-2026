@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog'
+import { ScrollablePopup, ScrollablePopupHeader, ScrollablePopupTitle, ScrollablePopupDescription } from '@/components/ui/scrollable-popup'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
@@ -17,21 +17,106 @@ interface SubmitPaperDialogProps {
 }
 
 const PAPER_TRACKS = [
-  'Wireless Networks and Mobile Computing',
-  'Ad Hoc Networks',
-  'Sensor Networks',
-  'Internet of Things (IoT)',
-  'Network Security and Privacy',
+  // Track 1: Computing Paradigms & Technologies
   'Cloud Computing',
+  'Fog Computing',
+  'Dew Computing',
+  'Parallel Computing',
+  'Mobile Computing',
+  'Pervasive Computing',
+  'Green Computing',
+  'Cognitive Computing',
+  'Evolutionary Computation',
+  'Grid Computing',
+  'Quantum Computing',
+  'Bio-inspired Computing',
+  'Neuromorphic Computing',
+  'High Performance Computing',
+  'Distributed Computing',
   'Edge Computing',
-  'Network Protocols and Architecture',
-  'Quality of Service (QoS)',
-  'Network Performance and Management',
-  'Software Defined Networking (SDN)',
-  'Network Function Virtualization (NFV)',
-  'Machine Learning for Networks',
-  'Blockchain and Distributed Systems',
-  'Green Computing and Energy Efficiency'
+  'DNA Computing & Reversible Computing',
+  'Optical Computing',
+  'Analog Computing',
+  'Quantum Cryptography',
+  'Digital Forensics',
+  'Geoscience and Remote Sensing',
+  'Industrial Informatics',
+  'Human Centric Computing',
+  
+  // Track 2: Intelligent Systems & AI
+  'Intelligent Systems',
+  'AI with Robotics',
+  'AI-based Image Processing',
+  'Explainable AI',
+  'Deep Learning',
+  'Reinforcement Learning',
+  'Active Learning',
+  'Featured Learning',
+  'Meta Learning',
+  'Generative Models',
+  'Generative Adversarial Network',
+  'Soft Computing',
+  'NLP-based Smart Systems',
+  'Robotics Systems',
+  'Data Analytics Systems',
+  'Big Data',
+  'Data Mining',
+  'Automation',
+  'AI-Systems in Autonomous Vehicles',
+  'Fuzzy Systems',
+  'Hybrid AI',
+  'Cognitive Intelligence',
+  'Affective Computing',
+  'Audio, Speech and Video Processing',
+  'Biomedical and Health Informatics',
+  'Bioinformatics',
+  
+  // Track 3: Internet of Things & Applications
+  'IoT in Healthcare',
+  'IoT in Vehicular Network',
+  'Industrial IoT',
+  'IoT in Industry',
+  'IoT in Agriculture',
+  'IoT in Underwater Surveillance',
+  'IoT in Smart City',
+  'Human Activity Recognition',
+  'Wireless Sensor Networks',
+  '5G & beyond 5G',
+  'IoT in Everything',
+  'AI IoT',
+  'Industry 4.0',
+  'Consumer IoT',
+  'Infrastructure IoT',
+  'Commercial IoT',
+  'Fog IoT',
+  'Short and Long Range IoT',
+  'Environmental IoT',
+  'Security in IoT',
+  
+  // Track 4: Cybersecurity & Blockchain
+  'Various types of Security Systems',
+  'Malware Protection Systems',
+  'Phishing Protection Systems',
+  'DoS/DDoS Protection Systems',
+  'Preventive and Detective Security Systems',
+  'Corrective Security Systems',
+  'Blockchain Authentication',
+  'Consensus Mechanisms',
+  'Blockchain Types and Networks',
+  'Smart Contracts',
+  'Decentralized Applications',
+  'Blockchain Scalability Solutions',
+  'Blockchain Governance',
+  'Blockchain Interoperability',
+  'Blockchain Security',
+  'Cryptocurrencies and Tokens',
+  'Non-Fungible Tokens',
+  'Security, Privacy, Attacks, and Forensics',
+  'Encryption Techniques',
+  'Crypt Analysis',
+  'Blockchain-based Machine Learning',
+  'Dependable and Secure Computing',
+  'Cybernetics'
 ]
 
 export default function SubmitPaperDialog({ isOpen, onClose, onSuccess }: SubmitPaperDialogProps) {
@@ -88,14 +173,13 @@ export default function SubmitPaperDialog({ isOpen, onClose, onSuccess }: Submit
   }
 
   return (
-    <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
-        <DialogHeader>
-          <DialogTitle>Submit New Paper</DialogTitle>
-          <DialogDescription>
-            Enter your paper details. This will be sent to admin for approval before appearing in your submissions.
-          </DialogDescription>
-        </DialogHeader>
+    <ScrollablePopup open={isOpen} onOpenChange={onClose} className="max-w-2xl">
+      <ScrollablePopupHeader>
+        <ScrollablePopupTitle>Submit New Paper</ScrollablePopupTitle>
+        <ScrollablePopupDescription>
+          Enter your paper details. This will be sent to admin for approval before appearing in your submissions.
+        </ScrollablePopupDescription>
+      </ScrollablePopupHeader>
 
         <div className="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-lg mb-4">
           <p className="text-sm text-blue-800">
@@ -171,9 +255,9 @@ export default function SubmitPaperDialog({ isOpen, onClose, onSuccess }: Submit
               required
             >
               <SelectTrigger className="mt-1">
-                <SelectValue placeholder="Select a track" />
+                <SelectValue placeholder="Select a research track" />
               </SelectTrigger>
-              <SelectContent>
+              <SelectContent className="max-h-[400px]">
                 {PAPER_TRACKS.map((track) => (
                   <SelectItem key={track} value={track}>
                     {track}
@@ -181,6 +265,9 @@ export default function SubmitPaperDialog({ isOpen, onClose, onSuccess }: Submit
                 ))}
               </SelectContent>
             </Select>
+            <p className="text-xs text-gray-500 mt-1">
+              Select the most relevant track for your research
+            </p>
           </div>
 
           <div>
@@ -224,7 +311,6 @@ export default function SubmitPaperDialog({ isOpen, onClose, onSuccess }: Submit
             </Button>
           </div>
         </form>
-      </DialogContent>
-    </Dialog>
+    </ScrollablePopup>
   )
 }

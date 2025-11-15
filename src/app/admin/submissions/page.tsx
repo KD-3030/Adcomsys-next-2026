@@ -15,12 +15,11 @@ import {
   TableRow,
 } from '@/components/ui/table'
 import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-} from '@/components/ui/dialog'
+  ScrollablePopup,
+  ScrollablePopupHeader,
+  ScrollablePopupTitle,
+  ScrollablePopupDescription,
+} from '@/components/ui/scrollable-popup'
 import {
   Select,
   SelectContent,
@@ -296,14 +295,13 @@ export default function AdminSubmissionsPage() {
       </Card>
 
       {/* Review Paper Dialog */}
-      <Dialog open={isViewDialogOpen} onOpenChange={setIsViewDialogOpen}>
-        <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto">
-          <DialogHeader>
-            <DialogTitle>Review Paper Submission</DialogTitle>
-            <DialogDescription>
-              Review paper details and approve or reject the submission
-            </DialogDescription>
-          </DialogHeader>
+      <ScrollablePopup open={isViewDialogOpen} onOpenChange={setIsViewDialogOpen} className="max-w-3xl">
+        <ScrollablePopupHeader>
+          <ScrollablePopupTitle>Review Paper Submission</ScrollablePopupTitle>
+          <ScrollablePopupDescription>
+            Review paper details and approve or reject the submission
+          </ScrollablePopupDescription>
+        </ScrollablePopupHeader>
           {selectedPaper && (
             <div className="space-y-4">
               {/* Paper Info */}
@@ -408,8 +406,7 @@ export default function AdminSubmissionsPage() {
               )}
             </div>
           )}
-        </DialogContent>
-      </Dialog>
+      </ScrollablePopup>
     </div>
   )
 }

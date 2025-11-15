@@ -6,7 +6,7 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Textarea } from '@/components/ui/textarea'
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog'
+import { ScrollablePopup, ScrollablePopupHeader, ScrollablePopupTitle, ScrollablePopupDescription } from '@/components/ui/scrollable-popup'
 import { Alert, AlertDescription } from '@/components/ui/alert'
 import { Upload, X, FileText, CheckCircle, AlertCircle, Loader2, IndianRupee, DollarSign } from 'lucide-react'
 
@@ -159,17 +159,16 @@ export default function PaymentProofUpload({ isOpen, onClose, onSuccess }: Payme
   }
 
   return (
-    <Dialog open={isOpen} onOpenChange={handleClose}>
-      <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto">
-        <DialogHeader>
-          <DialogTitle className="text-2xl text-[#14213d] flex items-center gap-2">
-            <Upload className="h-6 w-6 text-[#fca311]" />
-            Upload Payment Proof
-          </DialogTitle>
-          <DialogDescription>
-            Submit your payment receipt for verification. Your registration will be confirmed once the admin verifies your payment.
-          </DialogDescription>
-        </DialogHeader>
+    <ScrollablePopup open={isOpen} onOpenChange={handleClose} className="max-w-3xl">
+      <ScrollablePopupHeader>
+        <ScrollablePopupTitle className="text-2xl text-[#14213d] flex items-center gap-2">
+          <Upload className="h-6 w-6 text-[#fca311]" />
+          Upload Payment Proof
+        </ScrollablePopupTitle>
+        <ScrollablePopupDescription>
+          Submit your payment receipt for verification. Your registration will be confirmed once the admin verifies your payment.
+        </ScrollablePopupDescription>
+      </ScrollablePopupHeader>
 
         {success ? (
           <Alert className="bg-green-50 border-green-500">
@@ -412,7 +411,6 @@ export default function PaymentProofUpload({ isOpen, onClose, onSuccess }: Payme
             </div>
           </form>
         )}
-      </DialogContent>
-    </Dialog>
+    </ScrollablePopup>
   )
 }

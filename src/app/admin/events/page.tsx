@@ -161,7 +161,7 @@ export default function EventsPage() {
           <h1 className="text-3xl font-bold">Events</h1>
           <p className="text-white/80 mt-1">Manage conference events and schedule</p>
         </div>
-        <Button onClick={handleAddNew} className="bg-white text-brand-navy hover:bg-brand-orange hover:text-brand-navy">
+        <Button onClick={handleAddNew} className="bg-brand-orange text-brand-navy hover:bg-brand-orange/90 hover:text-brand-navy">
           <Plus className="h-4 w-4 mr-2" />
           Add Event
         </Button>
@@ -187,7 +187,7 @@ export default function EventsPage() {
                       <TableCell>
                         <div>
                           <div className="font-medium">{event.title}</div>
-                          <div className="text-sm text-gray-500">{event.description}</div>
+                          <div className="text-sm text-white-500">{event.description}</div>
                         </div>
                       </TableCell>
                       <TableCell>
@@ -196,7 +196,7 @@ export default function EventsPage() {
                           <div>
                             <div>{new Date(event.event_date).toLocaleDateString()}</div>
                             {event.event_time && (
-                              <div className="text-sm text-gray-500">{event.event_time}</div>
+                              <div className="text-sm text-white-500">{event.event_time}</div>
                             )}
                           </div>
                         </div>

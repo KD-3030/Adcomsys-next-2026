@@ -181,7 +181,7 @@ export default function ContactsPage() {
             {contacts.filter(c => c.status === 'new').length} new messages
           </p>
         </div>
-        <Button onClick={exportToCSV} className="bg-white text-brand-navy hover:bg-brand-orange hover:text-brand-navy">
+        <Button onClick={exportToCSV} className="bg-brand-orange text-brand-navy hover:bg-brand-orange hover:text-brand-navy">
           <Download className="h-4 w-4 mr-2" />
           Export CSV
         </Button>
@@ -195,27 +195,27 @@ export default function ContactsPage() {
               <p className="text-2xl font-bold text-brand-orange">
                 {contacts.filter(c => c.status === 'new').length}
               </p>
-              <p className="text-sm text-gray-600 mt-1">New Messages</p>
+              <p className="text-sm text-white-600 mt-1">New Messages</p>
             </div>
           </CardContent>
         </Card>
         <Card className="border-l-4 border-brand-navy/60">
           <CardContent className="pt-6">
             <div className="text-center">
-              <p className="text-2xl font-bold text-brand-navy/60">
+              <p className="text-2xl font-bold text-brand-orange">
                 {contacts.filter(c => c.status === 'read').length}
               </p>
-              <p className="text-sm text-gray-600 mt-1">Read</p>
+              <p className="text-sm text-white-600 mt-1">Read</p>
             </div>
           </CardContent>
         </Card>
         <Card className="border-l-4 border-brand-navy">
           <CardContent className="pt-6">
             <div className="text-center">
-              <p className="text-2xl font-bold text-brand-navy">
+              <p className="text-2xl font-bold text-brand-orange">
                 {contacts.filter(c => c.status === 'replied').length}
               </p>
-              <p className="text-sm text-gray-600 mt-1">Replied</p>
+              <p className="text-sm text-white-600 mt-1">Replied</p>
             </div>
           </CardContent>
         </Card>

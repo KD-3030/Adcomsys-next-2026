@@ -212,7 +212,7 @@ export default function PaymentsPage() {
             {payments.filter(p => p.status === 'pending').length} pending verifications
           </p>
         </div>
-        <Button onClick={exportToCSV} className="bg-white text-brand-navy hover:bg-brand-orange hover:text-brand-navy">
+        <Button onClick={exportToCSV} className="bg-brand-orange text-brand-navy hover:bg-brand-orange/90 hover:text-brand-navy">
           <Download className="h-4 w-4 mr-2" />
           Export CSV
         </Button>
@@ -224,7 +224,7 @@ export default function PaymentsPage() {
           <CardContent className="pt-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-gray-600">Pending</p>
+                <p className="text-sm text-white-600">Pending</p>
                 <p className="text-2xl font-bold text-brand-orange">
                   {payments.filter(p => p.status === 'pending').length}
                 </p>
@@ -237,12 +237,12 @@ export default function PaymentsPage() {
           <CardContent className="pt-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-gray-600">Verified</p>
-                <p className="text-2xl font-bold text-brand-navy">
+                <p className="text-sm text-white-600">Verified</p>
+                <p className="text-2xl font-bold text-green-600">
                   {payments.filter(p => p.status === 'verified').length}
                 </p>
               </div>
-              <CheckCircle className="h-10 w-10 text-brand-navy" />
+              <CheckCircle className="h-10 w-10 text-green-600" />
             </div>
           </CardContent>
         </Card>
@@ -250,7 +250,7 @@ export default function PaymentsPage() {
           <CardContent className="pt-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-gray-600">Rejected</p>
+                <p className="text-sm text-white-600">Rejected</p>
                 <p className="text-2xl font-bold text-red-600">
                   {payments.filter(p => p.status === 'rejected').length}
                 </p>

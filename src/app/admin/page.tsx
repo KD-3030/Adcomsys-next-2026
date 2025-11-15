@@ -57,7 +57,7 @@ export default function AdminDashboard() {
       title: 'Total Users',
       value: stats.totalUsers,
       icon: Users,
-      color: 'blue',
+      color: 'white',
       change: `+${stats.recentRegistrations} this week`
     },
     {
@@ -124,7 +124,7 @@ export default function AdminDashboard() {
           return (
             <Card key={index} className="hover:shadow-xl transition-all duration-300 border-l-4 border-brand-orange/40 hover:border-brand-orange">
               <CardHeader className="flex flex-row items-center justify-between pb-2">
-                <CardTitle className="text-sm font-medium text-gray-600">
+                <CardTitle className="text-sm font-medium text-white-600">
                   {stat.title}
                 </CardTitle>
                 <div className={`${colors.bg} p-3 rounded-lg shadow-sm`}>
@@ -132,8 +132,8 @@ export default function AdminDashboard() {
                 </div>
               </CardHeader>
               <CardContent>
-                <div className="text-3xl font-bold text-brand-navy">{stat.value}</div>
-                <p className="text-xs text-gray-500 mt-1">{stat.change}</p>
+                <div className="text-3xl font-bold text-brand-white">{stat.value}</div>
+                <p className="text-xs text-white-500 mt-1">{stat.change}</p>
               </CardContent>
             </Card>
           )
@@ -157,7 +157,7 @@ export default function AdminDashboard() {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="border-brand-navy/10">
           <CardHeader>
-            <CardTitle className="flex items-center text-brand-navy">
+            <CardTitle className="flex items-center text-brand-white">
               <TrendingUp className="h-5 w-5 mr-2 text-brand-orange" />
               Registration Progress
             </CardTitle>
@@ -194,7 +194,7 @@ export default function AdminDashboard() {
 
         <Card className="border-brand-navy/10">
           <CardHeader>
-            <CardTitle className="flex items-center text-brand-navy">
+            <CardTitle className="flex items-center text-brand-white">
               <CheckCircle className="h-5 w-5 mr-2 text-brand-orange" />
               Quick Actions
             </CardTitle>
@@ -203,7 +203,7 @@ export default function AdminDashboard() {
             <div className="space-y-2">
               <a 
                 href="/admin/payments" 
-                className="block p-3 bg-brand-orange/10 hover:bg-brand-orange/20 rounded-lg transition-all duration-200 border border-brand-orange/20 hover:border-brand-orange"
+                className="block p-3 bg-brand-orange hover:bg-brand-orange/10 rounded-lg transition-all duration-200 border border-brand-orange/20 hover:border-brand-orange"
               >
                 <div className="flex items-center justify-between">
                   <span className="text-sm font-medium text-brand-navy">Review Payments</span>
@@ -212,11 +212,11 @@ export default function AdminDashboard() {
               </a>
               <a 
                 href="/admin/contacts" 
-                className="block p-3 bg-brand-navy/10 hover:bg-brand-navy/20 rounded-lg transition-all duration-200 border border-brand-navy/20 hover:border-brand-navy"
+                className="block p-3 bg-brand-orange hover:bg-brand-orange/10 rounded-lg transition-all duration-200 border border-brand-orange/20 hover:border-brand-orange"
               >
                 <div className="flex items-center justify-between">
                   <span className="text-sm font-medium text-brand-navy">Check Messages</span>
-                  <Badge className="bg-brand-navy text-brand-white hover:bg-brand-navy/90">{stats.unreadContacts}</Badge>
+                  <Badge className="bg-brand-orange text-black hover:bg-brand-orange/90">{stats.unreadContacts}</Badge>
                 </div>
               </a>
               <a 
@@ -230,7 +230,7 @@ export default function AdminDashboard() {
               </a>
               <a 
                 href="/admin/users" 
-                className="block p-3 bg-brand-orange/10 hover:bg-brand-orange/20 rounded-lg transition-all duration-200 border border-brand-orange/20 hover:border-brand-orange"
+                className="block p-3 bg-brand-orange hover:bg-brand-orange/10 rounded-lg transition-all duration-200 border border-brand-orange/20 hover:border-brand-orange"
               >
                 <div className="flex items-center justify-between">
                   <span className="text-sm font-medium text-brand-navy">Manage Users</span>

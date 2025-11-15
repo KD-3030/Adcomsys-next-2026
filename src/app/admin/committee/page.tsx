@@ -270,10 +270,10 @@ export default function CommitteePage() {
         <Card className="border-l-4 border-brand-navy">
           <CardContent className="pt-6">
             <div className="text-center">
-              <p className="text-2xl font-bold text-brand-navy">
+              <p className="text-2xl font-bold text-brand-orange">
                 {members.filter(m => m.committee_type === 'organizing').length}
               </p>
-              <p className="text-sm text-gray-600 mt-1">Organizing Committee</p>
+              <p className="text-sm text-white-600 mt-1">Organizing Committee</p>
             </div>
           </CardContent>
         </Card>
@@ -283,17 +283,17 @@ export default function CommitteePage() {
               <p className="text-2xl font-bold text-brand-orange">
                 {members.filter(m => m.committee_type === 'technical').length}
               </p>
-              <p className="text-sm text-gray-600 mt-1">Technical Committee</p>
+              <p className="text-sm text-white-600 mt-1">Technical Committee</p>
             </div>
           </CardContent>
         </Card>
         <Card className="border-l-4 border-brand-navy/80">
           <CardContent className="pt-6">
             <div className="text-center">
-              <p className="text-2xl font-bold text-brand-navy/80">
+              <p className="text-2xl font-bold text-brand-orange">
                 {members.filter(m => m.committee_type === 'advisory').length}
               </p>
-              <p className="text-sm text-gray-600 mt-1">Advisory Board</p>
+              <p className="text-sm text-white-600 mt-1">Advisory Board</p>
             </div>
           </CardContent>
         </Card>

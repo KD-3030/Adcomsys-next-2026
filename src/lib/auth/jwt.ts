@@ -48,12 +48,15 @@ export function getUserFromRequest(request: NextRequest): JWTPayload | null {
 }
 
 export function setAuthCookie(response: NextResponse, token: string): void {
+  const isProduction = process.env.NODE_ENV === 'production'
+  
   response.cookies.set('auth-token', token, {
     httpOnly: true,
-    secure: process.env.NODE_ENV === 'production',
+    secure: isProduction,
     sameSite: 'lax',
     maxAge: 60 * 60 * 24 * 7, // 7 days
     path: '/',
+    // Don't set domain - let browser handle it automatically
   })
 }
 

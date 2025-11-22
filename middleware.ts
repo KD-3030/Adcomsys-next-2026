@@ -2,6 +2,9 @@ import { NextResponse, type NextRequest } from 'next/server'
 import { getUserFromRequest } from '@/lib/auth/jwt'
 import { db } from '@/lib/db'
 
+// Force Node.js runtime for middleware to support crypto module
+export const runtime = 'nodejs'
+
 export async function middleware(request: NextRequest) {
   const user = getUserFromRequest(request)
 

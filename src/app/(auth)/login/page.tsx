@@ -39,15 +39,14 @@ export default function LoginPage() {
 
       toast.success('Logged in successfully!')
       
-      // Redirect based on user role
+      // Redirect based on user role with hard navigation to ensure cookie is sent
       if (data.user?.role === 'admin') {
-        router.push('/admin')
+        window.location.href = '/admin'
       } else if (data.user?.role === 'reviewer') {
-        router.push('/reviewers/dashboard')
+        window.location.href = '/reviewers/dashboard'
       } else {
-        router.push('/authors/dashboard')
+        window.location.href = '/authors/dashboard'
       }
-      router.refresh()
     } catch (error) {
       const errorMessage = error instanceof Error ? error.message : 'Failed to login'
       toast.error(errorMessage)

@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Toaster } from "@/components/ui/sonner";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 import { generateMetadata as createMetadata } from "@/lib/metadata";
 import "./globals.css";
 
@@ -33,6 +35,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || '';
+  
   return (
     <html lang="en">
       <body
@@ -40,6 +44,8 @@ export default function RootLayout({
       >
         {children}
         <Toaster />
+        <SpeedInsights />
+        {gaId && <GoogleAnalytics measurementId={gaId} />}
       </body>
     </html>
   );

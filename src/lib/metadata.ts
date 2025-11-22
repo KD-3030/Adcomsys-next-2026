@@ -87,6 +87,9 @@ export function generateMetadata({
         },
       ],
     },
+    verification: {
+      google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+    },
     other: {
       'msapplication-TileColor': '#14213d',
     },

@@ -4,7 +4,7 @@ export const siteConfig = {
   title: 'AdComSys 2026 - International Conference on Advanced Computing and Systems',
   description:
     'Third International Conference on Advanced Computing and Systems organized by Department of CST & CSIT, University of Engineering and Management, Kolkata. June 25-26, 2026. Submit your research on AI, IoT, Cloud Computing, Cybersecurity, and more. Papers published in Springer LNNS.',
-  url: process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000',
+  url: process.env.NEXT_PUBLIC_SITE_URL || 'https://adcomsys.uemkcstcsit.in',
   ogImage: '/og-image.png',
   links: {
     cmt: process.env.NEXT_PUBLIC_CMT_URL || 'https://cmt3.research.microsoft.com/AdComSys2025',

@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: process.env.NEXT_PUBLIC_SITE_URL || 'https://adcomsys2026.uem.edu.in',
+  siteUrl: process.env.NEXT_PUBLIC_SITE_URL || 'https://adcomsys.uemkcstcsit.in',
   generateRobotsTxt: false, // We have a custom robots.txt
   generateIndexSitemap: false,
   exclude: [

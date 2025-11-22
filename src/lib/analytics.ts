@@ -20,6 +20,7 @@ export const GA_EVENTS = {
   // Download Events
   DOWNLOAD_GUIDE: 'download_registration_guide',
   DOWNLOAD_TEMPLATE: 'download_paper_template',
+  FILE_DOWNLOAD: 'file_download',
   
   // Navigation Events
   VIEW_SPEAKERS: 'view_speakers',
@@ -27,6 +28,7 @@ export const GA_EVENTS = {
   VIEW_SCHEDULE: 'view_schedule',
   
   // External Links
+  CLICK: 'click',
   CMT_PORTAL: 'click_cmt_portal',
   SPRINGER_LINK: 'click_springer_link',
 } as const
@@ -146,7 +148,7 @@ export const trackContactForm = () => {
  * @param url - The URL being clicked
  */
 export const trackExternalLink = (linkName: string, url: string) => {
-  trackEvent('click', {
+  trackEvent(GA_EVENTS.CLICK, {
     category: 'outbound',
     label: linkName,
     value: 1,
@@ -160,7 +162,7 @@ export const trackExternalLink = (linkName: string, url: string) => {
  * @param fileType - Type of file (pdf, doc, etc.)
  */
 export const trackDownload = (fileName: string, fileType: string) => {
-  trackEvent('file_download', {
+  trackEvent(GA_EVENTS.FILE_DOWNLOAD, {
     category: 'engagement',
     label: fileName,
     file_type: fileType,

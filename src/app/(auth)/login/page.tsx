@@ -56,13 +56,13 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-gray-50 flex flex-col">
+    <div className="min-h-screen bg-linear-to-b from-blue-50 via-white to-gray-50 flex flex-col">
       <Navbar />
       
       {/* Hero Section */}
-      <div className="bg-gradient-to-r from-[#14213d] to-[#1a2844] text-white py-12 relative overflow-hidden">
+      <div className="bg-linear-to-r from-[#14213d] to-[#1a2844] text-white py-12 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0 bg-gradient-to-br from-[#fca311] to-transparent"></div>
+          <div className="absolute inset-0 bg-linear-to-br from-[#fca311] to-transparent"></div>
         </div>
         <div className="container mx-auto px-4 text-center relative z-10">
           <div className="flex items-center justify-center mb-4">
@@ -80,11 +80,11 @@ export default function LoginPage() {
       {/* Login Form Section */}
       <div className="flex-1 flex items-center justify-center px-4 py-12">
         <Card className="w-full max-w-md shadow-2xl border-l-4 border-[#fca311] rounded-3xl">
-          <CardHeader className="text-center bg-gradient-to-br from-yellow-500 to-yellow-300 rounded-t-3xl">
+          <CardHeader className="text-center bg-linear-to-br from-yellow-500 to-yellow-300 rounded-t-3xl">
             <CardTitle className="text-2xl font-bold text-[#14213d]">Sign In</CardTitle>
             <CardDescription className="text-gray-600">Enter your credentials to continue</CardDescription>
           </CardHeader>
-        <CardContent className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-b-3xl">
+        <CardContent className="bg-linear-to-br from-blue-50 to-blue-100 rounded-b-3xl">
           <form onSubmit={handleLogin} className="space-y-4">
             <div className="space-y-2 text-black">
               <Label htmlFor="email" className="text-black font-semibold">Email</Label>

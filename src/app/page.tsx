@@ -14,16 +14,18 @@ export default function Home() {
       <div className="min-h-screen">
       {/* Navigation */}
       <nav className="bg-brand-navy border-b-4 border-brand-orange sticky top-0 z-50 shadow-xl">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex justify-between items-center">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center gap-4 sm:gap-6 lg:gap-8">
             {/* Left University Logo */}
-            <div className="flex-shrink-0 hidden sm:block">
+            <div className="shrink-0 hidden sm:block">
               <Image
                 src="/assets/logos/uem_w.png"
                 alt="University Logo"
-                width={50}
-                height={50}
-                className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14"
+                width={150}
+                height={150}
+                quality={100}
+                priority
+                className="w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 xl:w-36 xl:h-36"
               />
             </div>
 
@@ -60,13 +62,15 @@ export default function Home() {
             </div>
             
             {/* Right University Logo */}
-            <div className="flex-shrink-0 hidden sm:block">
+            <div className="shrink-0 hidden sm:block">
               <Image
                 src="/assets/logos/iem_w.png"
                 alt="University Logo"
-                width={50}
-                height={50}
-                className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14"
+                width={150}
+                height={150}
+                quality={100}
+                priority
+                className="w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 xl:w-36 xl:h-36"
               />
             </div>
             
@@ -79,7 +83,7 @@ export default function Home() {
       </nav>
 
       {/* Hero Section - Optimized to fit in viewport */}
-      <section className="relative h-[calc(100vh-88px)] max-h-screen flex items-center py-4 sm:py-6 px-4 bg-gradient-to-br from-brand-navy via-brand-navy to-brand-black overflow-hidden">
+      <section className="relative h-[calc(100vh-88px)] max-h-screen flex items-center py-4 sm:py-6 px-4 bg-linear-to-br from-brand-navy via-brand-navy to-brand-black overflow-hidden">
         
         {/* Decorative Elements */}
         <div className="absolute inset-0 opacity-10">
@@ -113,9 +117,11 @@ export default function Home() {
               <Image
                 src="/assets/logos/logo-3.png"
                 alt="AdComSys Conference Logo"
-                width={100}
-                height={100}
-                className=" w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-50 lg:h-60 mx-auto lg:mx-0"
+                width={200}
+                height={200}
+                quality={100}
+                priority
+                className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-56 lg:h-56 xl:w-64 xl:h-64 mx-auto lg:mx-0"
               />
         
 
@@ -161,7 +167,7 @@ export default function Home() {
               <div className="grid grid-cols-1 gap-3">
                 <Card className="bg-white/10 backdrop-blur-md border-2 border-brand-orange/40 hover:border-brand-orange hover:bg-white/20 transition-all duration-300 hover:shadow-xl hover:shadow-brand-orange/30">
                   <CardContent className="p-4 sm:p-5 flex items-center gap-4">
-                    <CalendarDays className="h-8 w-8 sm:h-10 sm:w-10 text-brand-orange flex-shrink-0" />
+                    <CalendarDays className="h-8 w-8 sm:h-10 sm:w-10 text-brand-orange shrink-0" />
                     <div className="text-left">
                       <h3 className="font-bold text-sm sm:text-base text-brand-white">Conference Dates</h3>
                       <p className="text-brand-white/90 text-xs sm:text-sm font-semibold">June 25-26, 2026</p>
@@ -171,7 +177,7 @@ export default function Home() {
                 
                 <Card className="bg-white/10 backdrop-blur-md border-2 border-brand-orange/40 hover:border-brand-orange hover:bg-white/20 transition-all duration-300 hover:shadow-xl hover:shadow-brand-orange/30">
                   <CardContent className="p-4 sm:p-5 flex items-center gap-4">
-                    <MapPin className="h-8 w-8 sm:h-10 sm:w-10 text-brand-orange flex-shrink-0" />
+                    <MapPin className="h-8 w-8 sm:h-10 sm:w-10 text-brand-orange shrink-0" />
                     <div className="text-left">
                       <h3 className="font-bold text-sm sm:text-base text-brand-white">Location</h3>
                       <p className="text-brand-white/90 text-xs sm:text-sm font-semibold">UEM Kolkata, India</p>
@@ -181,7 +187,7 @@ export default function Home() {
                 
                 <Card className="bg-white/10 backdrop-blur-md border-2 border-brand-orange/40 hover:border-brand-orange hover:bg-white/20 transition-all duration-300 hover:shadow-xl hover:shadow-brand-orange/30">
                   <CardContent className="p-4 sm:p-5 flex items-center gap-4">
-                    <Award className="h-8 w-8 sm:h-10 sm:w-10 text-brand-orange flex-shrink-0" />
+                    <Award className="h-8 w-8 sm:h-10 sm:w-10 text-brand-orange shrink-0" />
                     <div className="text-left">
                       <h3 className="font-bold text-sm sm:text-base text-brand-white">Publication</h3>
                       <p className="text-brand-white/90 text-xs sm:text-sm font-semibold">Springer LNNS (SCOPUS)</p>
@@ -195,7 +201,7 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-12 sm:py-16 lg:py-20 px-4 relative overflow-hidden bg-transparent-to-br from-slate-50 via-white to-blue-50/30">
+      <section id="about" className="py-12 sm:py-16 lg:py-20 px-4 relative overflow-hidden bg-linear-to-br from-slate-50 via-white to-blue-50/30">
         {/* Subtle Background Pattern */}
         <div 
           className="absolute inset-0 opacity-[0.03] pointer-events-none"
@@ -210,7 +216,7 @@ export default function Home() {
             About the Conference
           </h2>
           <Card className="border-3 border-brand-orange/30 hover:border-brand-orange transition-all duration-300 shadow-2xl hover:shadow-3xl bg-white">
-            <CardHeader className="bg-gradient-to-r from-brand-navy via-brand-navy to-brand-black text-white p-6 sm:p-8">
+            <CardHeader className="bg-linear-to-r from-brand-navy via-brand-navy to-brand-black text-white p-6 sm:p-8">
               <CardTitle className="text-brand-orange text-2xl sm:text-3xl font-bold">Welcome to AdComSys 2026</CardTitle>
               <CardDescription className="text-brand-white/90 text-base sm:text-lg mt-2">
                 Third International Conference on Advanced Computing and Systems
@@ -228,9 +234,9 @@ export default function Home() {
                 professionals to share their latest findings and innovations in the field of 
                 advanced computing and systems.
               </p>
-              <div className="bg-gradient-to-r from-brand-orange/10 to-brand-orange/5 p-4 sm:p-6 rounded-xl border-l-4 border-brand-orange shadow-md">
+              <div className="bg-linear-to-r from-brand-orange/10 to-brand-orange/5 p-4 sm:p-6 rounded-xl border-l-4 border-brand-orange shadow-md">
                 <p className="font-bold text-base sm:text-lg text-brand-navy flex items-start gap-3">
-                  <Award className="h-6 w-6 text-brand-orange flex-shrink-0 mt-1" />
+                  <Award className="h-6 w-6 text-brand-orange shrink-0 mt-1" />
                   <span>All accepted papers will be published in <span className="text-brand-orange">SCOPUS Indexed Lecture Notes in Networks 
                   and Systems by Springer</span>.</span>
                 </p>
@@ -243,7 +249,7 @@ export default function Home() {
       {/* Important Dates Section */}
       <section id="dates" className="py-12 sm:py-16 lg:py-20 px-4 relative overflow-hidden">
         {/* Elegant Background */}
-        <div className="absolute inset-0 bg-transparent-to-br from-blue-50 via-slate-50 to-white"></div>
+        <div className="absolute inset-0 bg-linear-to-br from-blue-50 via-slate-50 to-white"></div>
         <div className="absolute inset-0 opacity-[0]" style={{
           backgroundImage: `linear-gradient(30deg, rgb(20, 33, 61) 12%, transparent 12.5%, transparent 87%, rgb(20, 33, 61) 87.5%, rgb(20, 33, 61)), linear-gradient(150deg, rgb(20, 33, 61) 12%, transparent 12.5%, transparent 87%, rgb(20, 33, 61) 87.5%, rgb(20, 33, 61))`,
           backgroundSize: '80px 140px'
@@ -270,10 +276,10 @@ export default function Home() {
                 ].map((item, index) => (
                   <div 
                     key={index} 
-                    className={`flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 sm:gap-4 p-4 sm:p-6 bg-gradient-to-r ${item.color} rounded-xl border-l-4 ${item.highlight ? 'border-brand-orange shadow-lg' : 'border-brand-navy/30'} hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02]`}
+                    className={`flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 sm:gap-4 p-4 sm:p-6 bg-linear-to-r ${item.color} rounded-xl border-l-4 ${item.highlight ? 'border-brand-orange shadow-lg' : 'border-brand-navy/30'} hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02]`}
                   >
                     <div className="flex items-start gap-3 flex-1">
-                      <span className="text-2xl sm:text-3xl flex-shrink-0">{item.icon}</span>
+                      <span className="text-2xl sm:text-3xl shrink-0">{item.icon}</span>
                       <span className={`font-bold ${item.highlight ? 'text-brand-navy text-lg sm:text-xl' : 'text-gray-800 text-base sm:text-lg'}`}>
                         {item.event}
                       </span>
@@ -295,7 +301,7 @@ export default function Home() {
       {/* Submission Section */}
       <section id="submission" className="py-12 sm:py-16 lg:py-20 px-4 relative overflow-hidden">
         {/* Elegant Background */}
-        <div className="absolute inset-0 bg-transparent-to-tr from-slate-50 via-white to-orange-50/20"></div>
+        <div className="absolute inset-0 bg-linear-to-tr from-slate-50 via-white to-orange-50/20"></div>
         <div className="absolute top-0 right-0 w-96 h-96 bg-brand-orange/5 rounded-full filter blur-3xl"></div>
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-brand-navy/5 rounded-full filter blur-3xl"></div>
         
@@ -307,7 +313,7 @@ export default function Home() {
             Share your innovative research with the global academic community
           </p>
           <Card className="border-3 border-brand-orange/30 shadow-2xl hover:shadow-3xl transition-all duration-300 bg-white">
-            <CardHeader className="bg-gradient-to-r from-brand-orange/10 via-brand-orange/5 to-brand-navy/10 p-6 sm:p-8">
+            <CardHeader className="bg-linear-to-r from-brand-orange/10 via-brand-orange/5 to-brand-navy/10 p-6 sm:p-8">
               <CardTitle className="text-brand-navy text-2xl sm:text-3xl font-bold">Submit Your Research</CardTitle>
               <CardDescription className="text-gray-700 text-base sm:text-lg mt-2">
                 Share your latest findings in advanced computing and systems
@@ -318,7 +324,7 @@ export default function Home() {
                 We invite submissions of <span className="font-bold text-brand-navy">original research papers</span>, case studies, and review articles 
                 in all areas of advanced computing and systems.
               </p>
-              <div className="bg-gradient-to-br from-brand-navy/10 via-white to-brand-orange/10 p-6 sm:p-8 rounded-xl border-l-4 border-brand-orange shadow-md">
+              <div className="bg-linear-to-br from-brand-navy/10 via-white to-brand-orange/10 p-6 sm:p-8 rounded-xl border-l-4 border-brand-orange shadow-md">
                 <h4 className="font-bold mb-4 text-brand-navy text-lg sm:text-xl flex items-center gap-2">
                   <FileText className="h-6 w-6 text-brand-orange" />
                   Submission Guidelines:
@@ -331,7 +337,7 @@ export default function Home() {
                     'Maximum 10 pages including references'
                   ].map((guideline, index) => (
                     <li key={index} className="flex items-start gap-3 text-gray-800 text-base sm:text-lg">
-                      <span className="text-brand-orange font-bold text-xl flex-shrink-0">•</span>
+                      <span className="text-brand-orange font-bold text-xl shrink-0">•</span>
                       <span>{guideline}</span>
                     </li>
                   ))}
@@ -353,7 +359,7 @@ export default function Home() {
       {/* Contact Section */}
       <section id="contact" className="py-12 sm:py-16 lg:py-20 px-4 relative overflow-hidden">
         {/* Modern Background */}
-        <div className="absolute inset-0 bg-transparent-to-bl from-slate-50 via-blue-50/30 to-white"></div>
+        <div className="absolute inset-0 bg-linear-to-bl from-slate-50 via-blue-50/30 to-white"></div>
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-orange/3 rounded-full filter blur-3xl"></div>
         
         <div className="container mx-auto max-w-6xl relative z-10">
@@ -363,9 +369,9 @@ export default function Home() {
           <Card className="border-3 border-brand-navy/30 shadow-2xl bg-white">
             <CardContent className="pt-6 sm:pt-8 p-6 sm:p-8">
               <div className="grid sm:grid-cols-2 gap-6 sm:gap-8">
-                <div className="bg-gradient-to-br from-brand-orange/10 to-brand-orange/5 p-6 sm:p-8 rounded-xl border-l-4 border-brand-orange shadow-md hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02]">
+                <div className="bg-linear-to-br from-brand-orange/10 to-brand-orange/5 p-6 sm:p-8 rounded-xl border-l-4 border-brand-orange shadow-md hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02]">
                   <h3 className="font-bold text-xl sm:text-2xl mb-4 flex items-center text-brand-navy gap-3">
-                    <Mail className="h-7 w-7 text-brand-orange flex-shrink-0" />
+                    <Mail className="h-7 w-7 text-brand-orange shrink-0" />
                     Email
                   </h3>
                   <a 
@@ -375,9 +381,9 @@ export default function Home() {
                     adcomsys@uem.edu.in
                   </a>
                 </div>
-                <div className="bg-gradient-to-br from-brand-navy/10 to-brand-navy/5 p-6 sm:p-8 rounded-xl border-l-4 border-brand-navy shadow-md hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02]">
+                <div className="bg-linear-to-br from-brand-navy/10 to-brand-navy/5 p-6 sm:p-8 rounded-xl border-l-4 border-brand-navy shadow-md hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02]">
                   <h3 className="font-bold text-xl sm:text-2xl mb-4 flex items-center text-brand-navy gap-3">
-                    <MapPin className="h-7 w-7 text-brand-orange flex-shrink-0" />
+                    <MapPin className="h-7 w-7 text-brand-orange shrink-0" />
                     Location
                   </h3>
                   <p className="text-gray-800 text-base sm:text-lg leading-relaxed">
@@ -392,7 +398,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gradient-to-r from-brand-black via-brand-navy to-brand-black text-white py-12 sm:py-16 px-4 border-t-4 border-brand-orange">
+      <footer className="bg-linear-to-r from-brand-black via-brand-navy to-brand-black text-white py-12 sm:py-16 px-4 border-t-4 border-brand-orange">
         <div className="container mx-auto text-center">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-brand-orange mb-4">AdComSys 2026</h2>
           <p className="mb-2 text-brand-white/90 text-sm sm:text-base">© 2025 AdComSys 2026. All rights reserved.</p>

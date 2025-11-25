@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { Users, Crown, Award, Briefcase, Mail, Building } from 'lucide-react'
+import { Users, Crown, Award, Briefcase, Mail } from 'lucide-react'
 import { supabaseAdmin } from '@/lib/db'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
@@ -42,29 +42,13 @@ interface CommitteeMemberData {
 }
 
 function CommitteeMember({ name, designation, affiliation, email, role = '', level = 'member', image_url }: CommitteeMemberProps) {
-  const levelColors = {
-    chief: 'bg-gradient-to-r from-yellow-500 to-orange-500',
-    patron: 'bg-gradient-to-r from-blue-600 to-indigo-600',
-    chair: 'bg-gradient-to-r from-blue-600 to-navy-600',
-    member: 'bg-gradient-to-r from-gray-600 to-gray-700'
-  }
-
-  const levelIcons = {
-    chief: Crown,
-    patron: Award,
-    chair: Briefcase,
-    member: Users
-  }
-
-  const Icon = levelIcons[level]
-
   return (
     <Card className="overflow-hidden hover:shadow-xl transition-all duration-300 border-l-4 border-[#fca311] shadow-md bg-white relative z-10">
-      <div className={`${levelColors[level]} h-2`}></div>
+      <div className="bg-gradient-to-r from-[#14213d] to-[#1a2844] h-2"></div>
       <CardContent className="p-6 bg-white">
-        <div className="flex items-start gap-4 bg-white relative">
+        <div className="flex flex-col items-center text-center gap-4 bg-white relative">
           {image_url ? (
-            <div className="relative w-20 h-20 rounded-full overflow-hidden flex-shrink-0 ring-2 ring-blue-200">
+            <div className="relative w-20 h-20 rounded-full overflow-hidden flex-shrink-0 ring-2 ring-[#fca311]">
               <Image
                 src={image_url}
                 alt={name}
@@ -74,33 +58,29 @@ function CommitteeMember({ name, designation, affiliation, email, role = '', lev
               />
             </div>
           ) : (
-            <div className={`${levelColors[level]} p-3 rounded-lg flex-shrink-0`}>
-              <Icon className="h-6 w-6 text-white" />
+            <div className="bg-gradient-to-r from-[#14213d] to-[#1a2844] p-3 rounded-full flex-shrink-0">
+              <Users className="h-6 w-6 text-[#fca311]" />
             </div>
           )}
-          <div className="flex-1">
-            <div className="flex items-start justify-between mb-2">
-              <div>
-                {role && (
-                  <Badge variant="secondary" className="mb-2 font-medium">
-                    {role}
-                  </Badge>
-                )}
-                <h3 className="text-xl font-bold text-gray-900">{name}</h3>
-              </div>
-            </div>
-            <p className="text-sm font-medium text-gray-700 flex items-center gap-2 mt-2">
-              <Briefcase className="h-4 w-4 text-[#fca311]" />
+          <div className="flex-1 w-full">
+            {role && (
+              <Badge variant="secondary" className="mb-2 font-medium">
+                {role}
+              </Badge>
+            )}
+            <h3 className="text-lg font-bold text-gray-900 mb-2">{name}</h3>
+            <p className="text-sm font-medium text-[#fca311] mb-2">
               {designation}
             </p>
-            <p className="text-sm text-gray-600 flex items-center gap-2 mt-1">
-              <Building className="h-4 w-4 text-gray-500" />
+            <p className="text-xs text-gray-600 leading-relaxed">
               {affiliation}
             </p>
             {email && (
-              <p className="text-sm text-[#fca311] flex items-center gap-2 mt-2">
-                <Mail className="h-4 w-4" />
-                <a href={`mailto:${email}`} className="hover:underline hover:text-[#ff9800] transition-colors">{email}</a>
+              <p className="text-xs text-[#fca311] mt-3">
+                <a href={`mailto:${email}`} className="hover:underline hover:text-[#ff9800] transition-colors inline-flex items-center gap-1">
+                  <Mail className="h-3 w-3" />
+                  {email}
+                </a>
               </p>
             )}
           </div>
@@ -253,61 +233,45 @@ const technicalCommitteeData: CommitteeMemberData[] = [
 
 // Hardcoded Advisory Committee
 const advisoryCommitteeData: CommitteeMemberData[] = [
-  {
-    id: 'a1',
-    name: 'Prof. John Williams',
-    designation: 'Chief Patron',
-    affiliation: 'Cambridge University, UK',
-    email: 'j.williams@cam.ac.uk',
-    committee_type: 'advisory',
-    display_order: 1,
-    is_active: true,
-    image_url: null
-  },
-  {
-    id: 'a2',
-    name: 'Dr. Priya Verma',
-    designation: 'Patron',
-    affiliation: 'NIT Trichy, India',
-    email: 'priya.v@nitt.edu',
-    committee_type: 'advisory',
-    display_order: 2,
-    is_active: true,
-    image_url: null
-  },
-  {
-    id: 'a3',
-    name: 'Prof. David Lee',
-    designation: 'Patron',
-    affiliation: 'Oxford University, UK',
-    email: 'david.lee@ox.ac.uk',
-    committee_type: 'advisory',
-    display_order: 3,
-    is_active: true,
-    image_url: null
-  },
-  {
-    id: 'a4',
-    name: 'Dr. Meera Patel',
-    designation: 'Advisory Chair',
-    affiliation: 'BITS Pilani, India',
-    email: 'meera@bits.edu',
-    committee_type: 'advisory',
-    display_order: 4,
-    is_active: true,
-    image_url: null
-  },
-  {
-    id: 'a5',
-    name: 'Prof. Robert Garcia',
-    designation: 'Advisory Member',
-    affiliation: 'Barcelona Tech, Spain',
-    email: 'r.garcia@upc.edu',
-    committee_type: 'advisory',
-    display_order: 5,
-    is_active: true,
-    image_url: null
-  }
+  { id: 'a1', name: 'Prof. Barna Cornel', designation: 'Advisory Member', affiliation: 'Department of Informatics, Aurel Vlaicu University of Arad, Romania', email: '', committee_type: 'advisory', display_order: 1, is_active: true, image_url: null },
+  { id: 'a2', name: 'Dr. Lawrence Dalmarie', designation: 'Advisory Member', affiliation: 'University of District of Columbia, USA', email: '', committee_type: 'advisory', display_order: 2, is_active: true, image_url: null },
+  { id: 'a3', name: 'Dr. Karina Aragon Gaxiola', designation: 'Advisory Member', affiliation: 'University of Waterloo, Canada', email: '', committee_type: 'advisory', display_order: 3, is_active: true, image_url: null },
+  { id: 'a4', name: 'Dr. Mohammad Al Azawi', designation: 'Advisory Member', affiliation: 'Oman College of Management & Technology, Oman', email: '', committee_type: 'advisory', display_order: 4, is_active: true, image_url: null },
+  { id: 'a5', name: 'Dr. Mohammed Beitsuwaflim', designation: 'Advisory Member', affiliation: 'Sultan Qaboos University, Oman', email: '', committee_type: 'advisory', display_order: 5, is_active: true, image_url: null },
+  { id: 'a6', name: 'Dr. Dena McMartin', designation: 'Advisory Member', affiliation: 'University of Saskatchewan, Canada', email: '', committee_type: 'advisory', display_order: 6, is_active: true, image_url: null },
+  { id: 'a7', name: 'Dr. David deMontigny', designation: 'Advisory Member', affiliation: 'University of Regina, Canada', email: '', committee_type: 'advisory', display_order: 7, is_active: true, image_url: null },
+  { id: 'a8', name: 'Dr. Mohd Hafiz Bin Fazalul Rahiman', designation: 'Advisory Member', affiliation: 'University Malaysia Perlis, Malaysia', email: '', committee_type: 'advisory', display_order: 8, is_active: true, image_url: null },
+  { id: 'a9', name: 'Dr. Nathalie Tourigny', designation: 'Advisory Member', affiliation: 'University of Waterloo, Canada', email: '', committee_type: 'advisory', display_order: 9, is_active: true, image_url: null },
+  { id: 'a10', name: 'Dr. Marian Langbridge', designation: 'Advisory Member', affiliation: 'School of Engineering & Material Science, UK', email: '', committee_type: 'advisory', display_order: 10, is_active: true, image_url: null },
+  { id: 'a11', name: 'Dr. March Shannon', designation: 'Advisory Member', affiliation: 'University of Newfoundland, Canada', email: '', committee_type: 'advisory', display_order: 11, is_active: true, image_url: null },
+  { id: 'a12', name: 'Dr. Lei Zhu', designation: 'Advisory Member', affiliation: 'National Renewable Energy Laboratory, USA', email: '', committee_type: 'advisory', display_order: 12, is_active: true, image_url: null },
+  { id: 'a13', name: 'Dr. Michael Osborne', designation: 'Advisory Member', affiliation: 'University of Oxford, UK', email: '', committee_type: 'advisory', display_order: 13, is_active: true, image_url: null },
+  { id: 'a14', name: 'Dr. Robert F. Davis', designation: 'Advisory Member', affiliation: 'Carnegie Mellon University, USA', email: '', committee_type: 'advisory', display_order: 14, is_active: true, image_url: null },
+  { id: 'a15', name: 'Dr. Burak O. Ozdoganlar', designation: 'Advisory Member', affiliation: 'Carnegie Mellon University, USA', email: '', committee_type: 'advisory', display_order: 15, is_active: true, image_url: null },
+  { id: 'a16', name: 'Dr. Mathieu Boudreault', designation: 'Advisory Member', affiliation: 'Montreal Heart Institute, Canada', email: '', committee_type: 'advisory', display_order: 16, is_active: true, image_url: null },
+  { id: 'a17', name: 'Dr. Klaus Obermayer', designation: 'Advisory Member', affiliation: 'Technische University, Netherlands', email: '', committee_type: 'advisory', display_order: 17, is_active: true, image_url: null },
+  { id: 'a18', name: 'Dr. A. Mounir Boukadoum', designation: 'Advisory Member', affiliation: 'Montreal Heart Institute, Canada', email: '', committee_type: 'advisory', display_order: 18, is_active: true, image_url: null },
+  { id: 'a19', name: 'Dr. Richard Linley', designation: 'Advisory Member', affiliation: 'University of Cambridge, UK', email: '', committee_type: 'advisory', display_order: 19, is_active: true, image_url: null },
+  { id: 'a20', name: 'Dr. Qusay Mahmoud', designation: 'Advisory Member', affiliation: 'Ontario Tech University, Canada', email: '', committee_type: 'advisory', display_order: 20, is_active: true, image_url: null },
+  { id: 'a21', name: 'Dr. Gashaw Mekonnen', designation: 'Advisory Member', affiliation: 'College of Health Sciences, Addis Ababa University, Ethiopia', email: '', committee_type: 'advisory', display_order: 21, is_active: true, image_url: null },
+  { id: 'a22', name: 'Dr. Gregory Dudek', designation: 'Advisory Member', affiliation: 'McGill University, Canada', email: '', committee_type: 'advisory', display_order: 22, is_active: true, image_url: null },
+  { id: 'a23', name: 'Dr. Sylvie Thiebaux', designation: 'Advisory Member', affiliation: 'ANU College of Computer Science, Australia', email: '', committee_type: 'advisory', display_order: 23, is_active: true, image_url: null },
+  { id: 'a24', name: 'Dr. Adam W. Skorek', designation: 'Advisory Member', affiliation: 'University of Québec at Trois-Rivières, Canada', email: '', committee_type: 'advisory', display_order: 24, is_active: true, image_url: null },
+  { id: 'a25', name: 'Dr. Michel Plaisent', designation: 'Advisory Member', affiliation: 'University of Quebec in Montreal, Canada', email: '', committee_type: 'advisory', display_order: 25, is_active: true, image_url: null },
+  { id: 'a26', name: 'Dr. Jörg Sandert', designation: 'Advisory Member', affiliation: 'University of Alberta, Canada', email: '', committee_type: 'advisory', display_order: 26, is_active: true, image_url: null },
+  { id: 'a27', name: 'Dr. Erik Cambria', designation: 'Advisory Member', affiliation: 'Nanyang Technological University, Singapore', email: '', committee_type: 'advisory', display_order: 27, is_active: true, image_url: null },
+  { id: 'a28', name: 'Dr. Nathalie Japkowicz', designation: 'Advisory Member', affiliation: 'American University, USA', email: '', committee_type: 'advisory', display_order: 28, is_active: true, image_url: null },
+  { id: 'a29', name: 'Dr. Liming Zhang', designation: 'Advisory Member', affiliation: 'University of California, USA', email: '', committee_type: 'advisory', display_order: 29, is_active: true, image_url: null },
+  { id: 'a30', name: 'Dr. Wudhichart Sawangphol', designation: 'Advisory Member', affiliation: 'Mahidol University, Thailand', email: '', committee_type: 'advisory', display_order: 30, is_active: true, image_url: null },
+  { id: 'a31', name: 'Dr. Noraisyah Binti Mohamed Shah', designation: 'Advisory Member', affiliation: 'University of Malaya, Malaysia', email: '', committee_type: 'advisory', display_order: 31, is_active: true, image_url: null },
+  { id: 'a32', name: 'Dr. Raj Jain', designation: 'Advisory Member', affiliation: 'Washington University, USA', email: '', committee_type: 'advisory', display_order: 32, is_active: true, image_url: null },
+  { id: 'a33', name: 'Dr. Hadj Bourdoucen', designation: 'Advisory Member', affiliation: 'Sultan Qaboos University, Oman', email: '', committee_type: 'advisory', display_order: 33, is_active: true, image_url: null },
+  { id: 'a34', name: 'Dr. Vincenzo Piuri', designation: 'Advisory Member', affiliation: 'Universita\' degli Studi di Milano, Italy', email: '', committee_type: 'advisory', display_order: 34, is_active: true, image_url: null },
+  { id: 'a35', name: 'Dr. Nor Ashidi Mat Isa', designation: 'Advisory Member', affiliation: 'Universiti Sains Malaysia, Malaysia', email: '', committee_type: 'advisory', display_order: 35, is_active: true, image_url: null },
+  { id: 'a36', name: 'Dr. V.G. Tharinda Nishantha Vidanagama', designation: 'Advisory Member', affiliation: 'Wayamba University of Sri Lanka, Sri Lanka', email: '', committee_type: 'advisory', display_order: 36, is_active: true, image_url: null },
+  { id: 'a37', name: 'Om B. Khadka', designation: 'Advisory Member', affiliation: 'Project Lead & IT Development Expert, HELVETAS Swiss', email: '', committee_type: 'advisory', display_order: 37, is_active: true, image_url: null },
+  { id: 'a38', name: 'Prof. Dr. Sandeep Poddar', designation: 'Advisory Member', affiliation: 'Deputy Vice Chancellor (Research & Innovation), Lincoln University College, Malaysia', email: '', committee_type: 'advisory', display_order: 38, is_active: true, image_url: null },
+  { id: 'a39', name: 'Dr. Chong Wen Tong', designation: 'Advisory Member', affiliation: 'Department of Mechanical Engineering, Universiti Malaya, Malaysia', email: '', committee_type: 'advisory', display_order: 39, is_active: true, image_url: null }
 ]
 
 async function getOrganizingCommittee() {
@@ -406,110 +370,18 @@ export default async function CommitteePage() {
           {/* Organizing Committee */}
           <TabsContent value="organizing" className="mt-6">
             {sortedOrganizing.length > 0 ? (
-              <div className="space-y-8">
-                {/* Chief Patrons */}
-                {sortedOrganizing.filter(m => getHierarchyLevel(m.designation) === 'chief').length > 0 && (
-                  <div>
-                    <div className="flex items-center gap-3 mb-6">
-                      <Crown className="h-6 w-6 text-yellow-500" />
-                      <h2 className="text-2xl font-bold text-[#14213d]">Chief Patrons</h2>
-                      <div className="h-1 flex-1 bg-gradient-to-r from-yellow-500 to-orange-500 rounded"></div>
-                    </div>
-                    <div className="grid md:grid-cols-2 gap-6">
-                      {sortedOrganizing
-                        .filter(m => getHierarchyLevel(m.designation) === 'chief')
-                        .map((member) => (
-                          <CommitteeMember
-                            key={member.id}
-                            name={member.name}
-                            designation={member.designation}
-                            affiliation={member.affiliation}
-                            email={member.email}
-                            image_url={member.image_url}
-                            level="chief"
-                          />
-                        ))}
-                    </div>
-                  </div>
-                )}
-
-                {/* Patrons */}
-                {sortedOrganizing.filter(m => getHierarchyLevel(m.designation) === 'patron').length > 0 && (
-                  <div>
-                    <div className="flex items-center gap-3 mb-6">
-                      <Award className="h-6 w-6 text-blue-600" />
-                      <h2 className="text-2xl font-bold text-[#14213d]">Patrons</h2>
-                      <div className="h-1 flex-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded"></div>
-                    </div>
-                    <div className="grid md:grid-cols-2 gap-6">
-                      {sortedOrganizing
-                        .filter(m => getHierarchyLevel(m.designation) === 'patron')
-                        .map((member) => (
-                          <CommitteeMember
-                            key={member.id}
-                            name={member.name}
-                            designation={member.designation}
-                            affiliation={member.affiliation}
-                            email={member.email}
-                            image_url={member.image_url}
-                            level="patron"
-                          />
-                        ))}
-                    </div>
-                  </div>
-                )}
-
-                {/* Chairs/Conveners */}
-                {sortedOrganizing.filter(m => getHierarchyLevel(m.designation) === 'chair').length > 0 && (
-                  <div>
-                    <div className="flex items-center gap-3 mb-6">
-                      <Briefcase className="h-6 w-6 text-green-600" />
-                      <h2 className="text-2xl font-bold text-[#14213d]">Chairs & Conveners</h2>
-                      <div className="h-1 flex-1 bg-gradient-to-r from-green-600 to-teal-600 rounded"></div>
-                    </div>
-                    <div className="grid md:grid-cols-2 gap-6">
-                      {sortedOrganizing
-                        .filter(m => getHierarchyLevel(m.designation) === 'chair')
-                        .map((member) => (
-                          <CommitteeMember
-                            key={member.id}
-                            name={member.name}
-                            designation={member.designation}
-                            affiliation={member.affiliation}
-                            email={member.email}
-                            image_url={member.image_url}
-                            level="chair"
-                          />
-                        ))}
-                    </div>
-                  </div>
-                )}
-
-                {/* Members */}
-                {sortedOrganizing.filter(m => getHierarchyLevel(m.designation) === 'member').length > 0 && (
-                  <div>
-                    <div className="flex items-center gap-3 mb-6">
-                      <Users className="h-6 w-6 text-gray-600" />
-                      <h2 className="text-2xl font-bold text-[#14213d]">Committee Members</h2>
-                      <div className="h-1 flex-1 bg-gradient-to-r from-gray-600 to-gray-700 rounded"></div>
-                    </div>
-                    <div className="grid md:grid-cols-2 gap-6">
-                      {sortedOrganizing
-                        .filter(m => getHierarchyLevel(m.designation) === 'member')
-                        .map((member) => (
-                          <CommitteeMember
-                            key={member.id}
-                            name={member.name}
-                            designation={member.designation}
-                            affiliation={member.affiliation}
-                            email={member.email}
-                            image_url={member.image_url}
-                            level="member"
-                          />
-                        ))}
-                    </div>
-                  </div>
-                )}
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {sortedOrganizing.map((member) => (
+                  <CommitteeMember
+                    key={member.id}
+                    name={member.name}
+                    designation={member.designation}
+                    affiliation={member.affiliation}
+                    email={member.email}
+                    image_url={member.image_url}
+                    level="member"
+                  />
+                ))}
               </div>
             ) : (
               <div className="text-center py-12 text-gray-500">

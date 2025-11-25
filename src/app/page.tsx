@@ -119,7 +119,7 @@ export default function Home() {
               />
         
 
-              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-brand-white drop-shadow-2xl leading-tight">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-brand-white drop-shadow-2xl leading-tight" style={{ fontFamily: '"Faculty Glyphic", sans-serif' }}>
                 AdComSys 2026
               </h1>
               

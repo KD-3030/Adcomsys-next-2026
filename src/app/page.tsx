@@ -30,8 +30,8 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Hero Section - Optimized to fit in viewport */}
-      <section className="relative h-[calc(100vh-88px)] max-h-screen flex items-center py-4 sm:py-6 px-4 bg-linear-to-br from-brand-navy via-brand-navy to-brand-black overflow-hidden">
+      {/* Hero Section - Fits in viewport */}
+      <section className="relative h-[calc(100vh-116px)] flex items-center px-4 bg-linear-to-br from-brand-navy via-brand-navy to-brand-black overflow-hidden">
         
         {/* Decorative Elements */}
         <div className="absolute inset-0 opacity-10">

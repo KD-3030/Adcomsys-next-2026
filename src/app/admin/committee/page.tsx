@@ -14,13 +14,11 @@ import {
   TableRow,
 } from '@/components/ui/table'
 import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-} from '@/components/ui/dialog'
+  ScrollablePopup,
+  ScrollablePopupHeader,
+  ScrollablePopupTitle,
+  ScrollablePopupDescription,
+} from '@/components/ui/scrollable-popup'
 import {
   Select,
   SelectContent,
@@ -392,14 +390,13 @@ export default function CommitteePage() {
       </Card>
 
       {/* Edit/Create Dialog */}
-      <Dialog open={isEditDialogOpen} onOpenChange={setIsEditDialogOpen}>
-        <DialogContent className="max-w-2xl">
-          <DialogHeader>
-            <DialogTitle>{editingMember ? 'Edit Committee Member' : 'Add Committee Member'}</DialogTitle>
-            <DialogDescription>
-              {editingMember ? 'Update member information' : 'Add a new committee member'}
-            </DialogDescription>
-          </DialogHeader>
+      <ScrollablePopup open={isEditDialogOpen} onOpenChange={setIsEditDialogOpen} className="max-w-2xl">
+        <ScrollablePopupHeader>
+          <ScrollablePopupTitle>{editingMember ? 'Edit Committee Member' : 'Add Committee Member'}</ScrollablePopupTitle>
+          <ScrollablePopupDescription>
+            {editingMember ? 'Update member information' : 'Add a new committee member'}
+          </ScrollablePopupDescription>
+        </ScrollablePopupHeader>
           <div className="space-y-4">
             <div className="grid grid-cols-2 gap-4">
               <div className="col-span-2">
@@ -499,16 +496,15 @@ export default function CommitteePage() {
               </div>
             </div>
           </div>
-          <DialogFooter>
-            <Button variant="outline" onClick={() => setIsEditDialogOpen(false)} className="border-brand-navy text-brand-navy hover:bg-brand-navy hover:text-white" disabled={isUploading}>
-              Cancel
-            </Button>
-            <Button onClick={handleSave} className="bg-brand-orange text-brand-navy hover:bg-brand-orange/90" disabled={isUploading}>
-              {isUploading ? 'Uploading...' : (editingMember ? 'Update' : 'Create')}
-            </Button>
-          </DialogFooter>
-        </DialogContent>
-      </Dialog>
+          <div className="flex justify-end gap-2 pt-4">
+              <Button variant="outline" onClick={() => setIsEditDialogOpen(false)} className="border-brand-navy text-brand-navy hover:bg-brand-navy hover:text-white" disabled={isUploading}>
+                Cancel
+              </Button>
+              <Button onClick={handleSave} className="bg-brand-orange text-brand-navy hover:bg-brand-orange/90" disabled={isUploading}>
+                {isUploading ? 'Uploading...' : (editingMember ? 'Update' : 'Create')}
+              </Button>
+            </div>
+      </ScrollablePopup>
     </div>
   )
 }

@@ -15,12 +15,11 @@ import {
   TableRow,
 } from '@/components/ui/table'
 import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-} from '@/components/ui/dialog'
+  ScrollablePopup,
+  ScrollablePopupHeader,
+  ScrollablePopupTitle,
+  ScrollablePopupDescription,
+} from '@/components/ui/scrollable-popup'
 import {
   Select,
   SelectContent,
@@ -340,14 +339,13 @@ export default function PaymentsPage() {
       </Card>
 
       {/* View/Verify Payment Dialog */}
-      <Dialog open={isViewDialogOpen} onOpenChange={setIsViewDialogOpen}>
-        <DialogContent className="max-w-2xl">
-          <DialogHeader>
-            <DialogTitle>Payment Verification</DialogTitle>
-            <DialogDescription>
-              Review payment details and approve or reject
-            </DialogDescription>
-          </DialogHeader>
+      <ScrollablePopup open={isViewDialogOpen} onOpenChange={setIsViewDialogOpen} className="max-w-2xl">
+        <ScrollablePopupHeader>
+          <ScrollablePopupTitle>Payment Verification</ScrollablePopupTitle>
+          <ScrollablePopupDescription>
+            Review payment details and approve or reject
+          </ScrollablePopupDescription>
+        </ScrollablePopupHeader>
           {selectedPayment && (
             <div className="space-y-4">
               {/* User Info */}
@@ -501,8 +499,7 @@ export default function PaymentsPage() {
               )}
             </div>
           )}
-        </DialogContent>
-      </Dialog>
+      </ScrollablePopup>
     </div>
   )
 }

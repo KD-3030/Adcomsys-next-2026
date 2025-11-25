@@ -13,12 +13,11 @@ import {
   TableRow,
 } from '@/components/ui/table'
 import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-} from '@/components/ui/dialog'
+  ScrollablePopup,
+  ScrollablePopupHeader,
+  ScrollablePopupTitle,
+  ScrollablePopupDescription,
+} from '@/components/ui/scrollable-popup'
 import {
   Select,
   SelectContent,
@@ -304,12 +303,11 @@ export default function ContactsPage() {
       </Card>
 
       {/* View Contact Dialog */}
-      <Dialog open={isViewDialogOpen} onOpenChange={setIsViewDialogOpen}>
-        <DialogContent className="max-w-2xl">
-          <DialogHeader>
-            <DialogTitle>Contact Message</DialogTitle>
-            <DialogDescription>Message details and reply options</DialogDescription>
-          </DialogHeader>
+      <ScrollablePopup open={isViewDialogOpen} onOpenChange={setIsViewDialogOpen} className="max-w-2xl">
+        <ScrollablePopupHeader>
+          <ScrollablePopupTitle>Contact Message</ScrollablePopupTitle>
+          <ScrollablePopupDescription>Message details and reply options</ScrollablePopupDescription>
+        </ScrollablePopupHeader>
           {selectedContact && (
             <div className="space-y-4">
               {/* Contact Info */}
@@ -373,8 +371,7 @@ export default function ContactsPage() {
               </div>
             </div>
           )}
-        </DialogContent>
-      </Dialog>
+      </ScrollablePopup>
     </div>
   )
 }

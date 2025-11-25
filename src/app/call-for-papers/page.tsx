@@ -52,33 +52,6 @@ export default function CallForPapersPage() {
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-4 text-gray-800 pt-6 bg-white">
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-blue-50 p-5 rounded-lg border-l-4 border-blue-600 shadow-md">
-                <h3 className="font-bold mb-3 flex items-center text-[#14213d] text-lg">
-                  <CheckCircle className="mr-2 h-6 w-6 text-blue-600" />
-                  Paper Format
-                </h3>
-                <ul className="list-disc list-inside space-y-2 text-base text-gray-800">
-                  <li>Springer LNNS format</li>
-                  <li>Maximum 10 pages (including references)</li>
-                  <li>PDF format only</li>
-                  <li>English language</li>
-                </ul>
-              </div>
-              <div className="bg-orange-50 p-5 rounded-lg border-l-4 border-[#fca311] shadow-md">
-                <h3 className="font-bold mb-3 flex items-center text-[#14213d] text-lg">
-                  <Award className="mr-2 h-6 w-6 text-[#fca311]" />
-                  Publication
-                </h3>
-                <ul className="list-disc list-inside space-y-2 text-base text-gray-800">
-                  <li>Springer LNNS series</li>
-                  <li>SCOPUS indexed</li>
-                  <li>International visibility</li>
-                  <li>Fast publication process</li>
-                </ul>
-              </div>
-            </div>
-
             <div className="border-l-4 border-[#fca311] bg-orange-50 p-5 rounded-lg shadow-md">
               <h3 className="font-bold mb-3 text-[#14213d] text-lg">Important Notes:</h3>
               <ul className="list-disc list-inside space-y-2 text-base text-gray-800">
@@ -95,7 +68,7 @@ export default function CallForPapersPage() {
         {/* Research Tracks */}
         <Card className="mb-8 shadow-2xl border-l-4 border-[#fca311] bg-white relative z-10">
           <CardHeader className="bg-gradient-to-r from-[#14213d] to-[#1a2844] text-white py-6">
-            <CardTitle className="text-xl">Research Tracks</CardTitle>
+            <CardTitle className="text-xl text-[#fca311]"> <strong>Call For Papers</strong></CardTitle>
           </CardHeader>
           <CardContent className="pt-6 bg-white">
             <div className="grid md:grid-cols-2 gap-6">

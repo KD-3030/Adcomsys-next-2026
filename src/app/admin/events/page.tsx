@@ -14,13 +14,11 @@ import {
   TableRow,
 } from '@/components/ui/table'
 import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-} from '@/components/ui/dialog'
+  ScrollablePopup,
+  ScrollablePopupHeader,
+  ScrollablePopupTitle,
+  ScrollablePopupDescription,
+} from '@/components/ui/scrollable-popup'
 import { Calendar, Edit, Plus, Trash2 } from 'lucide-react'
 import { toast } from 'sonner'
 
@@ -236,14 +234,13 @@ export default function EventsPage() {
       </Card>
 
       {/* Edit/Create Dialog */}
-      <Dialog open={isEditDialogOpen} onOpenChange={setIsEditDialogOpen}>
-        <DialogContent className="max-w-2xl">
-          <DialogHeader>
-            <DialogTitle>{editingEvent ? 'Edit Event' : 'Add New Event'}</DialogTitle>
-            <DialogDescription>
-              {editingEvent ? 'Update event information' : 'Create a new conference event'}
-            </DialogDescription>
-          </DialogHeader>
+      <ScrollablePopup open={isEditDialogOpen} onOpenChange={setIsEditDialogOpen} className="max-w-2xl">
+        <ScrollablePopupHeader>
+          <ScrollablePopupTitle>{editingEvent ? 'Edit Event' : 'Add New Event'}</ScrollablePopupTitle>
+          <ScrollablePopupDescription>
+            {editingEvent ? 'Update event information' : 'Create a new conference event'}
+          </ScrollablePopupDescription>
+        </ScrollablePopupHeader>
           <div className="space-y-4">
             <div>
               <label className="text-sm font-medium">Title *</label>
@@ -289,16 +286,15 @@ export default function EventsPage() {
               />
             </div>
           </div>
-          <DialogFooter>
+          <div className="flex justify-end gap-2 pt-4">
             <Button variant="outline" onClick={() => setIsEditDialogOpen(false)} className="border-brand-navy text-brand-navy hover:bg-brand-navy hover:text-white">
               Cancel
             </Button>
             <Button onClick={handleSave} className="bg-brand-orange text-brand-navy hover:bg-brand-orange/90">
               {editingEvent ? 'Update' : 'Create'}
             </Button>
-          </DialogFooter>
-        </DialogContent>
-      </Dialog>
+          </div>
+      </ScrollablePopup>
     </div>
   )
 }

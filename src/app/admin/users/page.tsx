@@ -14,12 +14,11 @@ import {
   TableRow,
 } from '@/components/ui/table'
 import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-} from '@/components/ui/dialog'
+  ScrollablePopup,
+  ScrollablePopupHeader,
+  ScrollablePopupTitle,
+  ScrollablePopupDescription,
+} from '@/components/ui/scrollable-popup'
 import { Label } from '@/components/ui/label'
 import {
   Select,
@@ -307,14 +306,13 @@ export default function UsersPage() {
       </Card>
 
       {/* Edit User Dialog */}
-      <Dialog open={isEditDialogOpen} onOpenChange={setIsEditDialogOpen}>
-        <DialogContent className="max-w-2xl">
-          <DialogHeader>
-            <DialogTitle>Edit User</DialogTitle>
-            <DialogDescription>
-              Update user information and role
-            </DialogDescription>
-          </DialogHeader>
+      <ScrollablePopup open={isEditDialogOpen} onOpenChange={setIsEditDialogOpen} className="max-w-2xl">
+        <ScrollablePopupHeader>
+          <ScrollablePopupTitle>Edit User</ScrollablePopupTitle>
+          <ScrollablePopupDescription>
+            Update user information and role
+          </ScrollablePopupDescription>
+        </ScrollablePopupHeader>
           {editingUser && (
             <div className="space-y-4">
               <div>
@@ -371,18 +369,16 @@ export default function UsersPage() {
               </div>
             </div>
           )}
-        </DialogContent>
-      </Dialog>
+      </ScrollablePopup>
 
       {/* Delete Confirmation Dialog */}
-      <Dialog open={isDeleteDialogOpen} onOpenChange={setIsDeleteDialogOpen}>
-        <DialogContent>
-          <DialogHeader>
-            <DialogTitle>Delete User</DialogTitle>
-            <DialogDescription>
-              Are you sure you want to delete this user? This action cannot be undone.
-            </DialogDescription>
-          </DialogHeader>
+      <ScrollablePopup open={isDeleteDialogOpen} onOpenChange={setIsDeleteDialogOpen} className="max-w-md">
+        <ScrollablePopupHeader>
+          <ScrollablePopupTitle>Delete User</ScrollablePopupTitle>
+          <ScrollablePopupDescription>
+            Are you sure you want to delete this user? This action cannot be undone.
+          </ScrollablePopupDescription>
+        </ScrollablePopupHeader>
           {userToDelete && (
             <div className="space-y-4">
               <div className="bg-red-50 border border-red-200 rounded-lg p-4">
@@ -400,8 +396,7 @@ export default function UsersPage() {
               </div>
             </div>
           )}
-        </DialogContent>
-      </Dialog>
+      </ScrollablePopup>
     </div>
   )
 }

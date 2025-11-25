@@ -106,7 +106,7 @@ export default function Home() {
             {/* Left Column - Main Content */}
             <div className="text-center lg:text-left space-y-2 sm:space-y-3 md:space-y-4">
               <Badge className="bg-brand-orange text-brand-navy hover:bg-brand-orange/90 text-xs sm:text-sm px-3 sm:px-4 py-1 font-bold animate-pulse inline-block">
-                📅 June 25-26, 2026
+                📅 June 24-25, 2026
               </Badge>
               
               <div>

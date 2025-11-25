@@ -107,4 +107,89 @@ export const db = {
     
     return { data, error }
   },
+
+  // Papers - Admin functions
+  async getAllPapers() {
+    const { data, error } = await supabaseAdmin
+      .from('paper_submissions')
+      .select(`
+        *,
+        user:profiles!paper_submissions_user_id_fkey(id, full_name, email, institution),
+        reviewer:profiles!paper_submissions_reviewer_id_fkey(id, full_name, email),
+        approver:profiles!paper_submissions_approved_by_fkey(id, full_name, email)
+      `)
+      .order('created_at', { ascending: false })
+    
+    if (error) throw error
+    return data
+  },
+
+  async getPaperById(id: string) {
+    const { data, error } = await supabaseAdmin
+      .from('paper_submissions')
+      .select(`
+        *,
+        user:profiles!paper_submissions_user_id_fkey(id, full_name, email, institution, country),
+        reviewer:profiles!paper_submissions_reviewer_id_fkey(id, full_name, email),
+        approver:profiles!paper_submissions_approved_by_fkey(id, full_name, email)
+      `)
+      .eq('id', id)
+      .single()
+    
+    if (error) throw error
+    return data
+  },
+
+  async createPaper(paperData: {
+    user_id: string
+    cmt_paper_id: string
+    title: string
+    abstract?: string
+    subject_area?: string
+    authors?: string
+    status?: string
+  }) {
+    const { data, error } = await supabaseAdmin
+      .from('paper_submissions')
+      .insert([paperData as never])
+      .select()
+      .single()
+    
+    if (error) throw error
+    return data
+  },
+
+  async updatePaper(id: string, updates: Partial<{
+    title: string
+    abstract: string
+    subject_area: string
+    authors: string
+    status: string
+    reviewer_id: string
+    review_comments: string
+    review_status: string
+    approved_by: string
+    approved_at: string
+    approval_notes: string
+  }>) {
+    const { data, error } = await supabaseAdmin
+      .from('paper_submissions')
+      .update(updates as never)
+      .eq('id', id)
+      .select()
+      .single()
+    
+    if (error) throw error
+    return data
+  },
+
+  async deletePaper(id: string) {
+    const { error } = await supabaseAdmin
+      .from('paper_submissions')
+      .delete()
+      .eq('id', id)
+    
+    if (error) throw error
+    return true
+  },
 }

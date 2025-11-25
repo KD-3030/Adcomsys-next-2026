@@ -14,13 +14,11 @@ import {
   TableRow,
 } from '@/components/ui/table'
 import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-} from '@/components/ui/dialog'
+  ScrollablePopup,
+  ScrollablePopupHeader,
+  ScrollablePopupTitle,
+  ScrollablePopupDescription,
+} from '@/components/ui/scrollable-popup'
 import { Edit, Plus, Trash2, User, Upload, X } from 'lucide-react'
 import { toast } from 'sonner'
 import { uploadImage, deleteImage } from '@/lib/storage/upload'
@@ -307,14 +305,13 @@ export default function SpeakersPage() {
       </Card>
 
       {/* Edit/Create Dialog */}
-      <Dialog open={isEditDialogOpen} onOpenChange={setIsEditDialogOpen}>
-        <DialogContent className="max-w-3xl">
-          <DialogHeader>
-            <DialogTitle>{editingSpeaker ? 'Edit Speaker' : 'Add New Speaker'}</DialogTitle>
-            <DialogDescription>
-              {editingSpeaker ? 'Update speaker information' : 'Add a new keynote speaker'}
-            </DialogDescription>
-          </DialogHeader>
+      <ScrollablePopup open={isEditDialogOpen} onOpenChange={setIsEditDialogOpen} className="max-w-3xl">
+        <ScrollablePopupHeader>
+          <ScrollablePopupTitle>{editingSpeaker ? 'Edit Speaker' : 'Add New Speaker'}</ScrollablePopupTitle>
+          <ScrollablePopupDescription>
+            {editingSpeaker ? 'Update speaker information' : 'Add a new keynote speaker'}
+          </ScrollablePopupDescription>
+        </ScrollablePopupHeader>
           <div className="space-y-4">
             <div className="grid grid-cols-2 gap-4">
               <div className="col-span-2">
@@ -421,16 +418,15 @@ export default function SpeakersPage() {
               </div>
             </div>
           </div>
-          <DialogFooter>
+          <div className="flex justify-end gap-2 pt-4">
             <Button variant="outline" onClick={() => setIsEditDialogOpen(false)} className="border-brand-navy text-brand-navy hover:bg-brand-navy hover:text-white" disabled={isUploading}>
               Cancel
             </Button>
             <Button onClick={handleSave} className="bg-brand-orange text-brand-navy hover:bg-brand-orange/90" disabled={isUploading}>
               {isUploading ? 'Uploading...' : (editingSpeaker ? 'Update' : 'Create')}
             </Button>
-          </DialogFooter>
-        </DialogContent>
-      </Dialog>
+          </div>
+      </ScrollablePopup>
     </div>
   )
 }

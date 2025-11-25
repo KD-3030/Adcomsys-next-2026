@@ -34,9 +34,9 @@ export default function Home() {
       <section className="relative h-[calc(100vh-116px)] flex items-center px-4 bg-linear-to-br from-brand-navy via-brand-navy to-brand-black overflow-hidden">
         
         {/* Decorative Elements */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-0 w-72 h-72 bg-brand-orange rounded-full filter blur-3xl"></div>
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-brand-orange rounded-full filter blur-3xl"></div>
+        <div className="absolute inset-0 opacity-5 pointer-events-none">
+          <div className="absolute top-0 left-0 w-64 h-64 bg-brand-orange rounded-full blur-2xl"></div>
+          <div className="absolute bottom-0 right-0 w-80 h-80 bg-brand-orange rounded-full blur-2xl"></div>
         </div>
 
         {/* Background Media - Video on Desktop, Image on Mobile */}
@@ -65,8 +65,8 @@ export default function Home() {
                 alt="AdComSys Conference Logo"
                 width={200}
                 height={200}
-                quality={100}
-                priority
+                quality={75}
+                loading="lazy"
                 className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-56 lg:h-56 xl:w-64 xl:h-64 mx-auto lg:mx-0"
               />
         

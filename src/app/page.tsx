@@ -82,6 +82,21 @@ export default function Home() {
         </div>
       </nav>
 
+      {/* Marquee Announcement Bar */}
+      <div className="bg-brand-orange border-b-2 border-brand-navy overflow-hidden">
+        <div className="animate-marquee whitespace-nowrap py-2">
+          <span className="text-brand-navy font-bold text-sm sm:text-base md:text-lg px-4">
+            🎉 AdComSys 2026 will be organized by University of Engineering and Management, Kolkata on 24th and 25th JUNE 2026 🎉
+          </span>
+          <span className="text-brand-navy font-bold text-sm sm:text-base md:text-lg px-4">
+            🎉 AdComSys 2026 will be organized by University of Engineering and Management, Kolkata on 24th and 25th JUNE 2026 🎉
+          </span>
+          <span className="text-brand-navy font-bold text-sm sm:text-base md:text-lg px-4">
+            🎉 AdComSys 2026 will be organized by University of Engineering and Management, Kolkata on 24th and 25th JUNE 2026 🎉
+          </span>
+        </div>
+      </div>
+
       {/* Hero Section - Optimized to fit in viewport */}
       <section className="relative h-[calc(100vh-88px)] max-h-screen flex items-center py-4 sm:py-6 px-4 bg-linear-to-br from-brand-navy via-brand-navy to-brand-black overflow-hidden">
         
@@ -109,9 +124,6 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 items-center">
             {/* Left Column - Main Content */}
             <div className="text-center lg:text-left space-y-2 sm:space-y-3 md:space-y-4">
-              <Badge className="bg-brand-orange text-brand-navy hover:bg-brand-orange/90 text-xs sm:text-sm px-3 sm:px-4 py-1 font-bold animate-pulse inline-block">
-                📅 June 24-25, 2026
-              </Badge>
               
               <div>
               <Image

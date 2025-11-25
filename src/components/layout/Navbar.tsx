@@ -11,7 +11,7 @@ export default function Navbar() {
 
   return (
     <nav className="bg-brand-navy border-b-4 border-brand-orange sticky top-0 z-50 shadow-xl">
-      <div className="container mx-auto px-3 sm:px-4 lg:px-6 xl:px-8 py-3 sm:py-4">
+      <div className="container mx-auto px-3 sm:px-4 lg:px-6 xl:px-8 py-1 sm:py-1.5 flex items-center justify-between">
         <div className="flex justify-between items-center gap-4">
           {/* Left University Logo */}
           <div className="flex-shrink-0 hidden sm:block">

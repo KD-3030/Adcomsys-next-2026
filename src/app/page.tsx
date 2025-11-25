@@ -3,84 +3,17 @@ import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import { CalendarDays, MapPin, Users, FileText, Award, Mail, Menu } from 'lucide-react'
+import { CalendarDays, MapPin, Users, FileText, Award, Mail } from 'lucide-react'
 import HeroVideo from '@/components/layout/HeroVideo'
 import { StructuredData } from '@/components/layout/StructuredData'
+import Navbar from '@/components/layout/Navbar'
 
 export default function Home() {
   return (
     <>
       <StructuredData />
       <div className="min-h-screen">
-      {/* Navigation */}
-      <nav className="bg-brand-navy border-b-4 border-brand-orange sticky top-0 z-50 shadow-xl">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center gap-4 sm:gap-6 lg:gap-8">
-            {/* Left University Logo */}
-            <div className="shrink-0 hidden sm:block">
-              <Image
-                src="/assets/logos/uem_w.png"
-                alt="University Logo"
-                width={150}
-                height={150}
-                quality={100}
-                priority
-                className="w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 xl:w-36 xl:h-36"
-              />
-            </div>
-
-            <div className="flex-1 md:flex-none text-center">
-            <Link href="/" className="block">
-              <h1 className="text-brand-orange font-bold text-base sm:text-lg lg:text-xl xl:text-2xl whitespace-nowrap">
-                AdComSys 2026
-              </h1>
-              <p className="text-brand-white text-[10px] sm:text-xs lg:text-sm -mt-0.5">
-                3rd Edition
-              </p>
-            </Link>
-          </div>
-            
-            {/* Desktop Navigation */}
-            <div className="hidden lg:flex space-x-6 xl:space-x-8">
-              <Link href="/about" className="text-brand-white hover:text-brand-orange transition-colors duration-200 font-medium text-sm xl:text-base">About</Link>
-              <Link href="/committee" className="text-brand-white hover:text-brand-orange transition-colors duration-200 font-medium text-sm xl:text-base">Committee</Link>
-              <Link href="/call-for-papers" className="text-brand-white hover:text-brand-orange transition-colors duration-200 font-medium text-sm xl:text-base">Call for Papers</Link>
-              <Link href="/speakers" className="text-brand-white hover:text-brand-orange transition-colors duration-200 font-medium text-sm xl:text-base">Speakers</Link>
-              <Link href="/technical-program" className="text-brand-white hover:text-brand-orange transition-colors duration-200 font-medium text-sm xl:text-base">Program</Link>
-              <Link href="/registration" className="text-brand-white hover:text-brand-orange transition-colors duration-200 font-medium text-sm xl:text-base">Registration</Link>
-              <Link href="/contact" className="text-brand-white hover:text-brand-orange transition-colors duration-200 font-medium text-sm xl:text-base">Contact</Link>
-            </div>
-            
-            {/* Auth Buttons */}
-            <div className="hidden md:flex space-x-2">
-              <Link href="/login">
-                <Button variant="outline" size="sm" className="border-2 border-brand-orange text-brand-white hover:bg-brand-orange hover:text-brand-navy transition-all duration-200">Login</Button>
-              </Link>
-              <Link href="/signup">
-                <Button size="sm" className="bg-brand-orange text-brand-navy hover:bg-brand-orange/90 font-semibold shadow-lg hover:shadow-xl transition-all duration-200">Register</Button>
-              </Link>
-            </div>
-            
-            {/* Right University Logo */}
-            <div className="shrink-0 hidden sm:block">
-              <Image
-                src="/assets/logos/iem_w.png"
-                alt="University Logo"
-                width={150}
-                height={150}
-                quality={100}
-                priority
-                className="w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 xl:w-36 xl:h-36"
-              />
-            </div>
-            
-            {/* Mobile Menu Button */}
-            <button className="md:hidden text-brand-white hover:text-brand-orange transition-colors duration-200">
-              <Menu className="h-6 w-6" />
-            </button>
-          </div>
-        </div>
-      </nav>
+      <Navbar />
 
       {/* Marquee Announcement Bar */}
       <div className="bg-brand-orange border-b-2 border-brand-navy overflow-hidden">
@@ -116,6 +49,7 @@ export default function Home() {
             alt="Conference Background"
             fill
             priority
+            sizes="(max-width: 768px) 100vw, 0px"
             className="md:hidden object-cover"
           />
         </div>

@@ -178,16 +178,25 @@ Execute the SQL files in the `sql/` directory in this order:
 
 ```bash
 sql/
-├── supabase-schema.sql              # Main database schema
-├── add-subject-area-to-papers.sql   # Paper submission updates
-├── create-admin-user.sql            # Create initial admin
-└── seed-test-users.sql              # Optional: Test users
+├── supabase-schema.sql                 # Main database schema
+├── add-subject-area-to-papers.sql      # Paper submission updates
+├── create-admin-user.sql               # Create initial admin
+├── seed-organizing-committee.sql       # Organizing committee data (31 members)
+└── seed-test-users.sql                 # Optional: Test users
 ```
 
 **To run migrations:**
 1. Go to Supabase Dashboard → SQL Editor
 2. Copy and paste each SQL file
 3. Run them in order
+
+**Quick Start for Committee Data:**
+```bash
+# Automated seeding (recommended)
+node scripts/seed-organizing-committee.js
+```
+
+See [ORGANIZING_COMMITTEE_QUICKSTART.md](ORGANIZING_COMMITTEE_QUICKSTART.md) for details.
 
 ### 3. Configure Storage
 

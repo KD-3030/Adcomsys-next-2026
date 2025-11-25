@@ -13,7 +13,6 @@ export default function Home() {
     <>
       <StructuredData />
       <div className="min-h-screen">
-      {/* Navigation */}
       <Navbar />
 
       {/* Marquee Announcement Bar */}
@@ -50,6 +49,7 @@ export default function Home() {
             alt="Conference Background"
             fill
             priority
+            sizes="(max-width: 768px) 100vw, 0px"
             className="md:hidden object-cover"
           />
         </div>

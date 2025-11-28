@@ -11,6 +11,9 @@ import Footer from '@/components/layout/Footer'
 import { generateMetadata as createMetadata } from '@/lib/metadata'
 import { Metadata } from 'next'
 
+// Revalidate every 1 hour (3600 seconds)
+export const revalidate = 3600
+
 export const metadata: Metadata = createMetadata({
   title: 'Conference Committee',
   description: 'Meet the organizing, technical, and advisory committee members of AdComSys 2026. Distinguished academics and industry experts from leading institutions worldwide.',

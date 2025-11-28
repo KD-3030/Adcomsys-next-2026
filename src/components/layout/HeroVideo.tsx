@@ -42,6 +42,7 @@ export default function HeroVideo() {
       loop
       muted
       playsInline
+      preload="metadata"
       poster="/assets/images/video-poster.jpg"
       className="hidden md:block w-full h-full object-cover transition-opacity duration-1000"
       style={{

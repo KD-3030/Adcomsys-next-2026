@@ -1,0 +1,215 @@
+import Link from 'next/link'
+import { Button } from '@/components/ui/button'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { FileText, Download, Upload, AlertTriangle, Monitor, FileCheck } from 'lucide-react'
+import Navbar from '@/components/layout/Navbar'
+import Footer from '@/components/layout/Footer'
+import { generateMetadata as createMetadata } from '@/lib/metadata'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = createMetadata({
+  title: 'Submissions - Information for Authors',
+  description: 'Submit your research papers to AdComSys 2026. Guidelines for submission, camera ready papers, and presentation templates.',
+  path: '/call-for-papers/submissions',
+  keywords: ['paper submission', 'author guidelines', 'AdComSys 2026', 'camera ready', 'conference submission']
+})
+
+export default function SubmissionsPage() {
+  return (
+    <div className="min-h-screen relative z-10">
+      <Navbar />
+
+      {/* Hero Section */}
+      <div className="bg-linear-to-r from-[#14213d] to-[#1a2844] text-white py-20 relative overflow-hidden shadow-2xl">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0 bg-linear-to-br from-[#fca311] to-transparent"></div>
+        </div>
+        <div className="container mx-auto px-4 text-center relative z-10">
+          <div className="flex items-center justify-center mb-8">
+            <div className="bg-[#fca311] backdrop-blur-sm p-5 rounded-full ring-4 ring-[#fca311]/30 shadow-xl">
+              <Upload className="h-14 w-14 text-white" />
+            </div>
+          </div>
+          <h1 className="text-5xl sm:text-6xl font-bold mb-6">
+            Information for <span className="text-[#fca311]">Authors</span>
+          </h1>
+          <p className="text-xl text-gray-200 max-w-3xl mx-auto font-medium">
+            Guidelines and resources for paper submission
+          </p>
+        </div>
+      </div>
+
+      {/* Page Content */}
+      <div className="container mx-auto px-4 py-12 max-w-5xl">
+
+        {/* Guidelines For Submission */}
+        <Card className="mb-8 shadow-2xl border-l-4 border-[#fca311] bg-white relative z-10">
+          <CardHeader className="bg-linear-to-r from-[#14213d] to-[#1a2844] text-white py-6">
+            <CardTitle className="flex items-center text-xl">
+              <FileText className="mr-3 h-7 w-7 text-[#fca311]" />
+              Guidelines For Submission
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-4 text-gray-800 pt-6 bg-white">
+            <p className="text-base leading-relaxed">
+              Prospective authors are invited to submit original technical papers that have not been submitted elsewhere for publication (copyright infringement issues will be the author&apos;s responsibility) in the <strong className="text-[#14213d]">AdComSys 2026</strong> Conference Proceedings. Papers must be written in good English. The <strong className="text-[#14213d]">Conference Management Toolkit</strong> (CMT) portal will be used for the submission link.
+            </p>
+            <p className="text-base leading-relaxed">
+              All manuscripts will be double-blind reviewed for technical content and scope by a technical program committee. The authors must submit the paper without including their names and affiliation.
+            </p>
+            <div className="border-l-4 border-red-500 bg-red-50 p-5 rounded-lg shadow-md">
+              <div className="flex items-start gap-3">
+                <AlertTriangle className="h-6 w-6 text-red-500 shrink-0 mt-1" />
+                <div>
+                  <h3 className="font-bold mb-2 text-red-700 text-lg">Plagiarism Policy</h3>
+                  <p className="text-base text-gray-800">
+                    The organizers of AdComSys 2026 are strict about Plagiarism. The submitting authors should avoid the deliberate or reckless representation of another&apos;s words, thoughts, or ideas as one&apos;s own without attribution. The Technical Program Committee will check the plagiarism level of all submitted papers using <strong>Turnitin</strong> plagiarism checking software, and any paper having a <strong className="text-red-600">similarity score above 15%</strong> will not be processed further.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* How to Submit */}
+        <Card className="mb-8 shadow-2xl border-l-4 border-[#fca311] bg-white relative z-10">
+          <CardHeader className="bg-linear-to-r from-[#14213d] to-[#1a2844] text-white py-6">
+            <CardTitle className="flex items-center text-xl">
+              <Upload className="mr-3 h-7 w-7 text-[#fca311]" />
+              How to Submit Your Paper
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-4 text-gray-800 pt-6 bg-white">
+            <p className="text-base leading-relaxed">
+              Prospective authors are invited to submit manuscripts at{' '}
+              <Link 
+                href="https://cmt3.research.microsoft.com/AdComSys2025" 
+                target="_blank"
+                className="text-[#fca311] hover:text-[#14213d] font-bold underline underline-offset-4 transition-colors"
+              >
+                https://cmt3.research.microsoft.com/AdComSys2025
+              </Link>{' '}
+              reporting original unpublished research and recent developments in the topics related to the SCOPE of the conference.
+            </p>
+            <div className="border-l-4 border-blue-500 bg-blue-50 p-5 rounded-lg shadow-md">
+              <p className="text-base text-red-600 font-semibold italic">
+                The Microsoft CMT service was used for managing the peer-reviewing process for this conference. This service was provided for free by Microsoft and they bore all expenses, including costs for Azure cloud services as well as for software development and support.
+              </p>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Camera Ready Submission */}
+        <Card className="mb-8 shadow-2xl border-l-4 border-[#fca311] bg-white relative z-10">
+          <CardHeader className="bg-linear-to-r from-[#14213d] to-[#1a2844] text-white py-6">
+            <CardTitle className="flex items-center text-xl">
+              <FileCheck className="mr-3 h-7 w-7 text-[#fca311]" />
+              Camera Ready Submission
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-4 text-gray-800 pt-6 bg-white">
+            <p className="text-base leading-relaxed">
+              The authors of the accepted papers are instructed to download the template for the preparation of camera ready papers from the below-mentioned links:
+            </p>
+            <div className="grid sm:grid-cols-1 gap-4">
+              <Link 
+                href="/assets/docs/splnproc2311.docm" 
+                className="flex items-center justify-between p-4 bg-orange-50 rounded-lg border-l-4 border-[#fca311] hover:bg-orange-100 transition-all hover:shadow-lg group"
+              >
+                <span className="font-medium text-[#14213d]">Word template for camera ready submission</span>
+                <Download className="h-5 w-5 text-[#fca311] group-hover:scale-110 transition-transform" />
+              </Link>
+              <Link 
+                href="/assets/docs/LaTeX2e+Proceedings+Templates+download.zip" 
+                className="flex items-center justify-between p-4 bg-orange-50 rounded-lg border-l-4 border-[#fca311] hover:bg-orange-100 transition-all hover:shadow-lg group"
+              >
+                <span className="font-medium text-[#14213d]">LaTeX template for camera ready submission</span>
+                <Download className="h-5 w-5 text-[#fca311] group-hover:scale-110 transition-transform" />
+              </Link>
+              <Link 
+                href="/assets/docs/SPLNPROC-Technical-Instructions.pdf" 
+               
+                className="flex items-center justify-between p-4 bg-orange-50 rounded-lg border-l-4 border-[#fca311] hover:bg-orange-100 transition-all hover:shadow-lg group"
+              >
+                <span className="font-medium text-[#14213d]">Springer Guidelines for Conference Proceedings</span>
+                <Download className="h-5 w-5 text-[#fca311] group-hover:scale-110 transition-transform" />
+              </Link>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Mode of Presentation */}
+        <Card className="mb-8 shadow-2xl border-l-4 border-[#fca311] bg-white relative z-10">
+          <CardHeader className="bg-linear-to-r from-[#14213d] to-[#1a2844] text-white py-6">
+            <CardTitle className="flex items-center text-xl">
+              <Monitor className="mr-3 h-7 w-7 text-[#fca311]" />
+              Mode of Presentation
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-4 text-gray-800 pt-6 bg-white">
+            <p className="text-base leading-relaxed">
+              AdComSys 2026 will be held in <strong className="text-[#fca311]">HYBRID MODE</strong> where authors shall present their papers either in physical mode at the conference venue or through ONLINE as per their preference and convenience. However, all matters related to publication and indexing will remain unchanged.
+            </p>
+            <div className="border-l-4 border-red-500 bg-red-50 p-4 rounded-lg shadow-md">
+              <p className="text-base text-red-700 font-bold">
+                Without registration and attending the conference online or offline, the organizing committee will not include his/her paper in the book.
+              </p>
+            </div>
+            <div className="mt-4">
+              <Link 
+                href="https://media.uemkcstcsit.in/adcomsys_2025_template.pptx" 
+                className="flex items-center justify-between p-4 bg-blue-50 rounded-lg border-l-4 border-blue-600 hover:bg-blue-100 transition-all hover:shadow-lg group"
+              >
+                <span className="font-medium text-[#14213d]">PPT Template of AdComSys 2026 (New)</span>
+                <Download className="h-5 w-5 text-blue-600 group-hover:scale-110 transition-transform" />
+              </Link>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Paper Categories */}
+        <Card className="mb-8 shadow-2xl border-l-4 border-[#fca311] bg-white relative z-10">
+          <CardHeader className="bg-linear-to-r from-[#14213d] to-[#1a2844] text-white py-6">
+            <CardTitle className="flex items-center text-xl">
+              <FileText className="mr-3 h-7 w-7 text-[#fca311]" />
+              AdComSys 2026 Paper Categories
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-4 text-gray-800 pt-6 bg-white">
+            <ul className="space-y-3">
+              <li className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg">
+                <span className="text-[#fca311] font-bold text-xl">•</span>
+                <span className="text-base">Regular Paper: <strong className="text-[#14213d]">10</strong> pages minimum and <strong className="text-[#14213d]">12</strong> pages maximum.</span>
+              </li>
+              <li className="flex items-start gap-3 p-3 bg-red-50 rounded-lg border-l-4 border-red-500">
+                <span className="text-red-500 font-bold text-xl">•</span>
+                <span className="text-base">To add more pages, an amount of <strong className="text-red-600">₹ 500</strong> per page shall be charged.</span>
+              </li>
+              <li className="flex items-start gap-3 p-3 bg-red-50 rounded-lg border-l-4 border-red-500">
+                <span className="text-red-500 font-bold text-xl">•</span>
+                <span className="text-base">There is no provision for submitting short papers and posters <strong className="text-red-600">(4 – 6 pages)</strong>.</span>
+              </li>
+              <li className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg">
+                <span className="text-[#fca311] font-bold text-xl">•</span>
+                <span className="text-base">Regular papers should present novel perspectives within the general scope of the conference.</span>
+              </li>
+            </ul>
+          </CardContent>
+        </Card>
+
+        {/* Submit Paper Button */}
+        <div className="text-center">
+          <Link href="https://cmt3.research.microsoft.com/AdComSys2025" target="_blank">
+            <Button size="lg" className="bg-[#fca311] text-[#14213d] hover:bg-[#fca311]/90 shadow-2xl hover:shadow-[#fca311]/50 transition-all duration-300 transform hover:scale-105 font-bold text-lg py-6 px-10">
+              <Upload className="mr-2 h-5 w-5" />
+              Click Here to Submit Paper
+            </Button>
+          </Link>
+        </div>
+
+      </div>
+
+      <Footer />
+    </div>
+  )
+}

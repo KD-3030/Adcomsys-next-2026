@@ -13,19 +13,20 @@ export default function Home() {
     <>
       <StructuredData />
       <div className="min-h-screen">
+      {/* Navigation */}
       <Navbar />
 
       {/* Marquee Announcement Bar */}
       <div className="bg-brand-orange border-b-2 border-brand-navy overflow-hidden">
         <div className="animate-marquee whitespace-nowrap py-2">
           <span className="text-brand-navy font-bold text-sm sm:text-base md:text-lg px-4">
-            🎉 AdComSys 2026 will be organized by University of Engineering and Management, Kolkata on 26th and 27th JUNE 2026 🎉
+            🎉 AdComSys 2026 will be organized by University of Engineering and Management, Kolkata on 26th & 27th JUNE 2026 🎉
           </span>
           <span className="text-brand-navy font-bold text-sm sm:text-base md:text-lg px-4">
-            🎉 AdComSys 2026 will be organized by University of Engineering and Management, Kolkata on 26th and 27th JUNE 2026 🎉
+            🎉 AdComSys 2026 will be organized by University of Engineering and Management, Kolkata on 26th & 27th JUNE 2026 🎉
           </span>
           <span className="text-brand-navy font-bold text-sm sm:text-base md:text-lg px-4">
-            🎉 AdComSys 2026 will be organized by University of Engineering and Management, Kolkata on 26th and 27th JUNE 2026 🎉
+            🎉 AdComSys 2026 will be organized by University of Engineering and Management, Kolkata on 26th & 27th JUNE 2026 🎉
           </span>
         </div>
       </div>
@@ -108,35 +109,35 @@ export default function Home() {
             </div>
 
             {/* Right Column - Image/Visual or Info Cards */}
-            <div className="hidden lg:block space-y-3">
+            <div className="hidden lg:block space-y-4">
               {/* Option 2: Info Cards (Current) */}
-              <div className="grid grid-cols-1 gap-3">
+              <div className="grid grid-cols-1 gap-4">
                 <Card className="bg-white/10 backdrop-blur-md border-2 border-brand-orange/40 hover:border-brand-orange hover:bg-white/20 transition-all duration-300 hover:shadow-xl hover:shadow-brand-orange/30">
-                  <CardContent className="p-4 sm:p-5 flex items-center gap-4">
-                    <CalendarDays className="h-8 w-8 sm:h-10 sm:w-10 text-brand-orange shrink-0" />
+                  <CardContent className="p-6 sm:p-8 flex items-center gap-5">
+                    <CalendarDays className="h-12 w-12 sm:h-14 sm:w-14 text-brand-orange shrink-0" />
                     <div className="text-left">
-                      <h3 className="font-bold text-sm sm:text-base text-brand-white">Conference Dates</h3>
-                      <p className="text-brand-white/90 text-xs sm:text-sm font-semibold">June 25-26, 2026</p>
+                      <h3 className="font-bold text-base sm:text-lg lg:text-xl text-brand-white">Conference Dates</h3>
+                      <p className="text-brand-white/90 text-sm sm:text-base font-semibold">June 26-27, 2026</p>
                     </div>
                   </CardContent>
                 </Card>
                 
                 <Card className="bg-white/10 backdrop-blur-md border-2 border-brand-orange/40 hover:border-brand-orange hover:bg-white/20 transition-all duration-300 hover:shadow-xl hover:shadow-brand-orange/30">
-                  <CardContent className="p-4 sm:p-5 flex items-center gap-4">
-                    <MapPin className="h-8 w-8 sm:h-10 sm:w-10 text-brand-orange shrink-0" />
+                  <CardContent className="p-6 sm:p-8 flex items-center gap-5">
+                    <MapPin className="h-12 w-12 sm:h-14 sm:w-14 text-brand-orange shrink-0" />
                     <div className="text-left">
-                      <h3 className="font-bold text-sm sm:text-base text-brand-white">Location</h3>
-                      <p className="text-brand-white/90 text-xs sm:text-sm font-semibold">UEM Kolkata, India</p>
+                      <h3 className="font-bold text-base sm:text-lg lg:text-xl text-brand-white">Location</h3>
+                      <p className="text-brand-white/90 text-sm sm:text-base font-semibold">UEM Kolkata, India</p>
                     </div>
                   </CardContent>
                 </Card>
                 
                 <Card className="bg-white/10 backdrop-blur-md border-2 border-brand-orange/40 hover:border-brand-orange hover:bg-white/20 transition-all duration-300 hover:shadow-xl hover:shadow-brand-orange/30">
-                  <CardContent className="p-4 sm:p-5 flex items-center gap-4">
-                    <Award className="h-8 w-8 sm:h-10 sm:w-10 text-brand-orange shrink-0" />
+                  <CardContent className="p-6 sm:p-8 flex items-center gap-5">
+                    <Award className="h-12 w-12 sm:h-14 sm:w-14 text-brand-orange shrink-0" />
                     <div className="text-left">
-                      <h3 className="font-bold text-sm sm:text-base text-brand-white">Publication</h3>
-                      <p className="text-brand-white/90 text-xs sm:text-sm font-semibold">Springer LNNS (SCOPUS)</p>
+                      <h3 className="font-bold text-base sm:text-lg lg:text-xl text-brand-white">Publication</h3>
+                      <p className="text-brand-white/90 text-sm sm:text-base font-semibold">Springer LNNS (SCOPUS)</p>
                     </div>
                   </CardContent>
                 </Card>
@@ -189,6 +190,24 @@ export default function Home() {
               </div>
             </CardContent>
           </Card>
+
+          {/* Springer Publication Card */}
+          <Card className="mt-8 border-3 border-brand-orange/40 hover:border-brand-orange transition-all duration-300 shadow-xl hover:shadow-2xl bg-brand-orange/5">
+            <CardContent className="p-6 sm:p-8 text-center">
+              <p className="text-lg sm:text-xl lg:text-2xl text-brand-navy font-medium leading-relaxed">
+                All registered and presented papers will be published by the <span className="font-bold text-brand-orange">SCOPUS Indexed Lecture Notes in Networks and Systems</span>.
+              </p>
+              <a 
+                href="https://www.springer.com/series/15179" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-block mt-4 text-brand-orange hover:text-brand-navy font-semibold text-base sm:text-lg underline underline-offset-4 transition-colors duration-200"
+              >
+                https://www.springer.com/series/15179
+              </a>
+              <p className="mt-2 text-sm sm:text-base text-gray-600 italic">(approval awaited)</p>
+            </CardContent>
+          </Card>
         </div>
       </section>
 
@@ -218,7 +237,7 @@ export default function Home() {
                   { event: 'Early Bird Registration', date: 'May 25, 2026', icon: '🎟️', color: 'from-purple-50 to-purple-100/50', highlight: true },
                   { event: 'Last Date of Registration', date: 'June 5, 2026', icon: '🚨', color: 'from-orange-50 to-orange-100/50' },
                   { event: 'Final Camera Ready Paper', date: 'June 15, 2026', icon: '📄', color: 'from-yellow-50 to-yellow-100/50' },
-                  { event: 'Conference Dates', date: 'June 25-26, 2026', icon: '🎉', color: 'from-brand-orange/10 to-brand-navy/10', highlight: true },
+                  { event: 'Conference Dates', date: 'June 26-27, 2026', icon: '🎉', color: 'from-brand-orange/10 to-brand-navy/10', highlight: true },
                 ].map((item, index) => (
                   <div 
                     key={index} 

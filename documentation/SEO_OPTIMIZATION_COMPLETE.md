@@ -219,7 +219,7 @@ https://adcomsys2026.uem.edu.in/robots.txt
 ### Homepage
 ```
 Title: AdComSys 2026 - International Conference on Advanced Computing and Systems
-Description: Third International Conference on Advanced Computing and Systems organized by UEM Kolkata. June 25-26, 2026.
+Description: Third International Conference on Advanced Computing and Systems organized by UEM Kolkata. June 26-27, 2026.
 Keywords: AdComSys, Conference, Advanced Computing, Systems, UEM Kolkata, Academic Conference, Research, Springer, LNNS
 ```
 

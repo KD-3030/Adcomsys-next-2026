@@ -47,34 +47,36 @@ export default function Navbar() {
             
             {/* Authors Dropdown */}
             <div 
-              className="relative"
+              className="relative group"
               onMouseEnter={() => setAuthorsDropdownOpen(true)}
               onMouseLeave={() => setAuthorsDropdownOpen(false)}
             >
-              <button className="flex items-center gap-1 text-brand-white hover:text-brand-orange transition-colors duration-200 font-medium text-xs lg:text-sm xl:text-base whitespace-nowrap">
+              <button className="flex items-center gap-1 text-brand-white hover:text-brand-orange transition-colors duration-200 font-medium text-xs lg:text-sm xl:text-base whitespace-nowrap py-2">
                 Authors
                 <ChevronDown className={`h-3 w-3 lg:h-4 lg:w-4 transition-transform duration-200 ${authorsDropdownOpen ? 'rotate-180' : ''}`} />
               </button>
               {authorsDropdownOpen && (
-                <div className="absolute top-full left-0 mt-2 w-48 bg-brand-navy border-2 border-brand-orange rounded-lg shadow-xl py-2 z-50">
-                  <Link 
-                    href="/call-for-papers/submissions" 
-                    className="block px-4 py-2 text-brand-white hover:text-brand-orange hover:bg-brand-navy/80 transition-colors duration-200 text-sm"
-                  >
-                    Submissions
-                  </Link>
-                  <Link 
-                    href="/call-for-papers/call-for-papers" 
-                    className="block px-4 py-2 text-brand-white hover:text-brand-orange hover:bg-brand-navy/80 transition-colors duration-200 text-sm"
-                  >
-                    Call For Papers
-                  </Link>
-                  <Link 
-                    href="/call-for-papers/important-dates" 
-                    className="block px-4 py-2 text-brand-white hover:text-brand-orange hover:bg-brand-navy/80 transition-colors duration-200 text-sm"
-                  >
-                    Important Dates
-                  </Link>
+                <div className="absolute top-full left-0 pt-1 w-48 z-50">
+                  <div className="bg-brand-navy border-2 border-brand-orange rounded-lg shadow-xl py-2">
+                    <Link 
+                      href="/call-for-papers/submissions" 
+                      className="block px-4 py-2 text-brand-white hover:text-brand-orange hover:bg-white/10 transition-colors duration-200 text-sm"
+                    >
+                      Submissions
+                    </Link>
+                    <Link 
+                      href="/call-for-papers/call-for-papers" 
+                      className="block px-4 py-2 text-brand-white hover:text-brand-orange hover:bg-white/10 transition-colors duration-200 text-sm"
+                    >
+                      Call For Papers
+                    </Link>
+                    <Link 
+                      href="/call-for-papers/important-dates" 
+                      className="block px-4 py-2 text-brand-white hover:text-brand-orange hover:bg-white/10 transition-colors duration-200 text-sm"
+                    >
+                      Important Dates
+                    </Link>
+                  </div>
                 </div>
               )}
             </div>

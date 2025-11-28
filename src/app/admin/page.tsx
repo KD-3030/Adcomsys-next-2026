@@ -111,7 +111,7 @@ export default function AdminDashboard() {
   return (
     <div className="space-y-6">
       {/* Page Header */}
-      <div className="bg-gradient-to-r from-brand-navy to-brand-navy/90 rounded-xl p-6 shadow-lg border-l-4 border-brand-orange">
+      <div className="bg-linear-to-r from-brand-navy to-brand-navy/90 rounded-xl p-6 shadow-lg border-l-4 border-brand-orange">
         <h1 className="text-3xl font-bold text-brand-white">Admin Dashboard</h1>
         <p className="text-brand-white/80 mt-1">Welcome to AdComSys 2026 Admin Panel</p>
       </div>
@@ -141,7 +141,7 @@ export default function AdminDashboard() {
       </div>
 
       {/* Important Notice */}
-      <Card className="bg-gradient-to-r from-brand-orange to-brand-orange/90 text-brand-navy border-none shadow-lg">
+      <Card className="bg-linear-to-r from-brand-orange to-brand-orange/90 text-brand-navy border-none shadow-lg">
         <CardContent className="py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
@@ -271,7 +271,7 @@ export default function AdminDashboard() {
       </div>
 
       {/* Conference Info */}
-      <Card className="bg-gradient-to-r from-brand-navy via-brand-navy to-brand-black text-brand-white border-none shadow-xl">
+      <Card className="bg-linear-to-r from-brand-navy via-brand-navy to-brand-black text-brand-white border-none shadow-xl">
         <CardContent className="py-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
             <div className="border-r border-brand-white/20 last:border-r-0">

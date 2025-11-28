@@ -110,7 +110,7 @@ UPSTASH_REDIS_REST_TOKEN=your_upstash_token
 - [ ] Test admin panel access
 
 ### Content Verification
-- [ ] Verify all conference dates are correct (June 25-26, 2026)
+- [ ] Verify all conference dates are correct (June 26-27, 2026)
 - [ ] Check committee member information
 - [ ] Verify speaker details
 - [ ] Review registration fees

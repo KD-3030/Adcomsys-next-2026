@@ -248,7 +248,7 @@ Design in Canva/Figma with:
 - **Elements:**
   - Conference logo
   - "AdComSys 2026" prominently
-  - "June 25-26, 2026"
+  - "June 26-27, 2026"
   - "UEM Kolkata"
   - Brand colors: Navy (#14213d) and Orange (#fca311)
 - **File format:** PNG or JPG

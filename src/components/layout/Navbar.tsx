@@ -11,10 +11,10 @@ export default function Navbar() {
 
   return (
     <nav className="bg-brand-navy border-b-4 border-brand-orange sticky top-0 z-50 shadow-xl">
-      <div className="container mx-auto px-3 sm:px-4 lg:px-6 xl:px-8 py-1 sm:py-1.5 flex items-center justify-between">
+      <div className="container mx-auto px-3 sm:px-4 lg:px-6 xl:px-8 py-3 sm:py-4">
         <div className="flex justify-between items-center gap-4">
           {/* Left University Logo */}
-          <div className="flex-shrink-0 hidden sm:block">
+          <div className="shrink-0 hidden sm:block">
             <Image
               src="/assets/logos/uem_w.png"
               alt="University Logo"
@@ -50,7 +50,7 @@ export default function Navbar() {
           </div>
           
           {/* Auth Buttons */}
-          <div className="hidden md:flex space-x-1.5 lg:space-x-2 flex-shrink-0">
+          <div className="hidden md:flex space-x-1.5 lg:space-x-2 shrink-0">
             <Link href="/login">
               <Button variant="outline" size="sm" className="border-2 border-brand-orange text-brand-white hover:bg-brand-orange hover:text-brand-navy transition-all duration-200 text-xs lg:text-sm px-2 lg:px-3">Login</Button>
             </Link>
@@ -60,7 +60,7 @@ export default function Navbar() {
           </div>
           
           {/* Right University Logo */}
-          <div className="flex-shrink-0 hidden sm:block">
+          <div className="shrink-0 hidden sm:block">
             <Image
               src="/assets/logos/iem_w.png"
               alt="University Logo"
@@ -74,7 +74,7 @@ export default function Navbar() {
           
           {/* Mobile Menu Button */}
           <button 
-            className="md:hidden text-brand-white hover:text-brand-orange transition-colors duration-200 flex-shrink-0"
+            className="md:hidden text-brand-white hover:text-brand-orange transition-colors duration-200 shrink-0"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             {mobileMenuOpen ? <X className="h-5 w-5 sm:h-6 sm:w-6" /> : <Menu className="h-5 w-5 sm:h-6 sm:w-6" />}

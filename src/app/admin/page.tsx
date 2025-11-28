@@ -146,7 +146,7 @@ export default function AdminDashboard() {
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
               <AlertCircle className="h-5 w-5" />
-              <p className="font-semibold">Conference Date: June 25-26, 2026 | Springer LNNS Publication</p>
+              <p className="font-semibold">Conference Date: June 26-27, 2026 | Springer LNNS Publication</p>
             </div>
             <Badge className="bg-brand-navy text-brand-white hover:bg-brand-navy/90">Active</Badge>
           </div>
@@ -275,7 +275,7 @@ export default function AdminDashboard() {
         <CardContent className="py-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
             <div className="border-r border-brand-white/20 last:border-r-0">
-              <div className="text-3xl font-bold mb-1 text-brand-orange">June 25-26, 2026</div>
+              <div className="text-3xl font-bold mb-1 text-brand-orange">June 26-27, 2026</div>
               <p className="text-brand-white/80 text-sm">Conference Dates</p>
             </div>
             <div className="border-r border-brand-white/20 last:border-r-0">

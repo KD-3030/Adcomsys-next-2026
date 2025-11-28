@@ -2,7 +2,7 @@
 
 > Third International Conference on Advanced Computing and Systems  
 > University of Engineering & Management, Kolkata  
-> June 25-26, 2026
+> June 26-27, 2026
 
 ## 🚀 Tech Stack
 

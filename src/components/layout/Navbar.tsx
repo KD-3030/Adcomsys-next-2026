@@ -3,19 +3,17 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { Button } from '@/components/ui/button'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, ChevronDown } from 'lucide-react'
 import { useState } from 'react'
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [authorsDropdownOpen, setAuthorsDropdownOpen] = useState(false)
+  const [mobileAuthorsOpen, setMobileAuthorsOpen] = useState(false)
 
   return (
     <nav className="bg-brand-navy border-b-4 border-brand-orange sticky top-0 z-50 shadow-xl">
-<<<<<<< HEAD
       <div className="container mx-auto px-3 sm:px-4 lg:px-6 xl:px-8 py-3 sm:py-4">
-=======
-      <div className="container mx-auto px-3 sm:px-4 lg:px-6 xl:px-8 py-2 sm:py-3">
->>>>>>> 0679a7cd4d24ea7f50dee407b99f28268486f597
         <div className="flex justify-between items-center gap-4">
           {/* Left University Logo */}
           <div className="shrink-0 hidden sm:block">
@@ -46,7 +44,41 @@ export default function Navbar() {
           <div className="hidden md:flex flex-wrap items-center justify-center gap-3 lg:gap-4 xl:gap-6 flex-1 mx-4">
             <Link href="/about" className="text-brand-white hover:text-brand-orange transition-colors duration-200 font-medium text-xs lg:text-sm xl:text-base whitespace-nowrap">About</Link>
             <Link href="/committee" className="text-brand-white hover:text-brand-orange transition-colors duration-200 font-medium text-xs lg:text-sm xl:text-base whitespace-nowrap">Committee</Link>
-            <Link href="/call-for-papers" className="text-brand-white hover:text-brand-orange transition-colors duration-200 font-medium text-xs lg:text-sm xl:text-base whitespace-nowrap">Papers</Link>
+            
+            {/* Authors Dropdown */}
+            <div 
+              className="relative"
+              onMouseEnter={() => setAuthorsDropdownOpen(true)}
+              onMouseLeave={() => setAuthorsDropdownOpen(false)}
+            >
+              <button className="flex items-center gap-1 text-brand-white hover:text-brand-orange transition-colors duration-200 font-medium text-xs lg:text-sm xl:text-base whitespace-nowrap">
+                Authors
+                <ChevronDown className={`h-3 w-3 lg:h-4 lg:w-4 transition-transform duration-200 ${authorsDropdownOpen ? 'rotate-180' : ''}`} />
+              </button>
+              {authorsDropdownOpen && (
+                <div className="absolute top-full left-0 mt-2 w-48 bg-brand-navy border-2 border-brand-orange rounded-lg shadow-xl py-2 z-50">
+                  <Link 
+                    href="/call-for-papers/submissions" 
+                    className="block px-4 py-2 text-brand-white hover:text-brand-orange hover:bg-brand-navy/80 transition-colors duration-200 text-sm"
+                  >
+                    Submissions
+                  </Link>
+                  <Link 
+                    href="/call-for-papers/call-for-papers" 
+                    className="block px-4 py-2 text-brand-white hover:text-brand-orange hover:bg-brand-navy/80 transition-colors duration-200 text-sm"
+                  >
+                    Call For Papers
+                  </Link>
+                  <Link 
+                    href="/call-for-papers/important-dates" 
+                    className="block px-4 py-2 text-brand-white hover:text-brand-orange hover:bg-brand-navy/80 transition-colors duration-200 text-sm"
+                  >
+                    Important Dates
+                  </Link>
+                </div>
+              )}
+            </div>
+            
             <Link href="/speakers" className="text-brand-white hover:text-brand-orange transition-colors duration-200 font-medium text-xs lg:text-sm xl:text-base whitespace-nowrap">Speakers</Link>
             <Link href="/technical-program" className="text-brand-white hover:text-brand-orange transition-colors duration-200 font-medium text-xs lg:text-sm xl:text-base whitespace-nowrap">Program</Link>
             <Link href="/registration" className="text-brand-white hover:text-brand-orange transition-colors duration-200 font-medium text-xs lg:text-sm xl:text-base whitespace-nowrap">Registration</Link>
@@ -90,7 +122,25 @@ export default function Navbar() {
           <div className="md:hidden mt-3 pb-3 space-y-2 border-t border-brand-orange/30 pt-3">
             <Link href="/about" className="block text-brand-white hover:text-brand-orange transition-colors duration-200 font-medium py-2 text-sm" onClick={() => setMobileMenuOpen(false)}>About</Link>
             <Link href="/committee" className="block text-brand-white hover:text-brand-orange transition-colors duration-200 font-medium py-2 text-sm" onClick={() => setMobileMenuOpen(false)}>Committee</Link>
-            <Link href="/call-for-papers" className="block text-brand-white hover:text-brand-orange transition-colors duration-200 font-medium py-2 text-sm" onClick={() => setMobileMenuOpen(false)}>Call for Papers</Link>
+            
+            {/* Mobile Authors Dropdown */}
+            <div>
+              <button 
+                className="flex items-center justify-between w-full text-brand-white hover:text-brand-orange transition-colors duration-200 font-medium py-2 text-sm"
+                onClick={() => setMobileAuthorsOpen(!mobileAuthorsOpen)}
+              >
+                Authors
+                <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${mobileAuthorsOpen ? 'rotate-180' : ''}`} />
+              </button>
+              {mobileAuthorsOpen && (
+                <div className="pl-4 space-y-1 border-l-2 border-brand-orange/30 ml-2">
+                  <Link href="/call-for-papers/submissions" className="block text-brand-white/80 hover:text-brand-orange transition-colors duration-200 font-medium py-2 text-sm" onClick={() => setMobileMenuOpen(false)}>Submissions</Link>
+                  <Link href="/call-for-papers/call-for-papers" className="block text-brand-white/80 hover:text-brand-orange transition-colors duration-200 font-medium py-2 text-sm" onClick={() => setMobileMenuOpen(false)}>Call For Papers</Link>
+                  <Link href="/call-for-papers/important-dates" className="block text-brand-white/80 hover:text-brand-orange transition-colors duration-200 font-medium py-2 text-sm" onClick={() => setMobileMenuOpen(false)}>Important Dates</Link>
+                </div>
+              )}
+            </div>
+            
             <Link href="/speakers" className="block text-brand-white hover:text-brand-orange transition-colors duration-200 font-medium py-2 text-sm" onClick={() => setMobileMenuOpen(false)}>Speakers</Link>
             <Link href="/technical-program" className="block text-brand-white hover:text-brand-orange transition-colors duration-200 font-medium py-2 text-sm" onClick={() => setMobileMenuOpen(false)}>Program</Link>
             <Link href="/registration" className="block text-brand-white hover:text-brand-orange transition-colors duration-200 font-medium py-2 text-sm" onClick={() => setMobileMenuOpen(false)}>Registration</Link>

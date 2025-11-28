@@ -237,6 +237,7 @@ export default function Home() {
                   { event: 'Early Bird Registration', date: 'May 25, 2026', icon: '🎟️', color: 'from-purple-50 to-purple-100/50', highlight: true },
                   { event: 'Last Date of Registration', date: 'June 5, 2026', icon: '🚨', color: 'from-orange-50 to-orange-100/50' },
                   { event: 'Final Camera Ready Paper', date: 'June 15, 2026', icon: '📄', color: 'from-yellow-50 to-yellow-100/50' },
+                  { event: 'Submission of Copyright', date: 'June 15, 2026', icon: '©️', color: 'from-yellow-50 to-yellow-100/50' },
                   { event: 'Conference Dates', date: 'June 26-27, 2026', icon: '🎉', color: 'from-brand-orange/10 to-brand-navy/10', highlight: true },
                 ].map((item, index) => (
                   <div 

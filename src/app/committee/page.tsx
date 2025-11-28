@@ -4,12 +4,13 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { Users, Crown, Award, Briefcase, Mail } from 'lucide-react'
+import { Users, Crown, Award, Briefcase, Mail, Star, Building2, Banknote, Cog, GraduationCap } from 'lucide-react'
 import { supabaseAdmin } from '@/lib/db'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import { generateMetadata as createMetadata } from '@/lib/metadata'
 import { Metadata } from 'next'
+import PaginatedCommittee from '@/components/committee/PaginatedCommittee'
 
 // Revalidate every 1 hour (3600 seconds)
 export const revalidate = 3600
@@ -231,7 +232,121 @@ const technicalCommitteeData: CommitteeMemberData[] = [
   { id: 't134', name: 'Prof. (Dr.) G.L. Sharma', designation: 'TPC Member', affiliation: 'Director, Sikkim Manipal Institute of Technology, Sikkim', email: '', committee_type: 'technical', display_order: 134, is_active: true, image_url: null },
   { id: 't135', name: 'Prof. Anjan Saha', designation: 'TPC Member', affiliation: 'Scientist, DRDO', email: '', committee_type: 'technical', display_order: 135, is_active: true, image_url: null },
   { id: 't136', name: 'Prof. (Dr.) Abhishek Das', designation: 'TPC Member', affiliation: 'Associate Professor, CSE, Aliah University, New Town, Kolkata, West Bengal', email: '', committee_type: 'technical', display_order: 136, is_active: true, image_url: null },
-  { id: 't137', name: 'Prof. (Dr.) Anirban Chakraborty', designation: 'TPC Member', affiliation: 'DRDO, Bangalore, Scientist C', email: '', committee_type: 'technical', display_order: 137, is_active: true, image_url: null }
+  { id: 't137', name: 'Prof. (Dr.) Anirban Chakraborty', designation: 'TPC Member', affiliation: 'DRDO, Bangalore, Scientist C', email: '', committee_type: 'technical', display_order: 137, is_active: true, image_url: null },
+  // Additional TPC Members
+  { id: 't138', name: 'Abdul Khaleeq Mohammed', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 138, is_active: true, image_url: null },
+  { id: 't139', name: 'Abhishek Murikipudi', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 139, is_active: true, image_url: null },
+  { id: 't140', name: 'Ananya Banerjee', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 140, is_active: true, image_url: null },
+  { id: 't141', name: 'Aninda Sukla', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 141, is_active: true, image_url: null },
+  { id: 't142', name: 'Anirban Chakraborty', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 142, is_active: true, image_url: null },
+  { id: 't143', name: 'Anirban Sengupta', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 143, is_active: true, image_url: null },
+  { id: 't144', name: 'Anjali Mukhopadhyay', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 144, is_active: true, image_url: null },
+  { id: 't145', name: 'Ankit Ghosh', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 145, is_active: true, image_url: null },
+  { id: 't146', name: 'Antara Pal', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 146, is_active: true, image_url: null },
+  { id: 't147', name: 'Anup Rao', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 147, is_active: true, image_url: null },
+  { id: 't148', name: 'Arindam Sarkar', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 148, is_active: true, image_url: null },
+  { id: 't149', name: 'Aritra Dutta', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 149, is_active: true, image_url: null },
+  { id: 't150', name: 'Arun Singh', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 150, is_active: true, image_url: null },
+  { id: 't151', name: 'Atanu Das', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 151, is_active: true, image_url: null },
+  { id: 't152', name: 'Binit Pandit', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 152, is_active: true, image_url: null },
+  { id: 't153', name: 'Chanchal Ghosh', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 153, is_active: true, image_url: null },
+  { id: 't154', name: 'Chiradeep Mukherjee', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 154, is_active: true, image_url: null },
+  { id: 't155', name: 'Debasmita Manna', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 155, is_active: true, image_url: null },
+  { id: 't156', name: 'Debdas Bandyopadhyay', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 156, is_active: true, image_url: null },
+  { id: 't157', name: 'Debdatta Banerjee', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 157, is_active: true, image_url: null },
+  { id: 't158', name: 'Dibakar Roychoudhury', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 158, is_active: true, image_url: null },
+  { id: 't159', name: 'Diganta Sen Gupta', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 159, is_active: true, image_url: null },
+  { id: 't160', name: 'Dr. Snehashish Bhattacharjee', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 160, is_active: true, image_url: null },
+  { id: 't161', name: 'Dr. C Mukhopadhyay', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 161, is_active: true, image_url: null },
+  { id: 't162', name: 'Dr. Moumita Das', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 162, is_active: true, image_url: null },
+  { id: 't163', name: 'Dr. Srilekha Mukherjee', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 163, is_active: true, image_url: null },
+  { id: 't164', name: 'Dr. Sudipta Basu Pal', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 164, is_active: true, image_url: null },
+  { id: 't165', name: 'Dr. Tapas Guha', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 165, is_active: true, image_url: null },
+  { id: 't166', name: 'Dr. Vijay Kumar Sahu', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 166, is_active: true, image_url: null },
+  { id: 't167', name: 'Girish Kotte', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 167, is_active: true, image_url: null },
+  { id: 't168', name: 'Indraneel Mukhopadhyay', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 168, is_active: true, image_url: null },
+  { id: 't169', name: 'Janardhan Reddy Duvvuri', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 169, is_active: true, image_url: null },
+  { id: 't170', name: 'Jayanta Saha', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 170, is_active: true, image_url: null },
+  { id: 't171', name: 'Jhimlee Ray', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 171, is_active: true, image_url: null },
+  { id: 't172', name: 'Joy Ganguly', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 172, is_active: true, image_url: null },
+  { id: 't173', name: 'Kalyan Chakradhar Regula', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 173, is_active: true, image_url: null },
+  { id: 't174', name: 'Koushik Mukhopadhyay', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 174, is_active: true, image_url: null },
+  { id: 't175', name: 'Lakshmi Prasad Rongali', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 175, is_active: true, image_url: null },
+  { id: 't176', name: 'Mahesh Kumar Goyal', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 176, is_active: true, image_url: null },
+  { id: 't177', name: 'Mahesh Kumar Munagala', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 177, is_active: true, image_url: null },
+  { id: 't178', name: 'Mainak Mukherjee', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 178, is_active: true, image_url: null },
+  { id: 't179', name: 'Manali Dhar', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 179, is_active: true, image_url: null },
+  { id: 't180', name: 'Manu Mishra', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 180, is_active: true, image_url: null },
+  { id: 't181', name: 'Medhasree Ghosh', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 181, is_active: true, image_url: null },
+  { id: 't182', name: 'Miloni Ganatra', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 182, is_active: true, image_url: null },
+  { id: 't183', name: 'Mousumi Bhanja', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 183, is_active: true, image_url: null },
+  { id: 't184', name: 'Mrinmoy Aich', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 184, is_active: true, image_url: null },
+  { id: 't185', name: 'Murtaza Ghiya', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 185, is_active: true, image_url: null },
+  { id: 't186', name: 'Nandan Banerji', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 186, is_active: true, image_url: null },
+  { id: 't187', name: 'Nitin Grover', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 187, is_active: true, image_url: null },
+  { id: 't188', name: 'Nitin Rao', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 188, is_active: true, image_url: null },
+  { id: 't189', name: 'Palash Bera', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 189, is_active: true, image_url: null },
+  { id: 't190', name: 'Partha Mitra', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 190, is_active: true, image_url: null },
+  { id: 't191', name: 'Parthasarathy Perumalsamy', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 191, is_active: true, image_url: null },
+  { id: 't192', name: 'Prasantha HS', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 192, is_active: true, image_url: null },
+  { id: 't193', name: 'Prasenjit Das', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 193, is_active: true, image_url: null },
+  { id: 't194', name: 'Pritam Kundu', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 194, is_active: true, image_url: null },
+  { id: 't195', name: 'Rabel Guharoy', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 195, is_active: true, image_url: null },
+  { id: 't196', name: 'Raghuram Naladala', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 196, is_active: true, image_url: null },
+  { id: 't197', name: 'Rahul Shyam', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 197, is_active: true, image_url: null },
+  { id: 't198', name: 'Raja Chattopadhyay', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 198, is_active: true, image_url: null },
+  { id: 't199', name: 'Rajesh Reddy Devireddy', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 199, is_active: true, image_url: null },
+  { id: 't200', name: 'Rakesh Pai', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 200, is_active: true, image_url: null },
+  { id: 't201', name: 'Ravi Chourasia', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 201, is_active: true, image_url: null },
+  { id: 't202', name: 'Rijhi Dey', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 202, is_active: true, image_url: null },
+  { id: 't203', name: 'Rishmita Saha', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 203, is_active: true, image_url: null },
+  { id: 't204', name: 'Sagarika Ghosh', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 204, is_active: true, image_url: null },
+  { id: 't205', name: 'Sai Kiran Karumuri', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 205, is_active: true, image_url: null },
+  { id: 't206', name: 'Sai Krishna Reddy Reddy', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 206, is_active: true, image_url: null },
+  { id: 't207', name: 'Sai Maneesh Kumar Prodduturi', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 207, is_active: true, image_url: null },
+  { id: 't208', name: 'Saikat Chakraborty', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 208, is_active: true, image_url: null },
+  { id: 't209', name: 'Saikumar Banda', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 209, is_active: true, image_url: null },
+  { id: 't210', name: 'Sanjoy Saha', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 210, is_active: true, image_url: null },
+  { id: 't211', name: 'Santthosh Purmani', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 211, is_active: true, image_url: null },
+  { id: 't212', name: 'Saptarshi Gupta', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 212, is_active: true, image_url: null },
+  { id: 't213', name: 'Saswati Rakshit', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 213, is_active: true, image_url: null },
+  { id: 't214', name: 'Satyabrata Mahapatra', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 214, is_active: true, image_url: null },
+  { id: 't215', name: 'Sayak Bhattacharjee', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 215, is_active: true, image_url: null },
+  { id: 't216', name: 'Sayan Majumder', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 216, is_active: true, image_url: null },
+  { id: 't217', name: 'Senthilkumar Meyyappan', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 217, is_active: true, image_url: null },
+  { id: 't218', name: 'Shantanu Mukhopadhyay', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 218, is_active: true, image_url: null },
+  { id: 't219', name: 'Shaswata Basu', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 219, is_active: true, image_url: null },
+  { id: 't220', name: 'Sheeba S.', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 220, is_active: true, image_url: null },
+  { id: 't221', name: 'Shibaprasad Sen', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 221, is_active: true, image_url: null },
+  { id: 't222', name: 'Siddhartha Chatterjee', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 222, is_active: true, image_url: null },
+  { id: 't223', name: 'Sitikantha Chattopadhyay', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 223, is_active: true, image_url: null },
+  { id: 't224', name: 'Sloke Jain', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 224, is_active: true, image_url: null },
+  { id: 't225', name: 'Somnath Banerjee', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 225, is_active: true, image_url: null },
+  { id: 't226', name: 'Srikanth Bellamkonda', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 226, is_active: true, image_url: null },
+  { id: 't227', name: 'Srinivasa Reddy Pesala', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 227, is_active: true, image_url: null },
+  { id: 't228', name: 'Srinivasa Reddy Vuyyuru', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 228, is_active: true, image_url: null },
+  { id: 't229', name: 'Stobak Dutta', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 229, is_active: true, image_url: null },
+  { id: 't230', name: 'Subha Ghosh', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 230, is_active: true, image_url: null },
+  { id: 't231', name: 'Subhalaxmi Chakraborty', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 231, is_active: true, image_url: null },
+  { id: 't232', name: 'Subham Bid', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 232, is_active: true, image_url: null },
+  { id: 't233', name: 'Sudipta Sikdar', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 233, is_active: true, image_url: null },
+  { id: 't234', name: 'Suman Das', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 234, is_active: true, image_url: null },
+  { id: 't235', name: 'Sumit Das', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 235, is_active: true, image_url: null },
+  { id: 't236', name: 'Suprativ Saha', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 236, is_active: true, image_url: null },
+  { id: 't237', name: 'Susmita Debnath', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 237, is_active: true, image_url: null },
+  { id: 't238', name: 'Susmita Sarkar', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 238, is_active: true, image_url: null },
+  { id: 't239', name: 'Swaroopa Nampelli', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 239, is_active: true, image_url: null },
+  { id: 't240', name: 'Tanushree Banerjee', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 240, is_active: true, image_url: null },
+  { id: 't241', name: 'Thillai Gurusamy', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 241, is_active: true, image_url: null },
+  { id: 't242', name: 'Thulasiram Prasad Pasam', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 242, is_active: true, image_url: null },
+  { id: 't243', name: 'Tuhin Paul', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 243, is_active: true, image_url: null },
+  { id: 't244', name: 'Ummer Khan Asif Bangalore Ghousekhan', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 244, is_active: true, image_url: null },
+  { id: 't245', name: 'Venkata Subramanya Vedagiri', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 245, is_active: true, image_url: null },
+  { id: 't246', name: 'Venkatakota Sivakumar Kopparapu', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 246, is_active: true, image_url: null },
+  { id: 't247', name: 'Venkatesh Kodela', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 247, is_active: true, image_url: null },
+  { id: 't248', name: 'Venubabu Paruchuri', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 248, is_active: true, image_url: null },
+  { id: 't249', name: 'Vijayendra Vittal Rao', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 249, is_active: true, image_url: null },
+  { id: 't250', name: 'Vishal Gupta', designation: 'TPC Member', affiliation: '', email: '', committee_type: 'technical', display_order: 250, is_active: true, image_url: null }
 ]
 
 // Hardcoded Advisory Committee
@@ -298,7 +413,49 @@ export default async function CommitteePage() {
   const technicalMembers = technicalCommitteeData
   const advisoryMembers = advisoryCommitteeData
 
-  // Helper function to determine hierarchy level from designation
+  // Define the 8 hierarchy positions for organizing committee
+  type PositionKey = 'chief_patron' | 'patron' | 'general_chair' | 'co_convenor' | 'convenor' | 'technical_chair' | 'industrial_chair' | 'finance_chair' | 'member'
+  
+  const positionConfig: Record<PositionKey, { label: string; icon: React.ReactNode; gradient: string; order: number }> = {
+    chief_patron: { label: 'Chief Patron', icon: <Crown className="h-6 w-6 text-yellow-500" />, gradient: 'from-yellow-500 to-amber-600', order: 1 },
+    patron: { label: 'Patrons', icon: <Star className="h-6 w-6 text-purple-500" />, gradient: 'from-purple-500 to-indigo-600', order: 2 },
+    general_chair: { label: 'General Chair', icon: <Award className="h-6 w-6 text-blue-600" />, gradient: 'from-blue-500 to-blue-700', order: 3 },
+    co_convenor: { label: 'Co-Convenors', icon: <Briefcase className="h-6 w-6 text-teal-600" />, gradient: 'from-teal-500 to-cyan-600', order: 4 },
+    convenor: { label: 'Convenors', icon: <Cog className="h-6 w-6 text-green-600" />, gradient: 'from-green-500 to-emerald-600', order: 5 },
+    technical_chair: { label: 'Technical Chair', icon: <GraduationCap className="h-6 w-6 text-red-600" />, gradient: 'from-red-500 to-rose-600', order: 6 },
+    industrial_chair: { label: 'Industrial Chair', icon: <Building2 className="h-6 w-6 text-orange-600" />, gradient: 'from-orange-500 to-amber-600', order: 7 },
+    finance_chair: { label: 'Finance Chair', icon: <Banknote className="h-6 w-6 text-emerald-600" />, gradient: 'from-emerald-500 to-green-600', order: 8 },
+    member: { label: 'Organizing Committee Members', icon: <Users className="h-6 w-6 text-gray-600" />, gradient: 'from-gray-500 to-gray-700', order: 9 }
+  }
+
+  // Helper function to determine position from designation
+  const getPosition = (designation: string): PositionKey => {
+    const lower = designation.toLowerCase()
+    if (lower.includes('chief patron')) return 'chief_patron'
+    if (lower.includes('patron')) return 'patron'
+    if (lower.includes('general chair')) return 'general_chair'
+    if (lower.includes('co-convenor') || lower.includes('co convenor')) return 'co_convenor'
+    if (lower.includes('convenor') && !lower.includes('co')) return 'convenor'
+    if (lower.includes('technical chair')) return 'technical_chair'
+    if (lower.includes('industrial chair')) return 'industrial_chair'
+    if (lower.includes('finance chair')) return 'finance_chair'
+    return 'member'
+  }
+
+  // Group organizing members by position
+  const groupedOrganizing = organizingMembers.reduce((acc, member) => {
+    const position = getPosition(member.designation)
+    if (!acc[position]) acc[position] = []
+    acc[position].push(member)
+    return acc
+  }, {} as Record<PositionKey, CommitteeMemberData[]>)
+
+  // Sort each group by display_order
+  Object.keys(groupedOrganizing).forEach(key => {
+    groupedOrganizing[key as PositionKey]?.sort((a, b) => a.display_order - b.display_order)
+  })
+
+  // Helper function to determine hierarchy level from designation (for technical/advisory)
   const getHierarchyLevel = (designation: string): 'chief' | 'patron' | 'chair' | 'member' => {
     const lower = designation.toLowerCase()
     if (lower.includes('chief patron')) return 'chief'
@@ -326,7 +483,6 @@ export default async function CommitteePage() {
     })
   }
 
-  const sortedOrganizing = sortByHierarchy(organizingMembers)
   const sortedAdvisory = sortByHierarchy(advisoryMembers)
   const sortedTechnical = sortByHierarchy(technicalMembers)
   return (
@@ -372,22 +528,48 @@ export default async function CommitteePage() {
 
           {/* Organizing Committee */}
           <TabsContent value="organizing" className="mt-6">
-            {sortedOrganizing.length > 0 ? (
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {sortedOrganizing.map((member) => (
-                  <CommitteeMember
-                    key={member.id}
-                    name={member.name}
-                    designation={member.designation}
-                    affiliation={member.affiliation}
-                    email={member.email}
-                    image_url={member.image_url}
-                    level="member"
-                  />
-                ))}
+            {organizingMembers.length > 0 ? (
+              <div className="space-y-10">
+                {/* Render each position group in order */}
+                {(Object.keys(positionConfig) as PositionKey[])
+                  .sort((a, b) => positionConfig[a].order - positionConfig[b].order)
+                  .map((positionKey) => {
+                    const members = groupedOrganizing[positionKey]
+                    if (!members || members.length === 0) return null
+                    
+                    const config = positionConfig[positionKey]
+                    const gridCols = positionKey === 'chief_patron' 
+                      ? 'md:grid-cols-1 lg:grid-cols-1 max-w-xl mx-auto' 
+                      : positionKey === 'member' 
+                        ? 'md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'
+                        : 'md:grid-cols-2 lg:grid-cols-3'
+                    
+                    return (
+                      <div key={positionKey}>
+                        <div className="flex items-center gap-3 mb-6">
+                          {config.icon}
+                          <h2 className="text-2xl font-bold text-[#14213d]">{config.label}</h2>
+                          <div className={`h-1 flex-1 bg-gradient-to-r ${config.gradient} rounded`}></div>
+                        </div>
+                        <div className={`grid ${gridCols} gap-6`}>
+                          {members.map((member) => (
+                            <CommitteeMember
+                              key={member.id}
+                              name={member.name}
+                              designation={member.designation}
+                              affiliation={member.affiliation}
+                              email={member.email}
+                              image_url={member.image_url}
+                              level={positionKey === 'chief_patron' ? 'chief' : positionKey === 'patron' ? 'patron' : positionKey.includes('chair') ? 'chair' : 'member'}
+                            />
+                          ))}
+                        </div>
+                      </div>
+                    )
+                  })}
               </div>
             ) : (
-              <div className="text-center py-12 text-gray-500">
+              <div className="text-center py-12 text-black">
                 <Users className="h-12 w-12 mx-auto mb-4 opacity-50" />
                 <p>No organizing committee members found.</p>
               </div>
@@ -396,234 +578,20 @@ export default async function CommitteePage() {
 
           {/* Technical Committee */}
           <TabsContent value="technical" className="mt-6">
-            {sortedTechnical.length > 0 ? (
-              <div className="space-y-8">
-                {/* Chief Technical Advisors */}
-                {sortedTechnical.filter(m => getHierarchyLevel(m.designation) === 'chief').length > 0 && (
-                  <div>
-                    <div className="flex items-center gap-3 mb-6">
-                      <Crown className="h-6 w-6 text-yellow-500" />
-                      <h2 className="text-2xl font-bold text-[#14213d]">Chief Technical Advisors</h2>
-                      <div className="h-1 flex-1 bg-gradient-to-r from-yellow-500 to-orange-500 rounded"></div>
-                    </div>
-                    <div className="grid md:grid-cols-2 gap-6">
-                      {sortedTechnical
-                        .filter(m => getHierarchyLevel(m.designation) === 'chief')
-                        .map((member) => (
-                          <CommitteeMember
-                            key={member.id}
-                            name={member.name}
-                            designation={member.designation}
-                            affiliation={member.affiliation}
-                            email={member.email}
-                            image_url={member.image_url}
-                            level="chief"
-                          />
-                        ))}
-                    </div>
-                  </div>
-                )}
-
-                {/* Senior TPC Members */}
-                {sortedTechnical.filter(m => getHierarchyLevel(m.designation) === 'patron').length > 0 && (
-                  <div>
-                    <div className="flex items-center gap-3 mb-6">
-                      <Award className="h-6 w-6 text-blue-600" />
-                      <h2 className="text-2xl font-bold text-[#14213d]">Senior TPC Members</h2>
-                      <div className="h-1 flex-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded"></div>
-                    </div>
-                    <div className="grid md:grid-cols-2 gap-6">
-                      {sortedTechnical
-                        .filter(m => getHierarchyLevel(m.designation) === 'patron')
-                        .map((member) => (
-                          <CommitteeMember
-                            key={member.id}
-                            name={member.name}
-                            designation={member.designation}
-                            affiliation={member.affiliation}
-                            email={member.email}
-                            image_url={member.image_url}
-                            level="patron"
-                          />
-                        ))}
-                    </div>
-                  </div>
-                )}
-
-                {/* TPC Chairs */}
-                {sortedTechnical.filter(m => getHierarchyLevel(m.designation) === 'chair').length > 0 && (
-                  <div>
-                    <div className="flex items-center gap-3 mb-6">
-                      <Briefcase className="h-6 w-6 text-green-600" />
-                      <h2 className="text-2xl font-bold text-[#14213d]">TPC Chairs</h2>
-                      <div className="h-1 flex-1 bg-gradient-to-r from-green-600 to-teal-600 rounded"></div>
-                    </div>
-                    <div className="grid md:grid-cols-2 gap-6">
-                      {sortedTechnical
-                        .filter(m => getHierarchyLevel(m.designation) === 'chair')
-                        .map((member) => (
-                          <CommitteeMember
-                            key={member.id}
-                            name={member.name}
-                            designation={member.designation}
-                            affiliation={member.affiliation}
-                            email={member.email}
-                            image_url={member.image_url}
-                            level="chair"
-                          />
-                        ))}
-                    </div>
-                  </div>
-                )}
-
-                {/* TPC Members */}
-                {sortedTechnical.filter(m => getHierarchyLevel(m.designation) === 'member').length > 0 && (
-                  <div>
-                    <div className="flex items-center gap-3 mb-6">
-                      <Users className="h-6 w-6 text-gray-600" />
-                      <h2 className="text-2xl font-bold text-[#14213d]">TPC Members</h2>
-                      <div className="h-1 flex-1 bg-gradient-to-r from-gray-600 to-gray-700 rounded"></div>
-                    </div>
-                    <div className="grid md:grid-cols-2 gap-6">
-                      {sortedTechnical
-                        .filter(m => getHierarchyLevel(m.designation) === 'member')
-                        .map((member) => (
-                          <CommitteeMember
-                            key={member.id}
-                            name={member.name}
-                            designation={member.designation}
-                            affiliation={member.affiliation}
-                            email={member.email}
-                            image_url={member.image_url}
-                            level="member"
-                          />
-                        ))}
-                    </div>
-                  </div>
-                )}
-              </div>
-            ) : (
-              <div className="text-center py-12 text-gray-500">
-                <Users className="h-12 w-12 mx-auto mb-4 opacity-50" />
-                <p>No technical committee members found.</p>
-              </div>
-            )}
+            <PaginatedCommittee 
+              members={sortedTechnical} 
+              itemsPerPage={24}
+              title="Technical Program Committee"
+            />
           </TabsContent>
 
           {/* Advisory Committee */}
           <TabsContent value="advisory" className="mt-6">
-            {sortedAdvisory.length > 0 ? (
-              <div className="space-y-8">
-                {/* Chief Advisors */}
-                {sortedAdvisory.filter(m => getHierarchyLevel(m.designation) === 'chief').length > 0 && (
-                  <div>
-                    <div className="flex items-center gap-3 mb-6">
-                      <Crown className="h-6 w-6 text-yellow-500" />
-                      <h2 className="text-2xl font-bold text-[#14213d]">Chief Advisors</h2>
-                      <div className="h-1 flex-1 bg-gradient-to-r from-yellow-500 to-orange-500 rounded"></div>
-                    </div>
-                    <div className="grid md:grid-cols-2 gap-6">
-                      {sortedAdvisory
-                        .filter(m => getHierarchyLevel(m.designation) === 'chief')
-                        .map((member) => (
-                          <CommitteeMember
-                            key={member.id}
-                            name={member.name}
-                            designation={member.designation}
-                            affiliation={member.affiliation}
-                            email={member.email}
-                            image_url={member.image_url}
-                            level="chief"
-                          />
-                        ))}
-                    </div>
-                  </div>
-                )}
-
-                {/* Senior Advisors/Patrons */}
-                {sortedAdvisory.filter(m => getHierarchyLevel(m.designation) === 'patron').length > 0 && (
-                  <div>
-                    <div className="flex items-center gap-3 mb-6">
-                      <Award className="h-6 w-6 text-blue-600" />
-                      <h2 className="text-2xl font-bold text-[#14213d]">Senior Advisors</h2>
-                      <div className="h-1 flex-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded"></div>
-                    </div>
-                    <div className="grid md:grid-cols-2 gap-6">
-                      {sortedAdvisory
-                        .filter(m => getHierarchyLevel(m.designation) === 'patron')
-                        .map((member) => (
-                          <CommitteeMember
-                            key={member.id}
-                            name={member.name}
-                            designation={member.designation}
-                            affiliation={member.affiliation}
-                            email={member.email}
-                            image_url={member.image_url}
-                            level="patron"
-                          />
-                        ))}
-                    </div>
-                  </div>
-                )}
-
-                {/* Advisory Board Chairs */}
-                {sortedAdvisory.filter(m => getHierarchyLevel(m.designation) === 'chair').length > 0 && (
-                  <div>
-                    <div className="flex items-center gap-3 mb-6">
-                      <Briefcase className="h-6 w-6 text-green-600" />
-                      <h2 className="text-2xl font-bold text-[#14213d]">Advisory Board Chairs</h2>
-                      <div className="h-1 flex-1 bg-gradient-to-r from-green-600 to-teal-600 rounded"></div>
-                    </div>
-                    <div className="grid md:grid-cols-2 gap-6">
-                      {sortedAdvisory
-                        .filter(m => getHierarchyLevel(m.designation) === 'chair')
-                        .map((member) => (
-                          <CommitteeMember
-                            key={member.id}
-                            name={member.name}
-                            designation={member.designation}
-                            affiliation={member.affiliation}
-                            email={member.email}
-                            image_url={member.image_url}
-                            level="chair"
-                          />
-                        ))}
-                    </div>
-                  </div>
-                )}
-
-                {/* Advisory Members */}
-                {sortedAdvisory.filter(m => getHierarchyLevel(m.designation) === 'member').length > 0 && (
-                  <div>
-                    <div className="flex items-center gap-3 mb-6">
-                      <Users className="h-6 w-6 text-gray-600" />
-                      <h2 className="text-2xl font-bold text-[#14213d]">Advisory Board Members</h2>
-                      <div className="h-1 flex-1 bg-gradient-to-r from-gray-600 to-gray-700 rounded"></div>
-                    </div>
-                    <div className="grid md:grid-cols-2 gap-6">
-                      {sortedAdvisory
-                        .filter(m => getHierarchyLevel(m.designation) === 'member')
-                        .map((member) => (
-                          <CommitteeMember
-                            key={member.id}
-                            name={member.name}
-                            designation={member.designation}
-                            affiliation={member.affiliation}
-                            email={member.email}
-                            image_url={member.image_url}
-                            level="member"
-                          />
-                        ))}
-                    </div>
-                  </div>
-                )}
-              </div>
-            ) : (
-              <div className="text-center py-12 text-gray-500">
-                <Users className="h-12 w-12 mx-auto mb-4 opacity-50" />
-                <p>No advisory committee members found.</p>
-              </div>
-            )}
+            <PaginatedCommittee 
+              members={sortedAdvisory} 
+              itemsPerPage={24}
+              title="Advisory Committee"
+            />
           </TabsContent>
         </Tabs>
 

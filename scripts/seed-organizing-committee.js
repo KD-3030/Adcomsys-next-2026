@@ -67,50 +67,50 @@ const supabase = createClient(supabaseUrl, supabaseServiceKey);
 console.log('✓ Supabase client initialized');
 console.log(`✓ Project URL: ${supabaseUrl}\n`);
 
-// Committee data
+// Committee data with proper hierarchical designations
 const committeeMembers = [
-  // Chief Patron
-  { name: 'Prof. Banani Chakrabarti', designation: 'Chancellor', affiliation: 'University of Engineering & Management, Kolkata', display_order: 1 },
+  // Chief Patron (display_order 1-9)
+  { name: 'Prof. Banani Chakrabarti', designation: 'Chief Patron', affiliation: 'Chancellor, University of Engineering & Management, Kolkata', display_order: 1 },
   
-  // Patrons
-  { name: 'Prof. Dr. Sajal Dasgupta', designation: 'Vice Chancellor', affiliation: 'University of Engineering & Management, Kolkata', display_order: 2 },
-  { name: 'Prof. Dr. Satyajit Chakrabarti', designation: 'Pro Vice Chancellor', affiliation: 'University of Engineering & Management, Kolkata', display_order: 3 },
-  { name: 'Prof. Dr. Sukalyan Goswami', designation: 'Registrar', affiliation: 'University of Engineering & Management, Kolkata', display_order: 4 },
-  { name: 'Prof. Dr. Rajashree Paul', designation: 'Deputy-Dean (Research), Director(IQAC)', affiliation: 'University of Engineering & Management, Kolkata', display_order: 5 },
-  { name: 'Prof. Dr. Kamakhya Prasad Ghatak', designation: 'Dean-Engineering', affiliation: 'University of Engineering & Management, Kolkata', display_order: 6 },
-  { name: 'Prof. Dr. Rajiv Ganguly', designation: 'Dean-Science', affiliation: 'University of Engineering & Management, Kolkata', display_order: 7 },
-  { name: 'Prof. Dr. Abir Chatterjee', designation: 'Dean-Research', affiliation: 'University of Engineering and Management, Kolkata', display_order: 8 },
+  // Patrons (display_order 10-19)
+  { name: 'Prof. Dr. Sajal Dasgupta', designation: 'Patron', affiliation: 'Vice Chancellor, University of Engineering & Management, Kolkata', display_order: 10 },
+  { name: 'Prof. Dr. Satyajit Chakrabarti', designation: 'Patron', affiliation: 'Pro Vice Chancellor, University of Engineering & Management, Kolkata', display_order: 11 },
+  { name: 'Prof. Dr. Sukalyan Goswami', designation: 'Patron', affiliation: 'Registrar, University of Engineering & Management, Kolkata', display_order: 12 },
+  { name: 'Prof. Dr. Rajashree Paul', designation: 'Patron', affiliation: 'Deputy-Dean (Research), Director (IQAC), University of Engineering & Management, Kolkata', display_order: 13 },
+  { name: 'Prof. Dr. Kamakhya Prasad Ghatak', designation: 'Patron', affiliation: 'Dean-Engineering, University of Engineering & Management, Kolkata', display_order: 14 },
+  { name: 'Prof. Dr. Rajiv Ganguly', designation: 'Patron', affiliation: 'Dean-Science, University of Engineering & Management, Kolkata', display_order: 15 },
+  { name: 'Prof. Dr. Abir Chatterjee', designation: 'Patron', affiliation: 'Dean-Research, University of Engineering and Management, Kolkata', display_order: 16 },
   
-  // General Chairs
-  { name: 'Prof. Dr. Weiping Ding', designation: 'General Chair - Deputy Dean of School of Information Science and Technology', affiliation: 'Nantong University, Nantong, Jiangsu, China', display_order: 9 },
-  { name: 'Prof. Dr. Amlan Chakrabarti', designation: 'General Chair', affiliation: 'A.K.Choudhury School of Information Technology, University of Calcutta', display_order: 10 },
-  { name: 'Prof. Dr. Maumita Chakraborty', designation: 'General Chair - Department of Computer Science and Technology & Computer Science and Information Technology', affiliation: 'University of Engineering and Management, Kolkata', display_order: 11 },
-  { name: 'Prof. Dr. Shouvik Chakraborty', designation: 'General Chair - Department of Computer Science & Technology', affiliation: 'Government of West Bengal, Chandannagar, Hooghly, West Bengal, India', display_order: 12 },
+  // General Chairs (display_order 20-29)
+  { name: 'Prof. Dr. Weiping Ding', designation: 'General Chair', affiliation: 'Deputy Dean, School of Information Science and Technology, Nantong University, Nantong, Jiangsu, China', display_order: 20 },
+  { name: 'Prof. Dr. Amlan Chakrabarti', designation: 'General Chair', affiliation: 'A.K.Choudhury School of Information Technology, University of Calcutta', display_order: 21 },
+  { name: 'Prof. Dr. Maumita Chakraborty', designation: 'General Chair', affiliation: 'Department of Computer Science and Technology & Computer Science and Information Technology, University of Engineering and Management, Kolkata', display_order: 22 },
+  { name: 'Prof. Dr. Shouvik Chakraborty', designation: 'General Chair', affiliation: 'Department of Computer Science & Technology, Government of West Bengal, Chandannagar, Hooghly, West Bengal, India', display_order: 23 },
   
-  // Co-Convenors
-  { name: 'Prof. Dr. Subhalaxmi Chakraborty', designation: 'Co-Convenor', affiliation: 'University of Engineering and Management, Kolkata', display_order: 14 },
-  { name: 'Prof. Dr. Sudipta Basu Pal', designation: 'Co-Convenor', affiliation: 'University of Engineering and Management, Kolkata', display_order: 15 },
-  { name: 'Prof. Dr. Chiradeep Mukherjee', designation: 'Co-Convenor', affiliation: 'University of Engineering and Management, Kolkata', display_order: 16 },
+  // Co-Convenors (display_order 30-39)
+  { name: 'Prof. Dr. Subhalaxmi Chakraborty', designation: 'Co-Convenor', affiliation: 'University of Engineering and Management, Kolkata', display_order: 30 },
+  { name: 'Prof. Dr. Sudipta Basu Pal', designation: 'Co-Convenor', affiliation: 'University of Engineering and Management, Kolkata', display_order: 31 },
+  { name: 'Prof. Dr. Chiradeep Mukherjee', designation: 'Co-Convenor', affiliation: 'University of Engineering and Management, Kolkata', display_order: 32 },
   
-  // Technical Chairs
-  { name: 'Prof. Dr. Danilo Pelusi', designation: 'Technical Chair', affiliation: 'University of Teramo, Faculty of Communication Sciences, Teramo, Italy', display_order: 17 },
-  { name: 'Prof. Dr. Asit Kumar Das', designation: 'Technical Chair', affiliation: 'Department of Computer Science and Technology, Indian Institute of Engineering Science and Technology, Shibpur', display_order: 18 },
+  // Technical Chairs (display_order 50-59)
+  { name: 'Prof. Dr. Danilo Pelusi', designation: 'Technical Chair', affiliation: 'University of Teramo, Faculty of Communication Sciences, Teramo, Italy', display_order: 50 },
+  { name: 'Prof. Dr. Asit Kumar Das', designation: 'Technical Chair', affiliation: 'Department of Computer Science and Technology, Indian Institute of Engineering Science and Technology, Shibpur', display_order: 51 },
   
-  // Finance Chair
-  { name: 'Mr. Indranil Banerjee', designation: 'Finance Chair', affiliation: 'University of Engineering and Management Kolkata', display_order: 20 },
+  // Finance Chair (display_order 70-79)
+  { name: 'Mr. Indranil Banerjee', designation: 'Finance Chair', affiliation: 'University of Engineering and Management Kolkata', display_order: 70 },
   
-  // Organizing Members
-  { name: 'Prof. Dr. Srilekha Mukherjee', designation: 'Organizing Member', affiliation: 'University of Engineering and Management Kolkata', display_order: 21 },
-  { name: 'Prof. Dr. Anirban Ganguly', designation: 'Organizing Member', affiliation: 'University of Engineering and Management Kolkata', display_order: 22 },
-  { name: 'Prof. Dr. Subhrangshu Das', designation: 'Organizing Member', affiliation: 'University of Engineering and Management Kolkata', display_order: 23 },
-  { name: 'Prof. Dr. Debanjana Datta Mitra', designation: 'Organizing Member', affiliation: 'University of Engineering and Management Kolkata', display_order: 24 },
-  { name: 'Prof. Pradipta Sarkar', designation: 'Organizing Member', affiliation: 'University of Engineering and Management Kolkata', display_order: 25 },
-  { name: 'Prof. Sanjukta Mishra', designation: 'Organizing Member', affiliation: 'University of Engineering and Management Kolkata', display_order: 26 },
-  { name: 'Prof. Kamalika Bhowal', designation: 'Organizing Member', affiliation: 'University of Engineering and Management Kolkata', display_order: 27 },
-  { name: 'Prof. Dr. Suvaditya Majumdar', designation: 'Organizing Member', affiliation: 'University of Engineering and Management Kolkata', display_order: 28 },
-  { name: 'Prof. Ayan Das', designation: 'Organizing Member', affiliation: 'University of Engineering and Management Kolkata', display_order: 29 },
-  { name: 'Prof. Arpita Saha Chowdhury', designation: 'Organizing Member', affiliation: 'University of Engineering and Management Kolkata', display_order: 30 },
-  { name: 'Prof. Ritika Pramanick', designation: 'Organizing Member', affiliation: 'University of Engineering and Management Kolkata', display_order: 31 }
+  // Organizing Committee Members (display_order 100+)
+  { name: 'Prof. Dr. Srilekha Mukherjee', designation: 'Organizing Committee Member', affiliation: 'University of Engineering and Management Kolkata', display_order: 100 },
+  { name: 'Prof. Dr. Anirban Ganguly', designation: 'Organizing Committee Member', affiliation: 'University of Engineering and Management Kolkata', display_order: 101 },
+  { name: 'Prof. Dr. Subhrangshu Das', designation: 'Organizing Committee Member', affiliation: 'University of Engineering and Management Kolkata', display_order: 102 },
+  { name: 'Prof. Dr. Debanjana Datta Mitra', designation: 'Organizing Committee Member', affiliation: 'University of Engineering and Management Kolkata', display_order: 103 },
+  { name: 'Prof. Pradipta Sarkar', designation: 'Organizing Committee Member', affiliation: 'University of Engineering and Management Kolkata', display_order: 104 },
+  { name: 'Prof. Sanjukta Mishra', designation: 'Organizing Committee Member', affiliation: 'University of Engineering and Management Kolkata', display_order: 105 },
+  { name: 'Prof. Kamalika Bhowal', designation: 'Organizing Committee Member', affiliation: 'University of Engineering and Management Kolkata', display_order: 106 },
+  { name: 'Prof. Dr. Suvaditya Majumdar', designation: 'Organizing Committee Member', affiliation: 'University of Engineering and Management Kolkata', display_order: 107 },
+  { name: 'Prof. Ayan Das', designation: 'Organizing Committee Member', affiliation: 'University of Engineering and Management Kolkata', display_order: 108 },
+  { name: 'Prof. Arpita Saha Chowdhury', designation: 'Organizing Committee Member', affiliation: 'University of Engineering and Management Kolkata', display_order: 109 },
+  { name: 'Prof. Ritika Pramanick', designation: 'Organizing Committee Member', affiliation: 'University of Engineering and Management Kolkata', display_order: 110 }
 ];
 
 async function seedCommitteeData() {

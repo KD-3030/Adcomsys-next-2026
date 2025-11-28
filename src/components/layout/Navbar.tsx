@@ -18,11 +18,10 @@ export default function Navbar() {
           {/* Left University Logo */}
           <div className="shrink-0 hidden sm:block">
             <Image
-              src="/assets/logos/uem_w.png"
+              src="/assets/logos/uem_w.svg"
               alt="University Logo"
               width={120}
               height={120}
-              quality={100}
               priority
               className="w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28 xl:w-32 xl:h-32"
             />
@@ -100,11 +99,10 @@ export default function Navbar() {
           {/* Right University Logo */}
           <div className="shrink-0 hidden sm:block">
             <Image
-              src="/assets/logos/iem_w.png"
+              src="/assets/logos/iem_w.svg"
               alt="University Logo"
               width={120}
               height={120}
-              quality={100}
               priority
               className="w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28 xl:w-32 xl:h-32"
             />

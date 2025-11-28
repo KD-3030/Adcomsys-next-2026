@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import { Suspense } from 'react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
@@ -43,14 +44,17 @@ export default function Home() {
         {/* Background Media - Video on Desktop, Image on Mobile */}
         <div className="absolute inset-0 opacity-100">
           {/* Video for Desktop/Tablet - Hidden on Mobile */}
-          <HeroVideo />
+          <Suspense fallback={<div className="hidden md:block w-full h-full bg-gradient-to-br from-brand-navy to-brand-black opacity-20" />}>
+            <HeroVideo />
+          </Suspense>
           {/* Image for Mobile - Better Performance with Next.js Image */}
           <Image 
             src="/assets/images/conference-bg.jpg" 
             alt="Conference Background"
             fill
-            priority
-            sizes="(max-width: 768px) 100vw, 0px"
+            loading="eager"
+            quality={60}
+            sizes="(max-width: 768px) 100vw, 1px"
             className="md:hidden object-cover"
           />
         </div>
@@ -67,7 +71,8 @@ export default function Home() {
                 width={200}
                 height={200}
                 quality={75}
-                loading="lazy"
+                priority
+                sizes="(max-width: 640px) 128px, (max-width: 768px) 160px, (max-width: 1024px) 192px, 256px"
                 className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-56 lg:h-56 xl:w-64 xl:h-64 mx-auto lg:mx-0"
               />
         

@@ -19,13 +19,13 @@ export default function Home() {
       <div className="bg-brand-orange border-b-2 border-brand-navy overflow-hidden">
         <div className="animate-marquee whitespace-nowrap py-2">
           <span className="text-brand-navy font-bold text-sm sm:text-base md:text-lg px-4">
-            🎉 AdComSys 2026 will be organized by University of Engineering and Management, Kolkata on 24th and 25th JUNE 2026 🎉
+            🎉 AdComSys 2026 will be organized by University of Engineering and Management, Kolkata on 26th and 27th JUNE 2026 🎉
           </span>
           <span className="text-brand-navy font-bold text-sm sm:text-base md:text-lg px-4">
-            🎉 AdComSys 2026 will be organized by University of Engineering and Management, Kolkata on 24th and 25th JUNE 2026 🎉
+            🎉 AdComSys 2026 will be organized by University of Engineering and Management, Kolkata on 26th and 27th JUNE 2026 🎉
           </span>
           <span className="text-brand-navy font-bold text-sm sm:text-base md:text-lg px-4">
-            🎉 AdComSys 2026 will be organized by University of Engineering and Management, Kolkata on 24th and 25th JUNE 2026 🎉
+            🎉 AdComSys 2026 will be organized by University of Engineering and Management, Kolkata on 26th and 27th JUNE 2026 🎉
           </span>
         </div>
       </div>

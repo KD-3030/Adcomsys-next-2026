@@ -62,9 +62,9 @@ export default function Home() {
         <div className="container mx-auto relative z-10">
           <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 items-center">
             {/* Left Column - Main Content */}
-            <div className="text-center lg:text-left space-y-2 sm:space-y-3 md:space-y-4">
+            <div className="text-center space-y-3 sm:space-y-4 md:space-y-5 lg:text-left">
               
-              <div>
+              <div className="flex flex-col items-center lg:items-start">
               <Image
                 src="/assets/logos/logo-3.png"
                 alt="AdComSys Conference Logo"
@@ -77,11 +77,11 @@ export default function Home() {
               />
         
 
-              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-brand-white drop-shadow-2xl leading-tight" style={{ fontFamily: '"Faculty Glyphic", sans-serif' }}>
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-brand-white drop-shadow-2xl leading-tight mt-3" style={{ fontFamily: '"Faculty Glyphic", sans-serif' }}>
                 AdComSys 2026
               </h1>
               
-              <div className="space-y-1 sm:space-y-2">
+              <div className="space-y-1 sm:space-y-2 mt-2">
                 <p className="text-sm sm:text-base md:text-lg text-brand-white font-medium">
                   Third International Conference on
                 </p>
@@ -90,21 +90,21 @@ export default function Home() {
                 </p>
               </div>
               
-              <p className="text-xs sm:text-sm text-brand-white/90 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+              <p className="text-xs sm:text-sm md:text-base text-brand-white/90 leading-relaxed max-w-xl mt-3">
                 Organized by Department of CST & CSIT<br />
                 <span className="font-semibold text-brand-orange">University of Engineering and Management, Kolkata</span>
               </p>
               
               {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 pt-1 sm:pt-2 justify-center lg:justify-start">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-3 sm:pt-4 w-full sm:w-auto justify-center lg:justify-start">
                 <Link href="https://cmt3.research.microsoft.com/AdComSys2025" target="_blank">
-                  <Button size="lg" className="w-full sm:w-auto border-2 border-brand-orange text-brand-navy hover:bg-brand-black hover:text-brand-white shadow-2xl transition-all duration-300 transform hover:scale-105 font-bold">
+                  <Button size="lg" className="w-full sm:w-auto border-2 border-brand-orange text-brand-navy hover:bg-brand-black hover:text-brand-white shadow-2xl transition-all duration-300 transform hover:scale-105 font-bold px-6 py-3">
                     <FileText className="mr-2 h-4 w-4" />
                     Submit Paper
                   </Button>
                 </Link>
                 <Link href="/signup">
-                  <Button size="lg" variant="outline" className="w-full sm:w-auto border-2 border-brand-orange text-brand-white hover:bg-brand-orange hover:text-brand-navy shadow-2xl transition-all duration-300 transform hover:scale-105 font-bold">
+                  <Button size="lg" variant="outline" className="w-full sm:w-auto border-2 border-brand-orange text-brand-white hover:bg-brand-orange hover:text-brand-navy shadow-2xl transition-all duration-300 transform hover:scale-105 font-bold px-6 py-3">
                     <Users className="mr-2 h-4 w-4" />
                     Register Now
                   </Button>
@@ -163,38 +163,66 @@ export default function Home() {
           }}
         />
         
-        <div className="container mx-auto max-w-6xl relative z-10">
+        <div className="container mx-auto max-w-7xl relative z-10">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center mb-8 sm:mb-12 text-brand-navy">
             About the Conference
           </h2>
-          <Card className="border-3 border-brand-orange/30 hover:border-brand-orange transition-all duration-300 shadow-2xl hover:shadow-3xl bg-white">
-            <CardHeader className="bg-linear-to-r from-brand-navy via-brand-navy to-brand-black text-white p-6 sm:p-8">
-              <CardTitle className="text-brand-orange text-2xl sm:text-3xl font-bold">Welcome to AdComSys 2026</CardTitle>
-              <CardDescription className="text-brand-white/90 text-base sm:text-lg mt-2">
-                Third International Conference on Advanced Computing and Systems
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-4 sm:space-y-6 text-gray-800 pt-6 sm:pt-8 p-6 sm:p-8 bg-white">
-              <p className="text-base sm:text-lg leading-relaxed">
-                AdComSys 2026 is the <span className="font-bold text-brand-navy">third edition</span> of the International Conference on Advanced 
-                Computing and Systems, organized by the Department of Computer Science & Technology 
-                and Computer Science & Information Technology at the <span className="font-bold text-brand-orange">University of Engineering and 
-                Management, Kolkata</span>.
-              </p>
-              <p className="text-base sm:text-lg leading-relaxed">
-                The conference aims to bring together researchers, academicians, and industry 
-                professionals to share their latest findings and innovations in the field of 
-                advanced computing and systems.
-              </p>
-              <div className="bg-linear-to-r from-brand-orange/10 to-brand-orange/5 p-4 sm:p-6 rounded-xl border-l-4 border-brand-orange shadow-md">
-                <p className="font-bold text-base sm:text-lg text-brand-navy flex items-start gap-3">
-                  <Award className="h-6 w-6 text-brand-orange shrink-0 mt-1" />
-                  <span>All accepted papers will be published in <span className="text-brand-orange">SCOPUS Indexed Lecture Notes in Networks 
-                  and Systems by Springer</span>.</span>
+          
+          {/* Two Column Layout */}
+          <div className="grid lg:grid-cols-2 gap-6 lg:gap-8">
+            {/* Left - Welcome Card */}
+            <Card className="border-3 border-brand-orange/30 hover:border-brand-orange transition-all duration-300 shadow-2xl hover:shadow-3xl bg-white">
+              <CardHeader className="bg-linear-to-r from-brand-navy via-brand-navy to-brand-black text-white p-6 sm:p-8">
+                <CardTitle className="text-brand-orange text-2xl sm:text-3xl font-bold">Welcome to AdComSys 2026</CardTitle>
+                <CardDescription className="text-brand-white/90 text-base sm:text-lg mt-2">
+                  Third International Conference on Advanced Computing and Systems
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4 sm:space-y-6 text-gray-800 pt-6 sm:pt-8 p-6 sm:p-8 bg-white">
+                <p className="text-base sm:text-lg leading-relaxed">
+                  AdComSys 2026 is the <span className="font-bold text-brand-navy">third edition</span> of the International Conference on Advanced 
+                  Computing and Systems, organized by the Department of Computer Science & Technology 
+                  and Computer Science & Information Technology at the <span className="font-bold text-brand-orange">University of Engineering and 
+                  Management, Kolkata</span>.
                 </p>
-              </div>
-            </CardContent>
-          </Card>
+                <p className="text-base sm:text-lg leading-relaxed">
+                  The conference aims to bring together researchers, academicians, and industry 
+                  professionals to share their latest findings and innovations in the field of 
+                  advanced computing and systems.
+                </p>
+                <div className="bg-linear-to-r from-brand-orange/10 to-brand-orange/5 p-4 sm:p-6 rounded-xl border-l-4 border-brand-orange shadow-md">
+                  <p className="font-bold text-base sm:text-lg text-brand-navy flex items-start gap-3">
+                    <Award className="h-6 w-6 text-brand-orange shrink-0 mt-1" />
+                    <span>All accepted papers will be published in <span className="text-brand-orange">SCOPUS Indexed Lecture Notes in Networks 
+                    and Systems by Springer</span>.</span>
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Right - Announcements Card */}
+            <Card className="border-3 border-brand-navy/30 hover:border-brand-navy transition-all duration-300 shadow-2xl hover:shadow-3xl bg-white flex flex-col">
+              <CardHeader className="bg-linear-to-r from-brand-orange via-brand-orange to-yellow-500 text-brand-navy p-6 sm:p-8">
+                <CardTitle className="text-brand-navy text-2xl sm:text-3xl font-bold flex items-center gap-3">
+                  <span className="text-3xl">📢</span> Announcements
+                </CardTitle>
+                <CardDescription className="text-brand-navy/80 text-base sm:text-lg mt-2 font-medium">
+                  Latest updates and important notices
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="text-gray-800 pt-6 sm:pt-8 p-6 sm:p-8 bg-white flex-1">
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-3">
+                    <span className="text-brand-orange text-xl shrink-0 mt-0.5">•</span>
+                    <p className="text-base sm:text-lg leading-relaxed text-gray-700">
+                      The <span className="font-bold text-brand-navy">Microsoft CMT service</span> was used for managing the peer-reviewing process for this conference. This service was provided for free by Microsoft and they bore all expenses, including costs for Azure cloud services as well as for software development and support.
+                    </p>
+                  </li>
+                  {/* Add more announcements here as needed */}
+                </ul>
+              </CardContent>
+            </Card>
+          </div>
 
           {/* Springer Publication Card */}
           <Card className="mt-8 border-3 border-brand-orange/40 hover:border-brand-orange transition-all duration-300 shadow-xl hover:shadow-2xl bg-brand-orange/5">

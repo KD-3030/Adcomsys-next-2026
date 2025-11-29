@@ -82,7 +82,6 @@ export default function ImportantDatesPage() {
                           {/* Right Side - Event */}
                           <div className="w-1/2 pl-8">
                             <div className="bg-white p-4 rounded-lg shadow-md border-l-4 border-[#14213d] hover:shadow-xl transition-all duration-300">
-                              <span className="text-sm text-gray-500 font-medium">{index + 1}</span>
                               <h3 className="font-bold text-[#14213d] text-lg">{item.event}</h3>
                             </div>
                           </div>
@@ -92,7 +91,6 @@ export default function ImportantDatesPage() {
                           {/* Left Side - Event */}
                           <div className="w-1/2 pr-8 text-right">
                             <div className="bg-white p-4 rounded-lg shadow-md border-r-4 border-[#14213d] hover:shadow-xl transition-all duration-300">
-                              <span className="text-sm text-gray-500 font-medium">{index + 1}</span>
                               <h3 className="font-bold text-[#14213d] text-lg">{item.event}</h3>
                             </div>
                           </div>
@@ -125,7 +123,6 @@ export default function ImportantDatesPage() {
                           </span>
                         </div>
                         <div className="bg-white p-3 rounded-lg shadow-md border-l-4 border-[#14213d]">
-                          <span className="text-xs text-gray-500 font-medium">{index + 1}</span>
                           <h3 className="font-bold text-[#14213d] text-base">{item.event}</h3>
                         </div>
                       </div>

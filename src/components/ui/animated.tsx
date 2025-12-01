@@ -49,7 +49,7 @@ interface GradientTextProps {
 export function GradientText({ children, className, from = 'brand-orange', to = 'brand-navy' }: GradientTextProps) {
   return (
     <span className={cn(
-      `bg-gradient-to-r from-${from} to-${to} bg-clip-text text-transparent`,
+      `bg-linear-to-r from-${from} to-${to} bg-clip-text text-transparent`,
       className
     )}>
       {children}
@@ -149,3 +149,4 @@ export function StaggerItem({ children, className }: { children: ReactNode, clas
     </motion.div>
   )
 }
+

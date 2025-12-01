@@ -102,7 +102,7 @@ export default function DashboardPage() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-gray-50 flex items-center justify-center">
+      <div className="min-h-screen bg-linear-to-b from-blue-50 via-white to-gray-50 flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#fca311] mx-auto mb-4"></div>
           <p className="text-gray-600">Loading...</p>
@@ -114,9 +114,9 @@ export default function DashboardPage() {
   if (!profile) return null
 
   return (
-    <div className="h-screen flex flex-col bg-gradient-to-b from-blue-50 via-white to-gray-50 overflow-hidden">
+    <div className="h-screen flex flex-col bg-linear-to-b from-blue-50 via-white to-gray-50 overflow-hidden">
       {/* Header */}
-      <header className="bg-gradient-to-r from-[#14213d] to-[#1a2844] text-white border-b-4 border-[#fca311] shadow-lg flex-shrink-0">
+      <header className="bg-linear-to-r from-[#14213d] to-[#1a2844] text-white border-b-4 border-[#fca311] shadow-lg shrink-0">
         <div className="container mx-auto px-3 sm:px-4 py-2 sm:py-3 flex justify-between items-center">
           <div>
             <h1 className="text-lg sm:text-xl lg:text-2xl font-bold">AdComSys 2026</h1>
@@ -137,7 +137,7 @@ export default function DashboardPage() {
         <div className="container mx-auto px-3 sm:px-4 py-3 sm:py-4 h-full">
           <div className="max-w-7xl mx-auto h-full flex flex-col gap-3 sm:gap-4">
           {/* Welcome Section */}
-          <div className="bg-gradient-to-r from-[#14213d] to-[#1a2844] text-white p-3 sm:p-4 lg:p-6 rounded-lg shadow-lg border-l-4 border-[#fca311] flex-shrink-0">
+          <div className="bg-linear-to-r from-[#14213d] to-[#1a2844] text-white p-3 sm:p-4 lg:p-6 rounded-lg shadow-lg border-l-4 border-[#fca311] shrink-0">
             <div className="flex items-center justify-between">
               <div className="flex-1 min-w-0">
                 <h2 className="text-base sm:text-xl lg:text-2xl font-bold mb-1 sm:mb-2 truncate">Welcome back, {profile?.full_name || 'User'}!</h2>
@@ -148,12 +148,12 @@ export default function DashboardPage() {
                   <span className="truncate">{profile?.email}</span>
                 </div>
               </div>
-              <User className="h-8 w-8 sm:h-12 sm:w-12 lg:h-14 lg:w-14 text-[#fca311] opacity-50 flex-shrink-0 ml-2" />
+              <User className="h-8 w-8 sm:h-12 sm:w-12 lg:h-14 lg:w-14 text-[#fca311] opacity-50 shrink-0 ml-2" />
             </div>
           </div>
 
           {/* Quick Stats */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3 flex-shrink-0">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3 shrink-0">
             <Card className="border-l-4 border-blue-500 shadow-md hover:shadow-lg roundedtransition-shadow">
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-1 p-3 sm:p-4">
                 <CardTitle className="text-xs sm:text-sm font-medium text-white-600">Submissions</CardTitle>
@@ -202,14 +202,13 @@ export default function DashboardPage() {
           {/* Main Content Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3 flex-1 min-h-0">
             <Card className="shadow-md border-l-4 border-[#fca311] hover:shadow-lg transition-all flex flex-col">
-              <CardHeader className="bg-gradient-to-r from-[#14213d] to-[#1a2844] rounded-3xl text-white p-3 sm:p-4 pb-2">
-                <CardTitle className="flex items-center gap-1 sm:gap-2 text-sm sm:text-base">
-                  <FileText className="h-4 w-4 sm:h-5 sm:w-5 text-[#fca311]" />
+              <CardHeader className="bg-linear-to-r from-[#14213d] to-[#1a2844] rounded-3xl text-white p-3 sm:p-4 pb-2">
+                <CardTitle className="text-sm sm:text-base">
                   Submissions
                 </CardTitle>
                 <CardDescription className="text-gray-300 text-xs">Track papers</CardDescription>
               </CardHeader>
-              <CardContent className="pt-3 sm:pt-4 p-3 sm:p-4 bg-gradient-to-br from-white to-blue-50 flex-1 flex flex-col">
+              <CardContent className="pt-3 sm:pt-4 p-3 sm:p-4 bg-linear-to-br from-white to-blue-50 flex-1 flex flex-col">
                 <p className="text-xs sm:text-sm text-gray-600 mb-2 sm:mb-3 flex-1">
                   {stats.totalSubmissions > 0 
                     ? `${stats.totalSubmissions} paper${stats.totalSubmissions > 1 ? 's' : ''} submitted` 
@@ -222,14 +221,13 @@ export default function DashboardPage() {
             </Card>
 
             <Card className="shadow-md border-l-4 border-[#fca311] hover:shadow-lg transition-all flex flex-col">
-              <CardHeader className="bg-gradient-to-r from-[#14213d] to-[#1a2844] text-white rounded-3xl p-3 sm:p-4 pb-2">
-                <CardTitle className="flex items-center gap-1 sm:gap-2 text-sm sm:text-base">
-                  <CreditCard className="h-4 w-4 sm:h-5 sm:w-5 text-[#fca311]" />
+              <CardHeader className="bg-linear-to-r from-[#14213d] to-[#1a2844] text-white rounded-3xl p-3 sm:p-4 pb-2">
+                <CardTitle className="text-sm sm:text-base">
                   Payments
                 </CardTitle>
                 <CardDescription className="text-gray-300 text-xs">Check status</CardDescription>
               </CardHeader>
-              <CardContent className="pt-3 sm:pt-4 p-3 sm:p-4 bg-gradient-to-br from-white to-blue-50 flex-1 flex flex-col">
+              <CardContent className="pt-3 sm:pt-4 p-3 sm:p-4 bg-linear-to-br from-white to-blue-50 flex-1 flex flex-col">
                 <p className="text-xs sm:text-sm text-gray-600 mb-2 sm:mb-3 flex-1">
                   {stats.totalPayments > 0 
                     ? `${stats.verifiedPayments} verified, ${stats.pendingPayments} pending` 
@@ -242,14 +240,13 @@ export default function DashboardPage() {
             </Card>
 
             <Card className="shadow-md border-l-4 border-[#fca311] hover:shadow-lg transition-all flex flex-col">
-              <CardHeader className="bg-gradient-to-r from-[#14213d] to-[#1a2844] rounded-3xl text-white p-3 sm:p-4 pb-2">
-                <CardTitle className="flex items-center gap-1 sm:gap-2 text-sm sm:text-base">
-                  <User className="h-4 w-4 sm:h-5 sm:w-5 text-[#fca311]" />
+              <CardHeader className="bg-linear-to-r from-[#14213d] to-[#1a2844] rounded-3xl text-white p-3 sm:p-4 pb-2">
+                <CardTitle className="text-sm sm:text-base">
                   Profile
                 </CardTitle>
                 <CardDescription className="text-gray-300 text-xs">Update info</CardDescription>
               </CardHeader>
-              <CardContent className="pt-3 sm:pt-4 p-3 sm:p-4 bg-gradient-to-br from-white to-blue-50 flex-1 flex flex-col">
+              <CardContent className="pt-3 sm:pt-4 p-3 sm:p-4 bg-linear-to-br from-white to-blue-50 flex-1 flex flex-col">
                 <p className="text-xs sm:text-sm text-gray-600 mb-2 sm:mb-3 flex-1">Manage account</p>
                 <Button className="w-full bg-white border-2 border-[#fca311] text-[#14213d] hover:bg-[#fca311] hover:text-white text-xs sm:text-sm py-1.5 sm:py-2" variant="outline" asChild>
                   <Link href="/authors/dashboard/profile">Edit</Link>
@@ -258,14 +255,13 @@ export default function DashboardPage() {
             </Card>
 
             <Card className="shadow-md border-l-4 border-green-500 hover:shadow-lg transition-all flex flex-col">
-              <CardHeader className="bg-gradient-to-r from-brand-navy-700 to-navy-900 text-white rounded-3xl p-3 sm:p-4 pb-2">
-                <CardTitle className="flex items-center gap-1 sm:gap-2 text-sm sm:text-base">
-                  <ExternalLink className="h-4 w-4 sm:h-5 sm:w-5 text-green-300" />
+              <CardHeader className="bg-linear-to-r from-brand-navy-700 to-navy-900 text-white rounded-3xl p-3 sm:p-4 pb-2">
+                <CardTitle className="text-sm sm:text-base">
                   CMT Portal
                 </CardTitle>
                 <CardDescription className="text-gray-200 text-xs">Submit paper</CardDescription>
               </CardHeader>
-              <CardContent className="pt-3 sm:pt-4 p-3 sm:p-4 bg-gradient-to-br from-white to-green-50 flex-1 flex flex-col">
+              <CardContent className="pt-3 sm:pt-4 p-3 sm:p-4 bg-linear-to-br from-white to-green-50 flex-1 flex flex-col">
                 <p className="text-xs sm:text-sm text-gray-600 mb-2 sm:mb-3 flex-1">Official portal</p>
                 <Button className="w-full bg-green-600 hover:bg-green-700 text-white text-xs sm:text-sm py-1.5 sm:py-2" asChild>
                   <a href="https://cmt3.research.microsoft.com/AdComSys2025" target="_blank" rel="noopener noreferrer">
@@ -278,12 +274,11 @@ export default function DashboardPage() {
 
           {/* Role-Specific Sections */}
           {(profile?.role === 'reviewer' || profile?.role === 'admin') && (
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3 flex-shrink-0">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3 shrink-0">
               {profile?.role === 'reviewer' && (
-                <Card className="border-l-4 border-blue-500 shadow-md bg-gradient-to-br from-blue-50 to-white">
-                  <CardHeader className="bg-gradient-to-r from-blue-700 to-blue-900 text-white p-3 sm:p-4 pb-2">
-                    <CardTitle className="flex items-center gap-1 sm:gap-2 text-sm sm:text-base">
-                      <TrendingUp className="h-4 w-4 sm:h-5 sm:w-5 text-blue-300" />
+                <Card className="border-l-4 border-blue-500 shadow-md bg-linear-to-br from-blue-50 to-white">
+                  <CardHeader className="bg-linear-to-r from-blue-700 to-blue-900 text-white p-3 sm:p-4 pb-2">
+                    <CardTitle className="text-sm sm:text-base">
                       Reviewer
                     </CardTitle>
                     <CardDescription className="text-gray-200 text-xs">Review papers</CardDescription>
@@ -297,10 +292,9 @@ export default function DashboardPage() {
               )}
 
               {profile?.role === 'admin' && (
-                <Card className="border-l-4 border-purple-500 shadow-md bg-gradient-to-br from-purple-50 to-white">
-                  <CardHeader className="bg-gradient-to-r from-purple-700 to-purple-900 text-white p-3 sm:p-4 pb-2">
-                    <CardTitle className="flex items-center gap-1 sm:gap-2 text-sm sm:text-base">
-                      <TrendingUp className="h-4 w-4 sm:h-5 sm:w-5 text-purple-300" />
+                <Card className="border-l-4 border-purple-500 shadow-md bg-linear-to-br from-purple-50 to-white">
+                  <CardHeader className="bg-linear-to-r from-purple-700 to-purple-900 text-white p-3 sm:p-4 pb-2">
+                    <CardTitle className="text-sm sm:text-base">
                       Admin
                     </CardTitle>
                     <CardDescription className="text-gray-200 text-xs">Manage conference</CardDescription>
@@ -320,3 +314,4 @@ export default function DashboardPage() {
     </div>
   )
 }
+

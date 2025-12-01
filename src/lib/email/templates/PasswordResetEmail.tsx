@@ -24,7 +24,7 @@ export const PasswordResetEmail = ({ name, resetUrl }: PasswordResetEmailProps) 
     <Body style={main}>
       <Container style={container}>
         <Section style={header}>
-          <Heading style={h1}>🔐 Password Reset Request</Heading>
+          <Heading style={h1}>Password Reset Request</Heading>
         </Section>
         
         <Section style={content}>
@@ -54,7 +54,7 @@ export const PasswordResetEmail = ({ name, resetUrl }: PasswordResetEmailProps) 
           <Hr style={hr} />
           
           <Text style={warningText}>
-            ⚠️ <strong>Security Notice:</strong>
+            <strong>Security Notice:</strong>
           </Text>
           <ul style={list}>
             <li>If you didn't request this password reset, please ignore this email</li>

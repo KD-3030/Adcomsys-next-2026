@@ -117,7 +117,7 @@ export default function ProfilePage() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-gray-50 flex items-center justify-center">
+      <div className="min-h-screen bg-linear-to-b from-blue-50 via-white to-gray-50 flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#fca311] mx-auto mb-4"></div>
           <p className="text-gray-600">Loading profile...</p>
@@ -129,9 +129,9 @@ export default function ProfilePage() {
   if (!profile) return null
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-gray-50">
+    <div className="min-h-screen bg-linear-to-b from-blue-50 via-white to-gray-50">
       {/* Header */}
-      <header className="bg-gradient-to-r from-[#14213d] to-[#1a2844] text-white border-b-4 border-[#fca311] shadow-lg">
+      <header className="bg-linear-to-r from-[#14213d] to-[#1a2844] text-white border-b-4 border-[#fca311] shadow-lg">
         <div className="container mx-auto px-4 py-6">
           <div className="flex items-center gap-4">
             <Link href="/authors/dashboard">
@@ -152,14 +152,13 @@ export default function ProfilePage() {
         <div className="max-w-4xl mx-auto space-y-6">
           {/* Profile Info Card */}
           <Card className="shadow-lg border-l-4 border-[#fca311]">
-            <CardHeader className="bg-gradient-to-r from-[#14213d] to-[#1a2844] text-white">
-              <CardTitle className="flex items-center gap-2">
-                <User className="h-6 w-6 text-[#fca311]" />
+            <CardHeader className="bg-linear-to-r from-[#14213d] to-[#1a2844] text-white">
+              <CardTitle>
                 Personal Information
               </CardTitle>
               <CardDescription className="text-gray-300">Update your profile details</CardDescription>
             </CardHeader>
-            <CardContent className="pt-6 bg-gradient-to-br from-white to-blue-50">
+            <CardContent className="pt-6 bg-linear-to-br from-white to-blue-50">
               <form onSubmit={handleUpdateProfile} className="space-y-4">
                 <div className="space-y-2">
                   <Label htmlFor="fullName" className="text-[#14213d] font-semibold flex items-center gap-2">
@@ -214,14 +213,13 @@ export default function ProfilePage() {
 
           {/* Change Password Card */}
           <Card className="shadow-lg border-l-4 border-blue-500">
-            <CardHeader className="bg-gradient-to-r from-blue-700 to-blue-900 text-white">
-              <CardTitle className="flex items-center gap-2">
-                <Key className="h-6 w-6 text-blue-300" />
+            <CardHeader className="bg-linear-to-r from-blue-700 to-blue-900 text-white">
+              <CardTitle>
                 Change Password
               </CardTitle>
               <CardDescription className="text-gray-200">Update your account password</CardDescription>
             </CardHeader>
-            <CardContent className="pt-6 bg-gradient-to-br from-white to-blue-50">
+            <CardContent className="pt-6 bg-linear-to-br from-white to-blue-50">
               <form onSubmit={handleChangePassword} className="space-y-4">
                 <div className="space-y-2">
                   <Label htmlFor="currentPassword" className="text-[#14213d] font-semibold">
@@ -284,3 +282,4 @@ export default function ProfilePage() {
     </div>
   )
 }
+

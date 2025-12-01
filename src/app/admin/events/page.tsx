@@ -154,7 +154,7 @@ export default function EventsPage() {
   return (
     <div className="space-y-6">
       {/* Page Header */}
-      <div className="flex justify-between items-center border-l-4 border-brand-orange bg-gradient-to-r from-brand-navy to-brand-navy/90 text-white p-6 rounded-lg">
+      <div className="flex justify-between items-center border-l-4 border-brand-orange bg-linear-to-r from-brand-navy to-brand-navy/90 text-white p-6 rounded-lg">
         <div>
           <h1 className="text-3xl font-bold">Events</h1>
           <p className="text-white/80 mt-1">Manage conference events and schedule</p>
@@ -298,3 +298,4 @@ export default function EventsPage() {
     </div>
   )
 }
+

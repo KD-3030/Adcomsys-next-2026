@@ -88,7 +88,7 @@ export default function SubmissionsPage() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-gray-50 flex items-center justify-center">
+      <div className="min-h-screen bg-linear-to-b from-blue-50 via-white to-gray-50 flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#fca311] mx-auto mb-4"></div>
           <p className="text-gray-600">Loading submissions...</p>
@@ -98,9 +98,9 @@ export default function SubmissionsPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-gray-50">
+    <div className="min-h-screen bg-linear-to-b from-blue-50 via-white to-gray-50">
       {/* Header */}
-      <header className="bg-gradient-to-r from-[#14213d] to-[#1a2844] text-white border-b-4 border-[#fca311] shadow-lg">
+      <header className="bg-linear-to-r from-[#14213d] to-[#1a2844] text-white border-b-4 border-[#fca311] shadow-lg">
         <div className="container mx-auto px-4 py-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
@@ -132,7 +132,7 @@ export default function SubmissionsPage() {
           <Card className="border-l-4 border-blue-500 bg-blue-50">
             <CardContent className="pt-6">
               <div className="flex gap-4">
-                <div className="flex-shrink-0">
+                <div className="shrink-0">
                   <AlertCircle className="h-6 w-6 text-blue-600" />
                 </div>
                 <div>
@@ -184,7 +184,7 @@ export default function SubmissionsPage() {
             <div className="space-y-4">
               {submissions.map((submission) => (
                 <Card key={submission.id} className="shadow-lg border-l-4 border-[#fca311] hover:shadow-xl transition-shadow">
-                  <CardHeader className="bg-gradient-to-br from-white to-blue-50">
+                  <CardHeader className="bg-linear-to-br from-white to-blue-50">
                     <div className="flex items-start justify-between">
                       <div className="flex-1">
                         <div className="flex items-center gap-2 mb-2">
@@ -246,3 +246,5 @@ export default function SubmissionsPage() {
     </div>
   )
 }
+
+

@@ -56,7 +56,7 @@ export default function HeroVideo() {
   if (!shouldLoad) {
     return (
       <div 
-        className="hidden md:block w-full h-full bg-gradient-to-br from-brand-navy to-brand-black"
+        className="hidden md:block w-full h-full bg-linear-to-br from-brand-navy to-brand-black"
         style={{ opacity: 0.2 }}
       />
     )
@@ -82,3 +82,4 @@ export default function HeroVideo() {
     </video>
   )
 }
+

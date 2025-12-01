@@ -2,7 +2,7 @@ import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import { Calendar, MapPin, Users, FileText, ExternalLink } from 'lucide-react'
+import { Calendar, MapPin, Users, FileText, ExternalLink, BookOpen, Mail, Globe, Award, Cpu, Shield, Network } from 'lucide-react'
 import Link from 'next/link'
 import { generateMetadata as createMetadata } from '@/lib/metadata'
 import { Metadata } from 'next'
@@ -18,23 +18,65 @@ const pastEditions = [
   {
     year: '2025',
     title: 'AdComSys 2025',
-    date: 'June 26-27, 2025',
-    location: 'G H Raisoni College of Engineering, Nagpur, India',
-    theme: 'Advances in Computing & Systems',
+    subtitle: '2nd International Conference on Advanced Computing and Systems',
+    date: '26th & 27th June, 2025',
+    location: 'University of Engineering and Management (UEM), Kolkata',
+    address: 'University Area, Plot No. III-B/5, New Town, Action Area III, Kolkata, West Bengal 700160',
+    organizer: 'Department of Computer Science and Technology (CST) & Department of Computer Science and Information Technology (CSIT)',
+    theme: 'Advancing AI, IoT, Cybersecurity & Emerging Computing Technologies',
     papers: '150+',
     participants: '300+',
-    publication: 'Springer LNNS',
+    publication: 'Springer LNNS (SCOPUS Indexed)',
+    publicationFull: 'Lecture Notes in Networks and Systems by Springer',
+    tracks: [
+      { name: 'Emerging Computing', icon: Cpu, topics: 'Cloud, Fog, Quantum, Green Computing, DNA/Optical Computing' },
+      { name: 'AI Systems', icon: Network, topics: 'Deep Learning, NLP, Robotics, Explainable AI, Generative Models' },
+      { name: 'IoT Systems', icon: Globe, topics: 'Smart Cities, Healthcare IoT, Industry 4.0, 5G & Beyond' },
+      { name: 'Cybersecurity & Blockchain', icon: Shield, topics: 'Smart Contracts, NFTs, Digital Forensics, Cryptanalysis' }
+    ],
+    importantDates: [
+      { event: 'Paper Submission Opens', date: '15 November 2024' },
+      { event: 'Submission Deadline', date: '10 April 2025' },
+      { event: 'Acceptance Notification', date: '10 May 2025' },
+      { event: 'Conference Dates', date: '26-27 June 2025' }
+    ],
+    convenor: 'Prof. Dr. Maumita Chakraborty',
+    email: 'adcomsys@uem.edu.in',
+    chiefPatron: 'Prof. Banani Chakrabarti',
+    additionalEvents: ['Technical Poster Competition', 'Technical Workshop', 'Coding Competition (GeeksforGeeks Student Chapter)'],
+    websiteUrl: 'https://adcomsys2025.vercel.app/',
     color: 'blue'
   },
   {
     year: '2024',
     title: 'AdComSys 2024',
-    date: 'June 2024',
-    location: 'G H Raisoni College of Engineering, Nagpur, India',
-    theme: 'Advances in Computing & Systems',
+    subtitle: '1st International Conference on Advanced Computing and Systems',
+    date: '26th & 27th June, 2024',
+    location: 'University of Engineering and Management (UEM), Kolkata',
+    address: 'University Area, Plot No. III-B/5, New Town, Action Area III, Kolkata, West Bengal 700160',
+    organizer: 'Department of Computer Science and Technology (CST) & Department of Computer Science and Information Technology (CSIT)',
+    theme: 'Advancing AI, IoT, Cybersecurity & Blockchain Systems',
     papers: '120+',
     participants: '250+',
-    publication: 'Springer LNNS',
+    publication: 'Springer AIS (Web of Science Indexed)',
+    publicationFull: 'Algorithms for Intelligent Systems by Springer Nature',
+    tracks: [
+      { name: 'Emerging Computing', icon: Cpu, topics: 'Cloud, Fog, Parallel, Mobile, Pervasive, Green Computing' },
+      { name: 'AI Systems', icon: Network, topics: 'Deep Learning, NLP, Robotics, Computer Vision, Data Analytics' },
+      { name: 'IoT Systems', icon: Globe, topics: 'Smart Cities, Healthcare IoT, Industry 4.0, Sensor Networks' },
+      { name: 'Cybersecurity & Blockchain', icon: Shield, topics: 'Security Systems, Blockchain, Smart Contracts, Cryptography' }
+    ],
+    importantDates: [
+      { event: 'Paper Submission Opens', date: '28 August 2023' },
+      { event: 'Submission Deadline', date: '15 March 2024' },
+      { event: 'Acceptance Notification', date: '25 March 2024' },
+      { event: 'Conference Dates', date: '26-27 June 2024' }
+    ],
+    convenor: 'Prof. Dr. Maumita Chakraborty',
+    email: 'adcomsys@uem.edu.in',
+    chiefPatron: 'Prof. Banani Chakrabarti',
+    additionalEvents: ['Keynote Addresses', 'Technical Tracks', 'Panel Discussions', 'Industry Exhibits'],
+    websiteUrl: 'https://adcomsys.vercel.app',
     color: 'green'
   }
 ]
@@ -45,66 +87,150 @@ export default function PastEditionsPage() {
       <Navbar />
 
       {/* Hero Section */}
-      <div className="bg-linear-to-r from-[#14213d] to-[#1a2844] text-white py-20 relative overflow-hidden shadow-2xl">
+      <div className="bg-linear-to-r from-[#14213d] to-[#1a2844] text-white py-12 sm:py-16 lg:py-20 relative overflow-hidden shadow-2xl">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0 bg-linear-to-br from-[#fca311] to-transparent"></div>
         </div>
-        <div className="container mx-auto px-4 text-center relative z-10">
-          <div className="flex items-center justify-center mb-8">
-            <div className="bg-[#fca311] backdrop-blur-sm p-5 rounded-full ring-4 ring-[#fca311]/30 shadow-xl">
-              <Calendar className="h-14 w-14 text-white" />
-            </div>
-          </div>
-          <h1 className="text-6xl font-bold mb-6">
+        <div className="container mx-auto px-3 sm:px-4 text-center relative z-10">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 px-2">
             Past <span className="text-[#fca311]">Editions</span>
           </h1>
-          <p className="text-xl text-gray-200 max-w-3xl mx-auto font-medium">
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-200 max-w-3xl mx-auto font-medium px-2">
             Explore the rich history and achievements of AdComSys conferences
           </p>
         </div>
       </div>
 
       {/* Content */}
-      <div className="container mx-auto px-4 py-12 max-w-5xl">
-        <div className="space-y-8">
+      <div className="container mx-auto px-3 sm:px-4 py-8 sm:py-12 max-w-6xl">
+        <div className="space-y-8 sm:space-y-12">
           {pastEditions.map((edition, index) => (
-            <Card key={index} className="shadow-2xl border-l-4 border-[#fca311] bg-white hover:shadow-3xl transition-all">
+            <Card key={index} className="shadow-2xl border-l-4 border-[#fca311] bg-white hover:shadow-3xl transition-all overflow-hidden">
               <CardHeader className="bg-linear-to-r from-[#14213d] to-[#1a2844] text-white py-6">
-                <div className="flex items-center justify-between">
-                  <CardTitle className="text-2xl font-bold flex items-center gap-3">
-                    <span className="text-[#fca311]">{edition.title}</span>
-                  </CardTitle>
-                  <Badge className="bg-[#fca311] text-[#14213d] text-lg px-4 py-1">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                  <div>
+                    <CardTitle className="text-2xl sm:text-3xl lg:text-4xl font-bold">
+                      <span className="text-[#fca311]">{edition.title}</span>
+                    </CardTitle>
+                    <p className="text-gray-300 mt-2 text-base sm:text-lg">{edition.subtitle}</p>
+                  </div>
+                  <Badge className="bg-[#fca311] text-[#14213d] text-lg px-4 py-1 font-bold">
                     {edition.year}
                   </Badge>
                 </div>
               </CardHeader>
-              <CardContent className="pt-6 space-y-4">
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div className="flex items-center gap-3 text-gray-700">
-                    <Calendar className="h-5 w-5 text-[#fca311]" />
-                    <span className="font-medium">{edition.date}</span>
+              <CardContent className="pt-6 space-y-6">
+                {/* Basic Info */}
+                <div className="grid md:grid-cols-2 gap-5">
+                  <div className="flex items-start gap-3 text-gray-700">
+                    <Calendar className="h-6 w-6 text-[#fca311] mt-0.5 shrink-0" />
+                    <div>
+                      <span className="font-semibold text-[#14213d] text-base">Date:</span>
+                      <p className="font-medium text-base sm:text-lg">{edition.date}</p>
+                    </div>
                   </div>
-                  <div className="flex items-center gap-3 text-gray-700">
-                    <MapPin className="h-5 w-5 text-[#fca311]" />
-                    <span className="font-medium">{edition.location}</span>
+                  <div className="flex items-start gap-3 text-gray-700">
+                    <MapPin className="h-6 w-6 text-[#fca311] mt-0.5 shrink-0" />
+                    <div>
+                      <span className="font-semibold text-[#14213d] text-base">Venue:</span>
+                      <p className="font-medium text-base sm:text-lg">{edition.location}</p>
+                      <p className="text-base text-gray-500">{edition.address}</p>
+                    </div>
                   </div>
-                  <div className="flex items-center gap-3 text-gray-700">
-                    <Users className="h-5 w-5 text-[#fca311]" />
-                    <span className="font-medium">{edition.participants} Participants</span>
+                  <div className="flex items-start gap-3 text-gray-700">
+                    <Users className="h-6 w-6 text-[#fca311] mt-0.5 shrink-0" />
+                    <div>
+                      <span className="font-semibold text-[#14213d] text-base">Participants:</span>
+                      <p className="font-medium text-base sm:text-lg">{edition.participants}</p>
+                    </div>
                   </div>
-                  <div className="flex items-center gap-3 text-gray-700">
-                    <FileText className="h-5 w-5 text-[#fca311]" />
-                    <span className="font-medium">{edition.papers} Papers Published</span>
+                  <div className="flex items-start gap-3 text-gray-700">
+                    <FileText className="h-6 w-6 text-[#fca311] mt-0.5 shrink-0" />
+                    <div>
+                      <span className="font-semibold text-[#14213d] text-base">Papers:</span>
+                      <p className="font-medium text-base sm:text-lg">{edition.papers} Papers Presented</p>
+                    </div>
                   </div>
                 </div>
-                <div className="pt-4 border-t">
-                  <p className="text-gray-600">
+
+                {/* Organizer & Theme */}
+                <div className="bg-gray-50 p-5 rounded-lg">
+                  <p className="text-gray-700 mb-3 text-base sm:text-lg">
+                    <span className="font-semibold text-[#14213d]">Organized by:</span> {edition.organizer}
+                  </p>
+                  <p className="text-gray-700 text-base sm:text-lg">
                     <span className="font-semibold text-[#14213d]">Theme:</span> {edition.theme}
                   </p>
-                  <p className="text-gray-600 mt-2">
-                    <span className="font-semibold text-[#14213d]">Publication:</span> {edition.publication}
-                  </p>
+                </div>
+
+                {/* Conference Tracks */}
+                <div>
+                  <h3 className="font-bold text-[#14213d] text-xl mb-4">
+                    Conference Tracks
+                  </h3>
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    {edition.tracks.map((track, trackIndex) => {
+                      const IconComponent = track.icon
+                      return (
+                        <div key={trackIndex} className="bg-blue-50 p-4 rounded-lg border-l-3 border-[#14213d]">
+                          <div className="flex items-center gap-2 mb-2">
+                            <IconComponent className="h-5 w-5 text-[#fca311]" />
+                            <span className="font-semibold text-[#14213d] text-base">{track.name}</span>
+                          </div>
+                          <p className="text-sm sm:text-base text-gray-600">{track.topics}</p>
+                        </div>
+                      )
+                    })}
+                  </div>
+                </div>
+
+                {/* Publication */}
+                <div className="bg-[#fca311]/10 p-5 rounded-lg border border-[#fca311]/30">
+                  <div className="flex items-center gap-2 mb-3">
+                    <Award className="h-6 w-6 text-[#fca311]" />
+                    <span className="font-bold text-[#14213d] text-lg">Publication</span>
+                  </div>
+                  <p className="text-gray-700 text-base sm:text-lg">{edition.publicationFull}</p>
+                  <Badge className="mt-3 bg-[#14213d] text-white text-sm px-3 py-1">
+                    {edition.year === '2024' ? 'Web of Science Indexed' : 'SCOPUS Indexed'}
+                  </Badge>
+                </div>
+
+                {/* Additional Events (if any) */}
+                {edition.additionalEvents.length > 0 && (
+                  <div>
+                    <h3 className="font-bold text-[#14213d] text-xl mb-4">Additional Events</h3>
+                    <div className="flex flex-wrap gap-3">
+                      {edition.additionalEvents.map((event, eventIndex) => (
+                        <Badge key={eventIndex} variant="outline" className="border-[#14213d] text-[#14213d] text-sm px-3 py-1">
+                          {event}
+                        </Badge>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Contact & Website */}
+                <div className="pt-4 border-t flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                  <div className="flex items-center gap-2 text-gray-700">
+                    <Mail className="h-4 w-4 text-[#fca311]" />
+                    <span className="text-sm">
+                      <span className="font-semibold">Convenor:</span> {edition.convenor} | 
+                      <a href={`mailto:${edition.email}`} className="text-[#fca311] hover:underline ml-1">{edition.email}</a>
+                    </span>
+                  </div>
+                  {edition.websiteUrl && (
+                    <Link 
+                      href={edition.websiteUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 bg-[#14213d] text-white px-4 py-2 rounded-lg font-semibold hover:bg-[#1a2844] transition-all hover:scale-105 text-sm"
+                    >
+                      <Globe className="h-4 w-4" />
+                      Visit Conference Website
+                      <ExternalLink className="h-3 w-3" />
+                    </Link>
+                  )}
                 </div>
               </CardContent>
             </Card>

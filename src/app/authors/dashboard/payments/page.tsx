@@ -98,7 +98,7 @@ export default function PaymentsPage() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-gray-50 flex items-center justify-center">
+      <div className="min-h-screen bg-linear-to-b from-blue-50 via-white to-gray-50 flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#fca311] mx-auto mb-4"></div>
           <p className="text-gray-600">Loading payments...</p>
@@ -108,9 +108,9 @@ export default function PaymentsPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-gray-50">
+    <div className="min-h-screen bg-linear-to-b from-blue-50 via-white to-gray-50">
       {/* Header */}
-      <header className="bg-gradient-to-r from-[#14213d] to-[#1a2844] text-white border-b-4 border-[#fca311] shadow-lg">
+      <header className="bg-linear-to-r from-[#14213d] to-[#1a2844] text-white border-b-4 border-[#fca311] shadow-lg">
           <div className="container mx-auto px-4 py-6">
             <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
@@ -140,24 +140,23 @@ export default function PaymentsPage() {
         <div className="max-w-6xl mx-auto space-y-6">
           {/* Payment Info Card */}
           <Card className="shadow-lg border-l-4 border-blue-500">
-            <CardHeader className="bg-gradient-to-br from-blue-50 to-white">
-              <CardTitle className="flex items-center gap-2 text-[#14213d]">
-                <DollarSign className="h-6 w-6 text-blue-500" />
+            <CardHeader className="bg-linear-to-br from-blue-50 to-white">
+              <CardTitle className="text-[#14213d]">
                 Registration Fee Information
               </CardTitle>
               <CardDescription>Conference registration and publication fees</CardDescription>
             </CardHeader>
             <CardContent className="pt-6">
               <div className="grid md:grid-cols-3 gap-4">
-                <div className="p-4 bg-gradient-to-br from-green-50 to-white rounded-lg border border-green-200">
+                <div className="p-4 bg-linear-to-br from-green-50 to-white rounded-lg border border-green-200">
                   <p className="text-sm text-gray-600 mb-1">Early Bird (Before Feb 15, 2026)</p>
                   <p className="text-2xl font-bold text-green-700">$350</p>
                 </div>
-                <div className="p-4 bg-gradient-to-br from-blue-50 to-white rounded-lg border border-blue-200">
+                <div className="p-4 bg-linear-to-br from-blue-50 to-white rounded-lg border border-blue-200">
                   <p className="text-sm text-gray-600 mb-1">Regular (Feb 16 - Mar 30, 2026)</p>
                   <p className="text-2xl font-bold text-blue-700">$450</p>
                 </div>
-                <div className="p-4 bg-gradient-to-br from-orange-50 to-white rounded-lg border border-orange-200">
+                <div className="p-4 bg-linear-to-br from-orange-50 to-white rounded-lg border border-orange-200">
                   <p className="text-sm text-gray-600 mb-1">Late Registration (After Mar 30, 2026)</p>
                   <p className="text-2xl font-bold text-orange-700">$550</p>
                 </div>
@@ -190,7 +189,7 @@ export default function PaymentsPage() {
             <div className="space-y-4">
               {payments.map((payment) => (
                 <Card key={payment.id} className="shadow-lg border-l-4 border-[#fca311] hover:shadow-xl transition-shadow">
-                  <CardHeader className="bg-gradient-to-br from-white to-blue-50">
+                  <CardHeader className="bg-linear-to-br from-white to-blue-50">
                     <div className="flex items-start justify-between">
                       <div className="flex-1">
                         <CardTitle className="text-xl text-[#14213d] mb-2">
@@ -255,3 +254,4 @@ export default function PaymentsPage() {
     </div>
   )
 }
+

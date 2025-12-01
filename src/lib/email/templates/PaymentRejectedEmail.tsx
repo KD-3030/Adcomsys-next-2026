@@ -24,7 +24,7 @@ export const PaymentRejectedEmail = ({ name, reason }: PaymentRejectedEmailProps
     <Body style={main}>
       <Container style={container}>
         <Section style={header}>
-          <Heading style={h1}>⚠️ Payment Verification Required</Heading>
+          <Heading style={h1}>Payment Verification Required</Heading>
         </Section>
         
         <Section style={content}>

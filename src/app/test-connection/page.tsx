@@ -70,10 +70,10 @@ export default function TestConnectionPage() {
             <h3 className="font-semibold">Environment Variables:</h3>
             <div className="bg-gray-100 p-4 rounded text-sm font-mono space-y-1">
               <div>
-                <strong>URL:</strong> {process.env.NEXT_PUBLIC_SUPABASE_URL ? '✅ Set' : '❌ Missing'}
+                <strong>URL:</strong> {process.env.NEXT_PUBLIC_SUPABASE_URL ? 'Set' : 'Missing'}
               </div>
               <div>
-                <strong>Anon Key:</strong> {process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ? '✅ Set' : '❌ Missing'}
+                <strong>Anon Key:</strong> {process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ? 'Set' : 'Missing'}
               </div>
             </div>
           </div>
@@ -82,16 +82,16 @@ export default function TestConnectionPage() {
             <h3 className="font-semibold">Connection Status:</h3>
             <div className="bg-gray-100 p-4 rounded text-sm space-y-2">
               <div>
-                <strong>Connected:</strong> {status.connected ? '✅ Yes' : '❌ No'}
+                <strong>Connected:</strong> {status.connected ? 'Yes' : 'No'}
               </div>
               {status.authWorking !== undefined && (
                 <div>
-                  <strong>Auth Working:</strong> {status.authWorking ? '✅ Yes' : '❌ No'}
+                  <strong>Auth Working:</strong> {status.authWorking ? 'Yes' : 'No'}
                 </div>
               )}
               {status.tables && (
                 <div>
-                  <strong>Tables:</strong> ✅ {status.tables.join(', ')}
+                  <strong>Tables:</strong> {status.tables.join(', ')}
                 </div>
               )}
               {status.error && (
@@ -104,7 +104,7 @@ export default function TestConnectionPage() {
 
           {status.error && status.error.includes('relation "public.profiles" does not exist') && (
             <div className="bg-red-50 border border-red-200 p-4 rounded space-y-2">
-              <h3 className="font-semibold text-red-800">❌ Database Schema Not Deployed!</h3>
+              <h3 className="font-semibold text-red-800">Database Schema Not Deployed!</h3>
               <p className="text-sm text-red-700">
                 The database tables don't exist yet. You need to:
               </p>
@@ -120,7 +120,7 @@ export default function TestConnectionPage() {
 
           {!status.error && status.connected && (
             <div className="bg-green-50 border border-green-200 p-4 rounded">
-              <h3 className="font-semibold text-green-800">✅ Everything looks good!</h3>
+              <h3 className="font-semibold text-green-800">Everything looks good!</h3>
               <p className="text-sm text-green-700 mt-2">
                 Your Supabase connection is working. You can try logging in now.
               </p>

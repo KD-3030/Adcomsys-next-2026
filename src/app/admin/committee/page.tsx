@@ -252,7 +252,7 @@ export default function CommitteePage() {
   return (
     <div className="space-y-6">
       {/* Page Header */}
-      <div className="flex justify-between items-center border-l-4 border-brand-orange bg-gradient-to-r from-brand-navy to-brand-navy/90 text-white p-6 rounded-lg">
+      <div className="flex justify-between items-center border-l-4 border-brand-orange bg-linear-to-r from-brand-navy to-brand-navy/90 text-white p-6 rounded-lg">
         <div>
           <h1 className="text-3xl font-bold">Committee</h1>
           <p className="text-white/80 mt-1">Manage conference committee members</p>
@@ -334,7 +334,7 @@ export default function CommitteePage() {
                       <TableCell>
                         <div className="flex items-center gap-3">
                           {member.image_url ? (
-                            <div className="relative w-12 h-12 flex-shrink-0">
+                            <div className="relative w-12 h-12 shrink-0">
                               <Image
                                 src={member.image_url}
                                 alt={member.name}
@@ -343,7 +343,7 @@ export default function CommitteePage() {
                               />
                             </div>
                           ) : (
-                            <div className="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center flex-shrink-0">
+                            <div className="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center shrink-0">
                               <User className="h-6 w-6 text-gray-400" />
                             </div>
                           )}
@@ -508,3 +508,5 @@ export default function CommitteePage() {
     </div>
   )
 }
+
+

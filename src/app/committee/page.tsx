@@ -48,11 +48,11 @@ interface CommitteeMemberData {
 function CommitteeMember({ name, designation, affiliation, email, role = '', level = 'member', image_url }: CommitteeMemberProps) {
   return (
     <Card className="overflow-hidden hover:shadow-xl transition-all duration-300 border-l-4 border-[#fca311] shadow-md bg-white relative z-10">
-      <div className="bg-gradient-to-r from-[#14213d] to-[#1a2844] h-2"></div>
+      <div className="bg-linear-to-r from-[#14213d] to-[#1a2844] h-2"></div>
       <CardContent className="p-6 bg-white">
         <div className="flex flex-col items-center text-center gap-4 bg-white relative">
           {image_url ? (
-            <div className="relative w-20 h-20 rounded-full overflow-hidden flex-shrink-0 ring-2 ring-[#fca311]">
+            <div className="relative w-20 h-20 rounded-full overflow-hidden shrink-0 ring-2 ring-[#fca311]">
               <Image
                 src={image_url}
                 alt={name}
@@ -62,7 +62,7 @@ function CommitteeMember({ name, designation, affiliation, email, role = '', lev
               />
             </div>
           ) : (
-            <div className="bg-gradient-to-r from-[#14213d] to-[#1a2844] p-3 rounded-full flex-shrink-0">
+            <div className="bg-linear-to-r from-[#14213d] to-[#1a2844] p-3 rounded-full shrink-0">
               <Users className="h-6 w-6 text-[#fca311]" />
             </div>
           )}
@@ -416,16 +416,16 @@ export default async function CommitteePage() {
   // Define the 8 hierarchy positions for organizing committee
   type PositionKey = 'chief_patron' | 'patron' | 'general_chair' | 'co_convenor' | 'convenor' | 'technical_chair' | 'industrial_chair' | 'finance_chair' | 'member'
   
-  const positionConfig: Record<PositionKey, { label: string; icon: React.ReactNode; gradient: string; order: number }> = {
-    chief_patron: { label: 'Chief Patron', icon: <Crown className="h-6 w-6 text-yellow-500" />, gradient: 'from-yellow-500 to-amber-600', order: 1 },
-    patron: { label: 'Patrons', icon: <Star className="h-6 w-6 text-purple-500" />, gradient: 'from-purple-500 to-indigo-600', order: 2 },
-    general_chair: { label: 'General Chair', icon: <Award className="h-6 w-6 text-blue-600" />, gradient: 'from-blue-500 to-blue-700', order: 3 },
-    co_convenor: { label: 'Co-Convenors', icon: <Briefcase className="h-6 w-6 text-teal-600" />, gradient: 'from-teal-500 to-cyan-600', order: 4 },
-    convenor: { label: 'Convenors', icon: <Cog className="h-6 w-6 text-green-600" />, gradient: 'from-green-500 to-emerald-600', order: 5 },
-    technical_chair: { label: 'Technical Chair', icon: <GraduationCap className="h-6 w-6 text-red-600" />, gradient: 'from-red-500 to-rose-600', order: 6 },
-    industrial_chair: { label: 'Industrial Chair', icon: <Building2 className="h-6 w-6 text-orange-600" />, gradient: 'from-orange-500 to-amber-600', order: 7 },
-    finance_chair: { label: 'Finance Chair', icon: <Banknote className="h-6 w-6 text-emerald-600" />, gradient: 'from-emerald-500 to-green-600', order: 8 },
-    member: { label: 'Organizing Committee Members', icon: <Users className="h-6 w-6 text-gray-600" />, gradient: 'from-gray-500 to-gray-700', order: 9 }
+  const positionConfig: Record<PositionKey, { label: string; gradient: string; order: number }> = {
+    chief_patron: { label: 'Chief Patron', gradient: 'from-yellow-500 to-amber-600', order: 1 },
+    patron: { label: 'Patrons', gradient: 'from-purple-500 to-indigo-600', order: 2 },
+    general_chair: { label: 'General Chair', gradient: 'from-blue-500 to-blue-700', order: 3 },
+    co_convenor: { label: 'Co-Convenors', gradient: 'from-teal-500 to-cyan-600', order: 4 },
+    convenor: { label: 'Convenors', gradient: 'from-green-500 to-emerald-600', order: 5 },
+    technical_chair: { label: 'Technical Chair', gradient: 'from-red-500 to-rose-600', order: 6 },
+    industrial_chair: { label: 'Industrial Chair', gradient: 'from-orange-500 to-amber-600', order: 7 },
+    finance_chair: { label: 'Finance Chair', gradient: 'from-emerald-500 to-green-600', order: 8 },
+    member: { label: 'Organizing Committee Members', gradient: 'from-gray-500 to-gray-700', order: 9 }
   }
 
   // Helper function to determine position from designation
@@ -490,38 +490,33 @@ export default async function CommitteePage() {
       <Navbar />
 
       {/* Hero Section */}
-      <div className="bg-gradient-to-r from-[#14213d] to-[#1a2844] text-white py-16 relative overflow-hidden">
+      <div className="bg-linear-to-r from-[#14213d] to-[#1a2844] text-white py-10 sm:py-16 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0 bg-gradient-to-br from-[#fca311] to-transparent"></div>
+          <div className="absolute inset-0 bg-linear-to-br from-[#fca311] to-transparent"></div>
         </div>
-        <div className="container mx-auto px-4 text-center relative z-10">
-          <div className="flex items-center justify-center mb-6">
-            <div className="bg-[#fca311]/20 backdrop-blur-sm p-4 rounded-full ring-2 ring-[#fca311]/50">
-              <Users className="h-12 w-12 text-[#fca311]" />
-            </div>
-          </div>
-          <h1 className="text-5xl font-bold mb-4">
+        <div className="container mx-auto px-3 sm:px-4 text-center relative z-10">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4 px-2">
             Conference <span className="text-[#fca311]">Committee</span>
           </h1>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-2xl mx-auto px-2">
             Meet the distinguished members organizing AdComSys 2026
           </p>
         </div>
       </div>
 
       {/* Page Content */}
-      <div className="container mx-auto px-4 py-12 max-w-7xl">
+      <div className="container mx-auto px-3 sm:px-4 py-8 sm:py-12 max-w-7xl">
         
 
         <Tabs defaultValue="organizing" className="w-full">
-          <TabsList className="grid w-full grid-cols-3 mb-8 bg-gradient-to-r from-[#14213d] to-[#1a2844] p-1 h-auto">
-            <TabsTrigger value="organizing" className="text-base data-[state=active]:bg-[#fca311] data-[state=active]:text-white text-gray-300 py-3">
+          <TabsList className="grid w-full grid-cols-1 sm:grid-cols-3 mb-6 sm:mb-8 bg-linear-to-r from-[#14213d] to-[#1a2844] p-1 h-auto gap-1 sm:gap-0">
+            <TabsTrigger value="organizing" className="text-xs sm:text-sm md:text-base data-[state=active]:bg-[#fca311] data-[state=active]:text-white text-gray-300 py-2 sm:py-3">
               Organizing Committee
             </TabsTrigger>
-            <TabsTrigger value="technical" className="text-base data-[state=active]:bg-[#fca311] data-[state=active]:text-white text-gray-300 py-3">
+            <TabsTrigger value="technical" className="text-xs sm:text-sm md:text-base data-[state=active]:bg-[#fca311] data-[state=active]:text-white text-gray-300 py-2 sm:py-3">
               Technical Committee
             </TabsTrigger>
-            <TabsTrigger value="advisory" className="text-base data-[state=active]:bg-[#fca311] data-[state=active]:text-white text-gray-300 py-3">
+            <TabsTrigger value="advisory" className="text-xs sm:text-sm md:text-base data-[state=active]:bg-[#fca311] data-[state=active]:text-white text-gray-300 py-2 sm:py-3">
               Advisory Committee
             </TabsTrigger>
           </TabsList>
@@ -547,9 +542,8 @@ export default async function CommitteePage() {
                     return (
                       <div key={positionKey}>
                         <div className="flex items-center gap-3 mb-6">
-                          {config.icon}
                           <h2 className="text-2xl font-bold text-[#14213d]">{config.label}</h2>
-                          <div className={`h-1 flex-1 bg-gradient-to-r ${config.gradient} rounded`}></div>
+                          <div className={`h-1 flex-1 bg-linear-to-r ${config.gradient} rounded`}></div>
                         </div>
                         <div className={`grid ${gridCols} gap-6`}>
                           {members.map((member) => (
@@ -597,9 +591,8 @@ export default async function CommitteePage() {
 
         {/* Call to Action */}
         <div className="mt-16">
-          <Card className="bg-gradient-to-r from-[#14213d] to-[#1a2844] text-white border-0 shadow-2xl">
+          <Card className="bg-linear-to-r from-[#14213d] to-[#1a2844] text-white border-0 shadow-2xl">
             <CardContent className="p-12 text-center">
-              <Award className="h-16 w-16 mx-auto mb-6 text-[#fca311]" />
               <h3 className="text-3xl font-bold mb-4">
                 Join Our Distinguished Conference
               </h3>
@@ -627,3 +620,5 @@ export default async function CommitteePage() {
     </div>
   )
 }
+
+

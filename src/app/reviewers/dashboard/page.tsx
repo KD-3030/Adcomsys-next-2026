@@ -60,7 +60,7 @@ export default function ReviewerDashboardPage() {
       {/* Welcome Card */}
       <Card className="border-l-4 border-l-blue-600 shadow-lg">
         <CardHeader>
-          <CardTitle className="text-2xl">Welcome back, {user?.full_name || 'Reviewer'}! 👋</CardTitle>
+          <CardTitle className="text-2xl">Welcome back, {user?.full_name || 'Reviewer'}!</CardTitle>
           <CardDescription>
             You are logged in as a <Badge variant="outline" className="ml-2">Reviewer</Badge>
           </CardDescription>
@@ -128,8 +128,7 @@ export default function ReviewerDashboardPage() {
         {/* Profile Card */}
         <Card className="hover:shadow-lg transition-shadow">
           <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <User className="h-5 w-5 text-blue-600" />
+            <CardTitle>
               My Profile
             </CardTitle>
             <CardDescription>Update your reviewer profile information</CardDescription>
@@ -146,8 +145,7 @@ export default function ReviewerDashboardPage() {
         {/* CMT Portal Card */}
         <Card className="hover:shadow-lg transition-shadow">
           <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <ExternalLink className="h-5 w-5 text-blue-600" />
+            <CardTitle>
               CMT Portal
             </CardTitle>
             <CardDescription>Access the Microsoft CMT review system</CardDescription>
@@ -166,8 +164,7 @@ export default function ReviewerDashboardPage() {
       {/* Reviewer Card - View Papers */}
       <Card className="border-l-4 border-l-green-600 shadow-lg">
         <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <Eye className="h-6 w-6 text-green-600" />
+          <CardTitle>
             Review Papers
           </CardTitle>
           <CardDescription>

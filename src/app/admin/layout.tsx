@@ -173,12 +173,10 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             <p className="text-xs font-semibold text-gray-500 uppercase mb-3">Quick Links</p>
             <div className="space-y-2">
               <Link href="/" className="flex items-center text-sm text-gray-600 hover:text-brand-orange transition-colors duration-200">
-                <span>🌐</span>
-                <span className="ml-2">View Website</span>
+                <span>View Website</span>
               </Link>
               <Link href="/authors/dashboard" className="flex items-center text-sm text-gray-600 hover:text-brand-orange transition-colors duration-200">
-                <span>👤</span>
-                <span className="ml-2">User Dashboard</span>
+                <span>User Dashboard</span>
               </Link>
             </div>
           </div>

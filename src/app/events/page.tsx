@@ -2,9 +2,11 @@ import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import { ArrowLeft, Calendar, MapPin, Users, Music, Award, Utensils, Camera, Clock } from 'lucide-react'
+import { Calendar, MapPin, Users, Music, Award, Utensils, Clock } from 'lucide-react'
 import { generateMetadata as createMetadata } from '@/lib/metadata'
 import { Metadata } from 'next'
+import Navbar from '@/components/layout/Navbar'
+import Footer from '@/components/layout/Footer'
 
 export const metadata: Metadata = createMetadata({
   title: 'Conference Events & Activities',
@@ -104,66 +106,62 @@ export default function EventsPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
-      {/* Navigation */}
-      <nav className="bg-white border-b sticky top-0 z-50">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex justify-between items-center">
-            <Link href="/">
-              <Button variant="ghost" size="sm">
-                <ArrowLeft className="mr-2 h-4 w-4" />
-                Back to Home
-              </Button>
-            </Link>
-            <h1 className="text-xl font-bold text-blue-600">AdComSys 2026</h1>
-          </div>
-        </div>
-      </nav>
+    <div className="min-h-screen relative z-10">
+      <Navbar />
 
-      {/* Page Content */}
-      <div className="container mx-auto px-4 py-12 max-w-5xl">
-        <div className="text-center mb-12">
-          <Badge className="mb-4" variant="secondary">Events & Activities</Badge>
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Conference Events</h1>
-          <p className="text-lg text-gray-600">
+      {/* Hero Section */}
+      <div className="bg-linear-to-r from-[#14213d] to-[#1a2844] text-white py-12 sm:py-16 lg:py-20 relative overflow-hidden shadow-2xl">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0 bg-linear-to-br from-[#fca311] to-transparent"></div>
+        </div>
+        <div className="container mx-auto px-3 sm:px-4 text-center relative z-10">
+          <Badge className="mb-4 sm:mb-6 bg-[#fca311] text-[#14213d] hover:bg-[#fca311]/90 text-sm sm:text-base px-3 sm:px-4 py-2">Events & Activities</Badge>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 px-2">
+            Conference <span className="text-[#fca311]">Events</span>
+          </h1>
+          <p className="text-base sm:text-lg md:text-xl text-gray-200 max-w-3xl mx-auto font-medium px-2">
             Beyond technical sessions - Networking, culture, and celebration
           </p>
         </div>
+      </div>
+
+      {/* Page Content */}
+      <div className="container mx-auto px-3 sm:px-4 py-8 sm:py-12 max-w-5xl">
 
         {/* Events Timeline */}
-        <div className="space-y-6 mb-16">
+        <div className="space-y-4 sm:space-y-6 mb-12 sm:mb-16">
           {events.map((event, index) => {
             const Icon = event.icon
             const colors = getColorClasses(event.color)
             
             return (
               <Card key={index} className={`border-l-4 ${colors.border} hover:shadow-lg transition-shadow`}>
-                <CardHeader>
-                  <div className="flex items-start gap-4">
-                    <div className={`${colors.bg} rounded-full p-3`}>
-                      <Icon className={`h-6 w-6 ${colors.text}`} />
+                <CardHeader className="px-4 sm:px-6 py-4 sm:py-6">
+                  <div className="flex flex-col sm:flex-row items-start gap-3 sm:gap-4">
+                    <div className={`${colors.bg} rounded-full p-2 sm:p-3 shrink-0`}>
+                      <Icon className={`h-5 w-5 sm:h-6 sm:w-6 ${colors.text}`} />
                     </div>
                     <div className="flex-1">
-                      <CardTitle className="text-xl mb-2">{event.title}</CardTitle>
-                      <div className="flex flex-wrap gap-4 text-sm text-gray-600">
+                      <CardTitle className="text-lg sm:text-xl mb-2">{event.title}</CardTitle>
+                      <div className="flex flex-wrap gap-2 sm:gap-4 text-xs sm:text-sm text-gray-600">
                         <div className="flex items-center">
-                          <Calendar className="h-4 w-4 mr-1" />
+                          <Calendar className="h-3 w-3 sm:h-4 sm:w-4 mr-1" />
                           {event.date}
                         </div>
                         <div className="flex items-center">
-                          <Clock className="h-4 w-4 mr-1" />
+                          <Clock className="h-3 w-3 sm:h-4 sm:w-4 mr-1" />
                           {event.time}
                         </div>
                         <div className="flex items-center">
-                          <MapPin className="h-4 w-4 mr-1" />
+                          <MapPin className="h-3 w-3 sm:h-4 sm:w-4 mr-1" />
                           {event.location}
                         </div>
                       </div>
                     </div>
                   </div>
                 </CardHeader>
-                <CardContent>
-                  <p className="text-gray-700">{event.description}</p>
+                <CardContent className="px-4 sm:px-6 pb-4 sm:pb-6">
+                  <p className="text-sm sm:text-base text-gray-700">{event.description}</p>
                 </CardContent>
               </Card>
             )
@@ -171,21 +169,20 @@ export default function EventsPage() {
         </div>
 
         {/* Social Activities */}
-        <Card className="mb-12">
-          <CardHeader>
-            <CardTitle className="flex items-center">
-              <Camera className="mr-2 h-6 w-6 text-blue-600" />
+        <Card className="mb-8 sm:mb-12">
+          <CardHeader className="px-4 sm:px-6">
+            <CardTitle className="text-lg sm:text-xl lg:text-2xl">
               Social & Networking Activities
             </CardTitle>
           </CardHeader>
-          <CardContent>
-            <div className="grid md:grid-cols-2 gap-6">
+          <CardContent className="px-4 sm:px-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
               <div>
-                <h3 className="font-semibold text-lg mb-3 text-blue-600">Coffee Breaks</h3>
-                <p className="text-sm text-gray-700 mb-2">
+                <h3 className="font-semibold text-base sm:text-lg mb-2 sm:mb-3 text-blue-600">Coffee Breaks</h3>
+                <p className="text-xs sm:text-sm text-gray-700 mb-2">
                   Daily morning and afternoon tea/coffee breaks provide excellent networking opportunities.
                 </p>
-                <ul className="list-disc list-inside text-sm text-gray-600 space-y-1">
+                <ul className="list-disc list-inside text-xs sm:text-sm text-gray-600 space-y-1">
                   <li>11:30 AM - 12:00 PM (Daily)</li>
                   <li>03:00 PM - 03:30 PM (Daily)</li>
                   <li>Snacks and beverages</li>
@@ -193,11 +190,11 @@ export default function EventsPage() {
               </div>
 
               <div>
-                <h3 className="font-semibold text-lg mb-3 text-green-600">Poster Sessions</h3>
-                <p className="text-sm text-gray-700 mb-2">
+                <h3 className="font-semibold text-base sm:text-lg mb-2 sm:mb-3 text-green-600">Poster Sessions</h3>
+                <p className="text-xs sm:text-sm text-gray-700 mb-2">
                   Interactive poster presentations during lunch breaks in the conference foyer.
                 </p>
-                <ul className="list-disc list-inside text-sm text-gray-600 space-y-1">
+                <ul className="list-disc list-inside text-xs sm:text-sm text-gray-600 space-y-1">
                   <li>May 5 & 6: 12:30 PM - 01:30 PM</li>
                   <li>20+ research posters</li>
                   <li>Direct interaction with authors</li>
@@ -205,11 +202,11 @@ export default function EventsPage() {
               </div>
 
               <div>
-                <h3 className="font-semibold text-lg mb-3 text-purple-600">Exhibition Area</h3>
-                <p className="text-sm text-gray-700 mb-2">
+                <h3 className="font-semibold text-base sm:text-lg mb-2 sm:mb-3 text-purple-600">Exhibition Area</h3>
+                <p className="text-xs sm:text-sm text-gray-700 mb-2">
                   Industry exhibitions and demos showcasing latest technologies and products.
                 </p>
-                <ul className="list-disc list-inside text-sm text-gray-600 space-y-1">
+                <ul className="list-disc list-inside text-xs sm:text-sm text-gray-600 space-y-1">
                   <li>Open throughout conference</li>
                   <li>10+ exhibitors</li>
                   <li>Live product demonstrations</li>
@@ -217,11 +214,11 @@ export default function EventsPage() {
               </div>
 
               <div>
-                <h3 className="font-semibold text-lg mb-3 text-orange-600">Campus Tour</h3>
-                <p className="text-sm text-gray-700 mb-2">
+                <h3 className="font-semibold text-base sm:text-lg mb-2 sm:mb-3 text-orange-600">Campus Tour</h3>
+                <p className="text-xs sm:text-sm text-gray-700 mb-2">
                   Guided tour of UEM Kolkata campus facilities and research labs.
                 </p>
-                <ul className="list-disc list-inside text-sm text-gray-600 space-y-1">
+                <ul className="list-disc list-inside text-xs sm:text-sm text-gray-600 space-y-1">
                   <li>May 6: 04:00 PM - 05:00 PM</li>
                   <li>Optional activity</li>
                   <li>Registration at help desk</li>
@@ -232,19 +229,19 @@ export default function EventsPage() {
         </Card>
 
         {/* Banquet Details */}
-        <Card className="bg-gradient-to-r from-orange-600 to-orange-700 text-white mb-12">
-          <CardContent className="py-12">
+        <Card className="bg-linear-to-r from-[#14213d] to-[#1a2844] text-white mb-8 sm:mb-12">
+          <CardContent className="py-8 sm:py-12 px-4 sm:px-6">
             <div className="text-center">
-              <Utensils className="h-16 w-16 mx-auto mb-4" />
-              <h2 className="text-3xl font-bold mb-4">Conference Banquet Highlights</h2>
-              <p className="text-orange-100 mb-8 text-lg max-w-2xl mx-auto">
+              <Utensils className="h-10 w-10 sm:h-12 sm:w-12 lg:h-16 lg:w-16 mx-auto mb-3 sm:mb-4 text-[#fca311]" />
+              <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-3 sm:mb-4">Conference Banquet Highlights</h2>
+              <p className="text-gray-300 mb-6 sm:mb-8 text-sm sm:text-base lg:text-lg max-w-2xl mx-auto">
                 An evening of fine dining, cultural performances, and networking in an elegant setting
               </p>
               
-              <div className="grid md:grid-cols-3 gap-6 text-left">
-                <div className="bg-white/10 backdrop-blur rounded-lg p-6">
-                  <h3 className="font-semibold text-lg mb-2">Cuisine</h3>
-                  <ul className="text-sm space-y-1 text-orange-100">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 text-left">
+                <div className="bg-white/10 backdrop-blur rounded-lg p-4 sm:p-6">
+                  <h3 className="font-semibold text-base sm:text-lg mb-2 text-[#fca311]">Cuisine</h3>
+                  <ul className="text-xs sm:text-sm space-y-1 text-gray-300">
                     <li>• Multi-cuisine buffet</li>
                     <li>• Indian & International</li>
                     <li>• Vegetarian & Non-veg options</li>
@@ -252,9 +249,9 @@ export default function EventsPage() {
                   </ul>
                 </div>
 
-                <div className="bg-white/10 backdrop-blur rounded-lg p-6">
-                  <h3 className="font-semibold text-lg mb-2">Entertainment</h3>
-                  <ul className="text-sm space-y-1 text-orange-100">
+                <div className="bg-white/10 backdrop-blur rounded-lg p-4 sm:p-6">
+                  <h3 className="font-semibold text-base sm:text-lg mb-2 text-[#fca311]">Entertainment</h3>
+                  <ul className="text-xs sm:text-sm space-y-1 text-gray-300">
                     <li>• Classical dance performances</li>
                     <li>• Bengali folk music</li>
                     <li>• Live band</li>
@@ -262,9 +259,9 @@ export default function EventsPage() {
                   </ul>
                 </div>
 
-                <div className="bg-white/10 backdrop-blur rounded-lg p-6">
-                  <h3 className="font-semibold text-lg mb-2">Networking</h3>
-                  <ul className="text-sm space-y-1 text-orange-100">
+                <div className="bg-white/10 backdrop-blur rounded-lg p-4 sm:p-6">
+                  <h3 className="font-semibold text-base sm:text-lg mb-2 text-[#fca311]">Networking</h3>
+                  <ul className="text-xs sm:text-sm space-y-1 text-gray-300">
                     <li>• Keynote speaker meet & greet</li>
                     <li>• Industry leader interactions</li>
                     <li>• Informal discussions</li>
@@ -273,34 +270,34 @@ export default function EventsPage() {
                 </div>
               </div>
 
-              <p className="mt-8 text-orange-100 text-sm">
-                <strong>Dress Code:</strong> Formal or Traditional Attire | <strong>Venue:</strong> UEM Convention Center
+              <p className="mt-6 sm:mt-8 text-gray-300 text-xs sm:text-sm">
+                <strong className="text-[#fca311]">Dress Code:</strong> Formal or Traditional Attire | <strong className="text-[#fca311]">Venue:</strong> UEM Convention Center
               </p>
             </div>
           </CardContent>
         </Card>
 
         {/* Important Notes */}
-        <Card>
-          <CardHeader>
-            <CardTitle>Important Information</CardTitle>
+        <Card className="border-l-4 border-[#fca311]">
+          <CardHeader className="px-4 sm:px-6">
+            <CardTitle className="text-lg sm:text-xl">Important Information</CardTitle>
           </CardHeader>
-          <CardContent>
-            <ul className="space-y-2 text-sm text-gray-700">
+          <CardContent className="px-4 sm:px-6">
+            <ul className="space-y-2 text-xs sm:text-sm text-gray-700">
               <li className="flex items-start">
-                <Badge className="mr-2 mt-0.5">Note</Badge>
+                <Badge className="mr-2 mt-0.5 shrink-0 text-xs">Note</Badge>
                 <span>Conference banquet is included in all registration categories except Attendee.</span>
               </li>
               <li className="flex items-start">
-                <Badge className="mr-2 mt-0.5">Note</Badge>
+                <Badge className="mr-2 mt-0.5 shrink-0 text-xs">Note</Badge>
                 <span>Workshop has limited seats - register early through your dashboard.</span>
               </li>
               <li className="flex items-start">
-                <Badge className="mr-2 mt-0.5">Note</Badge>
+                <Badge className="mr-2 mt-0.5 shrink-0 text-xs">Note</Badge>
                 <span>All events are subject to minor schedule changes. Check the mobile app for real-time updates.</span>
               </li>
               <li className="flex items-start">
-                <Badge className="mr-2 mt-0.5">Note</Badge>
+                <Badge className="mr-2 mt-0.5 shrink-0 text-xs">Note</Badge>
                 <span>Photography and videography allowed in all sessions except where explicitly prohibited.</span>
               </li>
             </ul>
@@ -308,29 +305,21 @@ export default function EventsPage() {
         </Card>
 
         {/* CTA */}
-        <div className="text-center py-8 mt-12 bg-gradient-to-r from-blue-50 to-blue-100 rounded-lg">
-          <h2 className="text-2xl font-bold mb-4">Don&apos;t Miss These Amazing Events!</h2>
-          <p className="text-gray-600 mb-6">
+        <div className="text-center py-6 sm:py-8 mt-8 sm:mt-12 bg-linear-to-r from-[#fca311]/10 to-[#fca311]/20 rounded-lg px-4">
+          <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-3 sm:mb-4 text-[#14213d]">Don&apos;t Miss These Amazing Events!</h2>
+          <p className="text-sm sm:text-base lg:text-lg text-gray-700 mb-4 sm:mb-6">
             Register now to be part of AdComSys 2026
           </p>
           <Link href="/registration">
-            <Button size="lg">
-              <Calendar className="mr-2 h-5 w-5" />
+            <Button size="lg" className="bg-[#fca311] hover:bg-[#ff9800] text-white text-sm sm:text-base lg:text-lg px-6 sm:px-8 py-4 sm:py-6">
+              <Calendar className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
               Register for Conference
             </Button>
           </Link>
         </div>
       </div>
 
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-8 px-4 mt-16">
-        <div className="container mx-auto text-center">
-          <p className="mb-2">© 2025 AdComSys 2026. All rights reserved.</p>
-          <p className="text-gray-400 text-sm">
-            Organized by Department of CST & CSIT, University of Engineering and Management, Kolkata
-          </p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   )
 }

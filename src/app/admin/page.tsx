@@ -157,8 +157,7 @@ export default function AdminDashboard() {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="border-brand-navy/10">
           <CardHeader>
-            <CardTitle className="flex items-center text-brand-white">
-              <TrendingUp className="h-5 w-5 mr-2 text-brand-orange" />
+            <CardTitle className="text-brand-white">
               Registration Progress
             </CardTitle>
           </CardHeader>
@@ -194,8 +193,7 @@ export default function AdminDashboard() {
 
         <Card className="border-brand-navy/10">
           <CardHeader>
-            <CardTitle className="flex items-center text-brand-white">
-              <CheckCircle className="h-5 w-5 mr-2 text-brand-orange" />
+            <CardTitle className="text-brand-white">
               Quick Actions
             </CardTitle>
           </CardHeader>
@@ -243,8 +241,7 @@ export default function AdminDashboard() {
 
         <Card className="border-brand-navy/10">
           <CardHeader>
-            <CardTitle className="flex items-center text-brand-navy">
-              <Clock className="h-5 w-5 mr-2 text-brand-orange" />
+            <CardTitle className="text-brand-navy">
               Recent Activity
             </CardTitle>
           </CardHeader>

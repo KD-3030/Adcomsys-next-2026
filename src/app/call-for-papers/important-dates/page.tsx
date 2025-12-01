@@ -29,27 +29,27 @@ export default function ImportantDatesPage() {
       <Navbar />
 
       {/* Hero Section */}
-      <div className="bg-linear-to-r from-[#14213d] to-[#1a2844] text-white py-20 relative overflow-hidden shadow-2xl">
+      <div className="bg-linear-to-r from-[#14213d] to-[#1a2844] text-white py-12 sm:py-16 lg:py-20 relative overflow-hidden shadow-2xl">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0 bg-linear-to-br from-[#fca311] to-transparent"></div>
         </div>
-        <div className="container mx-auto px-4 text-center relative z-10">
-          <div className="flex items-center justify-center mb-8">
-            <div className="bg-[#fca311] backdrop-blur-sm p-5 rounded-full ring-4 ring-[#fca311]/30 shadow-xl">
-              <CalendarDays className="h-14 w-14 text-white" />
+        <div className="container mx-auto px-3 sm:px-4 text-center relative z-10">
+          <div className="flex items-center justify-center mb-4 sm:mb-6 lg:mb-8">
+            <div className="bg-[#fca311] backdrop-blur-sm p-3 sm:p-4 lg:p-5 rounded-full ring-4 ring-[#fca311]/30 shadow-xl">
+              <CalendarDays className="h-10 w-10 sm:h-12 sm:w-12 lg:h-16 lg:w-16 text-white" />
             </div>
           </div>
-          <h1 className="text-5xl sm:text-6xl font-bold mb-6">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 px-2">
             Important <span className="text-[#fca311]">Dates</span>
           </h1>
-          <p className="text-xl text-gray-200 max-w-3xl mx-auto font-medium">
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-200 max-w-3xl mx-auto font-medium px-2">
             Mark your calendar with these crucial deadlines for AdComSys 2026
           </p>
         </div>
       </div>
 
       {/* Timeline Section */}
-      <div className="container mx-auto px-4 py-16 max-w-5xl">
+      <div className="container mx-auto px-3 sm:px-4 py-8 sm:py-12 lg:py-16 max-w-5xl">
         <Card className="shadow-2xl border-0 bg-linear-to-b from-gray-50 to-white relative z-10 overflow-hidden">
           <CardContent className="p-8 sm:p-12">
             {/* Timeline */}
@@ -70,7 +70,7 @@ export default function ImportantDatesPage() {
                           {/* Left Side - Date */}
                           <div className="w-1/2 pr-8 text-right">
                             <div className={`inline-block px-6 py-3 rounded-lg shadow-lg transform hover:scale-105 transition-all duration-300 ${item.isHighlight ? 'bg-[#14213d]' : 'bg-[#fca311]'}`}>
-                              <span className={`font-bold text-lg ${item.isHighlight ? 'text-[#fca311]' : 'text-white'}`}>
+                              <span className={`font-bold text-lg sm:text-xl ${item.isHighlight ? 'text-[#fca311]' : 'text-white'}`}>
                                 {item.date}
                               </span>
                             </div>
@@ -82,7 +82,7 @@ export default function ImportantDatesPage() {
                           {/* Right Side - Event */}
                           <div className="w-1/2 pl-8">
                             <div className="bg-white p-4 rounded-lg shadow-md border-l-4 border-[#14213d] hover:shadow-xl transition-all duration-300">
-                              <h3 className="font-bold text-[#14213d] text-lg">{item.event}</h3>
+                              <h3 className="font-bold text-[#14213d] text-lg sm:text-xl">{item.event}</h3>
                             </div>
                           </div>
                         </>
@@ -91,7 +91,7 @@ export default function ImportantDatesPage() {
                           {/* Left Side - Event */}
                           <div className="w-1/2 pr-8 text-right">
                             <div className="bg-white p-4 rounded-lg shadow-md border-r-4 border-[#14213d] hover:shadow-xl transition-all duration-300">
-                              <h3 className="font-bold text-[#14213d] text-lg">{item.event}</h3>
+                              <h3 className="font-bold text-[#14213d] text-lg sm:text-xl">{item.event}</h3>
                             </div>
                           </div>
                           
@@ -101,7 +101,7 @@ export default function ImportantDatesPage() {
                           {/* Right Side - Date */}
                           <div className="w-1/2 pl-8">
                             <div className={`inline-block px-6 py-3 rounded-lg shadow-lg transform hover:scale-105 transition-all duration-300 ${item.isHighlight ? 'bg-[#14213d]' : 'bg-[#fca311]'}`}>
-                              <span className={`font-bold text-lg ${item.isHighlight ? 'text-[#fca311]' : 'text-white'}`}>
+                              <span className={`font-bold text-lg sm:text-xl ${item.isHighlight ? 'text-[#fca311]' : 'text-white'}`}>
                                 {item.date}
                               </span>
                             </div>
@@ -118,12 +118,12 @@ export default function ImportantDatesPage() {
                       {/* Content */}
                       <div className="ml-12 flex-1">
                         <div className={`inline-block px-4 py-2 rounded-lg shadow-lg mb-2 ${item.isHighlight ? 'bg-[#14213d]' : 'bg-[#fca311]'}`}>
-                          <span className={`font-bold text-sm ${item.isHighlight ? 'text-[#fca311]' : 'text-white'}`}>
+                          <span className={`font-bold text-base ${item.isHighlight ? 'text-[#fca311]' : 'text-white'}`}>
                             {item.date}
                           </span>
                         </div>
                         <div className="bg-white p-3 rounded-lg shadow-md border-l-4 border-[#14213d]">
-                          <h3 className="font-bold text-[#14213d] text-base">{item.event}</h3>
+                          <h3 className="font-bold text-[#14213d] text-base sm:text-lg">{item.event}</h3>
                         </div>
                       </div>
                     </div>
@@ -137,7 +137,7 @@ export default function ImportantDatesPage() {
         {/* Note Card */}
         <Card className="mt-8 shadow-xl border-l-4 border-[#fca311] bg-white">
           <CardContent className="p-6">
-            <p className="text-gray-700 text-center">
+            <p className="text-gray-700 text-center text-base sm:text-lg">
               <span className="font-bold text-[#14213d]">Note:</span> All deadlines are at <span className="font-semibold text-[#fca311]">11:59 PM IST</span> on the respective dates.
             </p>
           </CardContent>

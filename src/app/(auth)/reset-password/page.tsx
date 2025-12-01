@@ -87,7 +87,7 @@ function ResetPasswordForm() {
 
   if (!token) {
     return (
-      <div className="min-h-screen flex items-center justify-center p-4 bg-gradient-to-br from-[#14213d] via-[#1a2844] to-[#14213d]">
+      <div className="min-h-screen flex items-center justify-center p-4 bg-linear-to-br from-[#14213d] via-[#1a2844] to-[#14213d]">
         <Card className="w-full max-w-md shadow-2xl">
           <CardContent className="pt-6">
             <p className="text-center text-gray-600">Redirecting...</p>
@@ -99,7 +99,7 @@ function ResetPasswordForm() {
 
   if (isSuccess) {
     return (
-      <div className="min-h-screen flex items-center justify-center p-4 bg-gradient-to-br from-[#14213d] via-[#1a2844] to-[#14213d]">
+      <div className="min-h-screen flex items-center justify-center p-4 bg-linear-to-br from-[#14213d] via-[#1a2844] to-[#14213d]">
         <Card className="w-full max-w-md shadow-2xl border-2 border-green-500">
           <CardHeader className="text-center space-y-2">
             <div className="mx-auto w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-2">
@@ -129,7 +129,7 @@ function ResetPasswordForm() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 bg-gradient-to-br from-[#14213d] via-[#1a2844] to-[#14213d]">
+    <div className="min-h-screen flex items-center justify-center p-4 bg-linear-to-br from-[#14213d] via-[#1a2844] to-[#14213d]">
       <Card className="w-full max-w-md shadow-2xl border-2 border-[#fca311]">
         <CardHeader className="text-center space-y-2">
           <div className="mx-auto w-16 h-16 bg-[#fca311] bg-opacity-10 rounded-full flex items-center justify-center mb-2">
@@ -247,3 +247,4 @@ export default function ResetPasswordPage() {
     </Suspense>
   )
 }
+

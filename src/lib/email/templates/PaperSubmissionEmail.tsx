@@ -29,7 +29,7 @@ export const PaperSubmissionEmail = ({
     <Body style={main}>
       <Container style={container}>
         <Section style={header}>
-          <Heading style={h1}>📄 Paper Submission Received</Heading>
+          <Heading style={h1}>Paper Submission Received</Heading>
         </Section>
         
         <Section style={content}>

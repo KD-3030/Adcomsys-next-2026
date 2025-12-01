@@ -20,38 +20,38 @@ export default function CallForPapersSubPage() {
       <Navbar />
 
       {/* Hero Section */}
-      <div className="bg-linear-to-r from-[#14213d] to-[#1a2844] text-white py-20 relative overflow-hidden shadow-2xl">
+      <div className="bg-linear-to-r from-[#14213d] to-[#1a2844] text-white py-12 sm:py-16 lg:py-20 relative overflow-hidden shadow-2xl">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0 bg-linear-to-br from-[#fca311] to-transparent"></div>
         </div>
-        <div className="container mx-auto px-4 text-center relative z-10">
-          <div className="flex items-center justify-center mb-8">
-            <div className="bg-[#fca311] backdrop-blur-sm p-5 rounded-full ring-4 ring-[#fca311]/30 shadow-xl">
-              <FileText className="h-14 w-14 text-white" />
+        <div className="container mx-auto px-3 sm:px-4 text-center relative z-10">
+          <div className="flex items-center justify-center mb-4 sm:mb-6 lg:mb-8">
+            <div className="bg-[#fca311] backdrop-blur-sm p-3 sm:p-4 lg:p-5 rounded-full ring-4 ring-[#fca311]/30 shadow-xl">
+              <FileText className="h-10 w-10 sm:h-12 sm:w-12 lg:h-14 lg:w-14 text-white" />
             </div>
           </div>
-          <h1 className="text-5xl sm:text-6xl font-bold mb-6">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 px-2">
             Call for <span className="text-[#fca311]">Papers</span>
           </h1>
-          <p className="text-xl text-gray-200 max-w-3xl mx-auto font-medium">
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-200 max-w-3xl mx-auto font-medium px-2">
             Share your innovations and contribute to advancing computing and systems
           </p>
         </div>
       </div>
 
       {/* Page Content */}
-      <div className="container mx-auto px-4 py-12 max-w-5xl">
+      <div className="container mx-auto px-3 sm:px-4 py-8 sm:py-12 max-w-5xl">
 
         {/* Research Tracks */}
         <Card className="mb-8 shadow-2xl border-l-4 border-[#fca311] bg-white relative z-10">
           <CardHeader className="bg-linear-to-r from-[#14213d] to-[#1a2844] text-white py-6">
-            <CardTitle className="text-xl text-[#fca311]"><strong>Call For Papers</strong></CardTitle>
+            <CardTitle className="text-lg sm:text-xl text-[#fca311]"><strong>Call For Papers</strong></CardTitle>
           </CardHeader>
-          <CardContent className="pt-6 bg-white">
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-blue-50 p-5 rounded-lg border-l-4 border-blue-600 shadow-lg hover:shadow-xl transition-all hover:scale-[1.02]">
-                <h3 className="font-bold text-lg mb-3 text-[#14213d]">Track 1: Computing Paradigms & Technologies</h3>
-                <ul className="list-disc list-inside space-y-1 text-sm text-gray-800">
+          <CardContent className="pt-4 sm:pt-6 bg-white">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+              <div className="bg-blue-50 p-4 sm:p-5 rounded-lg border-l-4 border-blue-600 shadow-lg hover:shadow-xl transition-all hover:scale-[1.02]">
+                <h3 className="font-bold text-base sm:text-lg mb-2 sm:mb-3 text-[#14213d]">Track 1: Computing Paradigms & Technologies</h3>
+                <ul className="list-disc list-inside space-y-1 text-xs sm:text-sm text-gray-800">
                   <li>Cloud Computing</li>
                   <li>Fog Computing</li>
                   <li>Dew Computing</li>
@@ -79,9 +79,9 @@ export default function CallForPapersSubPage() {
                 </ul>
               </div>
 
-              <div className="bg-green-50 p-5 rounded-lg border-l-4 border-green-600 shadow-lg hover:shadow-xl transition-all hover:scale-[1.02]">
-                <h3 className="font-bold text-lg mb-3 text-[#14213d]">Track 2: Intelligent Systems & AI</h3>
-                <ul className="list-disc list-inside space-y-1 text-sm text-gray-800">
+              <div className="bg-green-50 p-4 sm:p-5 rounded-lg border-l-4 border-green-600 shadow-lg hover:shadow-xl transition-all hover:scale-[1.02]">
+                <h3 className="font-bold text-base sm:text-lg mb-2 sm:mb-3 text-[#14213d]">Track 2: Intelligent Systems & AI</h3>
+                <ul className="list-disc list-inside space-y-1 text-xs sm:text-sm text-gray-800">
                   <li>Intelligent Systems</li>
                   <li>AI with Robotics</li>
                   <li>AI-based Image Processing</li>
@@ -111,9 +111,9 @@ export default function CallForPapersSubPage() {
                 </ul>
               </div>
 
-              <div className="bg-purple-50 p-5 rounded-lg border-l-4 border-purple-600 shadow-lg hover:shadow-xl transition-all hover:scale-[1.02]">
-                <h3 className="font-bold text-lg mb-3 text-[#14213d]">Track 3: Internet of Things & Applications</h3>
-                <ul className="list-disc list-inside space-y-1 text-sm text-gray-800">
+              <div className="bg-purple-50 p-4 sm:p-5 rounded-lg border-l-4 border-purple-600 shadow-lg hover:shadow-xl transition-all hover:scale-[1.02]">
+                <h3 className="font-bold text-base sm:text-lg mb-2 sm:mb-3 text-[#14213d]">Track 3: Internet of Things & Applications</h3>
+                <ul className="list-disc list-inside space-y-1 text-xs sm:text-sm text-gray-800">
                   <li>IoT in Healthcare</li>
                   <li>IoT in Vehicular Network</li>
                   <li>Industrial IoT</li>
@@ -137,9 +137,9 @@ export default function CallForPapersSubPage() {
                 </ul>
               </div>
 
-              <div className="bg-red-50 p-5 rounded-lg border-l-4 border-red-600 shadow-lg hover:shadow-xl transition-all hover:scale-[1.02]">
-                <h3 className="font-bold text-lg mb-3 text-[#14213d]">Track 4: Cybersecurity & Blockchain</h3>
-                <ul className="list-disc list-inside space-y-1 text-sm text-gray-800">
+              <div className="bg-red-50 p-4 sm:p-5 rounded-lg border-l-4 border-red-600 shadow-lg hover:shadow-xl transition-all hover:scale-[1.02]">
+                <h3 className="font-bold text-base sm:text-lg mb-2 sm:mb-3 text-[#14213d]">Track 4: Cybersecurity & Blockchain</h3>
+                <ul className="list-disc list-inside space-y-1 text-xs sm:text-sm text-gray-800">
                   <li>Various types of Security Systems</li>
                   <li>Malware Protection Systems</li>
                   <li>Phishing Protection Systems</li>

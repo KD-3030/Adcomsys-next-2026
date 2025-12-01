@@ -86,7 +86,7 @@ export default function ReviewsPage() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-gray-50 flex items-center justify-center">
+      <div className="min-h-screen bg-linear-to-b from-blue-50 via-white to-gray-50 flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#fca311] mx-auto mb-4"></div>
           <p className="text-gray-600">Loading reviews...</p>
@@ -97,8 +97,8 @@ export default function ReviewsPage() {
 
   if (userRole !== 'reviewer' && userRole !== 'admin') {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-gray-50">
-        <header className="bg-gradient-to-r from-[#14213d] to-[#1a2844] text-white border-b-4 border-[#fca311] shadow-lg">
+      <div className="min-h-screen bg-linear-to-b from-blue-50 via-white to-gray-50">
+        <header className="bg-linear-to-r from-[#14213d] to-[#1a2844] text-white border-b-4 border-[#fca311] shadow-lg">
           <div className="container mx-auto px-4 py-6">
             <div className="flex items-center gap-4">
               <Link href="/authors/dashboard">
@@ -134,9 +134,9 @@ export default function ReviewsPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-gray-50">
+    <div className="min-h-screen bg-linear-to-b from-blue-50 via-white to-gray-50">
       {/* Header */}
-      <header className="bg-gradient-to-r from-[#14213d] to-[#1a2844] text-white border-b-4 border-[#fca311] shadow-lg">
+      <header className="bg-linear-to-r from-[#14213d] to-[#1a2844] text-white border-b-4 border-[#fca311] shadow-lg">
         <div className="container mx-auto px-4 py-6">
           <div className="flex items-center gap-4">
             <Link href="/authors/dashboard">
@@ -170,7 +170,7 @@ export default function ReviewsPage() {
             <div className="space-y-4">
               {reviews.map((review) => (
                 <Card key={review.id} className="shadow-lg border-l-4 border-[#fca311] hover:shadow-xl transition-shadow">
-                  <CardHeader className="bg-gradient-to-br from-white to-blue-50">
+                  <CardHeader className="bg-linear-to-br from-white to-blue-50">
                     <div className="flex items-start justify-between">
                       <div className="flex-1">
                         <CardTitle className="text-xl text-[#14213d] mb-2">{review.paper_title}</CardTitle>
@@ -231,3 +231,4 @@ export default function ReviewsPage() {
     </div>
   )
 }
+

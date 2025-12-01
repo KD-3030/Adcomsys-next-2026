@@ -150,8 +150,7 @@ export default function ReviewPapersPage() {
       {/* Papers Table */}
       <Card>
         <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <FileText className="h-5 w-5" />
+          <CardTitle>
             Assigned Papers
           </CardTitle>
           <CardDescription>

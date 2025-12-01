@@ -24,7 +24,7 @@ export const WelcomeEmail = ({ name }: WelcomeEmailProps) => (
     <Body style={main}>
       <Container style={container}>
         <Section style={header}>
-          <Heading style={h1}>🎉 Welcome to AdComSys 2026!</Heading>
+          <Heading style={h1}>Welcome to AdComSys 2026!</Heading>
         </Section>
         
         <Section style={content}>

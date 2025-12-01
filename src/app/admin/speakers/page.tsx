@@ -213,7 +213,7 @@ export default function SpeakersPage() {
   return (
     <div className="space-y-6">
       {/* Page Header */}
-      <div className="flex justify-between items-center border-l-4 border-brand-orange bg-gradient-to-r from-brand-navy to-brand-navy/90 text-white p-6 rounded-lg">
+      <div className="flex justify-between items-center border-l-4 border-brand-orange bg-linear-to-r from-brand-navy to-brand-navy/90 text-white p-6 rounded-lg">
         <div>
           <h1 className="text-3xl font-bold">Speakers</h1>
           <p className="text-white/80 mt-1">Manage keynote and invited speakers</p>
@@ -244,7 +244,7 @@ export default function SpeakersPage() {
                       <TableCell>
                         <div className="flex items-center gap-3">
                           {speaker.photo_url ? (
-                            <div className="relative w-12 h-12 flex-shrink-0">
+                            <div className="relative w-12 h-12 shrink-0">
                               <Image
                                 src={speaker.photo_url}
                                 alt={speaker.name}
@@ -253,7 +253,7 @@ export default function SpeakersPage() {
                               />
                             </div>
                           ) : (
-                            <div className="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center flex-shrink-0">
+                            <div className="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center shrink-0">
                               <User className="h-6 w-6 text-gray-400" />
                             </div>
                           )}
@@ -430,3 +430,5 @@ export default function SpeakersPage() {
     </div>
   )
 }
+
+

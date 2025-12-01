@@ -28,11 +28,11 @@ interface PaginatedCommitteeProps {
 function CommitteeMemberCard({ member }: { member: CommitteeMemberData }) {
   return (
     <Card className="overflow-hidden hover:shadow-xl transition-all duration-300 border-l-4 border-[#fca311] shadow-md bg-white relative z-10">
-      <div className="bg-gradient-to-r from-[#14213d] to-[#1a2844] h-2"></div>
+      <div className="bg-linear-to-r from-[#14213d] to-[#1a2844] h-2"></div>
       <CardContent className="p-6 bg-white">
         <div className="flex flex-col items-center text-center gap-4 bg-white relative">
           {member.image_url ? (
-            <div className="relative w-20 h-20 rounded-full overflow-hidden flex-shrink-0 ring-2 ring-[#fca311]">
+            <div className="relative w-20 h-20 rounded-full overflow-hidden shrink-0 ring-2 ring-[#fca311]">
               <Image
                 src={member.image_url}
                 alt={member.name}
@@ -42,7 +42,7 @@ function CommitteeMemberCard({ member }: { member: CommitteeMemberData }) {
               />
             </div>
           ) : (
-            <div className="bg-gradient-to-r from-[#14213d] to-[#1a2844] p-3 rounded-full flex-shrink-0">
+            <div className="bg-linear-to-r from-[#14213d] to-[#1a2844] p-3 rounded-full shrink-0">
               <Users className="h-6 w-6 text-[#fca311]" />
             </div>
           )}
@@ -132,7 +132,7 @@ export default function PaginatedCommittee({ members, itemsPerPage = 24, title }
           <div className="flex items-center gap-3">
             <Users className="h-6 w-6 text-gray-600" />
             <h2 className="text-2xl font-bold text-[#14213d]">{title}</h2>
-            <div className="h-1 w-20 bg-gradient-to-r from-gray-500 to-gray-700 rounded"></div>
+            <div className="h-1 w-20 bg-linear-to-r from-gray-500 to-gray-700 rounded"></div>
           </div>
         )}
         <Badge variant="secondary" className="text-sm">
@@ -245,3 +245,5 @@ export default function PaginatedCommittee({ members, itemsPerPage = 24, title }
     </div>
   )
 }
+
+

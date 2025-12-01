@@ -60,28 +60,27 @@ export default function ContactPage() {
       <Navbar />
 
       {/* Page Content */}
-      <div className="container mx-auto px-4 py-12 sm:py-16 max-w-6xl">
-        <div className="text-center mb-12 sm:mb-16">
-          <Badge className="mb-6 bg-brand-orange text-brand-navy hover:bg-brand-orange/90 text-base px-4 py-2">Get in Touch</Badge>
-          <h1 className="text-5xl sm:text-6xl font-bold text-brand-navy mb-6">Contact Us</h1>
-          <p className="text-xl sm:text-2xl text-gray-700 font-medium max-w-3xl mx-auto">
+      <div className="container mx-auto px-3 sm:px-4 py-8 sm:py-12 lg:py-16 max-w-6xl">
+        <div className="text-center mb-8 sm:mb-12 lg:mb-16">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-brand-navy mb-4 sm:mb-6 px-2">Contact Us</h1>
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-700 font-medium max-w-3xl mx-auto px-2">
             Have questions? We&apos;re here to help!
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 sm:gap-10 mb-12 sm:mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 mb-8 sm:mb-12 lg:mb-16">
           {/* Contact Form */}
           <Card className="shadow-2xl border-2 border-brand-navy/20 bg-[#fcc111] relative z-10 hover:shadow-2xl transition-all">
-            <CardHeader className="bg-gradient-to-r from-brand-navy to-brand-navy/90 text-white py-6">
-              <CardTitle className="text-2xl sm:text-3xl">Send us a Message</CardTitle>
-              <CardDescription className="text-gray-200 text-base">
+            <CardHeader className="bg-linear-to-r from-brand-navy to-brand-navy/90 text-white py-4 sm:py-6 px-4 sm:px-6">
+              <CardTitle className="text-xl sm:text-2xl lg:text-3xl">Send us a Message</CardTitle>
+              <CardDescription className="text-gray-200 text-sm sm:text-base">
                 Fill out the form below and we&apos;ll respond within 24 hours
               </CardDescription>
             </CardHeader>
-            <CardContent className="bg-[#fcc111] pt-6">
+            <CardContent className="bg-[#fcc111] pt-4 sm:pt-6 px-4 sm:px-6">
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div>
-                  <Label htmlFor="name" className="text-black font-bold text-black">Full Name *</Label>
+                  <Label htmlFor="name" className="text-black font-bold">Full Name *</Label>
                   <Input
                     id="name"
                     name="name"
@@ -168,19 +167,18 @@ export default function ContactPage() {
           </Card>
 
           {/* Contact Information */}
-          <div className="space-y-8">
+          <div className="space-y-6 sm:space-y-8">
             <Card className="shadow-2xl border-2 border-brand-navy/20 bg-[#fcc111] relative z-10 hover:shadow-2xl transition-all">
-              <CardHeader className="bg-gradient-to-r from-brand-navy to-brand-navy/90 text-white py-6">
-                <CardTitle className="flex items-center text-2xl sm:text-3xl">
-                  <Building2 className="mr-3 h-8 w-8 text-brand-orange" />
+              <CardHeader className="bg-linear-to-r from-brand-navy to-brand-navy/90 text-white py-4 sm:py-6 px-4 sm:px-6">
+                <CardTitle className="text-xl sm:text-2xl lg:text-3xl">
                   Conference Venue
                 </CardTitle>
               </CardHeader>
-              <CardContent className="space-y-5 pt-6 bg-[#fcc111]">
+              <CardContent className="space-y-4 sm:space-y-5 pt-4 sm:pt-6 px-4 sm:px-6 bg-[#fcc111]">
                 <div>
-                  <h3 className="font-bold text-lg mb-3 text-[#14213d]">University of Engineering and Management</h3>
-                  <p className="text-base text-gray-800 flex items-start leading-relaxed">
-                    <MapPin className="h-4 w-4 mr-2 mt-0.5 flex-shrink-0 text-black" />
+                  <h3 className="font-bold text-base sm:text-lg mb-2 sm:mb-3 text-[#14213d]">University of Engineering and Management</h3>
+                  <p className="text-sm sm:text-base text-gray-800 flex items-start leading-relaxed">
+                    <MapPin className="h-4 w-4 mr-2 mt-0.5 shrink-0 text-black" />
                     <span>
                       University Area, Plot No. III, B/5, New Town, Action Area III,<br />
                       Kolkata, West Bengal 700160, India
@@ -203,9 +201,8 @@ export default function ContactPage() {
             </Card>
 
             <Card className="shadow-2xl border-2 border-brand-navy/20 bg-[#FCA311] relative z-10 hover:shadow-2xl transition-all">
-              <CardHeader className="bg-gradient-to-r from-brand-navy to-brand-navy/90 text-white py-6">
-                <CardTitle className="flex items-center text-2xl sm:text-3xl">
-                  <Mail className="mr-3 h-8 w-8 text-brand-orange" />
+              <CardHeader className="bg-linear-to-r from-brand-navy to-brand-navy/90 text-white py-6">
+                <CardTitle className="text-2xl sm:text-3xl">
                   Contact Details
                 </CardTitle>
               </CardHeader>
@@ -241,106 +238,22 @@ export default function ContactPage() {
                 </div>
 
                 <div>
-                  <h4 className="font-bold text-base text-gray-700 mb-3">Phone</h4>
+                  <h4 className="font-bold text-base text-gray-700 mb-3">Convenor</h4>
+                  <p className="text-base text-black font-medium mb-2">Prof. Dr. Maumita Chakraborty</p>
                   <div className="flex items-center text-base">
-                    <Phone className="h-5 w-5 mr-3 text-blue-600" />
-                    <a href="tel:+919876543210" className="hover:underline text-black font-medium">
-                      +91 98765 43210
+                    <Mail className="h-5 w-5 mr-3 text-blue-600" />
+                    <a href="mailto:adcomsys@uem.edu.in" className="hover:underline text-black font-medium">
+                      adcomsys@uem.edu.in
                     </a>
                   </div>
-                  <div className="flex items-center text-base mt-2">
-                    <Phone className="h-5 w-5 mr-3 text-blue-600" />
-                    <a href="tel:+919876543211" className="hover:underline text-black font-medium">
-                      +91 98765 43211
-                    </a>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-gradient-to-r from-brand-navy to-brand-navy/90 text-white shadow-2xl border-4 border-brand-orange relative z-10">
-              <CardContent className="py-8">
-                <h3 className="font-bold text-2xl mb-5 flex items-center">
-                  <CheckCircle className="mr-3 h-7 w-7 text-brand-orange" />
-                  Office Hours
-                </h3>
-                <div className="space-y-3 text-base text-gray-200">
-                  <p><strong className="text-white font-bold">Monday - Friday:</strong> 9:00 AM - 6:00 PM (IST)</p>
-                  <p><strong className="text-white font-bold">Saturday:</strong> 10:00 AM - 4:00 PM (IST)</p>
-                  <p><strong className="text-white font-bold">Sunday:</strong> Closed</p>
-                  <p className="pt-3 text-sm">
-                    * During conference days (May 5-7, 2026), support desk will be available 8:00 AM - 8:00 PM
-                  </p>
                 </div>
               </CardContent>
             </Card>
           </div>
         </div>
 
-        {/* Key Contacts */}
-        <Card className="shadow-2xl border-2 border-brand-navy/20 bg-[#fcc111] relative z-10">
-          <CardHeader className="bg-gradient-to-r from-brand-navy to-brand-navy/90 text-white py-6">
-            <CardTitle className="text-2xl sm:text-3xl">Conference Organizing Team</CardTitle>
-            <CardDescription className="text-gray-200 text-base">Reach out to our team members for specific inquiries</CardDescription>
-          </CardHeader>
-          <CardContent className="pt-8 bg-white">
-            <div className="grid md:grid-cols-3 gap-8">
-              <div>
-                <h3 className="font-bold text-lg mb-2 text-[#14213d]">Dr. Amit Kumar</h3>
-                <p className="text-base text-gray-700 mb-3 font-medium">General Chair</p>
-                <div className="space-y-2">
-                  <div className="flex items-center text-base">
-                    <Mail className="h-4 w-4 mr-2 text-brand-orange" />
-                    <a href="mailto:amit.kumar@uem.edu.in" className="hover:underline text-brand-orange">
-                      amit.kumar@uem.edu.in
-                    </a>
-                  </div>
-                  <div className="flex items-center text-base">
-                    <Phone className="h-4 w-4 mr-2 text-brand-orange" />
-                    <span className="text-gray-800">+91 98765 00001</span>
-                  </div>
-                </div>
-              </div>
-
-              <div>
-                <h3 className="font-bold text-lg mb-2 text-[#14213d]">Dr. Priya Singh</h3>
-                <p className="text-base text-gray-700 mb-3 font-medium">Technical Program Chair</p>
-                <div className="space-y-2">
-                  <div className="flex items-center text-base">
-                    <Mail className="h-4 w-4 mr-2 text-brand-orange" />
-                    <a href="mailto:priya.singh@uem.edu.in" className="hover:underline text-brand-orange">
-                      priya.singh@uem.edu.in
-                    </a>
-                  </div>
-                  <div className="flex items-center text-base">
-                    <Phone className="h-4 w-4 mr-2 text-brand-orange" />
-                    <span className="text-gray-800">+91 98765 00002</span>
-                  </div>
-                </div>
-              </div>
-
-              <div>
-                <h3 className="font-bold text-lg mb-2 text-[#14213d]">Mr. Rahul Sharma</h3>
-                <p className="text-base text-gray-700 mb-3 font-medium">Registration Chair</p>
-                <div className="space-y-2">
-                  <div className="flex items-center text-base">
-                    <Mail className="h-4 w-4 mr-2 text-brand-orange" />
-                    <a href="mailto:rahul.sharma@uem.edu.in" className="hover:underline text-brand-orange">
-                      rahul.sharma@uem.edu.in
-                    </a>
-                  </div>
-                  <div className="flex items-center text-base">
-                    <Phone className="h-4 w-4 mr-2 text-brand-orange" />
-                    <span className="text-gray-800">+91 98765 00003</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-
         {/* FAQ Link */}
-        <div className="text-center py-12 sm:py-16 mt-12 sm:mt-16 bg-gradient-to-r from-brand-navy to-brand-navy/90 rounded-lg border-4 border-brand-orange shadow-2xl relative z-10 text-white">
+        <div className="text-center py-12 sm:py-16 mt-12 sm:mt-16 bg-linear-to-r from-brand-navy to-brand-navy/90 rounded-lg border-4 border-brand-orange shadow-2xl relative z-10 text-white">
           <h2 className="text-3xl sm:text-4xl font-bold mb-6">Looking for Quick Answers?</h2>
           <p className="text-gray-200 mb-6 sm:mb-8 px-4 text-lg sm:text-xl font-medium max-w-2xl mx-auto">
             Check out our FAQ section for commonly asked questions

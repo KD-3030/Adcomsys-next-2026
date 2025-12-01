@@ -24,7 +24,7 @@ export const PaymentApprovedEmail = ({ name, transactionId }: PaymentApprovedEma
     <Body style={main}>
       <Container style={container}>
         <Section style={header}>
-          <Heading style={h1}>✅ Payment Approved!</Heading>
+          <Heading style={h1}>Payment Approved!</Heading>
         </Section>
         
         <Section style={content}>

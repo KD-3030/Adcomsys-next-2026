@@ -53,15 +53,7 @@ export default function AboutPage() {
           </CardHeader>
           <CardContent className="space-y-4 text-white-700 pt-6">
             <p className="leading-relaxed text-base sm:text-lg">
-              The <strong className="text-white">Third International Conference on Advanced Computing and Systems (AdComSys 2026) </strong> 
-              is a premier forum for researchers, academicians, and industry professionals to present their 
-              latest research findings, exchange ideas, and explore emerging trends in advanced computing 
-              and systems.
-            </p>
-            <p className="leading-relaxed text-base sm:text-lg">
-              Building upon the success of previous editions, AdComSys 2026 aims to foster collaboration 
-              and innovation in cutting-edge technologies including Artificial Intelligence, Machine Learning, 
-              Internet of Things, Cloud Computing, Cybersecurity, and more.
+              The <strong className="text-white">Third International Conference on Advanced Computing and Systems (AdComSys 2026)</strong> promotes a platform for exchanging ideas including spanning theory, practical implementations, and interdisciplinary applications, from generative AI, advanced computing, and IoT to bioinformatics and computational biology. Through peer‑reviewed paper presentations, tutorials, keynote and plenary sessions, and opportunities for networking among academia and industry, participants are encouraged to showcase novel work that addresses real‑world challenges while advancing scientific understanding.
             </p>
           </CardContent>
         </Card>
@@ -118,54 +110,6 @@ export default function AboutPage() {
           </CardContent>
         </Card>
 
-        {/* Conference Highlights */}
-        <Card className="mb-8 border-l-4 border-[#FFCC5C] shadow-lg hover:shadow-xl transition-shadow">
-          <CardHeader className="bg-linear-to-r from-[#14213d] to-[#1a2844] text-white rounded-t-lg">
-            <CardTitle className="text-xl sm:text-2xl">
-              Conference Highlights
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="pt-6">
-            <div className="grid md:grid-cols-2 gap-4">
-              <div className="space-y-3">
-                <div className="flex items-start group">
-                  <div className="w-2 h-2 bg-[#FFCC5C] rounded-full mt-2 mr-3 group-hover:scale-150 transition-transform"></div>
-                  <p className="text-white-700 text-base sm:text-lg group-hover:text-[#FFCC5C] transition-colors">Keynote speeches by renowned researchers and industry leaders</p>
-                </div>
-                <div className="flex items-start group">
-                  <div className="w-2 h-2 bg-[#FFCC5C] rounded-full mt-2 mr-3 group-hover:scale-150 transition-transform"></div>
-                  <p className="text-white-700 text-base sm:text-lg group-hover:text-[#FFCC5C] transition-colors">Technical paper presentations across multiple tracks</p>
-                </div>
-                <div className="flex items-start group">
-                  <div className="w-2 h-2 bg-[#FFCC5C] rounded-full mt-2 mr-3 group-hover:scale-150 transition-transform"></div>
-                  <p className="text-white-700 text-base sm:text-lg group-hover:text-[#FFCC5C] transition-colors">Panel discussions on emerging technologies</p>
-                </div>
-                <div className="flex items-start group">
-                  <div className="w-2 h-2 bg-[#FFCC5C] rounded-full mt-2 mr-3 group-hover:scale-150 transition-transform"></div>
-                  <p className="text-white-700 text-base sm:text-lg group-hover:text-[#FFCC5C] transition-colors">Networking opportunities with peers and experts</p>
-                </div>
-              </div>
-              <div className="space-y-3">
-                <div className="flex items-start group">
-                  <div className="w-2 h-2 bg-[#FFCC5C] rounded-full mt-2 mr-3 group-hover:scale-150 transition-transform"></div>
-                  <p className="text-white-700 text-base sm:text-lg group-hover:text-[#FFCC5C] transition-colors">Publication in Springer LNNS (SCOPUS indexed)</p>
-                </div>
-                <div className="flex items-start group">
-                  <div className="w-2 h-2 bg-[#FFCC5C] rounded-full mt-2 mr-3 group-hover:scale-150 transition-transform"></div>
-                  <p className="text-white-700 text-base sm:text-lg group-hover:text-[#FFCC5C] transition-colors">Workshops and tutorials on latest technologies</p>
-                </div>
-                <div className="flex items-start group">
-                  <div className="w-2 h-2 bg-[#FFCC5C] rounded-full mt-2 mr-3 group-hover:scale-150 transition-transform"></div>
-                  <p className="text-white-700 text-base sm:text-lg group-hover:text-[#FFCC5C] transition-colors">Industry-academia collaboration opportunities</p>
-                </div>
-                <div className="flex items-start group">
-                  <div className="w-2 h-2 bg-[#FFCC5C] rounded-full mt-2 mr-3 group-hover:scale-150 transition-transform"></div>
-                  <p className="text-white-700 text-base sm:text-lg group-hover:text-[#FFCC5C] transition-colors">Best paper awards and recognition</p>
-                </div>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
 
         {/* Research Areas */}
         <Card className="mb-8 border-l-4 border-[#FFCC5C] shadow-lg hover:shadow-xl transition-shadow">

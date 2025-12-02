@@ -108,6 +108,20 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Kolkata Skyline Banner */}
+        <section className="w-full bg-gradient-to-b from-[#ADD8E6] to-white">
+          <div className="container mx-auto px-0">
+            <Image
+              src="/assets/images/kolkata-skyline.png"
+              alt="Kolkata Skyline with UEM Building"
+              width={1920}
+              height={400}
+              className="w-full h-auto object-contain"
+              priority={false}
+            />
+          </div>
+        </section>
+
         {/* About the Conference & Announcements Section - Side by Side */}
         <section className="py-10 sm:py-16 lg:py-20 bg-white">
           <div className="container mx-auto px-3 sm:px-4 max-w-7xl">

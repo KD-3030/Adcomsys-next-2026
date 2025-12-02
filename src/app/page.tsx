@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import { StructuredData } from '@/components/layout/StructuredData'
 import Navbar from '@/components/layout/Navbar'
+import Footer from '@/components/layout/Footer'
 
 export default function Home() {
   return (
@@ -47,7 +48,7 @@ export default function Home() {
           <div className="flex-1 flex flex-col items-center justify-center">
             {/* Presents Line */}
             <p className="text-[#14213d]/90 text-sm sm:text-base md:text-lg lg:text-xl mb-2 sm:mb-3 px-2 text-center">
-              Department of CST & CSIT, UEM Kolkata Presents 3<sup>rd</sup> edition of
+              UEM Kolkata Presents 3<sup>rd</sup> edition of
             </p>
 
             {/* Conference Title */}
@@ -56,7 +57,7 @@ export default function Home() {
             </h1>
 
             {/* Conference Subtitle */}
-            <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-semibold text-[#fca311] text-center mb-3 sm:mb-5 max-w-4xl px-2 sm:px-4">
+            <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-semibold text-[#FFCC5C] text-center mb-3 sm:mb-5 max-w-4xl px-2 sm:px-4 [text-shadow:_-1px_-1px_0_#14213d,_1px_-1px_0_#14213d,_-1px_1px_0_#14213d,_1px_1px_0_#14213d]">
               Third International Conference on Advanced Computing and Systems
             </h2>
 
@@ -67,30 +68,25 @@ export default function Home() {
 
             {/* Location */}
             <div className="text-center mb-4 sm:mb-8 px-2">
-              <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-semibold text-[#fca311] mb-1 sm:mb-2">
+              <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-semibold text-[#FFCC5C] mb-1 sm:mb-2 [text-shadow:_-1px_-1px_0_#14213d,_1px_-1px_0_#14213d,_-1px_1px_0_#14213d,_1px_1px_0_#14213d]">
                 University of Engineering and Management, Kolkata
               </p>
               <p className="text-[#14213d]/80 text-xs sm:text-sm md:text-base lg:text-lg">
                 University Area, Plot No. III-B/5, New Town, Action Area III, Kolkata, West Bengal 700160
               </p>
+
+              <p className="text-[#14213d]/80 text-xs sm:text-sm md:text-base lg:text-lg">
+                Organized by Department of CST, CSIT, CSE (Cybersecurity) and CSE (Network)
+              </p>
             </div>
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-6 lg:gap-8 mb-4 sm:mb-8">
-              <Link href="/registration">
-                <Button 
-                  size="lg" 
-                  variant="outline"
-                  className="min-w-[160px] sm:min-w-[180px] border-2 border-white text-[#14213d] bg-white hover:bg-transparent hover:text-white font-semibold text-sm sm:text-base lg:text-lg px-6 sm:px-8 py-4 sm:py-6 transition-all duration-300"
-                >
-                  Register Now
-                </Button>
-              </Link>
               <Link href="https://cmt3.research.microsoft.com/AdComSys2025" target="_blank">
                 <Button 
                   size="lg" 
                   variant="outline"
-                  className="min-w-[160px] sm:min-w-[180px] border-2 border-[#fca311] text-[#14213d] bg-[#fca311] hover:bg-transparent hover:text-[#fca311] font-semibold text-sm sm:text-base lg:text-lg px-6 sm:px-8 py-4 sm:py-6 transition-all duration-300"
+                  className="min-w-[160px] sm:min-w-[180px] border-2 border-[#FFCC5C] text-[#14213d] bg-[#FFCC5C] hover:bg-transparent hover:text-[#FFCC5C] font-semibold text-sm sm:text-base lg:text-lg px-6 sm:px-8 py-4 sm:py-6 transition-all duration-300"
                 >
                   Submit Your Paper
                 </Button>
@@ -102,7 +98,7 @@ export default function Home() {
               <p className="text-[#14213d]/70 text-xs sm:text-sm md:text-base lg:text-lg mb-1 sm:mb-2">
                 All accepted papers will be published in
               </p>
-              <p className="text-[#fca311] font-semibold text-sm sm:text-base md:text-lg lg:text-xl">
+              <p className="text-[#FFCC5C] font-semibold text-sm sm:text-base md:text-lg lg:text-xl">
                 SCOPUS Indexed Lecture Notes in Networks and Systems by Springer
               </p>
               <p className="text-[#14213d]/50 text-xs sm:text-sm mt-1 italic">
@@ -120,22 +116,14 @@ export default function Home() {
             </h2>
             <div className="space-y-4 sm:space-y-6 text-gray-700">
               <p className="text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed text-justify">
-                The <strong className="text-[#14213d]">Third International Conference on Advanced Computing and Systems (AdComSys 2026)</strong> is a premier forum for researchers, academicians, and industry professionals to present their latest research findings, exchange ideas, and explore emerging trends in advanced computing and systems.
+                The <strong>Third International Conference on Advanced Computing and Systems (AdComSys 2026)</strong> promotes a platform for exchanging ideas including spanning theory, practical implementations, and interdisciplinary applications, from generative AI, advanced computing, and IoT to bioinformatics and computational biology. Through peer‑reviewed paper presentations, tutorials, keynote and plenary sessions, and opportunities for networking among academia and industry, participants are encouraged to showcase novel work that addresses real‑world challenges while advancing scientific understanding. AdComSys 2026 seeks to nurture collaborations, inspire innovation, and accelerate progress in intelligent systems, sustainable technologies, and future computational paradigms across India and the global research community.
               </p>
-              <p className="text-base sm:text-lg lg:text-xl leading-relaxed text-justify">
-                Building upon the success of previous editions, AdComSys 2026 aims to foster collaboration and innovation in cutting-edge technologies including Artificial Intelligence, Machine Learning, Internet of Things, Cloud Computing, Cybersecurity, and more.
-              </p>
-              <div className="bg-[#14213d] text-white p-6 sm:p-8 rounded-lg mt-8">
-                <p className="text-base sm:text-lg lg:text-xl leading-relaxed text-center">
-                  All accepted papers will be published in <strong className="text-[#fca311]">Springer&apos;s Lecture Notes in Networks and Systems (LNNS)</strong>, which is indexed in SCOPUS, ensuring global visibility for your research.
-                </p>
-              </div>
             </div>
             <div className="text-center mt-10">
               <Link href="/about">
                 <Button 
                   variant="outline"
-                  className="border-2 border-[#14213d] text-[#14213d] hover:bg-[#14213d] hover:text-white font-semibold text-base sm:text-lg px-8 py-4 transition-all duration-300"
+                  className="border-2 border-[#14213d] text-white hover:bg-[#14213d] hover:text-white font-semibold text-base sm:text-lg px-8 py-4 transition-all duration-300"
                 >
                   Read More
                 </Button>
@@ -145,6 +133,7 @@ export default function Home() {
         </section>
 
       </div>
+      <Footer />
     </>
   )
 }

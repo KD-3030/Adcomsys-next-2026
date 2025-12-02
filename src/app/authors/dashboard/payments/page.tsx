@@ -100,7 +100,7 @@ export default function PaymentsPage() {
     return (
       <div className="min-h-screen bg-linear-to-b from-blue-50 via-white to-gray-50 flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#fca311] mx-auto mb-4"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#FFCC5C] mx-auto mb-4"></div>
           <p className="text-gray-600">Loading payments...</p>
         </div>
       </div>
@@ -110,7 +110,7 @@ export default function PaymentsPage() {
   return (
     <div className="min-h-screen bg-linear-to-b from-blue-50 via-white to-gray-50">
       {/* Header */}
-      <header className="bg-linear-to-r from-[#14213d] to-[#1a2844] text-white border-b-4 border-[#fca311] shadow-lg">
+      <header className="bg-linear-to-r from-[#14213d] to-[#1a2844] text-white border-b-4 border-[#FFCC5C] shadow-lg">
           <div className="container mx-auto px-4 py-6">
             <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
@@ -127,7 +127,7 @@ export default function PaymentsPage() {
             </div>
             <Button 
               onClick={() => setIsUploadOpen(true)}
-              className="bg-[#fca311] hover:bg-[#ff9800] text-white"
+              className="bg-[#FFCC5C] hover:bg-[#ff9800] text-white"
             >
               <Upload className="mr-2 h-4 w-4" />
               Upload Payment Proof
@@ -169,7 +169,7 @@ export default function PaymentsPage() {
 
           {/* Payments List */}
           {payments.length === 0 ? (
-            <Card className="shadow-lg border-l-4 border-[#fca311]">
+            <Card className="shadow-lg border-l-4 border-[#FFCC5C]">
               <CardContent className="flex flex-col items-center justify-center py-16">
                 <CreditCard className="h-24 w-24 text-gray-300 mb-4" />
                 <h3 className="text-2xl font-bold text-[#14213d] mb-2">No Payment Records</h3>
@@ -178,7 +178,7 @@ export default function PaymentsPage() {
                 </p>
                 <Button 
                   onClick={() => setIsUploadOpen(true)}
-                  className="bg-[#fca311] hover:bg-[#ff9800] text-white"
+                  className="bg-[#FFCC5C] hover:bg-[#ff9800] text-white"
                 >
                   <Upload className="mr-2 h-4 w-4" />
                   Upload Payment Proof
@@ -188,7 +188,7 @@ export default function PaymentsPage() {
           ) : (
             <div className="space-y-4">
               {payments.map((payment) => (
-                <Card key={payment.id} className="shadow-lg border-l-4 border-[#fca311] hover:shadow-xl transition-shadow">
+                <Card key={payment.id} className="shadow-lg border-l-4 border-[#FFCC5C] hover:shadow-xl transition-shadow">
                   <CardHeader className="bg-linear-to-br from-white to-blue-50">
                     <div className="flex items-start justify-between">
                       <div className="flex-1">
@@ -228,7 +228,7 @@ export default function PaymentsPage() {
                         size="sm"
                         variant="outline"
                         onClick={() => window.open(payment.screenshot_url, '_blank')}
-                        className="border-[#fca311] text-[#fca311] hover:bg-[#fca311] hover:text-white"
+                        className="border-[#FFCC5C] text-[#FFCC5C] hover:bg-[#FFCC5C] hover:text-white"
                       >
                         <Eye className="mr-2 h-4 w-4" />
                         View Receipt

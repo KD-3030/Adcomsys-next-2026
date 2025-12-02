@@ -1,8 +1,7 @@
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
-import { FileText, CheckCircle, Clock, Award } from 'lucide-react'
+import { FileText, Award } from 'lucide-react'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import { generateMetadata as createMetadata } from '@/lib/metadata'
@@ -23,16 +22,16 @@ export default function CallForPapersPage() {
       {/* Hero Section */}
       <div className="bg-linear-to-r from-[#14213d] to-[#1a2844] text-white py-12 sm:py-16 lg:py-20 relative overflow-hidden shadow-2xl">
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0 bg-linear-to-br from-[#fca311] to-transparent"></div>
+          <div className="absolute inset-0 bg-linear-to-br from-[#FFCC5C] to-transparent"></div>
         </div>
         <div className="container mx-auto px-3 sm:px-4 text-center relative z-10">
           <div className="flex items-center justify-center mb-4 sm:mb-6 lg:mb-8">
-            <div className="bg-[#fca311] backdrop-blur-sm p-3 sm:p-4 lg:p-5 rounded-full ring-4 ring-[#fca311]/30 shadow-xl">
+            <div className="bg-[#FFCC5C] backdrop-blur-sm p-3 sm:p-4 lg:p-5 rounded-full ring-4 ring-[#FFCC5C]/30 shadow-xl">
               <FileText className="h-10 w-10 sm:h-12 sm:w-12 lg:h-16 lg:w-16 text-white" />
             </div>
           </div>
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 px-2">
-            Call for <span className="text-[#fca311]">Papers</span>
+            Call for <span className="text-[#FFCC5C]">Papers</span>
           </h1>
           <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-200 max-w-3xl mx-auto font-medium px-2">
             Share your innovations and contribute to advancing computing and systems
@@ -44,14 +43,14 @@ export default function CallForPapersPage() {
       <div className="container mx-auto px-3 sm:px-4 py-8 sm:py-12 max-w-5xl">
 
         {/* Submission Guidelines */}
-        <Card className="mb-8 shadow-2xl border-l-4 border-[#fca311] bg-white relative z-10">
+        <Card className="mb-8 shadow-2xl border-l-4 border-[#FFCC5C] bg-white relative z-10">
           <CardHeader className="bg-linear-to-r from-[#14213d] to-[#1a2844] text-white py-6">
             <CardTitle className="text-xl">
               Submission Guidelines
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-4 text-gray-800 pt-6 bg-white">
-            <div className="border-l-4 border-[#fca311] bg-orange-50 p-5 rounded-lg shadow-md">
+            <div className="border-l-4 border-[#FFCC5C] bg-orange-50 p-5 rounded-lg shadow-md">
               <h3 className="font-bold mb-3 text-[#14213d] text-lg">Important Notes:</h3>
               <ul className="list-disc list-inside space-y-2 text-base text-gray-800">
                 <li>Papers must be original and not published elsewhere</li>
@@ -65,9 +64,9 @@ export default function CallForPapersPage() {
         </Card>
 
         {/* Research Tracks */}
-        <Card className="mb-8 shadow-2xl border-l-4 border-[#fca311] bg-white relative z-10">
+        <Card className="mb-8 shadow-2xl border-l-4 border-[#FFCC5C] bg-white relative z-10">
           <CardHeader className="bg-linear-to-r from-[#14213d] to-[#1a2844] text-white py-6">
-            <CardTitle className="text-xl text-[#fca311]"> <strong>Call For Papers</strong></CardTitle>
+            <CardTitle className="text-xl text-[#FFCC5C]"> <strong>Call For Papers</strong></CardTitle>
           </CardHeader>
           <CardContent className="pt-4 sm:pt-6 bg-white">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
@@ -202,35 +201,35 @@ export default function CallForPapersPage() {
           <CardContent className="pt-6 bg-white">
             <div className="space-y-4">
               <div className="flex items-start hover:bg-blue-50 p-4 rounded-lg transition-all hover:shadow-md">
-                <div className="bg-[#fca311] text-white rounded-full w-10 h-10 flex items-center justify-center shrink-0 mr-4 font-bold text-lg shadow-lg">1</div>
+                <div className="bg-[#FFCC5C] text-white rounded-full w-10 h-10 flex items-center justify-center shrink-0 mr-4 font-bold text-lg shadow-lg">1</div>
                 <div>
                   <h4 className="font-bold text-[#14213d] text-lg mb-1">Submission</h4>
                   <p className="text-base text-gray-700">Submit your paper through Microsoft CMT portal by the deadline</p>
                 </div>
               </div>
               <div className="flex items-start hover:bg-blue-50 p-4 rounded-lg transition-all hover:shadow-md">
-                <div className="bg-[#fca311] text-white rounded-full w-10 h-10 flex items-center justify-center shrink-0 mr-4 font-bold text-lg shadow-lg">2</div>
+                <div className="bg-[#FFCC5C] text-white rounded-full w-10 h-10 flex items-center justify-center shrink-0 mr-4 font-bold text-lg shadow-lg">2</div>
                 <div>
                   <h4 className="font-bold text-[#14213d] text-lg mb-1">Initial Screening</h4>
                   <p className="text-base text-gray-700">Papers are checked for format compliance and plagiarism</p>
                 </div>
               </div>
               <div className="flex items-start hover:bg-blue-50 p-4 rounded-lg transition-all hover:shadow-md">
-                <div className="bg-[#fca311] text-white rounded-full w-10 h-10 flex items-center justify-center shrink-0 mr-4 font-bold text-lg shadow-lg">3</div>
+                <div className="bg-[#FFCC5C] text-white rounded-full w-10 h-10 flex items-center justify-center shrink-0 mr-4 font-bold text-lg shadow-lg">3</div>
                 <div>
                   <h4 className="font-bold text-[#14213d] text-lg mb-1">Double-Blind Review</h4>
                   <p className="text-base text-gray-700">At least 2-3 reviewers evaluate each paper</p>
                 </div>
               </div>
               <div className="flex items-start hover:bg-blue-50 p-4 rounded-lg transition-all hover:shadow-md">
-                <div className="bg-[#fca311] text-white rounded-full w-10 h-10 flex items-center justify-center shrink-0 mr-4 font-bold text-lg shadow-lg">4</div>
+                <div className="bg-[#FFCC5C] text-white rounded-full w-10 h-10 flex items-center justify-center shrink-0 mr-4 font-bold text-lg shadow-lg">4</div>
                 <div>
                   <h4 className="font-bold text-[#14213d] text-lg mb-1">Decision Notification</h4>
                   <p className="text-base text-gray-700">Authors receive accept/reject decision with reviewer comments</p>
                 </div>
               </div>
               <div className="flex items-start hover:bg-blue-50 p-4 rounded-lg transition-all hover:shadow-md">
-                <div className="bg-[#fca311] text-white rounded-full w-10 h-10 flex items-center justify-center shrink-0 mr-4 font-bold text-lg shadow-lg">5</div>
+                <div className="bg-[#FFCC5C] text-white rounded-full w-10 h-10 flex items-center justify-center shrink-0 mr-4 font-bold text-lg shadow-lg">5</div>
                 <div>
                   <h4 className="font-bold text-[#14213d] text-lg mb-1">Camera-Ready Submission</h4>
                   <p className="text-base text-gray-700">Authors submit final version incorporating reviewer feedback</p>
@@ -243,13 +242,13 @@ export default function CallForPapersPage() {
         {/* Submission Button */}
         <Card className="text-center py-8 sm:py-10 lg:py-12 bg-linear-to-r from-[#14213d] to-[#1a2844] text-white border-0 shadow-2xl relative z-10">
           <CardContent className="px-4 sm:px-6">
-            <Award className="h-12 w-12 sm:h-16 sm:w-16 lg:h-20 lg:w-20 mx-auto mb-4 sm:mb-6 lg:mb-8 text-[#fca311]" />
+            <Award className="h-12 w-12 sm:h-16 sm:w-16 lg:h-20 lg:w-20 mx-auto mb-4 sm:mb-6 lg:mb-8 text-[#FFCC5C]" />
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6">Ready to Submit?</h2>
             <p className="text-gray-200 mb-6 sm:mb-8 text-sm sm:text-base lg:text-lg font-medium">
               Submit your paper through Microsoft CMT portal
             </p>
             <Link href="https://cmt3.research.microsoft.com/AdComSys2025" target="_blank">
-              <Button size="lg" className="text-sm sm:text-base lg:text-xl px-6 sm:px-8 py-4 sm:py-6 bg-[#fca311] hover:bg-[#ff9800] text-white border-0 shadow-xl hover:shadow-2xl transition-all hover:scale-105">
+              <Button size="lg" className="text-sm sm:text-base lg:text-xl px-6 sm:px-8 py-4 sm:py-6 bg-[#FFCC5C] hover:bg-[#ff9800] text-white border-0 shadow-xl hover:shadow-2xl transition-all hover:scale-105">
                 <FileText className="mr-2 sm:mr-3 h-5 w-5 sm:h-6 sm:w-6" />
                 Submit Paper via CMT
               </Button>

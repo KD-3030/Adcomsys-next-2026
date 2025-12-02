@@ -295,7 +295,7 @@ export default function SubmitPaperDialog({ isOpen, onClose, onSuccess }: Submit
             <Button
               type="submit"
               disabled={isSubmitting}
-              className="flex-1 bg-[#fca311] hover:bg-[#ff9800] text-white"
+              className="flex-1 bg-[#FFCC5C] hover:bg-[#ff9800] text-white"
             >
               {isSubmitting ? (
                 <>

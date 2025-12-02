@@ -22,12 +22,12 @@ export default function SpeakersPage() {
       {/* Hero Section */}
       <div className="bg-linear-to-r from-[#14213d] to-[#1a2844] text-white py-12 sm:py-16 lg:py-20 relative overflow-hidden shadow-2xl">
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0 bg-linear-to-br from-[#fca311] to-transparent"></div>
+          <div className="absolute inset-0 bg-linear-to-br from-[#FFCC5C] to-transparent"></div>
         </div>
         <div className="container mx-auto px-3 sm:px-4 text-center relative z-10">
-          <Badge className="mb-4 sm:mb-6 bg-[#fca311] text-[#14213d] hover:bg-[#fca311]/90 text-sm sm:text-base px-3 sm:px-4 py-2">Coming Soon</Badge>
+          <Badge className="mb-4 sm:mb-6 bg-[#FFCC5C] text-[#14213d] hover:bg-[#FFCC5C]/90 text-sm sm:text-base px-3 sm:px-4 py-2">Coming Soon</Badge>
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 px-2">
-            Distinguished <span className="text-[#fca311]">Speakers</span>
+            Distinguished <span className="text-[#FFCC5C]">Speakers</span>
           </h1>
           <p className="text-base sm:text-lg md:text-xl text-gray-200 max-w-3xl mx-auto font-medium px-2">
             Learn from world-renowned experts and thought leaders
@@ -38,11 +38,11 @@ export default function SpeakersPage() {
       {/* Page Content */}
       <div className="container mx-auto px-3 sm:px-4 py-10 sm:py-16 max-w-4xl">
         {/* Revealing Soon Card */}
-        <Card className="shadow-2xl border-4 border-[#fca311] bg-white relative z-10 overflow-hidden">
-          <div className="absolute top-0 left-0 right-0 h-2 bg-linear-to-r from-[#14213d] to-[#fca311]"></div>
+        <Card className="shadow-2xl border-4 border-[#FFCC5C] bg-white relative z-10 overflow-hidden">
+          <div className="absolute top-0 left-0 right-0 h-2 bg-linear-to-r from-[#14213d] to-[#FFCC5C]"></div>
           <CardContent className="py-10 sm:py-16 lg:py-20 text-center px-4 sm:px-8 lg:px-12">
-            <div className="w-20 h-20 sm:w-24 sm:h-24 lg:w-32 lg:h-32 mx-auto mb-6 sm:mb-8 bg-linear-to-br from-[#14213d] to-[#1a2844] rounded-full flex items-center justify-center shadow-xl ring-4 ring-[#fca311]/30">
-              <span className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#fca311]">?</span>
+            <div className="w-20 h-20 sm:w-24 sm:h-24 lg:w-32 lg:h-32 mx-auto mb-6 sm:mb-8 bg-linear-to-br from-[#14213d] to-[#1a2844] rounded-full flex items-center justify-center shadow-xl ring-4 ring-[#FFCC5C]/30">
+              <span className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#FFCC5C]">?</span>
             </div>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#14213d] mb-4 sm:mb-6">
               Speakers Revealing Soon
@@ -51,7 +51,7 @@ export default function SpeakersPage() {
               We are in the process of finalizing our distinguished lineup of keynote speakers and industry experts. 
               The speaker details will be announced shortly.
             </p>
-            <div className="bg-[#fca311]/10 border-l-4 border-[#fca311] p-4 sm:p-6 rounded-r-lg mb-6 sm:mb-8 text-left max-w-xl mx-auto">
+            <div className="bg-[#FFCC5C]/10 border-l-4 border-[#FFCC5C] p-4 sm:p-6 rounded-r-lg mb-6 sm:mb-8 text-left max-w-xl mx-auto">
               <p className="text-sm sm:text-base lg:text-lg text-gray-800 font-medium">
                 Stay tuned for announcements featuring renowned researchers, industry leaders, and domain experts 
                 who will share their insights on advanced computing and systems.
@@ -59,7 +59,7 @@ export default function SpeakersPage() {
             </div>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
               <Link href="/registration">
-                <Button size="lg" className="w-full sm:w-auto bg-[#fca311] hover:bg-[#ff9800] text-white text-sm sm:text-base lg:text-lg px-6 sm:px-8 py-4 sm:py-6 shadow-xl hover:shadow-2xl transition-all hover:scale-105">
+                <Button size="lg" className="w-full sm:w-auto bg-[#FFCC5C] hover:bg-[#ff9800] text-white text-sm sm:text-base lg:text-lg px-6 sm:px-8 py-4 sm:py-6 shadow-xl hover:shadow-2xl transition-all hover:scale-105">
                   Register Now
                 </Button>
               </Link>

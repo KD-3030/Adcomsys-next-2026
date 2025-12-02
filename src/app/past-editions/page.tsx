@@ -2,7 +2,7 @@ import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import { Calendar, MapPin, Users, FileText, ExternalLink, BookOpen, Mail, Globe, Award, Cpu, Shield, Network } from 'lucide-react'
+import { Calendar, MapPin, Users, FileText, ExternalLink, Mail, Globe, Award, Cpu, Shield, Network } from 'lucide-react'
 import Link from 'next/link'
 import { generateMetadata as createMetadata } from '@/lib/metadata'
 import { Metadata } from 'next'
@@ -28,6 +28,7 @@ const pastEditions = [
     participants: '300+',
     publication: 'Springer LNNS (SCOPUS Indexed)',
     publicationFull: 'Lecture Notes in Networks and Systems by Springer',
+    publicationUrl: 'https://link.springer.com/series/15179',
     tracks: [
       { name: 'Emerging Computing', icon: Cpu, topics: 'Cloud, Fog, Quantum, Green Computing, DNA/Optical Computing' },
       { name: 'AI Systems', icon: Network, topics: 'Deep Learning, NLP, Robotics, Explainable AI, Generative Models' },
@@ -60,6 +61,7 @@ const pastEditions = [
     participants: '250+',
     publication: 'Springer AIS (Web of Science Indexed)',
     publicationFull: 'Algorithms for Intelligent Systems by Springer Nature',
+    publicationUrl: 'https://link.springer.com/series/16171',
     tracks: [
       { name: 'Emerging Computing', icon: Cpu, topics: 'Cloud, Fog, Parallel, Mobile, Pervasive, Green Computing' },
       { name: 'AI Systems', icon: Network, topics: 'Deep Learning, NLP, Robotics, Computer Vision, Data Analytics' },
@@ -89,11 +91,11 @@ export default function PastEditionsPage() {
       {/* Hero Section */}
       <div className="bg-linear-to-r from-[#14213d] to-[#1a2844] text-white py-12 sm:py-16 lg:py-20 relative overflow-hidden shadow-2xl">
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0 bg-linear-to-br from-[#fca311] to-transparent"></div>
+          <div className="absolute inset-0 bg-linear-to-br from-[#FFCC5C] to-transparent"></div>
         </div>
         <div className="container mx-auto px-3 sm:px-4 text-center relative z-10">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 px-2">
-            Past <span className="text-[#fca311]">Editions</span>
+            Past <span className="text-[#FFCC5C]">Editions</span>
           </h1>
           <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-200 max-w-3xl mx-auto font-medium px-2">
             Explore the rich history and achievements of AdComSys conferences
@@ -105,16 +107,16 @@ export default function PastEditionsPage() {
       <div className="container mx-auto px-3 sm:px-4 py-8 sm:py-12 max-w-6xl">
         <div className="space-y-8 sm:space-y-12">
           {pastEditions.map((edition, index) => (
-            <Card key={index} className="shadow-2xl border-l-4 border-[#fca311] bg-white hover:shadow-3xl transition-all overflow-hidden">
+            <Card key={index} className="shadow-2xl border-l-4 border-[#FFCC5C] bg-white hover:shadow-3xl transition-all overflow-hidden">
               <CardHeader className="bg-linear-to-r from-[#14213d] to-[#1a2844] text-white py-6">
                 <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                   <div>
                     <CardTitle className="text-2xl sm:text-3xl lg:text-4xl font-bold">
-                      <span className="text-[#fca311]">{edition.title}</span>
+                      <span className="text-[#FFCC5C]">{edition.title}</span>
                     </CardTitle>
                     <p className="text-gray-300 mt-2 text-base sm:text-lg">{edition.subtitle}</p>
                   </div>
-                  <Badge className="bg-[#fca311] text-[#14213d] text-lg px-4 py-1 font-bold">
+                  <Badge className="bg-[#FFCC5C] text-[#14213d] text-lg px-4 py-1 font-bold">
                     {edition.year}
                   </Badge>
                 </div>
@@ -123,14 +125,14 @@ export default function PastEditionsPage() {
                 {/* Basic Info */}
                 <div className="grid md:grid-cols-2 gap-5">
                   <div className="flex items-start gap-3 text-gray-700">
-                    <Calendar className="h-6 w-6 text-[#fca311] mt-0.5 shrink-0" />
+                    <Calendar className="h-6 w-6 text-[#FFCC5C] mt-0.5 shrink-0" />
                     <div>
                       <span className="font-semibold text-[#14213d] text-base">Date:</span>
                       <p className="font-medium text-base sm:text-lg">{edition.date}</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3 text-gray-700">
-                    <MapPin className="h-6 w-6 text-[#fca311] mt-0.5 shrink-0" />
+                    <MapPin className="h-6 w-6 text-[#FFCC5C] mt-0.5 shrink-0" />
                     <div>
                       <span className="font-semibold text-[#14213d] text-base">Venue:</span>
                       <p className="font-medium text-base sm:text-lg">{edition.location}</p>
@@ -138,14 +140,14 @@ export default function PastEditionsPage() {
                     </div>
                   </div>
                   <div className="flex items-start gap-3 text-gray-700">
-                    <Users className="h-6 w-6 text-[#fca311] mt-0.5 shrink-0" />
+                    <Users className="h-6 w-6 text-[#FFCC5C] mt-0.5 shrink-0" />
                     <div>
                       <span className="font-semibold text-[#14213d] text-base">Participants:</span>
                       <p className="font-medium text-base sm:text-lg">{edition.participants}</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3 text-gray-700">
-                    <FileText className="h-6 w-6 text-[#fca311] mt-0.5 shrink-0" />
+                    <FileText className="h-6 w-6 text-[#FFCC5C] mt-0.5 shrink-0" />
                     <div>
                       <span className="font-semibold text-[#14213d] text-base">Papers:</span>
                       <p className="font-medium text-base sm:text-lg">{edition.papers} Papers Presented</p>
@@ -174,7 +176,7 @@ export default function PastEditionsPage() {
                       return (
                         <div key={trackIndex} className="bg-blue-50 p-4 rounded-lg border-l-3 border-[#14213d]">
                           <div className="flex items-center gap-2 mb-2">
-                            <IconComponent className="h-5 w-5 text-[#fca311]" />
+                            <IconComponent className="h-5 w-5 text-[#FFCC5C]" />
                             <span className="font-semibold text-[#14213d] text-base">{track.name}</span>
                           </div>
                           <p className="text-sm sm:text-base text-gray-600">{track.topics}</p>
@@ -185,15 +187,18 @@ export default function PastEditionsPage() {
                 </div>
 
                 {/* Publication */}
-                <div className="bg-[#fca311]/10 p-5 rounded-lg border border-[#fca311]/30">
+                <div className="bg-[#FFCC5C]/10 p-5 rounded-lg border border-[#FFCC5C]/30">
                   <div className="flex items-center gap-2 mb-3">
-                    <Award className="h-6 w-6 text-[#fca311]" />
+                    <Award className="h-6 w-6 text-[#FFCC5C]" />
                     <span className="font-bold text-[#14213d] text-lg">Publication</span>
                   </div>
                   <p className="text-gray-700 text-base sm:text-lg">{edition.publicationFull}</p>
-                  <Badge className="mt-3 bg-[#14213d] text-white text-sm px-3 py-1">
-                    {edition.year === '2024' ? 'Web of Science Indexed' : 'SCOPUS Indexed'}
-                  </Badge>
+                  <Link href={edition.publicationUrl} target="_blank" rel="noopener noreferrer">
+                    <Badge className="mt-3 bg-[#14213d] text-white text-sm px-3 py-1 hover:bg-[#1a2844] cursor-pointer transition-colors">
+                      {edition.year === '2024' ? 'Web of Science Indexed' : 'SCOPUS Indexed'}
+                      <ExternalLink className="h-3 w-3 ml-1 inline" />
+                    </Badge>
+                  </Link>
                 </div>
 
                 {/* Additional Events (if any) */}
@@ -213,10 +218,10 @@ export default function PastEditionsPage() {
                 {/* Contact & Website */}
                 <div className="pt-4 border-t flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                   <div className="flex items-center gap-2 text-gray-700">
-                    <Mail className="h-4 w-4 text-[#fca311]" />
+                    <Mail className="h-4 w-4 text-[#FFCC5C]" />
                     <span className="text-sm">
                       <span className="font-semibold">Convenor:</span> {edition.convenor} | 
-                      <a href={`mailto:${edition.email}`} className="text-[#fca311] hover:underline ml-1">{edition.email}</a>
+                      <a href={`mailto:${edition.email}`} className="text-[#FFCC5C] hover:underline ml-1">{edition.email}</a>
                     </span>
                   </div>
                   {edition.websiteUrl && (
@@ -237,24 +242,24 @@ export default function PastEditionsPage() {
           ))}
         </div>
 
-        {/* Coming Soon Notice */}
+        {/*
         <Card className="mt-12 bg-linear-to-r from-[#14213d] to-[#1a2844] text-white border-0 shadow-2xl">
           <CardContent className="py-8 text-center">
             <h2 className="text-2xl font-bold mb-4">
-              <span className="text-[#fca311]">AdComSys 2026</span> - Coming Soon!
+              <span className="text-[#FFCC5C]">AdComSys 2026</span> - Coming Soon!
             </h2>
             <p className="text-gray-200 mb-6">
               Join us for the next edition on June 26-27, 2026
             </p>
             <Link 
               href="/call-for-papers" 
-              className="inline-flex items-center gap-2 bg-[#fca311] text-[#14213d] px-6 py-3 rounded-lg font-bold hover:bg-[#ff9800] transition-all hover:scale-105"
+              className="inline-flex items-center gap-2 bg-[#FFCC5C] text-[#14213d] px-6 py-3 rounded-lg font-bold hover:bg-[#ff9800] transition-all hover:scale-105"
             >
               Submit Your Paper
               <ExternalLink className="h-5 w-5" />
             </Link>
           </CardContent>
-        </Card>
+        </Card>*/}
       </div>
 
       <Footer />

@@ -39,7 +39,7 @@ export default function Navbar() {
               onMouseEnter={() => setAuthorsDropdownOpen(true)}
               onMouseLeave={() => setAuthorsDropdownOpen(false)}
             >
-              <button className="flex items-center gap-1 text-brand-navy hover:text-brand-orange transition-colors duration-200 font-semibold text-sm lg:text-base xl:text-lg whitespace-nowrap py-2">
+              <button className="flex items-center gap-1 text-brand-navy hover:text-brand-white transition-colors duration-200 font-semibold text-sm lg:text-base xl:text-lg whitespace-nowrap py-2">
                 Authors
                 <ChevronDown className={`h-4 w-4 lg:h-5 lg:w-5 transition-transform duration-200 ${authorsDropdownOpen ? 'rotate-180' : ''}`} />
               </button>

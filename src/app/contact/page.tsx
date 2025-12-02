@@ -7,8 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Label } from '@/components/ui/label'
-import { Badge } from '@/components/ui/badge'
-import { Mail, Phone, MapPin, Building2, Send, CheckCircle } from 'lucide-react'
+import { Mail, MapPin, Send } from 'lucide-react'
 import { toast } from 'sonner'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
@@ -200,42 +199,13 @@ export default function ContactPage() {
               </CardContent>
             </Card>
 
-            <Card className="shadow-2xl border-2 border-brand-navy/20 bg-[#FCA311] relative z-10 hover:shadow-2xl transition-all">
+            <Card className="shadow-2xl border-2 border-brand-navy/20 bg-[#FFCC5C] relative z-10 hover:shadow-2xl transition-all">
               <CardHeader className="bg-linear-to-r from-brand-navy to-brand-navy/90 text-white py-6">
                 <CardTitle className="text-2xl sm:text-3xl">
                   Contact Details
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-5 pt-6 bg-[#fcc111]">
-                <div>
-                  <h4 className="font-bold text-base text-gray-700 mb-3">General Inquiries</h4>
-                  <div className="flex items-center text-base">
-                    <Mail className="h-5 w-5 mr-3 text-blue-600" />
-                    <a href="mailto:info@adcomsys2026.com" className="hover:underline text-black font-medium">
-                      info@adcomsys2026.com
-                    </a>
-                  </div>
-                </div>
-
-                <div>
-                  <h4 className="font-bold text-base text-gray-700 mb-3">Paper Submissions</h4>
-                  <div className="flex items-center text-base">
-                    <Mail className="h-5 w-5 mr-3 text-blue-600" />
-                    <a href="mailto:papers@adcomsys2026.com" className="hover:underline text-black font-medium">
-                      papers@adcomsys2026.com
-                    </a>
-                  </div>
-                </div>
-
-                <div>
-                  <h4 className="font-bold text-base text-gray-700 mb-3">Registration Support</h4>
-                  <div className="flex items-center text-base">
-                    <Mail className="h-5 w-5 mr-3 text-blue-600" />
-                    <a href="mailto:registration@adcomsys2026.com" className="hover:underline text-black font-medium">
-                      registration@adcomsys2026.com
-                    </a>
-                  </div>
-                </div>
 
                 <div>
                   <h4 className="font-bold text-base text-gray-700 mb-3">Convenor</h4>

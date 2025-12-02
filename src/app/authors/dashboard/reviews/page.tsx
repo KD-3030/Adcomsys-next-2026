@@ -88,7 +88,7 @@ export default function ReviewsPage() {
     return (
       <div className="min-h-screen bg-linear-to-b from-blue-50 via-white to-gray-50 flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#fca311] mx-auto mb-4"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#FFCC5C] mx-auto mb-4"></div>
           <p className="text-gray-600">Loading reviews...</p>
         </div>
       </div>
@@ -98,7 +98,7 @@ export default function ReviewsPage() {
   if (userRole !== 'reviewer' && userRole !== 'admin') {
     return (
       <div className="min-h-screen bg-linear-to-b from-blue-50 via-white to-gray-50">
-        <header className="bg-linear-to-r from-[#14213d] to-[#1a2844] text-white border-b-4 border-[#fca311] shadow-lg">
+        <header className="bg-linear-to-r from-[#14213d] to-[#1a2844] text-white border-b-4 border-[#FFCC5C] shadow-lg">
           <div className="container mx-auto px-4 py-6">
             <div className="flex items-center gap-4">
               <Link href="/authors/dashboard">
@@ -136,7 +136,7 @@ export default function ReviewsPage() {
   return (
     <div className="min-h-screen bg-linear-to-b from-blue-50 via-white to-gray-50">
       {/* Header */}
-      <header className="bg-linear-to-r from-[#14213d] to-[#1a2844] text-white border-b-4 border-[#fca311] shadow-lg">
+      <header className="bg-linear-to-r from-[#14213d] to-[#1a2844] text-white border-b-4 border-[#FFCC5C] shadow-lg">
         <div className="container mx-auto px-4 py-6">
           <div className="flex items-center gap-4">
             <Link href="/authors/dashboard">
@@ -156,7 +156,7 @@ export default function ReviewsPage() {
       <main className="container mx-auto px-4 py-8">
         <div className="max-w-6xl mx-auto">
           {reviews.length === 0 ? (
-            <Card className="shadow-lg border-l-4 border-[#fca311]">
+            <Card className="shadow-lg border-l-4 border-[#FFCC5C]">
               <CardContent className="flex flex-col items-center justify-center py-16">
                 <FileText className="h-24 w-24 text-gray-300 mb-4" />
                 <h3 className="text-2xl font-bold text-[#14213d] mb-2">No Assigned Reviews</h3>
@@ -169,7 +169,7 @@ export default function ReviewsPage() {
           ) : (
             <div className="space-y-4">
               {reviews.map((review) => (
-                <Card key={review.id} className="shadow-lg border-l-4 border-[#fca311] hover:shadow-xl transition-shadow">
+                <Card key={review.id} className="shadow-lg border-l-4 border-[#FFCC5C] hover:shadow-xl transition-shadow">
                   <CardHeader className="bg-linear-to-br from-white to-blue-50">
                     <div className="flex items-start justify-between">
                       <div className="flex-1">
@@ -215,7 +215,7 @@ export default function ReviewsPage() {
                       <Button 
                         variant="outline" 
                         size="sm" 
-                        className="border-[#fca311] text-[#14213d] hover:bg-[#fca311] hover:text-white"
+                        className="border-[#FFCC5C] text-[#14213d] hover:bg-[#FFCC5C] hover:text-white"
                         disabled={review.status === 'completed'}
                       >
                         {review.status === 'completed' ? 'View Review' : 'Start Review'}

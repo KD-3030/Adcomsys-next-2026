@@ -92,7 +92,7 @@ export default function ReviewedPapersPage() {
   if (isLoading) {
     return (
       <div className="min-h-screen bg-linear-to-b from-blue-50 via-white to-gray-50 flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#fca311]"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#FFCC5C]"></div>
       </div>
     )
   }
@@ -100,7 +100,7 @@ export default function ReviewedPapersPage() {
   return (
     <div className="min-h-screen bg-linear-to-b from-blue-50 via-white to-gray-50">
       {/* Themed Header */}
-      <header className="bg-linear-to-r from-[#14213d] to-[#1a2844] text-white border-b-4 border-[#fca311] shadow-lg">
+      <header className="bg-linear-to-r from-[#14213d] to-[#1a2844] text-white border-b-4 border-[#FFCC5C] shadow-lg">
         <div className="container mx-auto px-4 py-6">
           <div className="flex items-center gap-4">
             <Link href="/reviewers/dashboard">

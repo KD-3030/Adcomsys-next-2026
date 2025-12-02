@@ -9,7 +9,7 @@ export function cn(...inputs: ClassValue[]) {
 export const brandColors = {
   black: "#000000",
   navy: "#14213d",
-  orange: "#fca311",
+  orange: "#FFCC5C",
   gray: "#e5e5e5",
   white: "#ffffff",
 } as const

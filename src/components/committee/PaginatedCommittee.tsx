@@ -27,12 +27,12 @@ interface PaginatedCommitteeProps {
 
 function CommitteeMemberCard({ member }: { member: CommitteeMemberData }) {
   return (
-    <Card className="overflow-hidden hover:shadow-xl transition-all duration-300 border-l-4 border-[#fca311] shadow-md bg-white relative z-10">
+    <Card className="overflow-hidden hover:shadow-xl transition-all duration-300 border-l-4 border-[#FFCC5C] shadow-md bg-white relative z-10">
       <div className="bg-linear-to-r from-[#14213d] to-[#1a2844] h-2"></div>
       <CardContent className="p-6 bg-white">
         <div className="flex flex-col items-center text-center gap-4 bg-white relative">
           {member.image_url ? (
-            <div className="relative w-20 h-20 rounded-full overflow-hidden shrink-0 ring-2 ring-[#fca311]">
+            <div className="relative w-20 h-20 rounded-full overflow-hidden shrink-0 ring-2 ring-[#FFCC5C]">
               <Image
                 src={member.image_url}
                 alt={member.name}
@@ -43,12 +43,12 @@ function CommitteeMemberCard({ member }: { member: CommitteeMemberData }) {
             </div>
           ) : (
             <div className="bg-linear-to-r from-[#14213d] to-[#1a2844] p-3 rounded-full shrink-0">
-              <Users className="h-6 w-6 text-[#fca311]" />
+              <Users className="h-6 w-6 text-[#FFCC5C]" />
             </div>
           )}
           <div className="flex-1 w-full">
             <h3 className="text-lg font-bold text-gray-900 mb-2">{member.name}</h3>
-            <p className="text-sm font-medium text-[#fca311] mb-2">
+            <p className="text-sm font-medium text-[#FFCC5C] mb-2">
               {member.designation}
             </p>
             {member.affiliation && (
@@ -57,7 +57,7 @@ function CommitteeMemberCard({ member }: { member: CommitteeMemberData }) {
               </p>
             )}
             {member.email && (
-              <p className="text-xs text-[#fca311] mt-3">
+              <p className="text-xs text-[#FFCC5C] mt-3">
                 <a href={`mailto:${member.email}`} className="hover:underline hover:text-[#ff9800] transition-colors inline-flex items-center gap-1">
                   <Mail className="h-3 w-3" />
                   {member.email}
@@ -162,7 +162,7 @@ export default function PaginatedCommittee({ members, itemsPerPage = 24, title }
                 id="pageSize"
                 value={pageSize}
                 onChange={(e) => handlePageSizeChange(Number(e.target.value))}
-                className="h-9 px-3 rounded-md border border-gray-300 bg-white text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#fca311] focus:border-transparent cursor-pointer"
+                className="h-9 px-3 rounded-md border border-gray-300 bg-white text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#FFCC5C] focus:border-transparent cursor-pointer"
               >
                 {PAGE_SIZE_OPTIONS.map((size) => (
                   <option key={size} value={size}>
@@ -207,7 +207,7 @@ export default function PaginatedCommittee({ members, itemsPerPage = 24, title }
                     variant={currentPage === page ? 'default' : 'outline'}
                     size="icon"
                     onClick={() => goToPage(page)}
-                    className={`h-9 w-9 ${currentPage === page ? 'bg-[#fca311] hover:bg-[#ff9800] text-white' : ''}`}
+                    className={`h-9 w-9 ${currentPage === page ? 'bg-[#FFCC5C] hover:bg-[#ff9800] text-white' : ''}`}
                   >
                     {page}
                   </Button>

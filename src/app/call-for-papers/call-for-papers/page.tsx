@@ -22,16 +22,16 @@ export default function CallForPapersSubPage() {
       {/* Hero Section */}
       <div className="bg-linear-to-r from-[#14213d] to-[#1a2844] text-white py-12 sm:py-16 lg:py-20 relative overflow-hidden shadow-2xl">
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0 bg-linear-to-br from-[#fca311] to-transparent"></div>
+          <div className="absolute inset-0 bg-linear-to-br from-[#FFCC5C] to-transparent"></div>
         </div>
         <div className="container mx-auto px-3 sm:px-4 text-center relative z-10">
           <div className="flex items-center justify-center mb-4 sm:mb-6 lg:mb-8">
-            <div className="bg-[#fca311] backdrop-blur-sm p-3 sm:p-4 lg:p-5 rounded-full ring-4 ring-[#fca311]/30 shadow-xl">
+            <div className="bg-[#FFCC5C] backdrop-blur-sm p-3 sm:p-4 lg:p-5 rounded-full ring-4 ring-[#FFCC5C]/30 shadow-xl">
               <FileText className="h-10 w-10 sm:h-12 sm:w-12 lg:h-14 lg:w-14 text-white" />
             </div>
           </div>
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 px-2">
-            Call for <span className="text-[#fca311]">Papers</span>
+            Call for <span className="text-[#FFCC5C]">Papers</span>
           </h1>
           <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-200 max-w-3xl mx-auto font-medium px-2">
             Share your innovations and contribute to advancing computing and systems
@@ -43,9 +43,9 @@ export default function CallForPapersSubPage() {
       <div className="container mx-auto px-3 sm:px-4 py-8 sm:py-12 max-w-5xl">
 
         {/* Research Tracks */}
-        <Card className="mb-8 shadow-2xl border-l-4 border-[#fca311] bg-white relative z-10">
+        <Card className="mb-8 shadow-2xl border-l-4 border-[#FFCC5C] bg-white relative z-10">
           <CardHeader className="bg-linear-to-r from-[#14213d] to-[#1a2844] text-white py-6">
-            <CardTitle className="text-lg sm:text-xl text-[#fca311]"><strong>Call For Papers</strong></CardTitle>
+            <CardTitle className="text-lg sm:text-xl text-[#FFCC5C]"><strong>Call For Papers</strong></CardTitle>
           </CardHeader>
           <CardContent className="pt-4 sm:pt-6 bg-white">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
@@ -173,13 +173,13 @@ export default function CallForPapersSubPage() {
         {/* Submission Button */}
         <Card className="text-center py-12 bg-linear-to-r from-[#14213d] to-[#1a2844] text-white border-0 shadow-2xl relative z-10">
           <CardContent>
-            <Award className="h-20 w-20 mx-auto mb-8 text-[#fca311]" />
+            <Award className="h-20 w-20 mx-auto mb-8 text-[#FFCC5C]" />
             <h2 className="text-4xl font-bold mb-6">Ready to Submit?</h2>
             <p className="text-gray-200 mb-8 text-lg font-medium">
               Submit your paper through Microsoft CMT portal
             </p>
             <Link href="https://cmt3.research.microsoft.com/AdComSys2025" target="_blank">
-              <Button size="lg" className="text-xl px-8 py-6 bg-[#fca311] hover:bg-[#ff9800] text-white border-0 shadow-xl hover:shadow-2xl transition-all hover:scale-105">
+              <Button size="lg" className="text-xl px-8 py-6 bg-[#FFCC5C] hover:bg-[#ff9800] text-white border-0 shadow-xl hover:shadow-2xl transition-all hover:scale-105">
                 <FileText className="mr-3 h-6 w-6" />
                 Submit Paper via CMT
               </Button>

@@ -22,16 +22,16 @@ export default function SubmissionsPage() {
       {/* Hero Section */}
       <div className="bg-linear-to-r from-[#14213d] to-[#1a2844] text-white py-12 sm:py-16 lg:py-20 relative overflow-hidden shadow-2xl">
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0 bg-linear-to-br from-[#fca311] to-transparent"></div>
+          <div className="absolute inset-0 bg-linear-to-br from-[#FFCC5C] to-transparent"></div>
         </div>
         <div className="container mx-auto px-3 sm:px-4 text-center relative z-10">
           <div className="flex items-center justify-center mb-4 sm:mb-6 lg:mb-8">
-            <div className="bg-[#fca311] backdrop-blur-sm p-3 sm:p-4 lg:p-5 rounded-full ring-4 ring-[#fca311]/30 shadow-xl">
+            <div className="bg-[#FFCC5C] backdrop-blur-sm p-3 sm:p-4 lg:p-5 rounded-full ring-4 ring-[#FFCC5C]/30 shadow-xl">
               <Upload className="h-10 w-10 sm:h-12 sm:w-12 lg:h-16 lg:w-16 text-white" />
             </div>
           </div>
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 px-2">
-            Information for <span className="text-[#fca311]">Authors</span>
+            Information for <span className="text-[#FFCC5C]">Authors</span>
           </h1>
           <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-200 max-w-3xl mx-auto font-medium px-2">
             Guidelines and resources for paper submission
@@ -43,7 +43,7 @@ export default function SubmissionsPage() {
       <div className="container mx-auto px-3 sm:px-4 py-8 sm:py-12 max-w-5xl">
 
         {/* Guidelines For Submission */}
-        <Card className="mb-8 shadow-2xl border-l-4 border-[#fca311] bg-white relative z-10">
+        <Card className="mb-8 shadow-2xl border-l-4 border-[#FFCC5C] bg-white relative z-10">
           <CardHeader className="bg-linear-to-r from-[#14213d] to-[#1a2844] text-white py-6">
             <CardTitle className="text-xl sm:text-2xl">
               Guidelines For Submission
@@ -71,7 +71,7 @@ export default function SubmissionsPage() {
         </Card>
 
         {/* How to Submit */}
-        <Card className="mb-8 shadow-2xl border-l-4 border-[#fca311] bg-white relative z-10">
+        <Card className="mb-8 shadow-2xl border-l-4 border-[#FFCC5C] bg-white relative z-10">
           <CardHeader className="bg-linear-to-r from-[#14213d] to-[#1a2844] text-white py-6">
             <CardTitle className="text-xl sm:text-2xl">
               How to Submit Your Paper
@@ -83,7 +83,7 @@ export default function SubmissionsPage() {
               <Link 
                 href="https://cmt3.research.microsoft.com/AdComSys2025" 
                 target="_blank"
-                className="text-[#fca311] hover:text-[#14213d] font-bold underline underline-offset-4 transition-colors"
+                className="text-[#FFCC5C] hover:text-[#14213d] font-bold underline underline-offset-4 transition-colors"
               >
                 https://cmt3.research.microsoft.com/AdComSys2025
               </Link>{' '}
@@ -98,7 +98,7 @@ export default function SubmissionsPage() {
         </Card>
 
         {/* Camera Ready Submission */}
-        <Card className="mb-8 shadow-2xl border-l-4 border-[#fca311] bg-white relative z-10">
+        <Card className="mb-8 shadow-2xl border-l-4 border-[#FFCC5C] bg-white relative z-10">
           <CardHeader className="bg-linear-to-r from-[#14213d] to-[#1a2844] text-white py-6">
             <CardTitle className="text-xl sm:text-2xl">
               Camera Ready Submission
@@ -111,32 +111,32 @@ export default function SubmissionsPage() {
             <div className="grid sm:grid-cols-1 gap-4">
               <Link 
                 href="/assets/docs/splnproc2311.docm" 
-                className="flex items-center justify-between p-4 bg-orange-50 rounded-lg border-l-4 border-[#fca311] hover:bg-orange-100 transition-all hover:shadow-lg group"
+                className="flex items-center justify-between p-4 bg-orange-50 rounded-lg border-l-4 border-[#FFCC5C] hover:bg-orange-100 transition-all hover:shadow-lg group"
               >
                 <span className="font-medium text-[#14213d] text-base sm:text-lg">Word template for camera ready submission</span>
-                <Download className="h-5 w-5 text-[#fca311] group-hover:scale-110 transition-transform" />
+                <Download className="h-5 w-5 text-[#FFCC5C] group-hover:scale-110 transition-transform" />
               </Link>
               <Link 
                 href="/assets/docs/LaTeX2e+Proceedings+Templates+download.zip" 
-                className="flex items-center justify-between p-4 bg-orange-50 rounded-lg border-l-4 border-[#fca311] hover:bg-orange-100 transition-all hover:shadow-lg group"
+                className="flex items-center justify-between p-4 bg-orange-50 rounded-lg border-l-4 border-[#FFCC5C] hover:bg-orange-100 transition-all hover:shadow-lg group"
               >
                 <span className="font-medium text-[#14213d] text-base sm:text-lg">LaTeX template for camera ready submission</span>
-                <Download className="h-5 w-5 text-[#fca311] group-hover:scale-110 transition-transform" />
+                <Download className="h-5 w-5 text-[#FFCC5C] group-hover:scale-110 transition-transform" />
               </Link>
               <Link 
                 href="/assets/docs/SPLNPROC-Technical-Instructions.pdf" 
                
-                className="flex items-center justify-between p-4 bg-orange-50 rounded-lg border-l-4 border-[#fca311] hover:bg-orange-100 transition-all hover:shadow-lg group"
+                className="flex items-center justify-between p-4 bg-orange-50 rounded-lg border-l-4 border-[#FFCC5C] hover:bg-orange-100 transition-all hover:shadow-lg group"
               >
                 <span className="font-medium text-[#14213d] text-base sm:text-lg">Springer Guidelines for Conference Proceedings</span>
-                <Download className="h-5 w-5 text-[#fca311] group-hover:scale-110 transition-transform" />
+                <Download className="h-5 w-5 text-[#FFCC5C] group-hover:scale-110 transition-transform" />
               </Link>
             </div>
           </CardContent>
         </Card>
 
         {/* Mode of Presentation */}
-        <Card className="mb-8 shadow-2xl border-l-4 border-[#fca311] bg-white relative z-10">
+        <Card className="mb-8 shadow-2xl border-l-4 border-[#FFCC5C] bg-white relative z-10">
           <CardHeader className="bg-linear-to-r from-[#14213d] to-[#1a2844] text-white py-6">
             <CardTitle className="text-xl sm:text-2xl">
               Mode of Presentation
@@ -144,7 +144,7 @@ export default function SubmissionsPage() {
           </CardHeader>
           <CardContent className="space-y-4 text-gray-800 pt-6 bg-white">
             <p className="text-base sm:text-lg leading-relaxed">
-              AdComSys 2026 will be held in <strong className="text-[#fca311]">HYBRID MODE</strong> where authors shall present their papers either in physical mode at the conference venue or through ONLINE as per their preference and convenience. However, all matters related to publication and indexing will remain unchanged.
+              AdComSys 2026 will be held in <strong className="text-[#FFCC5C]">HYBRID MODE</strong> where authors shall present their papers either in physical mode at the conference venue or through ONLINE as per their preference and convenience. However, all matters related to publication and indexing will remain unchanged.
             </p>
             <div className="border-l-4 border-red-500 bg-red-50 p-4 rounded-lg shadow-md">
               <p className="text-base sm:text-lg text-red-700 font-bold">
@@ -164,7 +164,7 @@ export default function SubmissionsPage() {
         </Card>
 
         {/* Paper Categories */}
-        <Card className="mb-8 shadow-2xl border-l-4 border-[#fca311] bg-white relative z-10">
+        <Card className="mb-8 shadow-2xl border-l-4 border-[#FFCC5C] bg-white relative z-10">
           <CardHeader className="bg-linear-to-r from-[#14213d] to-[#1a2844] text-white py-6">
             <CardTitle className="text-xl sm:text-2xl">
               AdComSys 2026 Paper Categories
@@ -173,7 +173,7 @@ export default function SubmissionsPage() {
           <CardContent className="space-y-4 text-gray-800 pt-6 bg-white">
             <ul className="space-y-3">
               <li className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg">
-                <span className="text-[#fca311] font-bold text-xl">•</span>
+                <span className="text-[#FFCC5C] font-bold text-xl">•</span>
                 <span className="text-base sm:text-lg">Regular Paper: <strong className="text-[#14213d]">10</strong> pages minimum and <strong className="text-[#14213d]">12</strong> pages maximum.</span>
               </li>
               <li className="flex items-start gap-3 p-3 bg-red-50 rounded-lg border-l-4 border-red-500">
@@ -185,7 +185,7 @@ export default function SubmissionsPage() {
                 <span className="text-base sm:text-lg">There is no provision for submitting short papers and posters <strong className="text-red-600">(4 – 6 pages)</strong>.</span>
               </li>
               <li className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg">
-                <span className="text-[#fca311] font-bold text-xl">•</span>
+                <span className="text-[#FFCC5C] font-bold text-xl">•</span>
                 <span className="text-base sm:text-lg">Regular papers should present novel perspectives within the general scope of the conference.</span>
               </li>
             </ul>
@@ -195,7 +195,7 @@ export default function SubmissionsPage() {
         {/* Submit Paper Button */}
         <div className="text-center">
           <Link href="https://cmt3.research.microsoft.com/AdComSys2025" target="_blank">
-            <Button size="lg" className="bg-[#fca311] text-[#14213d] hover:bg-[#fca311]/90 shadow-2xl hover:shadow-[#fca311]/50 transition-all duration-300 transform hover:scale-105 font-bold text-lg py-6 px-10">
+            <Button size="lg" className="bg-[#FFCC5C] text-[#14213d] hover:bg-[#FFCC5C]/90 shadow-2xl hover:shadow-[#FFCC5C]/50 transition-all duration-300 transform hover:scale-105 font-bold text-lg py-6 px-10">
               <Upload className="mr-2 h-5 w-5" />
               Click Here to Submit Paper
             </Button>

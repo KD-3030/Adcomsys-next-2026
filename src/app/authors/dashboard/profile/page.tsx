@@ -119,7 +119,7 @@ export default function ProfilePage() {
     return (
       <div className="min-h-screen bg-linear-to-b from-blue-50 via-white to-gray-50 flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#fca311] mx-auto mb-4"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#FFCC5C] mx-auto mb-4"></div>
           <p className="text-gray-600">Loading profile...</p>
         </div>
       </div>
@@ -131,7 +131,7 @@ export default function ProfilePage() {
   return (
     <div className="min-h-screen bg-linear-to-b from-blue-50 via-white to-gray-50">
       {/* Header */}
-      <header className="bg-linear-to-r from-[#14213d] to-[#1a2844] text-white border-b-4 border-[#fca311] shadow-lg">
+      <header className="bg-linear-to-r from-[#14213d] to-[#1a2844] text-white border-b-4 border-[#FFCC5C] shadow-lg">
         <div className="container mx-auto px-4 py-6">
           <div className="flex items-center gap-4">
             <Link href="/authors/dashboard">
@@ -151,7 +151,7 @@ export default function ProfilePage() {
       <main className="container mx-auto px-4 py-8">
         <div className="max-w-4xl mx-auto space-y-6">
           {/* Profile Info Card */}
-          <Card className="shadow-lg border-l-4 border-[#fca311]">
+          <Card className="shadow-lg border-l-4 border-[#FFCC5C]">
             <CardHeader className="bg-linear-to-r from-[#14213d] to-[#1a2844] text-white">
               <CardTitle>
                 Personal Information
@@ -162,7 +162,7 @@ export default function ProfilePage() {
               <form onSubmit={handleUpdateProfile} className="space-y-4">
                 <div className="space-y-2">
                   <Label htmlFor="fullName" className="text-[#14213d] font-semibold flex items-center gap-2">
-                    <Briefcase className="h-4 w-4 text-[#fca311]" />
+                    <Briefcase className="h-4 w-4 text-[#FFCC5C]" />
                     Full Name
                   </Label>
                   <Input
@@ -177,7 +177,7 @@ export default function ProfilePage() {
 
                 <div className="space-y-2">
                   <Label htmlFor="email" className="text-[#14213d] font-semibold flex items-center gap-2">
-                    <Mail className="h-4 w-4 text-[#fca311]" />
+                    <Mail className="h-4 w-4 text-[#FFCC5C]" />
                     Email Address
                   </Label>
                   <Input
@@ -193,7 +193,7 @@ export default function ProfilePage() {
                 <div className="space-y-2">
                   <Label className="text-[#14213d] font-semibold">Role</Label>
                   <div>
-                    <Badge className="bg-[#fca311] text-white">
+                    <Badge className="bg-[#FFCC5C] text-white">
                       {profile.role.toUpperCase()}
                     </Badge>
                   </div>
@@ -201,7 +201,7 @@ export default function ProfilePage() {
 
                 <Button 
                   type="submit" 
-                  className="w-full bg-[#fca311] hover:bg-[#ff9800] text-white shadow-lg" 
+                  className="w-full bg-[#FFCC5C] hover:bg-[#ff9800] text-white shadow-lg" 
                   disabled={isSaving}
                 >
                   <Save className="mr-2 h-4 w-4" />

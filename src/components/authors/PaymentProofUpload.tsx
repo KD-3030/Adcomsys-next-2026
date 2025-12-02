@@ -162,7 +162,7 @@ export default function PaymentProofUpload({ isOpen, onClose, onSuccess }: Payme
     <ScrollablePopup open={isOpen} onOpenChange={handleClose} className="max-w-3xl">
       <ScrollablePopupHeader>
         <ScrollablePopupTitle className="text-2xl text-[#14213d] flex items-center gap-2">
-          <Upload className="h-6 w-6 text-[#fca311]" />
+          <Upload className="h-6 w-6 text-[#FFCC5C]" />
           Upload Payment Proof
         </ScrollablePopupTitle>
         <ScrollablePopupDescription>
@@ -191,7 +191,7 @@ export default function PaymentProofUpload({ isOpen, onClose, onSuccess }: Payme
               <Label htmlFor="file" className="text-base font-semibold">
                 Payment Receipt/Screenshot *
               </Label>
-              <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-[#fca311] transition-colors">
+              <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-[#FFCC5C] transition-colors">
                 {!file ? (
                   <div>
                     <Upload className="h-12 w-12 text-gray-400 mx-auto mb-4" />
@@ -394,7 +394,7 @@ export default function PaymentProofUpload({ isOpen, onClose, onSuccess }: Payme
               <Button
                 type="submit"
                 disabled={isUploading || !file}
-                className="bg-[#fca311] hover:bg-[#ff9800] text-white"
+                className="bg-[#FFCC5C] hover:bg-[#ff9800] text-white"
               >
                 {isUploading ? (
                   <>

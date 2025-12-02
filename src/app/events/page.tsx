@@ -112,12 +112,12 @@ export default function EventsPage() {
       {/* Hero Section */}
       <div className="bg-linear-to-r from-[#14213d] to-[#1a2844] text-white py-12 sm:py-16 lg:py-20 relative overflow-hidden shadow-2xl">
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0 bg-linear-to-br from-[#fca311] to-transparent"></div>
+          <div className="absolute inset-0 bg-linear-to-br from-[#FFCC5C] to-transparent"></div>
         </div>
         <div className="container mx-auto px-3 sm:px-4 text-center relative z-10">
-          <Badge className="mb-4 sm:mb-6 bg-[#fca311] text-[#14213d] hover:bg-[#fca311]/90 text-sm sm:text-base px-3 sm:px-4 py-2">Events & Activities</Badge>
+          <Badge className="mb-4 sm:mb-6 bg-[#FFCC5C] text-[#14213d] hover:bg-[#FFCC5C]/90 text-sm sm:text-base px-3 sm:px-4 py-2">Events & Activities</Badge>
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 px-2">
-            Conference <span className="text-[#fca311]">Events</span>
+            Conference <span className="text-[#FFCC5C]">Events</span>
           </h1>
           <p className="text-base sm:text-lg md:text-xl text-gray-200 max-w-3xl mx-auto font-medium px-2">
             Beyond technical sessions - Networking, culture, and celebration
@@ -232,7 +232,7 @@ export default function EventsPage() {
         <Card className="bg-linear-to-r from-[#14213d] to-[#1a2844] text-white mb-8 sm:mb-12">
           <CardContent className="py-8 sm:py-12 px-4 sm:px-6">
             <div className="text-center">
-              <Utensils className="h-10 w-10 sm:h-12 sm:w-12 lg:h-16 lg:w-16 mx-auto mb-3 sm:mb-4 text-[#fca311]" />
+              <Utensils className="h-10 w-10 sm:h-12 sm:w-12 lg:h-16 lg:w-16 mx-auto mb-3 sm:mb-4 text-[#FFCC5C]" />
               <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-3 sm:mb-4">Conference Banquet Highlights</h2>
               <p className="text-gray-300 mb-6 sm:mb-8 text-sm sm:text-base lg:text-lg max-w-2xl mx-auto">
                 An evening of fine dining, cultural performances, and networking in an elegant setting
@@ -240,7 +240,7 @@ export default function EventsPage() {
               
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 text-left">
                 <div className="bg-white/10 backdrop-blur rounded-lg p-4 sm:p-6">
-                  <h3 className="font-semibold text-base sm:text-lg mb-2 text-[#fca311]">Cuisine</h3>
+                  <h3 className="font-semibold text-base sm:text-lg mb-2 text-[#FFCC5C]">Cuisine</h3>
                   <ul className="text-xs sm:text-sm space-y-1 text-gray-300">
                     <li>• Multi-cuisine buffet</li>
                     <li>• Indian & International</li>
@@ -250,7 +250,7 @@ export default function EventsPage() {
                 </div>
 
                 <div className="bg-white/10 backdrop-blur rounded-lg p-4 sm:p-6">
-                  <h3 className="font-semibold text-base sm:text-lg mb-2 text-[#fca311]">Entertainment</h3>
+                  <h3 className="font-semibold text-base sm:text-lg mb-2 text-[#FFCC5C]">Entertainment</h3>
                   <ul className="text-xs sm:text-sm space-y-1 text-gray-300">
                     <li>• Classical dance performances</li>
                     <li>• Bengali folk music</li>
@@ -260,7 +260,7 @@ export default function EventsPage() {
                 </div>
 
                 <div className="bg-white/10 backdrop-blur rounded-lg p-4 sm:p-6">
-                  <h3 className="font-semibold text-base sm:text-lg mb-2 text-[#fca311]">Networking</h3>
+                  <h3 className="font-semibold text-base sm:text-lg mb-2 text-[#FFCC5C]">Networking</h3>
                   <ul className="text-xs sm:text-sm space-y-1 text-gray-300">
                     <li>• Keynote speaker meet & greet</li>
                     <li>• Industry leader interactions</li>
@@ -271,14 +271,14 @@ export default function EventsPage() {
               </div>
 
               <p className="mt-6 sm:mt-8 text-gray-300 text-xs sm:text-sm">
-                <strong className="text-[#fca311]">Dress Code:</strong> Formal or Traditional Attire | <strong className="text-[#fca311]">Venue:</strong> UEM Convention Center
+                <strong className="text-[#FFCC5C]">Dress Code:</strong> Formal or Traditional Attire | <strong className="text-[#FFCC5C]">Venue:</strong> UEM Convention Center
               </p>
             </div>
           </CardContent>
         </Card>
 
         {/* Important Notes */}
-        <Card className="border-l-4 border-[#fca311]">
+        <Card className="border-l-4 border-[#FFCC5C]">
           <CardHeader className="px-4 sm:px-6">
             <CardTitle className="text-lg sm:text-xl">Important Information</CardTitle>
           </CardHeader>
@@ -305,13 +305,13 @@ export default function EventsPage() {
         </Card>
 
         {/* CTA */}
-        <div className="text-center py-6 sm:py-8 mt-8 sm:mt-12 bg-linear-to-r from-[#fca311]/10 to-[#fca311]/20 rounded-lg px-4">
+        <div className="text-center py-6 sm:py-8 mt-8 sm:mt-12 bg-linear-to-r from-[#FFCC5C]/10 to-[#FFCC5C]/20 rounded-lg px-4">
           <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-3 sm:mb-4 text-[#14213d]">Don&apos;t Miss These Amazing Events!</h2>
           <p className="text-sm sm:text-base lg:text-lg text-gray-700 mb-4 sm:mb-6">
             Register now to be part of AdComSys 2026
           </p>
           <Link href="/registration">
-            <Button size="lg" className="bg-[#fca311] hover:bg-[#ff9800] text-white text-sm sm:text-base lg:text-lg px-6 sm:px-8 py-4 sm:py-6">
+            <Button size="lg" className="bg-[#FFCC5C] hover:bg-[#ff9800] text-white text-sm sm:text-base lg:text-lg px-6 sm:px-8 py-4 sm:py-6">
               <Calendar className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
               Register for Conference
             </Button>

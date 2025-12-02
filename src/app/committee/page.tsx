@@ -1,10 +1,8 @@
-import Link from 'next/link'
 import Image from 'next/image'
-import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { Users, Crown, Award, Briefcase, Mail, Star, Building2, Banknote, Cog, GraduationCap } from 'lucide-react'
+import { Users, Mail } from 'lucide-react'
 import { supabaseAdmin } from '@/lib/db'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
@@ -47,12 +45,12 @@ interface CommitteeMemberData {
 
 function CommitteeMember({ name, designation, affiliation, email, role = '', level = 'member', image_url }: CommitteeMemberProps) {
   return (
-    <Card className="overflow-hidden hover:shadow-xl transition-all duration-300 border-l-4 border-[#fca311] shadow-md bg-white relative z-10">
+    <Card className="overflow-hidden hover:shadow-xl transition-all duration-300 border-l-4 border-[#FFCC5C] shadow-md bg-white relative z-10">
       <div className="bg-linear-to-r from-[#14213d] to-[#1a2844] h-2"></div>
       <CardContent className="p-6 bg-white">
         <div className="flex flex-col items-center text-center gap-4 bg-white relative">
           {image_url ? (
-            <div className="relative w-20 h-20 rounded-full overflow-hidden shrink-0 ring-2 ring-[#fca311]">
+            <div className="relative w-20 h-20 rounded-full overflow-hidden shrink-0 ring-2 ring-[#FFCC5C]">
               <Image
                 src={image_url}
                 alt={name}
@@ -63,7 +61,7 @@ function CommitteeMember({ name, designation, affiliation, email, role = '', lev
             </div>
           ) : (
             <div className="bg-linear-to-r from-[#14213d] to-[#1a2844] p-3 rounded-full shrink-0">
-              <Users className="h-6 w-6 text-[#fca311]" />
+              <Users className="h-6 w-6 text-[#FFCC5C]" />
             </div>
           )}
           <div className="flex-1 w-full">
@@ -73,14 +71,14 @@ function CommitteeMember({ name, designation, affiliation, email, role = '', lev
               </Badge>
             )}
             <h3 className="text-lg font-bold text-gray-900 mb-2">{name}</h3>
-            <p className="text-sm font-medium text-[#fca311] mb-2">
+            <p className="text-sm font-medium text-[#FFCC5C] mb-2">
               {designation}
             </p>
             <p className="text-xs text-gray-600 leading-relaxed">
               {affiliation}
             </p>
             {email && (
-              <p className="text-xs text-[#fca311] mt-3">
+              <p className="text-xs text-[#FFCC5C] mt-3">
                 <a href={`mailto:${email}`} className="hover:underline hover:text-[#ff9800] transition-colors inline-flex items-center gap-1">
                   <Mail className="h-3 w-3" />
                   {email}
@@ -492,11 +490,11 @@ export default async function CommitteePage() {
       {/* Hero Section */}
       <div className="bg-linear-to-r from-[#14213d] to-[#1a2844] text-white py-10 sm:py-16 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0 bg-linear-to-br from-[#fca311] to-transparent"></div>
+          <div className="absolute inset-0 bg-linear-to-br from-[#FFCC5C] to-transparent"></div>
         </div>
         <div className="container mx-auto px-3 sm:px-4 text-center relative z-10">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4 px-2">
-            Conference <span className="text-[#fca311]">Committee</span>
+            Conference <span className="text-[#FFCC5C]">Committee</span>
           </h1>
           <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-2xl mx-auto px-2">
             Meet the distinguished members organizing AdComSys 2026
@@ -510,13 +508,13 @@ export default async function CommitteePage() {
 
         <Tabs defaultValue="organizing" className="w-full">
           <TabsList className="grid w-full grid-cols-1 sm:grid-cols-3 mb-6 sm:mb-8 bg-linear-to-r from-[#14213d] to-[#1a2844] p-1 h-auto gap-1 sm:gap-0">
-            <TabsTrigger value="organizing" className="text-xs sm:text-sm md:text-base data-[state=active]:bg-[#fca311] data-[state=active]:text-white text-gray-300 py-2 sm:py-3">
+            <TabsTrigger value="organizing" className="text-xs sm:text-sm md:text-base data-[state=active]:bg-[#FFCC5C] data-[state=active]:text-white text-gray-300 py-2 sm:py-3">
               Organizing Committee
             </TabsTrigger>
-            <TabsTrigger value="technical" className="text-xs sm:text-sm md:text-base data-[state=active]:bg-[#fca311] data-[state=active]:text-white text-gray-300 py-2 sm:py-3">
+            <TabsTrigger value="technical" className="text-xs sm:text-sm md:text-base data-[state=active]:bg-[#FFCC5C] data-[state=active]:text-white text-gray-300 py-2 sm:py-3">
               Technical Committee
             </TabsTrigger>
-            <TabsTrigger value="advisory" className="text-xs sm:text-sm md:text-base data-[state=active]:bg-[#fca311] data-[state=active]:text-white text-gray-300 py-2 sm:py-3">
+            <TabsTrigger value="advisory" className="text-xs sm:text-sm md:text-base data-[state=active]:bg-[#FFCC5C] data-[state=active]:text-white text-gray-300 py-2 sm:py-3">
               Advisory Committee
             </TabsTrigger>
           </TabsList>
@@ -589,7 +587,7 @@ export default async function CommitteePage() {
           </TabsContent>
         </Tabs>
 
-        {/* Call to Action */}
+        {/* Call to Action
         <div className="mt-16">
           <Card className="bg-linear-to-r from-[#14213d] to-[#1a2844] text-white border-0 shadow-2xl">
             <CardContent className="p-12 text-center">
@@ -601,7 +599,7 @@ export default async function CommitteePage() {
               </p>
               <div className="flex flex-col sm:flex-row justify-center gap-4">
                 <Link href="/signup">
-                  <Button size="lg" className="w-full sm:w-auto bg-[#fca311] hover:bg-[#ff9800] text-white border-0 shadow-lg hover:shadow-xl transition-all">
+                  <Button size="lg" className="w-full sm:w-auto bg-[#FFCC5C] hover:bg-[#ff9800] text-white border-0 shadow-lg hover:shadow-xl transition-all">
                     Register Now
                   </Button>
                 </Link>
@@ -614,6 +612,7 @@ export default async function CommitteePage() {
             </CardContent>
           </Card>
         </div>
+        */}
       </div>
 
       <Footer />

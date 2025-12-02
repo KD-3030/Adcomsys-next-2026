@@ -172,7 +172,7 @@ const buttonContainer = {
 }
 
 const button = {
-  backgroundColor: '#fca311',
+  backgroundColor: '#FFCC5C',
   borderRadius: '5px',
   color: '#fff',
   fontSize: '16px',
@@ -189,7 +189,7 @@ const hr = {
 }
 
 const link = {
-  color: '#fca311',
+  color: '#FFCC5C',
   textDecoration: 'underline',
 }
 

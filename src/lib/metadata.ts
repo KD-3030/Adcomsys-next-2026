@@ -83,7 +83,7 @@ export function generateMetadata({
         {
           rel: 'mask-icon',
           url: '/safari-pinned-tab.svg',
-          color: '#fca311',
+          color: '#FFCC5C',
         },
       ],
     },

@@ -144,7 +144,7 @@ export default function AdminSubmissionsPage() {
     return (
       <div className="flex items-center justify-center min-h-screen">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#fca311] mx-auto mb-4"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#FFCC5C] mx-auto mb-4"></div>
           <p className="text-gray-600">Loading submissions...</p>
         </div>
       </div>
@@ -195,7 +195,7 @@ export default function AdminSubmissionsPage() {
                   {papers.length}
                 </p>
               </div>
-              <FileText className="h-10 w-10 text-[#fca311]" />
+              <FileText className="h-10 w-10 text-[#FFCC5C]" />
             </div>
           </CardContent>
         </Card>

@@ -52,7 +52,7 @@ export default function ForgotPasswordPage() {
   if (isSuccess) {
     return (
       <div className="min-h-screen flex items-center justify-center p-4 bg-linear-to-br from-[#14213d] via-[#1a2844] to-[#14213d]">
-        <Card className="w-full max-w-md shadow-2xl border-2 border-[#fca311]">
+        <Card className="w-full max-w-md shadow-2xl border-2 border-[#FFCC5C]">
           <CardHeader className="text-center space-y-2">
             <div className="mx-auto w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-2">
               <MailIcon className="w-8 h-8 text-green-600" />
@@ -99,7 +99,7 @@ export default function ForgotPasswordPage() {
                   setIsSuccess(false)
                   handleSubmit(new Event('submit') as any)
                 }}
-                className="text-[#fca311] hover:underline font-medium"
+                className="text-[#FFCC5C] hover:underline font-medium"
               >
                 Resend
               </button>
@@ -112,10 +112,10 @@ export default function ForgotPasswordPage() {
 
   return (
     <div className="min-h-screen flex items-center justify-center p-4 bg-linear-to-br from-[#14213d] via-[#1a2844] to-[#14213d]">
-      <Card className="w-full max-w-md shadow-2xl border-2 border-[#fca311]">
+      <Card className="w-full max-w-md shadow-2xl border-2 border-[#FFCC5C]">
         <CardHeader className="text-center space-y-2">
-          <div className="mx-auto w-16 h-16 bg-[#fca311] bg-opacity-10 rounded-full flex items-center justify-center mb-2">
-            <MailIcon className="w-8 h-8 text-[#fca311]" />
+          <div className="mx-auto w-16 h-16 bg-[#FFCC5C] bg-opacity-10 rounded-full flex items-center justify-center mb-2">
+            <MailIcon className="w-8 h-8 text-[#FFCC5C]" />
           </div>
           <CardTitle className="text-2xl font-bold text-[#14213d]">Forgot Password?</CardTitle>
           <CardDescription className="text-base">
@@ -134,7 +134,7 @@ export default function ForgotPasswordPage() {
                 onChange={(e) => setEmail(e.target.value)}
                 required
                 disabled={isLoading}
-                className="border-gray-300 focus:border-[#fca311] focus:ring-[#fca311]"
+                className="border-gray-300 focus:border-[#FFCC5C] focus:ring-[#FFCC5C]"
               />
               <p className="text-xs text-gray-500">
                 Enter the email address associated with your account
@@ -143,7 +143,7 @@ export default function ForgotPasswordPage() {
 
             <Button
               type="submit"
-              className="w-full bg-[#fca311] hover:bg-[#ff9800] text-white font-semibold"
+              className="w-full bg-[#FFCC5C] hover:bg-[#ff9800] text-white font-semibold"
               disabled={isLoading}
             >
               {isLoading ? (
@@ -162,7 +162,7 @@ export default function ForgotPasswordPage() {
             <div className="text-center pt-2">
               <Link
                 href="/login"
-                className="text-sm text-[#14213d] hover:text-[#fca311] hover:underline font-medium inline-flex items-center"
+                className="text-sm text-[#14213d] hover:text-[#FFCC5C] hover:underline font-medium inline-flex items-center"
               >
                 <ArrowLeftIcon className="w-3 h-3 mr-1" />
                 Back to Login
@@ -173,7 +173,7 @@ export default function ForgotPasswordPage() {
           <div className="mt-6 pt-6 border-t border-gray-200">
             <p className="text-xs text-center text-gray-500">
               Don't have an account?{' '}
-              <Link href="/signup" className="text-[#fca311] hover:underline font-medium">
+              <Link href="/signup" className="text-[#FFCC5C] hover:underline font-medium">
                 Sign up here
               </Link>
             </p>

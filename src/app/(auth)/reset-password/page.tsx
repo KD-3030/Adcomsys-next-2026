@@ -130,10 +130,10 @@ function ResetPasswordForm() {
 
   return (
     <div className="min-h-screen flex items-center justify-center p-4 bg-linear-to-br from-[#14213d] via-[#1a2844] to-[#14213d]">
-      <Card className="w-full max-w-md shadow-2xl border-2 border-[#fca311]">
+      <Card className="w-full max-w-md shadow-2xl border-2 border-[#FFCC5C]">
         <CardHeader className="text-center space-y-2">
-          <div className="mx-auto w-16 h-16 bg-[#fca311] bg-opacity-10 rounded-full flex items-center justify-center mb-2">
-            <LockIcon className="w-8 h-8 text-[#fca311]" />
+          <div className="mx-auto w-16 h-16 bg-[#FFCC5C] bg-opacity-10 rounded-full flex items-center justify-center mb-2">
+            <LockIcon className="w-8 h-8 text-[#FFCC5C]" />
           </div>
           <CardTitle className="text-2xl font-bold text-[#14213d]">Reset Your Password</CardTitle>
           <CardDescription className="text-base">
@@ -153,7 +153,7 @@ function ResetPasswordForm() {
                   onChange={(e) => setPassword(e.target.value)}
                   required
                   disabled={isLoading}
-                  className="border-gray-300 focus:border-[#fca311] focus:ring-[#fca311] pr-10"
+                  className="border-gray-300 focus:border-[#FFCC5C] focus:ring-[#FFCC5C] pr-10"
                 />
                 <button
                   type="button"
@@ -190,7 +190,7 @@ function ResetPasswordForm() {
                   onChange={(e) => setConfirmPassword(e.target.value)}
                   required
                   disabled={isLoading}
-                  className="border-gray-300 focus:border-[#fca311] focus:ring-[#fca311] pr-10"
+                  className="border-gray-300 focus:border-[#FFCC5C] focus:ring-[#FFCC5C] pr-10"
                 />
                 <button
                   type="button"
@@ -209,7 +209,7 @@ function ResetPasswordForm() {
 
             <Button
               type="submit"
-              className="w-full bg-[#fca311] hover:bg-[#ff9800] text-white font-semibold"
+              className="w-full bg-[#FFCC5C] hover:bg-[#ff9800] text-white font-semibold"
               disabled={isLoading}
             >
               {isLoading ? (
@@ -228,7 +228,7 @@ function ResetPasswordForm() {
             <div className="text-center pt-2">
               <Link
                 href="/login"
-                className="text-sm text-[#14213d] hover:text-[#fca311] hover:underline font-medium"
+                className="text-sm text-[#14213d] hover:text-[#FFCC5C] hover:underline font-medium"
               >
                 Back to Login
               </Link>

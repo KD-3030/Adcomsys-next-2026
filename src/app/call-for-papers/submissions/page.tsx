@@ -67,11 +67,11 @@ export default function SubmissionsPage() {
             <p className="text-base sm:text-lg leading-relaxed">
               Prospective authors are invited to submit manuscripts at{' '}
               <Link 
-                href="https://cmt3.research.microsoft.com/AdComSys2025" 
+                href="https://cmt3.research.microsoft.com/AdComSys2026" 
                 target="_blank"
                 className="text-[#FFCC5C] hover:text-[#14213d] font-bold underline underline-offset-4 transition-colors"
               >
-                https://cmt3.research.microsoft.com/AdComSys2025
+                https://cmt3.research.microsoft.com/AdComSys2026
               </Link>{' '}
               reporting original unpublished research and recent developments in the topics related to the SCOPE of the conference.
             </p>

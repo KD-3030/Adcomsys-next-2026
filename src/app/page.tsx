@@ -79,6 +79,16 @@ export default function Home() {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-6 lg:gap-8 mb-4 sm:mb-8">
+              <a href="/assets/docs/AdComSys 2026 Brochure.pdf" download="AdComSys 2026 Brochure.pdf">
+                <Button 
+                  size="lg" 
+                  variant="outline"
+                  className="min-w-[160px] sm:min-w-[180px] border-2 border-[#FFCC5C] text-[#14213d] bg-[#FFCC5C] hover:bg-brand-navy hover:text-[#FFCC5C] font-semibold text-sm sm:text-base lg:text-lg px-6 sm:px-8 py-4 sm:py-6 transition-all duration-300"
+                >
+                  Download Brochure
+                </Button>
+              </a>
+              
               <Link href="https://cmt3.research.microsoft.com/AdComSys2025" target="_blank">
                 <Button 
                   size="lg" 

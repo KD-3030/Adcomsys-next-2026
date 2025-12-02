@@ -47,9 +47,6 @@ export default function Home() {
           {/* Main Content - Centered */}
           <div className="flex-1 flex flex-col items-center justify-center">
             {/* Presents Line */}
-            <p className="text-[#14213d]/90 text-sm sm:text-base md:text-lg lg:text-xl mb-2 sm:mb-3 px-2 text-center">
-              UEM Kolkata Presents 3<sup>rd</sup> edition of
-            </p>
 
             {/* Conference Title */}
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-brand-navy text-center mb-2 sm:mb-3">

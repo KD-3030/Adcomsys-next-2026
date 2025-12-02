@@ -51,22 +51,8 @@ export default function SubmissionsPage() {
           </CardHeader>
           <CardContent className="space-y-4 text-gray-800 pt-6 bg-white">
             <p className="text-base sm:text-lg leading-relaxed">
-              Prospective authors are invited to submit original technical papers that have not been submitted elsewhere for publication (copyright infringement issues will be the author&apos;s responsibility) in the <strong className="text-[#14213d]">AdComSys 2026</strong> Conference Proceedings. Papers must be written in good English. The <strong className="text-[#14213d]">Conference Management Toolkit</strong> (CMT) portal will be used for the submission link.
+              Prospective authors are invited to submit original technical papers that have not been submitted elsewhere for publication (copyright infringement issues will be the author&apos;s responsibility) in the <strong className="text-[#14213d]">AdComSys 2026</strong> Conference Proceedings. Papers must be written in good English. The <strong className="text-[#14213d]">Conference Management Toolkit (CMT)</strong> portal will be used for the submission link. All manuscripts will be double-blind reviewed for technical content and scope by a technical program committee. The organizers of AdComSys 2026 are strict about Plagiarism. The submitting authors should avoid the deliberate or reckless representation of another&apos;s words, thoughts, or ideas as one&apos;s own without attribution in connection with submitting academic work, whether graded or otherwise. The Technical Program Committee will check the plagiarism level of all the submitted papers to ensure the originality of the content using <strong className="text-[#14213d]">Turnitin</strong> plagiarism checking software, and <strong className="text-[#14213d]">any paper having AI INDEX more than 0% and similarity score above 15% will not be processed further.</strong>
             </p>
-            <p className="text-base sm:text-lg leading-relaxed">
-              All manuscripts will be double-blind reviewed for technical content and scope by a technical program committee. The authors must submit the paper without including their names and affiliation.
-            </p>
-            <div className="border-l-4 border-red-500 bg-red-50 p-5 rounded-lg shadow-md">
-              <div className="flex items-start gap-3">
-                <AlertTriangle className="h-6 w-6 text-red-500 shrink-0 mt-1" />
-                <div>
-                  <h3 className="font-bold mb-2 text-red-700 text-lg sm:text-xl">Plagiarism Policy</h3>
-                  <p className="text-base sm:text-lg text-gray-800">
-                    The organizers of AdComSys 2026 are strict about Plagiarism. The submitting authors should avoid the deliberate or reckless representation of another&apos;s words, thoughts, or ideas as one&apos;s own without attribution. The Technical Program Committee will check the plagiarism level of all submitted papers using <strong>Turnitin</strong> plagiarism checking software, and any paper having a <strong className="text-red-600">similarity score above 15%</strong> will not be processed further.
-                  </p>
-                </div>
-              </div>
-            </div>
           </CardContent>
         </Card>
 

@@ -108,26 +108,50 @@ export default function Home() {
           </div>
         </section>
 
-        {/* About the Conference Section */}
+        {/* About the Conference & Announcements Section - Side by Side */}
         <section className="py-10 sm:py-16 lg:py-20 bg-white">
-          <div className="container mx-auto px-3 sm:px-4 max-w-5xl">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#14213d] text-center mb-6 sm:mb-10">
-              About the Conference
-            </h2>
-            <div className="space-y-4 sm:space-y-6 text-gray-700">
-              <p className="text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed text-justify">
-                The <strong>Third International Conference on Advanced Computing and Systems (AdComSys 2026)</strong> promotes a platform for exchanging ideas including spanning theory, practical implementations, and interdisciplinary applications, from generative AI, advanced computing, and IoT to bioinformatics and computational biology. Through peer‑reviewed paper presentations, tutorials, keynote and plenary sessions, and opportunities for networking among academia and industry, participants are encouraged to showcase novel work that addresses real‑world challenges while advancing scientific understanding. AdComSys 2026 seeks to nurture collaborations, inspire innovation, and accelerate progress in intelligent systems, sustainable technologies, and future computational paradigms across India and the global research community.
-              </p>
-            </div>
-            <div className="text-center mt-10">
-              <Link href="/about">
-                <Button 
-                  variant="outline"
-                  className="border-2 border-[#14213d] text-white hover:bg-[#14213d] hover:text-white font-semibold text-base sm:text-lg px-8 py-4 transition-all duration-300"
-                >
-                  Read More
-                </Button>
-              </Link>
+          <div className="container mx-auto px-3 sm:px-4 max-w-7xl">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+              
+              {/* About the Conference - Left */}
+              <div>
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#14213d] text-left mb-6">
+                  About the Conference
+                </h2>
+                <div className="text-gray-700">
+                  <p className="text-sm sm:text-base md:text-lg leading-relaxed text-justify">
+                    The <strong>Third International Conference on Advanced Computing and Systems (AdComSys 2026)</strong> promotes a platform for exchanging ideas including spanning theory, practical implementations, and interdisciplinary applications, from generative AI, advanced computing, and IoT to bioinformatics and computational biology. Through peer‑reviewed paper presentations, tutorials, keynote and plenary sessions, and opportunities for networking among academia and industry, participants are encouraged to showcase novel work that addresses real‑world challenges while advancing scientific understanding.
+                  </p>
+                </div>
+                <div className="text-left mt-6">
+                  <Link href="/about">
+                    <Button 
+                      variant="outline"
+                      className="border-2 border-[#14213d] text-white hover:bg-[#14213d] hover:text-white font-semibold text-base sm:text-lg px-8 py-4 transition-all duration-300"
+                    >
+                      Read More
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+
+              {/* Announcements - Right */}
+              <div>
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#14213d] text-left mb-6">
+                  Announcements
+                </h2>
+                <div className="bg-gray-50 rounded-lg shadow-lg border-l-4 border-[#fca311] p-6 sm:p-8 h-fit">
+                  <ul className="space-y-4 text-gray-700">
+                    <li className="flex items-start">
+                      <span className="inline-block w-2 h-2 bg-[#fca311] rounded-full mt-2 mr-3 shrink-0"></span>
+                      <p className="text-sm sm:text-base md:text-lg leading-relaxed">
+                        The Microsoft CMT service was used for managing the peer-reviewing process for this conference. This service was provided for free by Microsoft and they bore all expenses, including costs for Azure cloud services as well as for software development and support.
+                      </p>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
             </div>
           </div>
         </section>

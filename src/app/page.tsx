@@ -86,7 +86,7 @@ export default function Home() {
                 <Button 
                   size="lg" 
                   variant="outline"
-                  className="min-w-[160px] sm:min-w-[180px] border-2 border-[#FFCC5C] text-[#14213d] bg-[#FFCC5C] hover:bg-transparent hover:text-[#FFCC5C] font-semibold text-sm sm:text-base lg:text-lg px-6 sm:px-8 py-4 sm:py-6 transition-all duration-300"
+                  className="min-w-[160px] sm:min-w-[180px] border-2 border-[#FFCC5C] text-[#14213d] bg-[#FFCC5C] hover:bg-brand-navy hover:text-[#FFCC5C] font-semibold text-sm sm:text-base lg:text-lg px-6 sm:px-8 py-4 sm:py-6 transition-all duration-300"
                 >
                   Submit Your Paper
                 </Button>

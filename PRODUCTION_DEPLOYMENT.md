@@ -54,7 +54,7 @@ RESEND_API_KEY=your_production_resend_key
 
 # Site Configuration
 NEXT_PUBLIC_SITE_NAME=AdComSys 2026
-ADMIN_EMAIL=adcomsys@uem.edu.in
+ADMIN_EMAIL=adcomsys@iem.edu.in
 
 # CMT Integration
 NEXT_PUBLIC_CMT_URL=https://cmt3.research.microsoft.com/AdComSys2025

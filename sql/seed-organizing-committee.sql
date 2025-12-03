@@ -25,13 +25,12 @@ INSERT INTO committee_members (name, designation, affiliation, email, committee_
 VALUES 
 ('Prof. Dr. Weiping Ding', 'General Chair - Deputy Dean of School of Information Science and Technology', 'Nantong University, Nantong, Jiangsu, China', '', 'organizing', 9, true),
 ('Prof. Dr. Amlan Chakrabarti', 'General Chair', 'A.K.Choudhury School of Information Technology, University of Calcutta', '', 'organizing', 10, true),
-('Prof. Dr. Maumita Chakraborty', 'General Chair - Department of Computer Science and Technology & Computer Science and Information Technology', 'University of Engineering and Management, Kolkata', '', 'organizing', 11, true),
 ('Prof. Dr. Shouvik Chakraborty', 'General Chair - Department of Computer Science & Technology', 'Government of West Bengal, Chandannagar, Hooghly, West Bengal, India', '', 'organizing', 12, true);
 
--- Convenor (Note: Prof. Dr. Maumita Chakraborty is already listed as General Chair, so skipping duplicate)
--- If you want to keep separate entries, uncomment the line below:
--- INSERT INTO committee_members (name, designation, affiliation, email, committee_type, display_order, is_active)
--- VALUES ('Prof. Dr. Maumita Chakraborty', 'Convenor', 'University of Engineering and Management, Kolkata', '', 'organizing', 13, true);
+-- Convenor
+INSERT INTO committee_members (name, designation, affiliation, email, committee_type, display_order, is_active)
+VALUES 
+('Prof. Dr. Maumita Chakraborty', 'Convenor', 'Department of Computer Science and Technology & Computer Science and Information Technology, University of Engineering and Management, Kolkata', '', 'organizing', 13, true);
 
 -- Co-Convenors
 INSERT INTO committee_members (name, designation, affiliation, email, committee_type, display_order, is_active)

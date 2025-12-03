@@ -84,8 +84,10 @@ const committeeMembers = [
   // General Chairs (display_order 20-29)
   { name: 'Prof. Dr. Weiping Ding', designation: 'General Chair', affiliation: 'Deputy Dean, School of Information Science and Technology, Nantong University, Nantong, Jiangsu, China', display_order: 20 },
   { name: 'Prof. Dr. Amlan Chakrabarti', designation: 'General Chair', affiliation: 'A.K.Choudhury School of Information Technology, University of Calcutta', display_order: 21 },
-  { name: 'Prof. Dr. Maumita Chakraborty', designation: 'General Chair', affiliation: 'Department of Computer Science and Technology & Computer Science and Information Technology, University of Engineering and Management, Kolkata', display_order: 22 },
   { name: 'Prof. Dr. Shouvik Chakraborty', designation: 'General Chair', affiliation: 'Department of Computer Science & Technology, Government of West Bengal, Chandannagar, Hooghly, West Bengal, India', display_order: 23 },
+  
+  // Convenor (display_order 25-29)
+  { name: 'Prof. Dr. Maumita Chakraborty', designation: 'Convenor', affiliation: 'Department of Computer Science and Technology & Computer Science and Information Technology, University of Engineering and Management, Kolkata', display_order: 25 },
   
   // Co-Convenors (display_order 30-39)
   { name: 'Prof. Dr. Subhalaxmi Chakraborty', designation: 'Co-Convenor', affiliation: 'University of Engineering and Management, Kolkata', display_order: 30 },

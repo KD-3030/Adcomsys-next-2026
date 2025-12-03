@@ -64,8 +64,8 @@ export const PaymentRejectedEmail = ({ name, reason }: PaymentRejectedEmailProps
           </Text>
           <Text style={paragraph}>
             If you have any questions or need clarification, please contact us at{' '}
-            <Link href="mailto:adcomsys@uem.edu.in" style={link}>
-              adcomsys@uem.edu.in
+            <Link href="mailto:adcomsys@iem.edu.in" style={link}>
+              adcomsys@iem.edu.in
             </Link>
             {' '}with your transaction details. We're here to help!
           </Text>

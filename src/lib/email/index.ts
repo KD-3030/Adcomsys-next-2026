@@ -10,7 +10,7 @@ const resend = new Resend(process.env.RESEND_API_KEY)
 // Resend test mode: Can only send to verified email
 // In production: Update FROM_EMAIL to use your verified domain (e.g., noreply@adcomsys2026.uem.edu.in)
 const FROM_EMAIL = 'AdComSys 2026 <onboarding@resend.dev>'
-const ADMIN_EMAIL = process.env.ADMIN_EMAIL || 'adcomsys@uem.edu.in'
+const ADMIN_EMAIL = process.env.ADMIN_EMAIL || 'adcomsys@iem.edu.in'
 const REPLY_TO = ADMIN_EMAIL
 
 // In test mode, Resend only allows sending to the verified email address

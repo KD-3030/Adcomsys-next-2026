@@ -90,8 +90,8 @@ export const PaperSubmissionEmail = ({
           
           <Text style={paragraph}>
             For any queries regarding your submission, please contact us at{' '}
-            <Link href="mailto:adcomsys@uem.edu.in" style={link}>
-              adcomsys@uem.edu.in
+            <Link href="mailto:adcomsys@iem.edu.in" style={link}>
+              adcomsys@iem.edu.in
             </Link>
           </Text>
           

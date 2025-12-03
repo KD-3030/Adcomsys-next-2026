@@ -37,10 +37,10 @@ export default function Home() {
             <Image
               src="/assets/logos/logo-4.png"
               alt="Partner Logo"
-              width={140}
-              height={140}
+              width={200}
+              height={200}
               priority
-              className="w-14 h-auto sm:w-24 md:w-28 lg:w-32 object-contain"
+              className="w-24 h-auto sm:w-36 md:w-40 lg:w-48 object-contain"
             />
           </div>
 
@@ -54,7 +54,7 @@ export default function Home() {
             </h1>
 
             {/* Conference Subtitle */}
-            <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-semibold text-[#FFCC5C] text-center mb-3 sm:mb-5 max-w-4xl px-2 sm:px-4 [text-shadow:_-1px_-1px_0_#14213d,_1px_-1px_0_#14213d,_-1px_1px_0_#14213d,_1px_1px_0_#14213d]">
+            <h2 className="text-xs sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-semibold text-[#FFCC5C] text-center mb-3 sm:mb-5 px-2 sm:whitespace-nowrap [text-shadow:_-1px_-1px_0_#000,_1px_-1px_0_#000,_-1px_1px_0_#000,_1px_1px_0_#000,_-2px_0_0_#000,_2px_0_0_#000,_0_-2px_0_#000,_0_2px_0_#000]">
               Third International Conference on Advanced Computing and Systems
             </h2>
 
@@ -65,7 +65,7 @@ export default function Home() {
 
             {/* Location */}
             <div className="text-center mb-4 sm:mb-8 px-2">
-              <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-semibold text-[#FFCC5C] mb-1 sm:mb-2 [text-shadow:_-1px_-1px_0_#14213d,_1px_-1px_0_#14213d,_-1px_1px_0_#14213d,_1px_1px_0_#14213d]">
+              <p className="text-sm sm:text-lg md:text-xl lg:text-2xl font-semibold text-[#FFCC5C] mb-1 sm:mb-2 [text-shadow:_-1px_-1px_0_#000,_1px_-1px_0_#000,_-1px_1px_0_#000,_1px_1px_0_#000,_-2px_0_0_#000,_2px_0_0_#000,_0_-2px_0_#000,_0_2px_0_#000]">
                 University of Engineering and Management, Kolkata
               </p>
               <p className="text-[#14213d]/80 text-xs sm:text-sm md:text-base lg:text-lg">
@@ -73,7 +73,7 @@ export default function Home() {
               </p>
 
               <p className="text-[#14213d]/80 text-xs sm:text-sm md:text-base lg:text-lg">
-                Organized by Department of CST, CSIT, CSE (Cybersecurity) and CSE (Network)
+                Organized by Department of CST, CSIT, CSE (Cybersecurity) and CSE (Networks)
               </p>
             </div>
 
@@ -89,7 +89,7 @@ export default function Home() {
                 </Button>
               </a>
               
-              <Link href="https://cmt3.research.microsoft.com/AdComSys2025" target="_blank">
+              <Link href="https://cmt3.research.microsoft.com/AdComSys2026" target="_blank">
                 <Button 
                   size="lg" 
                   variant="outline"
@@ -102,11 +102,16 @@ export default function Home() {
 
             {/* Publication Info */}
             <div className="text-center px-2">
-              <p className="text-[#14213d]/70 text-xs sm:text-sm md:text-base lg:text-lg mb-1 sm:mb-2">
-                All accepted papers will be published in
-              </p>
-              <p className="text-[#FFCC5C] font-semibold text-sm sm:text-base md:text-lg lg:text-xl">
-                SCOPUS Indexed Lecture Notes in Networks and Systems by Springer
+              <p className="text-[#FFCC5C] font-semibold text-sm sm:text-base md:text-lg lg:text-xl [text-shadow:_-1px_-1px_0_#000,_1px_-1px_0_#000,_-1px_1px_0_#000,_1px_1px_0_#000,_-2px_0_0_#000,_2px_0_0_#000,_0_-2px_0_#000,_0_2px_0_#000]">
+                All accepted & presented papers of "AdComSys 2026" will be published in the Scopus indexed book series{' '}
+                <a 
+                  href="https://www.springer.com/series/15179" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="underline hover:text-white transition-colors"
+                >
+                  "Lecture Notes in Networks and Systems"
+                </a>
               </p>
               <p className="text-[#14213d]/50 text-xs sm:text-sm mt-1 italic">
                 (approval awaited)

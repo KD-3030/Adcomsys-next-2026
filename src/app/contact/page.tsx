@@ -212,8 +212,8 @@ export default function ContactPage() {
                   <p className="text-base text-black font-medium mb-2">Prof. Dr. Maumita Chakraborty</p>
                   <div className="flex items-center text-base">
                     <Mail className="h-5 w-5 mr-3 text-blue-600" />
-                    <a href="mailto:adcomsys@uem.edu.in" className="hover:underline text-black font-medium">
-                      adcomsys@uem.edu.in
+                    <a href="mailto:adcomsys@iem.edu.in" className="hover:underline text-black font-medium">
+                      adcomsys@iem.edu.in
                     </a>
                   </div>
                 </div>

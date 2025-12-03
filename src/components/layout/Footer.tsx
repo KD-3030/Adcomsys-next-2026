@@ -37,7 +37,7 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold mb-4 text-brand-orange text-lg sm:text-xl">Organized By</h4>
             <p className="text-brand-white/90 text-base sm:text-lg leading-relaxed">
-              Department of CST, CSIT, CSE (Cybersecurity), CSE (Network)<br />
+              Department of CST, CSIT, CSE (Cybersecurity), CSE (Networks)<br />
               University of Engineering and Management<br />
               Kolkata, India
             </p>

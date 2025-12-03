@@ -8,7 +8,7 @@ export const siteConfig = {
   ogImage: '/og-image.png',
   links: {
     cmt: process.env.NEXT_PUBLIC_CMT_URL || 'https://cmt3.research.microsoft.com/AdComSys2025',
-    email: 'adcomsys@uem.edu.in',
+    email: 'adcomsys@iem.edu.in',
   },
   keywords: [
     'AdComSys',

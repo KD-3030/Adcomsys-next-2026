@@ -423,8 +423,8 @@ export default async function CommitteePage() {
     chief_patron: { label: 'Chief Patron', gradient: 'from-yellow-500 to-amber-600', order: 1 },
     patron: { label: 'Patrons', gradient: 'from-purple-500 to-indigo-600', order: 2 },
     general_chair: { label: 'General Chair', gradient: 'from-blue-500 to-blue-700', order: 3 },
-    co_convenor: { label: 'Co-Convenors', gradient: 'from-teal-500 to-cyan-600', order: 4 },
-    convenor: { label: 'Convenors', gradient: 'from-green-500 to-emerald-600', order: 5 },
+    convenor: { label: 'Convenor', gradient: 'from-green-500 to-emerald-600', order: 4 },
+    co_convenor: { label: 'Co-Convenors', gradient: 'from-teal-500 to-cyan-600', order: 5 },
     technical_chair: { label: 'Technical Chair', gradient: 'from-red-500 to-rose-600', order: 6 },
     industrial_chair: { label: 'Industrial Chair', gradient: 'from-orange-500 to-amber-600', order: 7 },
     finance_chair: { label: 'Finance Chair', gradient: 'from-emerald-500 to-green-600', order: 8 },
@@ -445,13 +445,45 @@ export default async function CommitteePage() {
     return 'member'
   }
 
+  // Name corrections mapping
+  const nameCorrections: Record<string, string> = {
+    'Prof. Dr. Suvaditya Majumdar': 'Prof. Suvaditya Majumdar'
+  }
+
   // Group organizing members by position
   const groupedOrganizing = organizingMembers.reduce((acc, member) => {
-    const position = getPosition(member.designation)
+    // Skip Prof. Dr. Maumita Chakraborty completely (she will be added as hardcoded convenor)
+    // Also skip any member with email abc@examlple.com or abc@gmail.com
+    if (member.name === 'Prof. Dr. Maumita Chakraborty' || 
+        member.name === 'Prof. Dr Maumita Chakraborty' ||
+        member.name.toLowerCase().includes('maumita chakraborty') ||
+        member.email === 'abc@examlple.com' ||
+        member.email === 'abc@gmail.com') {
+      return acc
+    }
+    // Apply name corrections
+    const correctedMember = {
+      ...member,
+      name: nameCorrections[member.name] || member.name
+    }
+    const position = getPosition(correctedMember.designation)
     if (!acc[position]) acc[position] = []
-    acc[position].push(member)
+    acc[position].push(correctedMember)
     return acc
   }, {} as Record<PositionKey, CommitteeMemberData[]>)
+
+  // Add hardcoded Convenor
+  groupedOrganizing['convenor'] = [{
+    id: 'convenor-1',
+    name: 'Prof. Dr. Maumita Chakraborty',
+    designation: 'Convenor',
+    affiliation: 'Department of Computer Science and Technology & Computer Science and Information Technology, University of Engineering and Management, Kolkata',
+    email: '',
+    committee_type: 'organizing',
+    display_order: 25,
+    is_active: true,
+    image_url: null
+  }]
 
   // Sort each group by display_order
   Object.keys(groupedOrganizing).forEach(key => {

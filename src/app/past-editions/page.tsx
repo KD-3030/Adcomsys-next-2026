@@ -42,7 +42,7 @@ const pastEditions = [
       { event: 'Conference Dates', date: '26-27 June 2025' }
     ],
     convenor: 'Prof. Dr. Maumita Chakraborty',
-    email: 'adcomsys@uem.edu.in',
+    email: 'adcomsys@iem.edu.in',
     chiefPatron: 'Prof. Banani Chakrabarti',
     additionalEvents: ['Technical Poster Competition', 'Technical Workshop', 'Coding Competition (GeeksforGeeks Student Chapter)'],
     websiteUrl: 'https://adcomsys2025.vercel.app/',
@@ -75,7 +75,7 @@ const pastEditions = [
       { event: 'Conference Dates', date: '26-27 June 2024' }
     ],
     convenor: 'Prof. Dr. Maumita Chakraborty',
-    email: 'adcomsys@uem.edu.in',
+    email: 'adcomsys@iem.edu.in',
     chiefPatron: 'Prof. Banani Chakrabarti',
     additionalEvents: ['Keynote Addresses', 'Technical Tracks', 'Panel Discussions', 'Industry Exhibits'],
     websiteUrl: 'https://adcomsys.vercel.app',

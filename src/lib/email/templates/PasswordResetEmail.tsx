@@ -61,8 +61,8 @@ export const PasswordResetEmail = ({ name, resetUrl }: PasswordResetEmailProps) 
             <li>Never share this link with anyone</li>
             <li>The link expires in 1 hour for security</li>
             <li>If you need help, contact us at{' '}
-              <Link href="mailto:adcomsys@uem.edu.in" style={link}>
-                adcomsys@uem.edu.in
+              <Link href="mailto:adcomsys@iem.edu.in" style={link}>
+                adcomsys@iem.edu.in
               </Link>
             </li>
           </ul>

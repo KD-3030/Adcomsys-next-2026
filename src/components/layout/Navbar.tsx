@@ -13,16 +13,16 @@ export default function Navbar() {
   return (
     <nav className="bg-[#FFCC5C] border-b-4 border-brand-orange sticky top-0 z-50 shadow-xl">
       <div className="container mx-auto px-3 sm:px-4 lg:px-6 xl:px-8 py-2 sm:py-3">
-        <div className="flex justify-between items-center gap-4">
+        <div className="flex justify-between items-center gap-2 sm:gap-4">
           {/* Left University Logo - UEM */}
-          <div className="shrink-0 hidden sm:block">
+          <div className="shrink-0">
             <Image
               src="/assets/logos/logo-1.png"
               alt="UEM Kolkata"
               width={80}
               height={80}
               priority
-              className="w-auto h-12 sm:h-14 lg:h-16 object-contain"
+              className="w-auto h-10 sm:h-12 md:h-14 lg:h-16 object-contain"
             />
           </div>
           
@@ -77,14 +77,14 @@ export default function Navbar() {
           </div>
           
           {/* Right University Logo - IEM */}
-          <div className="shrink-0 hidden sm:block">
+          <div className="shrink-0">
             <Image
               src="/assets/logos/logo-5.png"
               alt="IEM Kolkata"
               width={80}
               height={80}
               priority
-              className="w-auto h-12 sm:h-14 lg:h-16 object-contain"
+              className="w-auto h-10 sm:h-12 md:h-14 lg:h-16 object-contain"
             />
           </div>
           

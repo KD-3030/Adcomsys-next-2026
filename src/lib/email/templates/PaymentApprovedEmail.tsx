@@ -59,8 +59,8 @@ export const PaymentApprovedEmail = ({ name, transactionId }: PaymentApprovedEma
           
           <Text style={paragraph}>
             If you have any questions, feel free to contact us at{' '}
-            <Link href="mailto:adcomsys@uem.edu.in" style={link}>
-              adcomsys@uem.edu.in
+            <Link href="mailto:adcomsys@iem.edu.in" style={link}>
+              adcomsys@iem.edu.in
             </Link>
           </Text>
           

@@ -71,7 +71,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Send notification email to admin
-    const adminEmail = process.env.ADMIN_EMAIL || 'adcomsys@uem.edu.in'
+    const adminEmail = process.env.ADMIN_EMAIL || 'adcomsys@iem.edu.in'
     
     sendEmail({
       to: adminEmail,

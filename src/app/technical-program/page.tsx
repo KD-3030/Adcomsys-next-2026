@@ -54,7 +54,7 @@ export default function TechnicalProgramPage() {
                 </Button>
               </Link>
               <Link href="/call-for-papers">
-                <Button size="lg" variant="outline" className="w-full sm:w-auto border-2 border-[#14213d] text-[#14213d] hover:bg-[#14213d] hover:text-white text-sm sm:text-base lg:text-lg px-6 sm:px-8 py-4 sm:py-6 shadow-lg transition-all">
+                <Button size="lg" variant="outline" className="w-full sm:w-auto border-2 border-[#14213d] text-white hover:bg-[#14213d] hover:text-white text-sm sm:text-base lg:text-lg px-6 sm:px-8 py-4 sm:py-6 shadow-lg transition-all">
                   Submit Paper
                 </Button>
               </Link>

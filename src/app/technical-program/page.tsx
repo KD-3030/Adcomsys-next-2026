@@ -49,7 +49,7 @@ export default function TechnicalProgramPage() {
             </h2>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
               <Link href="/registration">
-                <Button size="lg" className="w-full sm:w-auto bg-[#FFCC5C] hover:bg-[#ff9800] text-white text-sm sm:text-base lg:text-lg px-6 sm:px-8 py-4 sm:py-6 shadow-xl hover:shadow-2xl transition-all hover:scale-105">
+                <Button size="lg" className="w-full sm:w-auto bg-[#E6A800] hover:bg-[#CC9500] text-white text-sm sm:text-base lg:text-lg px-6 sm:px-8 py-4 sm:py-6 shadow-xl hover:shadow-2xl transition-all hover:scale-105">
                   Register Now
                 </Button>
               </Link>

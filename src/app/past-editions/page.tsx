@@ -146,13 +146,6 @@ export default function PastEditionsPage() {
                       <p className="font-medium text-base sm:text-lg">{edition.participants}</p>
                     </div>
                   </div>
-                  <div className="flex items-start gap-3 text-gray-700">
-                    <FileText className="h-6 w-6 text-[#FFCC5C] mt-0.5 shrink-0" />
-                    <div>
-                      <span className="font-semibold text-[#14213d] text-base">Papers:</span>
-                      <p className="font-medium text-base sm:text-lg">{edition.papers} Papers Presented</p>
-                    </div>
-                  </div>
                 </div>
 
                 {/* Organizer & Theme */}

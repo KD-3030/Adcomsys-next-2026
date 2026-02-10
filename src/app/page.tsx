@@ -17,7 +17,15 @@ export default function Home() {
         <section className="min-h-[calc(100vh-80px)] bg-[#ADD8E6] flex flex-col items-center px-3 sm:px-4 py-4 sm:py-6">
           
           {/* Top Logos Row - All five logos in a line */}
-          <div className="flex items-center justify-center gap-4 sm:gap-10 lg:gap-16 mt-2 sm:mt-4 mb-4 sm:mb-8">
+          <div className="w-full flex flex-wrap items-center justify-center gap-4 sm:gap-10 lg:gap-16 mt-2 sm:mt-4 mb-4 sm:mb-8">
+            <Image
+              src="/assets/logos/logo-6.png"
+              alt="Partner Logo"
+              width={140}
+              height={140}
+              priority
+              className="w-14 h-auto sm:w-24 md:w-28 lg:w-32 object-contain"
+            />
             <Image
               src="/assets/logos/logo-2.png"
               alt="Partner Logo"
@@ -42,6 +50,14 @@ export default function Home() {
               priority
               className="w-24 h-auto sm:w-36 md:w-40 lg:w-48 object-contain"
             />
+            <Image
+              src="/assets/logos/logo-5.png"
+              alt="Partner Logo"
+              width={140}
+              height={140}
+              priority
+              className="w-14 h-auto sm:w-24 md:w-28 lg:w-32 object-contain"
+            />  
           </div>
 
           {/* Main Content - Centered */}

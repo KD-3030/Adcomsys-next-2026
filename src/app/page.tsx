@@ -119,7 +119,7 @@ export default function Home() {
             {/* Publication Info */}
             <div className="text-center px-2">
               <p className="text-[#FFCC5C] font-semibold text-sm sm:text-base md:text-lg lg:text-xl [text-shadow:_-1px_-1px_0_#000,_1px_-1px_0_#000,_-1px_1px_0_#000,_1px_1px_0_#000,_-2px_0_0_#000,_2px_0_0_#000,_0_-2px_0_#000,_0_2px_0_#000]">
-                All accepted & presented papers of "AdComSys 2026" will be published in the Scopus indexed book series{' '}
+                *All accepted & presented papers of "AdComSys 2026" will be published in the Scopus indexed book series{' '}
                 <a 
                   href="https://www.springer.com/series/15179" 
                   target="_blank" 
@@ -128,9 +128,7 @@ export default function Home() {
                 >
                   "Lecture Notes in Networks and Systems"
                 </a>
-              </p>
-              <p className="text-[#14213d]/50 text-xs sm:text-sm mt-1 italic">
-                (approval awaited)
+                {' '}(confirmed)*
               </p>
             </div>
           </div>

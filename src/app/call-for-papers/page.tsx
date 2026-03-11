@@ -254,7 +254,7 @@ export default function CallForPapersPage() {
               </Button>
             </Link>
             <p className="text-sm sm:text-base text-gray-300 mt-4 sm:mt-6 font-semibold">
-              Deadline: March 10, 2026
+              Deadline: April 10, 2026
             </p>
           </CardContent>
         </Card>

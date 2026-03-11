@@ -14,7 +14,7 @@ export const metadata: Metadata = createMetadata({
 
 const importantDates = [
   { date: '15th December 2025', event: 'Paper Submission Open', isLeft: true },
-  { date: '10th March 2026', event: 'Paper Submission Deadline', isLeft: false },
+  { date: '10th April 2026', event: 'Paper Submission Deadline', isLeft: false },
   { date: '10th May 2026', event: 'Acceptance Notification', isLeft: true },
   { date: '25th May 2026', event: 'Early Bird Registration', isLeft: false },
   { date: '5th June 2026', event: 'Last Date of Registration', isLeft: true },

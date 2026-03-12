@@ -16,9 +16,9 @@ export const metadata: Metadata = createMetadata({
 
 export default function RegistrationPage() {
   const fees = [
-    { category: 'Regular Author (UG/PG)', earlyInr: '₹6,000', earlyUsd: '$150', regularInr: '₹6,500', regularUsd: '$300' },
-    { category: 'Regular Author Academician, PhD Scholars', earlyInr: '₹6,500', earlyUsd: '$130', regularInr: '₹7,000', regularUsd: '$250' },
-    { category: 'Regular Author from Industry', earlyInr: '₹8,500', earlyUsd: '$250', regularInr: '₹9,000', regularUsd: '$300' },
+    { category: 'Author (UG/PG)', earlyInr: '₹6,000', earlyUsd: '$150', regularInr: '₹6,500', regularUsd: '$250' },
+    { category: 'Author Academician, PhD Scholars', earlyInr: '₹6,500', earlyUsd: '$130', regularInr: '₹7,000', regularUsd: '$250' },
+    { category: 'Author from Industry', earlyInr: '₹8,500', earlyUsd: '$250', regularInr: '₹9,000', regularUsd: '$300' },
     { category: 'Only Attending or Accompanying', earlyInr: '₹3,500', earlyUsd: '$130', regularInr: '₹3,500', regularUsd: '$130' }
   ];
 

@@ -13,11 +13,22 @@ export default function Home() {
         {/* Navigation */}
         <Navbar />
 
+        {/* Announcement Marquee */}
+        <div className="w-full overflow-hidden bg-[#14213d] py-2 sm:py-3">
+          <div className="animate-marquee whitespace-nowrap">
+            {[0, 1, 2].map((i) => (
+              <span key={i} className="inline-block mx-8 sm:mx-16 text-[#FFCC5C] font-bold text-sm sm:text-base md:text-lg lg:text-xl tracking-widest uppercase">
+                ★&nbsp;&nbsp;LAST DATE OF SUBMISSION IS EXTENDED UP TO 17TH APRIL 2026.&nbsp;&nbsp;
+              </span>
+            ))}
+          </div>
+        </div>
+
         {/* Hero Section - Full viewport, solid navy background */}
-        <section className="min-h-[calc(100vh-80px)] bg-[#ADD8E6] flex flex-col items-center px-3 sm:px-4 py-4 sm:py-6">
-          
+        <section className="min-h-[calc(100vh-128px)] bg-[#ADD8E6] flex flex-col items-center px-3 sm:px-4 py-2 sm:py-4">
+
           {/* Top Logos Row - All five logos in a line */}
-          <div className="w-full flex flex-wrap items-center justify-center gap-4 sm:gap-10 lg:gap-16 mt-2 sm:mt-4 mb-4 sm:mb-8">
+          <div className="w-full flex flex-wrap items-center justify-center gap-4 sm:gap-10 lg:gap-16 mt-1 sm:mt-2 mb-2 sm:mb-4">
             <Image
               src="/assets/logos/logo-6.png"
               alt="Partner Logo"
@@ -65,22 +76,22 @@ export default function Home() {
             {/* Presents Line */}
 
             {/* Conference Title */}
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-brand-navy text-center mb-2 sm:mb-3">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-brand-navy text-center mb-1 sm:mb-2">
               AdComSys 2026
             </h1>
 
             {/* Conference Subtitle */}
-            <h2 className="text-xs sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-semibold text-[#FFCC5C] text-center mb-3 sm:mb-5 px-2 sm:whitespace-nowrap [text-shadow:_-1px_-1px_0_#000,_1px_-1px_0_#000,_-1px_1px_0_#000,_1px_1px_0_#000,_-2px_0_0_#000,_2px_0_0_#000,_0_-2px_0_#000,_0_2px_0_#000]">
+            <h2 className="text-xs sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-semibold text-[#FFCC5C] text-center mb-2 sm:mb-3 px-2 sm:whitespace-nowrap [text-shadow:_-1px_-1px_0_#000,_1px_-1px_0_#000,_-1px_1px_0_#000,_1px_1px_0_#000,_-2px_0_0_#000,_2px_0_0_#000,_0_-2px_0_#000,_0_2px_0_#000]">
               Third International Conference on Advanced Computing and Systems
             </h2>
 
             {/* Conference Dates */}
-            <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-[#14213d] mb-3 sm:mb-5">
+            <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-[#14213d] mb-2 sm:mb-3">
               26<sup>th</sup> & 27<sup>th</sup> June, 2026
             </p>
 
             {/* Location */}
-            <div className="text-center mb-4 sm:mb-8 px-2">
+            <div className="text-center mb-2 sm:mb-4 px-2">
               <p className="text-sm sm:text-lg md:text-xl lg:text-2xl font-semibold text-[#FFCC5C] mb-1 sm:mb-2 [text-shadow:_-1px_-1px_0_#000,_1px_-1px_0_#000,_-1px_1px_0_#000,_1px_1px_0_#000,_-2px_0_0_#000,_2px_0_0_#000,_0_-2px_0_#000,_0_2px_0_#000]">
                 University of Engineering and Management, Kolkata
               </p>
@@ -94,7 +105,7 @@ export default function Home() {
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-6 lg:gap-8 mb-4 sm:mb-8">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-6 lg:gap-8 mb-2 sm:mb-4">
               <a href="/assets/docs/AdComSys 2026 Brochure.pdf" download="AdComSys 2026 Brochure.pdf">
                 <Button 
                   size="lg" 
@@ -119,14 +130,14 @@ export default function Home() {
             {/* Publication Info */}
             <div className="text-center px-2">
               <p className="text-[#FFCC5C] font-semibold text-sm sm:text-base md:text-lg lg:text-xl [text-shadow:_-1px_-1px_0_#000,_1px_-1px_0_#000,_-1px_1px_0_#000,_1px_1px_0_#000,_-2px_0_0_#000,_2px_0_0_#000,_0_-2px_0_#000,_0_2px_0_#000]">
-                *All accepted & presented papers of "AdComSys 2026" will be published in the Scopus indexed book series{' '}
+                *All accepted &amp; presented papers of &ldquo;AdComSys 2026&rdquo; will be published in the Scopus indexed book series{' '}
                 <a 
                   href="https://www.springer.com/series/15179" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="underline hover:text-white transition-colors"
                 >
-                  "Lecture Notes in Networks and Systems"
+                  &ldquo;Lecture Notes in Networks and Systems&rdquo;
                 </a>
                 {' '}(confirmed)*
               </p>

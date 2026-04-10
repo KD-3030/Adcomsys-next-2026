@@ -14,7 +14,7 @@ export const metadata: Metadata = createMetadata({
 
 const importantDates = [
   { date: '15th December 2025', event: 'Paper Submission Open', isLeft: true },
-  { date: '10th April 2026', event: 'Paper Submission Deadline', isLeft: false },
+  { date: '17th April 2026', event: 'Paper Submission Deadline', isLeft: false },
   { date: '10th May 2026', event: 'Acceptance Notification', isLeft: true },
   { date: '25th May 2026', event: 'Early Bird Registration', isLeft: false },
   { date: '5th June 2026', event: 'Last Date of Registration', isLeft: true },
@@ -42,9 +42,6 @@ export default function ImportantDatesPage() {
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 px-2">
             Important <span className="text-[#FFCC5C]">Dates</span>
           </h1>
-          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-200 max-w-3xl mx-auto font-medium px-2">
-            Mark your calendar with these crucial deadlines for AdComSys 2026
-          </p>
         </div>
       </div>
 

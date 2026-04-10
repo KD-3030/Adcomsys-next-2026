@@ -185,7 +185,7 @@ export default function CallForPapersSubPage() {
               </Button>
             </Link>
             <p className="text-base text-gray-300 mt-6 font-semibold">
-              Deadline: April 10, 2026
+              Deadline: April 17, 2026
             </p>
           </CardContent>
         </Card>

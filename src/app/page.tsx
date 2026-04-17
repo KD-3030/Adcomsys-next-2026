@@ -61,6 +61,7 @@ export default function Home() {
               priority
               className="w-24 h-auto sm:w-36 md:w-40 lg:w-48 object-contain"
             />
+            {/*
             <Image
               src="/assets/logos/logo-5.png"
               alt="Partner Logo"
@@ -68,7 +69,7 @@ export default function Home() {
               height={140}
               priority
               className="w-14 h-auto sm:w-24 md:w-28 lg:w-32 object-contain"
-            />  
+            />  */}
           </div>
 
           {/* Main Content - Centered */}

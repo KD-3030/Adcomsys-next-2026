@@ -135,7 +135,7 @@ export default function RegistrationPage() {
               <p className="text-base text-gray-800 mb-4">
                 To register your paper, please{' '}
                 <a 
-                  href="https://uem.edu.in/uem-kolkata/adcomsys-2025/" 
+                  href="https://uem.edu.in/uem-kolkata/adcomsys-2026/" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="text-blue-600 font-bold underline hover:text-blue-800"

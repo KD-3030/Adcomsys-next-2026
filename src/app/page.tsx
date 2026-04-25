@@ -18,7 +18,7 @@ export default function Home() {
           <div className="animate-marquee whitespace-nowrap">
             {[0, 1, 2].map((i) => (
               <span key={i} className="inline-block mx-8 sm:mx-16 text-[#FFCC5C] font-bold text-sm sm:text-base md:text-lg lg:text-xl tracking-widest uppercase">
-                ★&nbsp;&nbsp;LAST DATE OF SUBMISSION IS EXTENDED UP TO 17TH APRIL 2026.&nbsp;&nbsp;
+                ★&nbsp;&nbsp;THE TECHNICAL PROGRAM COMMITTEE HAS STARTED GIVING THE DECISION OF THE SUBMITTED PAPERS&nbsp;&nbsp;
               </span>
             ))}
           </div>

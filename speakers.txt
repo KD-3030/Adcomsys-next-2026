@@ -1,0 +1,38 @@
+okay lets update the speakers page and i have added the pictures of chief guest, keynote spekare 1,2,3 in the public/images folder. also add the details of the speakers in the following order:
+
+Chief Guest
+Keynote Speaker 1
+Keynote Speaker 2
+Keynote Speaker 3
+
+details about chief guest:
+Prof. Tanusri Saha-Dasgupta
+APS fellow, FTWAS, FNA, FASc, FNASc, J.C. Bose National Fellow,
+Director, 
+S. N. Bose National Centre for Basic Sciences
+Under Department of Science and Technology, Govt. of India, Kolkata
+
+Dr. Tanusri Saha Dasgupta is the Director and Senior Professor at S. N. Bose National Centre for Basic Sciences, Kolkata. She completed her M.Sc. in Physics from the University of Calcutta in 1990, securing first rank, and obtained her Ph.D. in Condensed Matter Physics from the same university in 1995. Her main research areas include computational materials physics, quantum materials, machine learning for materials informatics, and mineral physics. She has held several academic and research positions in India and abroad, including at ONERA Paris, the Max Planck Institute, IISc Bangalore, and S. N. Bose National Centre. She has received several prestigious honours, including the Swarnajayanti Fellowship, DAE Raja Ramanna Prize Lecture Award, J. C. Bose Fellowship, and fellowships of major scientific academies such as IASc, NASI, APS, TWAS, and INSA. Her research output includes more than 300 publications, with a substantial number in Physical Review journals.
+
+keynote speaker 1:
+Dr. Saikat Chakrabarti ,
+Senior Principal Scientist & Deputy Head
+Structural Biology & Bioinformatics,
+Council of Scientific & Industrial Research-Indian Institute of Chemical Biology (CSIR-IICB), Kolkata
+
+Saikat Chakrabarti, Ph.D., is a Senior Principal Scientist at CSIR-IICB, Kolkata, and Deputy Head of the Structural Biology and Bioinformatics Division. He is also a Professor at the Academy of Scientific and Innovative Research (AcSIR) and has previously worked as a Staff Scientist and Postdoctoral Fellow at NCBI/NLM/NIH, USA. His research focuses on protein–protein interactions, systems biology, multi-omics data integration, molecular modelling, docking, dynamics, and machine-learning-based analysis of diseases such as cancer, malaria, leishmaniasis, Alzheimer’s disease, and stroke. He has contributed extensively to computational biology through bio-molecular network analysis, disease-specific interaction studies, biomarker/therapeutic-target identification, and the development of freely available computational tools and web servers. His publication record reflects broad interdisciplinary expertise across structural biology, bioinformatics, infectious diseases, cancer biology, neurodegenerative disease analysis, and AI-assisted biomedical research.
+
+keynote speaker 2:
+Prof. Koel Das,
+Professor
+Department of Mathematics and Statistics.
+Adjunct Faculty, Department of Biological Sciences.
+INDIAN INSTITUTE OF SCIENCE EDUCATION AND RESEARCH (IISER), KOLKATA
+
+Koel Das is a Professor at IISER Kolkata, associated with the Department of Mathematics and Statistics and the Department of Biological Sciences. She holds a Ph.D. in Electrical and Computer Engineering from the University of California, Irvine, completed in 2007. Her research interests include biological and machine learning, computational neuroscience, visual perception, feature extraction, pattern classification, and brain–computer interfaces. Before joining IISER Kolkata, she served as a Postdoctoral Scholar at the University of California, Santa Barbara, and as an Assistant Professor at South Asian University. Her academic achievements include the Ramalingaswami Fellowship from DBT, India, along with other international and national scholarships and fellowships.
+
+keynote speaker 3:
+Dr. Parag Kumar Guhathakurta
+Assistant Professor, National Institute of Technology, Durgapur, India
+
+Parag Kumar Guha Thakurta is an Assistant Professor in the Department of Computer Science and Engineering at the National Institute of Technology Durgapur, India, where he has been serving since 2007. Earlier, he worked as a Lecturer at Netaji Subhash Engineering College, Kolkata, from 2004 to 2007. He completed his B.Tech in Computer Science and Technology from the University of Kalyani in 2002 and his M.Tech in Computer Science and Engineering from the University of Calcutta. His research interests include networking, Internet of Things, data analytics, and AI/ML-based applications. He has authored more than fifty international journal and conference papers, supervised Ph.D., M.Tech, and B.Tech research projects, and contributed to government-funded projects as PI/Co-PI. He has also served as a reviewer and program committee member for several national and international journals and conferences.

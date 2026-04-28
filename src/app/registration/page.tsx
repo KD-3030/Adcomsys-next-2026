@@ -155,7 +155,7 @@ export default function RegistrationPage() {
                 <ul className="space-y-3 text-base text-gray-800">
                   <li className="flex items-start">
                     <span className="text-brand-orange mr-2 font-bold">•</span>
-                    <span>Email the invoice to conference email ID: <strong className="text-brand-navy">adcomsys@iem.edu.in</strong></span>
+                    <span>Email the invoice to conference email ID: <strong className="text-brand-navy">adcomsys@uem.edu.in</strong></span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-brand-orange mr-2 font-bold">•</span>
@@ -230,7 +230,7 @@ export default function RegistrationPage() {
               <ul className="space-y-3 sm:space-y-5 text-sm sm:text-base text-gray-800">
                 <li className="flex items-start group hover:bg-white/50 p-2 sm:p-3 rounded-lg transition-all duration-200">
                   <div className="bg-linear-to-br from-brand-orange to-orange-500 text-white rounded-full w-6 h-6 sm:w-8 sm:h-8 flex items-center justify-center shrink-0 mr-3 sm:mr-4 mt-0.5 font-bold text-sm sm:text-base shadow-md group-hover:scale-110 transition-transform duration-200">1</div>
-                  <span className="leading-relaxed">The author has to email the <strong className="text-brand-navy">TRANSACTION ID</strong> to the conference email ID (<strong className="text-brand-orange">adcomsys@iem.edu.in</strong>) along with their <strong className="text-brand-navy">paper ID</strong> and <strong className="text-brand-navy">paper title</strong>.</span>
+                  <span className="leading-relaxed">The author has to email the <strong className="text-brand-navy">TRANSACTION ID</strong> to the conference email ID (<strong className="text-brand-orange">adcomsys@uem.edu.in</strong>) along with their <strong className="text-brand-navy">paper ID</strong> and <strong className="text-brand-navy">paper title</strong>.</span>
                 </li>
                 <li className="flex items-start group hover:bg-white/50 p-2 sm:p-3 rounded-lg transition-all duration-200">
                   <div className="bg-linear-to-br from-brand-orange to-orange-500 text-white rounded-full w-6 h-6 sm:w-8 sm:h-8 flex items-center justify-center shrink-0 mr-3 sm:mr-4 mt-0.5 font-bold text-sm sm:text-base shadow-md group-hover:scale-110 transition-transform duration-200">2</div>
@@ -256,7 +256,7 @@ export default function RegistrationPage() {
         </Card>
 
         {/* Registration Process Steps */}
-        <div className="mb-8 sm:mb-12 lg:mb-16 space-y-8 sm:space-y-12 border-2 border-brand-navy/20 p-4 sm:p-6 lg:p-8 rounded-2xl bg-linear-to-br from-white to-gray-50 shadow-2xl hover:shadow-3xl transition-all duration-300">
+        {/* <div className="mb-8 sm:mb-12 lg:mb-16 space-y-8 sm:space-y-12 border-2 border-brand-navy/20 p-4 sm:p-6 lg:p-8 rounded-2xl bg-linear-to-br from-white to-gray-50 shadow-2xl hover:shadow-3xl transition-all duration-300">
           <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-[#14213d] text-center mb-6 sm:mb-8">Registration Process</h3>
           
           <div className="flex items-start">
@@ -295,10 +295,10 @@ export default function RegistrationPage() {
               <p className="text-gray-800 mb-3 sm:mb-4 text-sm sm:text-base leading-relaxed">Login into your profile for updates on your paper.</p>
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* CTA */}
-        <div className="relative text-center py-10 sm:py-16 lg:py-20 bg-linear-to-br from-brand-navy via-brand-navy to-blue-900 rounded-2xl text-white shadow-2xl border-4 border-brand-orange overflow-hidden z-10">
+        {/* <div className="relative text-center py-10 sm:py-16 lg:py-20 bg-linear-to-br from-brand-navy via-brand-navy to-blue-900 rounded-2xl text-white shadow-2xl border-4 border-brand-orange overflow-hidden z-10">
           <div className="absolute inset-0 bg-linear-to-r from-brand-orange/5 via-transparent to-brand-orange/5"></div>
           <div className="absolute top-0 left-0 w-96 h-96 bg-brand-orange/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
           <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
@@ -323,7 +323,7 @@ export default function RegistrationPage() {
               </Link>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
 
       <Footer />

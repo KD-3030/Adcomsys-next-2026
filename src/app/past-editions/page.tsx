@@ -28,7 +28,7 @@ const pastEditions = [
     participants: '300+',
     publication: 'Springer LNNS (SCOPUS Indexed)',
     publicationFull: 'Lecture Notes in Networks and Systems by Springer',
-    publicationUrl: 'https://link.springer.com/series/15179',
+    publicationUrl: 'https://link.springer.com/book/10.1007/978-3-032-20253-6',
     tracks: [
       { name: 'Emerging Computing', icon: Cpu, topics: 'Cloud, Fog, Quantum, Green Computing, DNA/Optical Computing' },
       { name: 'AI Systems', icon: Network, topics: 'Deep Learning, NLP, Robotics, Explainable AI, Generative Models' },
@@ -42,10 +42,10 @@ const pastEditions = [
       { event: 'Conference Dates', date: '26-27 June 2025' }
     ],
     convenor: 'Prof. Dr. Maumita Chakraborty',
-    email: 'adcomsys@iem.edu.in',
+    email: 'adcomsys@uem.edu.in',
     chiefPatron: 'Prof. Banani Chakrabarti',
     additionalEvents: ['Technical Poster Competition', 'Technical Workshop', 'Coding Competition (GeeksforGeeks Student Chapter)'],
-    websiteUrl: 'https://adcomsys2025.vercel.app/',
+    websiteUrl: 'https://2025.adcomsys.uemkcstcsit.in/',
     color: 'blue'
   },
   {
@@ -61,7 +61,7 @@ const pastEditions = [
     participants: '250+',
     publication: 'Springer AIS (Web of Science Indexed)',
     publicationFull: 'Algorithms for Intelligent Systems by Springer Nature',
-    publicationUrl: 'https://link.springer.com/series/16171',
+    publicationUrl: 'https://link.springer.com/book/10.1007/978-981-97-9532-1',
     tracks: [
       { name: 'Emerging Computing', icon: Cpu, topics: 'Cloud, Fog, Parallel, Mobile, Pervasive, Green Computing' },
       { name: 'AI Systems', icon: Network, topics: 'Deep Learning, NLP, Robotics, Computer Vision, Data Analytics' },
@@ -75,7 +75,7 @@ const pastEditions = [
       { event: 'Conference Dates', date: '26-27 June 2024' }
     ],
     convenor: 'Prof. Dr. Maumita Chakraborty',
-    email: 'adcomsys@iem.edu.in',
+    email: 'adcomsys@uem.edu.in',
     chiefPatron: 'Prof. Banani Chakrabarti',
     additionalEvents: ['Keynote Addresses', 'Technical Tracks', 'Panel Discussions', 'Industry Exhibits'],
     websiteUrl: 'https://adcomsys.vercel.app',
@@ -185,10 +185,10 @@ export default function PastEditionsPage() {
                     <Award className="h-6 w-6 text-[#FFCC5C]" />
                     <span className="font-bold text-[#14213d] text-lg">Publication</span>
                   </div>
-                  <p className="text-gray-700 text-base sm:text-lg">{edition.publicationFull}</p>
+                  {/* <p className="text-gray-700 text-base sm:text-lg">{edition.publicationFull}</p> */}
                   <Link href={edition.publicationUrl} target="_blank" rel="noopener noreferrer">
                     <Badge className="mt-3 bg-[#14213d] text-white text-sm px-3 py-1 hover:bg-[#1a2844] cursor-pointer transition-colors">
-                      {edition.year === '2024' ? 'Web of Science Indexed' : 'SCOPUS Indexed'}
+                      {edition.publicationUrl.replace('https://', '').replace('http://', '').split('/')[0]}
                       <ExternalLink className="h-3 w-3 ml-1 inline" />
                     </Badge>
                   </Link>

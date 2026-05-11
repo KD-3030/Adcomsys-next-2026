@@ -18,7 +18,7 @@ export default function Home() {
           <div className="animate-marquee whitespace-nowrap">
             {[0, 1, 2].map((i) => (
               <span key={i} className="inline-block mx-8 sm:mx-16 text-[#FFCC5C] font-bold text-sm sm:text-base md:text-lg lg:text-xl tracking-widest uppercase">
-                ★&nbsp;&nbsp;THE TECHNICAL PROGRAM COMMITTEE HAS STARTED GIVING THE DECISION OF THE SUBMITTED PAPERS&nbsp;&nbsp;
+                ★&nbsp;&nbsp;TECHNICAL PROGRAM COMMITTEE WILL COMPLETE THE DECISION OF THE SUBMITTED PAPERS WITHIN 21.05.2026 : AdComSys 2026 Registration Update till 10.05.2026 Paper ID 11, 71, 76, 135, 14, 170, 163, 239, 293, 200 registered&nbsp;&nbsp;
               </span>
             ))}
           </div>

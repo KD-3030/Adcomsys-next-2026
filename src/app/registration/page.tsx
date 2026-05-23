@@ -125,7 +125,7 @@ export default function RegistrationPage() {
         </Card>
 
         {/* Payment Information for Indian Authors */}
-        <Card className="mb-12 sm:mb-16 shadow-2xl bg-white relative z-10 border-l-4 border-brand-orange hover:shadow-3xl transition-all duration-300 overflow-hidden">
+        {/* <Card className="mb-12 sm:mb-16 shadow-2xl bg-white relative z-10 border-l-4 border-brand-orange hover:shadow-3xl transition-all duration-300 overflow-hidden">
           <div className="absolute top-0 right-0 w-64 h-64 bg-linear-to-br from-brand-orange/5 to-transparent rounded-full -mr-32 -mt-32"></div>
           <CardHeader className="bg-linear-to-r from-brand-orange/5 to-transparent relative z-10">
             <CardTitle className="text-2xl sm:text-3xl text-[#14213d]">Payment Information for Indian Authors</CardTitle>
@@ -183,10 +183,10 @@ export default function RegistrationPage() {
               </div>
             </div>
           </CardContent>
-        </Card>
+        </Card> */}
 
         {/* Payment Information for Foreign Authors */}
-        <Card className="mb-8 sm:mb-12 lg:mb-16 shadow-2xl bg-white relative z-10 border-l-4 border-brand-orange hover:shadow-3xl transition-all duration-300 overflow-hidden">
+        {/* <Card className="mb-8 sm:mb-12 lg:mb-16 shadow-2xl bg-white relative z-10 border-l-4 border-brand-orange hover:shadow-3xl transition-all duration-300 overflow-hidden">
           <div className="absolute top-0 right-0 w-64 h-64 bg-linear-to-br from-blue-500/5 to-transparent rounded-full -mr-32 -mt-32"></div>
           <CardHeader className="bg-linear-to-r from-blue-500/5 to-transparent relative z-10 px-4 sm:px-6">
             <CardTitle className="text-xl sm:text-2xl lg:text-3xl text-[#14213d]">Payment Information for Foreign Authors</CardTitle>
@@ -253,7 +253,7 @@ export default function RegistrationPage() {
               </p>
             </div>
           </CardContent>
-        </Card>
+        </Card> */}
 
         {/* Registration Process Steps */}
         {/* <div className="mb-8 sm:mb-12 lg:mb-16 space-y-8 sm:space-y-12 border-2 border-brand-navy/20 p-4 sm:p-6 lg:p-8 rounded-2xl bg-linear-to-br from-white to-gray-50 shadow-2xl hover:shadow-3xl transition-all duration-300">

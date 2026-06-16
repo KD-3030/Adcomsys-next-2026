@@ -18,7 +18,7 @@ export default function Home() {
           <div className="animate-marquee whitespace-nowrap">
             {[0, 1, 2].map((i) => (
               <span key={i} className="inline-block mx-8 sm:mx-16 text-[#FFCC5C] font-bold text-sm sm:text-base md:text-lg lg:text-xl tracking-widest uppercase">
-                ★&nbsp;&nbsp;AdComSys 2026 Registration Update till 22.05.2026 Paper ID 3, 11, 71, 76, 135, 14, 170, 163, 239, 293, 296, 200, 386, 400, 63, 276, 68, 69, 172, 303, 394, 402, 298, 404, 210, 73, 17, 94, 378, 159, 261, 256, 177, 166, 132, 96, 259, 109, 278, 98, 114, 103, 65, 154, 217 registered&nbsp;&nbsp;
+                ★&nbsp;&nbsp;Final status of paper registration AdComSys 2026: 3, 11, 14, 62, 64, 68, 69, 71, 73, 76, 79, 83, 94, 96, 98, 103, 109, 114, 132, 135, 154, 159, 163, 166, 167, 170, 172, 177, 200, 210, 217, 239, 256, 259, 265, 276, 278, 293, 296, 298, 303, 307, 352, 386, 394, 400, 401, 402, 404, 408&nbsp;&nbsp;
               </span>
             ))}
           </div>

@@ -116,16 +116,17 @@ export default function Home() {
                   Download Brochure
                 </Button>
               </a>
-              
-              <Link href="https://cmt3.research.microsoft.com/AdComSys2026" target="_blank">
-                <Button 
-                  size="lg" 
-                  variant="outline"
-                  className="min-w-[160px] sm:min-w-[180px] border-2 border-[#FFCC5C] text-[#14213d] bg-[#FFCC5C] hover:bg-brand-navy hover:text-[#FFCC5C] font-semibold text-sm sm:text-base lg:text-lg px-6 sm:px-8 py-4 sm:py-6 transition-all duration-300"
-                >
-                  Submit Your Paper
-                </Button>
-              </Link>
+
+              <Button
+                size="lg"
+                variant="outline"
+                asChild
+                className="min-w-[160px] sm:min-w-[180px] border-2 border-[#FFCC5C] text-[#14213d] bg-[#FFCC5C] hover:bg-brand-navy hover:text-[#FFCC5C] font-semibold text-sm sm:text-base lg:text-lg px-6 sm:px-8 py-4 sm:py-6 transition-all duration-300"
+              >
+                <a href="/assets/docs/AdcomSys%202026%20Final%20Program%20Schedule%20(1).pdf" download="AdComSys 2026 Final Program Schedule.pdf">
+                  Final Schedule
+                </a>
+              </Button>
             </div>
 
             {/* Publication Info */}
